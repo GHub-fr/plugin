@@ -1,2 +1,4 @@
 # plugin
-Server side plugin
+Server side plugin  
+Spigot / PaperMC  
+Javacord
