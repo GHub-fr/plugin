@@ -1,0 +1,62 @@
+package ghub.fr.commands.admin.worldsRelated;
+
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.Player;
+
+import ghub.fr.commands.api.isAdmin;
+import ghub.fr.world.api.structure;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class structureSet implements CommandExecutor, TabCompleter {
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        // make translate msg
+        // return msg for each cmd OK
+        try {
+            if (isAdmin.isAdmin(sender)) {
+                if (sender instanceof Player) {
+                    if (args.length == 1) {
+                        structure.setStructure(args[0], ((Player) sender).getWorld().getName());
+                        return true;
+                    } else if (args.length == 4) {
+                        structure.setStructure(args[0], ((Player) sender).getWorld().getName(),
+                                Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
+                        return true;
+                    }
+                }
+            } else {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return false;
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        List<String> argsToReturn = new ArrayList<String>();
+        if (args.length == 1) {
+            argsToReturn.add("nom");
+            argsToReturn.addAll(structure.Structures());
+        }
+        if (args.length >= 2 && args.length <= 4) {
+            argsToReturn.add("0");
+            argsToReturn.add("50");
+            argsToReturn.add("100");
+            argsToReturn.add("250");
+            argsToReturn.add("256");
+            argsToReturn.add("500");
+            argsToReturn.add("-50");
+            argsToReturn.add("-100");
+            argsToReturn.add("-250");
+            argsToReturn.add("-500");
+        }
+        return argsToReturn;
+    }
+}
