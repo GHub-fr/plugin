@@ -1068,4 +1068,16 @@ public class itemsTranslation {
                 return Lore;
         }
     }
+
+    public static String lastSeenNotFound(lang.languages lang) {
+        String Lore = "";
+        switch (lang) {
+            case fr:
+                return "§4Dernier tick du serveur inexistant !";
+            case en:
+                return "§4Last server tick not found !";
+            default:
+                return Lore;
+        }
+    }
 }

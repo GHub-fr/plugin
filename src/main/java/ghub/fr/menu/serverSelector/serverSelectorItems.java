@@ -24,21 +24,27 @@ import java.util.List;
 public class serverSelectorItems {
     public static ArrayList<String> StringToAdd(Player player, lang.languages lang, String server)
             throws ParseException {
-        File file = getDataStorage.serversStatsFile(server);
-        FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
-        int onlinePlayers = fileConfiguration.getInt("onlinePlayers");
-        int maxPlayers = fileConfiguration.getInt("maxPlayers");
-        Date date = dateAPI.ReturnDate(file, "lastTick");
-        Date dateMoins = dateAPI.ReturnDateLessXSeconds(new Date(), -7);
         ArrayList<String> list = new ArrayList<>();
-        if (dateMoins.after(date)) {
-            list.add(itemsTranslation.Offline(lang));
-            list.add(itemsTranslation.lastSeen(lang, date));
+        File file = getDataStorage.serversStatsFile(server);
+        if (file.exists()) {
+            FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
+            int onlinePlayers = fileConfiguration.getInt("onlinePlayers");
+            int maxPlayers = fileConfiguration.getInt("maxPlayers");
+            Date date = dateAPI.ReturnDate(file, "lastTick");
+            Date dateMoins = dateAPI.ReturnDateLessXSeconds(new Date(), -7);
+
+            if (dateMoins.after(date)) {
+                list.add(itemsTranslation.Offline(lang));
+                list.add(itemsTranslation.lastSeen(lang, date));
+            } else {
+                list.add(itemsTranslation.Online(lang));
+                list.add(itemsTranslation.OnlineCount(lang, onlinePlayers, maxPlayers));
+            }
+            list.add("");
         } else {
-            list.add(itemsTranslation.Online(lang));
-            list.add(itemsTranslation.OnlineCount(lang, onlinePlayers, maxPlayers));
+            list.add(itemsTranslation.Offline(lang));
+            list.add(itemsTranslation.lastSeenNotFound(lang));
         }
-        list.add("");
         return list;
     }
 
