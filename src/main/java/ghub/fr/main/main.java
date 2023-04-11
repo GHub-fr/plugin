@@ -39,12 +39,14 @@ import ghub.fr.system.ServerBootFile;
 import ghub.fr.world.api.BuildRules;
 import ghub.fr.world.api.entityGriefing;
 import ghub.fr.world.api.fire;
+import ghub.fr.world.api.voidWorld;
 import ghub.fr.world.api.worldManager;
 import ghub.fr.world.spawn.joinAtSpawn;
 import ghub.fr.world.spawn.limiter;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 
@@ -52,6 +54,11 @@ import java.util.logging.Logger;
 
 public class main extends JavaPlugin implements PluginMessageListener {
     private static final Logger logger = Bukkit.getLogger();
+
+    @Override
+    public ChunkGenerator getDefaultWorldGenerator(String worldName, String id) {
+        return new voidWorld();
+    }
 
     @Override
     public void onLoad() {
