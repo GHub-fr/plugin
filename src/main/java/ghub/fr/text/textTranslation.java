@@ -791,4 +791,26 @@ public class textTranslation {
                 return "";
         }
     }
+
+    public static String noBed(lang.languages lang) {
+        switch (lang) {
+            case fr:
+                return System(lang) + "§4Vous n'avez pas de lit";
+            case en:
+                return System(lang) + "§4You don't have a bed";
+            default:
+                return "";
+        }
+    }
+
+    public static String bedObstrued(lang.languages lang) {
+        switch (lang) {
+            case fr:
+                return System(lang) + "§4Votre lit est obstrué";
+            case en:
+                return System(lang) + "§4Your bed is obstructed";
+            default:
+                return "";
+        }
+    }
 }

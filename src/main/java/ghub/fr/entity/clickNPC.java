@@ -12,6 +12,7 @@ import ghub.fr.menu.shop.classique.shopMenu;
 import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
 import ghub.fr.text.textTranslation;
+import ghub.fr.world.api.teleportation;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -45,10 +46,32 @@ public class clickNPC implements Listener {
         }
     }
 
-    public void tpWorld(Player player) {
+    public void tpWorld(Player player) throws IOException, ParseException {
+        teleportation.Teleport(player, "world", false);
     }
 
-    public void tpBed(Player player) {
+    public void tpBed(Player player) throws IOException, ParseException {
+        boolean canTP = false;
+        boolean obstruct = false;
+
+        if (player.getPotentialBedLocation() != null) {
+            canTP = true;
+            if (player.getBedSpawnLocation() == null) {
+                obstruct = true;
+            }
+        }
+
+        lang.languages lang = playerLang.getPlayerLang(player);
+        if (!canTP) {
+            player.sendMessage(textTranslation.noBed(lang));
+        }
+        if (canTP) {
+            if (obstruct) {
+                player.sendMessage(textTranslation.bedObstrued(lang));
+            } else {
+                teleportation.Teleport(player, "world", false, player.getBedSpawnLocation());
+            }
+        }
     }
 
     public void QuestMenu(Player player) {

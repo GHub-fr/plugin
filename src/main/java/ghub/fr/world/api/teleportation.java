@@ -19,16 +19,22 @@ import java.util.concurrent.CompletableFuture;
 
 public class teleportation {
     public static void Teleport(Player player, String world, Boolean sync) throws IOException, ParseException {
+        Location spawn = Bukkit.getWorld(world).getSpawnLocation();
+        spawn.set(spawn.getX() + 0.5, spawn.getY() + 0.5, spawn.getZ() + 0.5);
+        Teleport(player, world, sync, spawn);
+    }
+
+    public static void Teleport(Player player, String world, Boolean sync, Location location)
+            throws IOException, ParseException {
         if (Bukkit.getWorld(world) == null) {
             worldManager.Generate(world, false, World.Environment.NORMAL, WorldType.NORMAL, true);
         }
-        Location spawn = Bukkit.getWorld(world).getSpawnLocation();
-        spawn.set(spawn.getX() + 0.5, spawn.getY() + 0.5, spawn.getZ() + 0.5);
+        
         CompletableFuture<Boolean> tp = null;
         if (sync) {
-            player.teleport(spawn);
+            player.teleport(location);
         } else {
-            tp = player.teleportAsync(spawn);
+            tp = player.teleportAsync(location);
         }
 
         if (tp == null) {
