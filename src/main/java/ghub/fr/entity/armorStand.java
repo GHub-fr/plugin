@@ -72,6 +72,22 @@ public class armorStand {
         }
     }
 
+    public static void DeleteArmorStandOnSpawn() {
+        World world = Bukkit.getWorld("Spawn");
+        List<Entity> list = world.getEntities();
+
+        for (Entity entity : list) {
+            if (entity.getType().equals(EntityType.ARMOR_STAND)) {
+                if (entityPersistentData.isCustomEntity(entity)) {
+                    if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.topGold)) {
+                        ArmorStand armorStand = (ArmorStand) entity;
+                        armorStand.remove();
+                    }
+                }
+            }
+        }
+    }
+
     public static void getTopGold() {
         int topPlayerGold = 0;
         OfflinePlayer topPlayer = null;
@@ -86,22 +102,6 @@ public class armorStand {
         listTopGold.add(topPlayer);
         if (listTopGold.size() <= 2) {
             getTopGold();
-        }
-    }
-
-    public static void DeleteArmorStandOnSpawn() {
-        World world = Bukkit.getWorld("Spawn");
-        List<Entity> list = world.getEntities();
-
-        for (Entity entity : list) {
-            if (entity.getType().equals(EntityType.ARMOR_STAND)) {
-                if (entityPersistentData.isCustomEntity(entity)) {
-                    if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.topGold)) {
-                        ArmorStand armorStand = (ArmorStand) entity;
-                        armorStand.remove();
-                    }
-                }
-            }
         }
     }
 

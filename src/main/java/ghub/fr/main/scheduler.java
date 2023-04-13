@@ -9,6 +9,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import ghub.fr.discord.messages;
 import ghub.fr.entity.armorStand;
+import ghub.fr.entity.spawnNPC;
 import ghub.fr.menu.island.islandUnloader;
 import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.Tab;
@@ -42,18 +43,12 @@ public class scheduler {
                     File file = getDataStorage.serversStatsFile(server);
                     if (!file.exists()) {
                         file.createNewFile();
-                        FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
-                        fileConfiguration.set("onlinePlayers", Bukkit.getServer().getOnlinePlayers().size());
-                        fileConfiguration.set("maxPlayers", Bukkit.getServer().getMaxPlayers());
-                        fileConfiguration.set("lastTick", dateAPI.DateFormated(dateAPI.now()));
-                        fileConfiguration.save(file);
-                    } else {
-                        FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
-                        fileConfiguration.set("onlinePlayers", Bukkit.getServer().getOnlinePlayers().size());
-                        fileConfiguration.set("maxPlayers", Bukkit.getServer().getMaxPlayers());
-                        fileConfiguration.set("lastTick", dateAPI.DateFormated(dateAPI.now()));
-                        fileConfiguration.save(file);
                     }
+                    FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
+                    fileConfiguration.set("onlinePlayers", Bukkit.getServer().getOnlinePlayers().size());
+                    fileConfiguration.set("maxPlayers", Bukkit.getServer().getMaxPlayers());
+                    fileConfiguration.set("lastTick", dateAPI.DateFormated(dateAPI.now()));
+                    fileConfiguration.save(file);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -68,6 +63,7 @@ public class scheduler {
             public void run() {
                 try {
                     armorStand.start();
+                    spawnNPC.start();
                     Tab.scheduler();
                     ServersStats();
                 } catch (Exception e) {
