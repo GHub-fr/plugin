@@ -102,7 +102,6 @@ public class structure {
                 ItemStack itemStack4 = new ItemStack(Material.WHEAT, 9);
                 ItemStack itemStack5 = new ItemStack(Material.RED_BED, 1);
                 barrel.getInventory().addItem(itemStack1, itemStack2, itemStack3, itemStack4, itemStack5);
-
             }
         }
     }

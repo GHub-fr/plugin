@@ -106,7 +106,7 @@ public class spawnNPC {
 
         if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Survie) || ServerBootFile.getServerType()
                 .equals(ServerBootFile.serverType.Anarchie)) {
-            villager = Summon(new Location(spawn, 9.5, 64, 9.5, 135, 0), "Téléportation ~ Monde (Bientôt)", false,
+            villager = Summon(new Location(spawn, 9.5, 64, 9.5, 135, 0), "Téléportation ~ Monde", false,
                     Villager.Profession.FARMER,
                     Villager.Type.JUNGLE);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
@@ -114,7 +114,7 @@ public class spawnNPC {
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.tpWorld);
             villager.setGlowing(true);
             //
-            villager = Summon(new Location(spawn, 11.5, 64, 7.5, 120, 0), "Téléportation ~ lit (Bientôt)", false,
+            villager = Summon(new Location(spawn, 11.5, 64, 7.5, 120, 0), "Téléportation ~ lit", false,
                     Villager.Profession.FARMER,
                     Villager.Type.JUNGLE);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
