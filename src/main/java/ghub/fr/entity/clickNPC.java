@@ -37,8 +37,18 @@ public class clickNPC implements Listener {
                 RandomMessage(player);
             } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.Mainmenu)) {
                 compassMenu.menuCompass(player);
+            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.tpWorld)) {
+                tpWorld(player);
+            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.tpBed)) {
+                tpBed(player);
             }
         }
+    }
+
+    public void tpWorld(Player player) {
+    }
+
+    public void tpBed(Player player) {
     }
 
     public void QuestMenu(Player player) {
