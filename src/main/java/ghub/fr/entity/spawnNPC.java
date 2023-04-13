@@ -108,7 +108,7 @@ public class spawnNPC {
         }
         */
         if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.SkyBlock)) {
-            villager = Summon(new Location(spawn, 0, 64, 0, 0, 0), "Îles", false, Villager.Profession.FARMER,
+            villager = Summon(new Location(spawn, 9.5, 64, 9.5, 135, 0), "Îles", false, Villager.Profession.FARMER,
                     Villager.Type.JUNGLE);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
