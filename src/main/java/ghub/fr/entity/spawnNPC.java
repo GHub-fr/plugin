@@ -55,7 +55,7 @@ public class spawnNPC {
         entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
         entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Guide);
 
-        villager = Summon(new Location(spawn, -6.5, 64, 17.5, 0, 0), "Commerçant", false,
+        villager = Summon(new Location(spawn, -5.5, 64, 17.5, 0, 30), "Commerçant", false,
                 Villager.Profession.CARTOGRAPHER,
                 Villager.Type.TAIGA);
         entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
