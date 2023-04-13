@@ -877,7 +877,7 @@ public class itemsTranslation {
         switch (lang) {
             case fr:
             case en:
-                return "§6§lSuper Ultra HardCore";
+                return "§6§lAnarchie";
             default:
                 return "";
         }
