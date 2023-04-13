@@ -28,6 +28,7 @@ public class spawnNPC {
                 } else {
                     npc.setAgeLock(true);
                     npc.setBaby();
+                    npc.setCollidable(false);
                 }
                 npc.setVillagerType(type);
                 npc.setProfession(profession);
