@@ -169,7 +169,7 @@ public class spawnNPC {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }, 20 * 10, 20 * 60);
+        }, 20 * 10, 20 * 60 * 30);
     }
 
     public static void keepSpawnInMemory() {
