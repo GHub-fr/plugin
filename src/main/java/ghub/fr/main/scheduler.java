@@ -15,7 +15,6 @@ import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.Tab;
 import ghub.fr.system.dateAPI;
 import ghub.fr.system.getDataStorage;
-import ghub.fr.world.api.structure;
 
 import java.io.File;
 import java.io.IOException;

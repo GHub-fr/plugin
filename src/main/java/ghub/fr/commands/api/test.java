@@ -1,10 +1,26 @@
 package ghub.fr.commands.api;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.WorldType;
+import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
 
+import ghub.fr.main.main;
+import ghub.fr.system.getDataStorage;
+import ghub.fr.world.api.worldManager;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +29,45 @@ public class test implements CommandExecutor, TabCompleter {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         try {
             if (isAdmin.isAdmin(sender)) {
+                setStructure("spawn", "Spawn", 0, 0, 0, 10);
             }
             return true;
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime) {
+        Plugin plugin = JavaPlugin.getPlugin(main.class);
+
+        new BukkitRunnable() {
+            int counter = 1;
+            File file = getDataStorage.structureFile(structureName);
+            World world = worldManager.Generate(worldName, false, World.Environment.NORMAL, WorldType.NORMAL, true);
+
+            @Override
+            public void run() {
+                try {
+                    if (file.exists()) {
+                        FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
+                        int blockCount = fileConfiguration.getInt("blockCount");
+                        World world = Bukkit.getWorld(worldName);
+                        Block block = world.getBlockAt(fileConfiguration.getInt(counter + ".location.x") + x,
+                                fileConfiguration.getInt(counter + ".location.y") + y,
+                                fileConfiguration.getInt(counter + ".location.z") + z);
+                        block.setType(Material.valueOf(fileConfiguration.getString(counter + ".type")));
+                        block.setBlockData(
+                                Bukkit.getServer().createBlockData(fileConfiguration.getString(counter + ".data")));
+                        if (counter >= blockCount) {
+                            cancel();
+                        }
+                        counter++;
+                    }
+                } catch (Exception e) {
+                }
+
+            }
+        }.runTaskTimerAsynchronously(plugin, 0, 5);
     }
 
     @Override
