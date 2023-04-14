@@ -132,13 +132,20 @@ public class structure {
 
     public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime,
             Player player) throws IOException, ParseException {
+                
         Plugin plugin = JavaPlugin.getPlugin(main.class);
+
         File file = getDataStorage.structureFile(structureName);
         if (file.exists()) {
-            
-            teleportation.Teleport(player, worldName, false, new Location(Bukkit.getWorld(worldName), 0.5, 85, -15.5, 0, 53));
-            player.setGameMode(GameMode.SPECTATOR);
-            player.setFlying(true);
+
+            if (player != null) {
+                if (player.isOnline()) {
+                    teleportation.Teleport(player, worldName, false,
+                            new Location(Bukkit.getWorld(worldName), 0.5, 85, -15.5, 0, 53));
+                    player.setGameMode(GameMode.SPECTATOR);
+                    player.setFlying(true);
+                }
+            }
 
             new BukkitRunnable() {
 
