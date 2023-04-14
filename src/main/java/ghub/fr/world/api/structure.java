@@ -1,6 +1,8 @@
 package ghub.fr.world.api;
 
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.WorldType;
@@ -21,6 +23,7 @@ import ghub.fr.system.getDataStorage;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -108,27 +111,33 @@ public class structure {
         }
     }
 
-    public static void setStructure(String structureName, String worldName) {
+    public static void setStructure(String structureName, String worldName) throws IOException, ParseException {
         setStructure(structureName, worldName, 0, 0, 0, 0, null);
     }
 
-    public static void setStructure(String structureName, String worldName, Player player) {
+    public static void setStructure(String structureName, String worldName, Player player)
+            throws IOException, ParseException {
         setStructure(structureName, worldName, 0, 0, 0, 0, player);
     }
 
-    public static void setStructure(String structureName, String worldName, int waitTime) {
+    public static void setStructure(String structureName, String worldName, int waitTime)
+            throws IOException, ParseException {
         setStructure(structureName, worldName, 0, 0, 0, waitTime, null);
     }
 
-    public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime) {
+    public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime)
+            throws IOException, ParseException {
         setStructure(structureName, worldName, x, y, z, waitTime, null);
     }
 
     public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime,
-            Player player) {
+            Player player) throws IOException, ParseException {
         Plugin plugin = JavaPlugin.getPlugin(main.class);
         File file = getDataStorage.structureFile(structureName);
         if (file.exists()) {
+            teleportation.Teleport(player, worldName, false, new Location(Bukkit.getWorld(worldName), 0.5, 85, -15.5, 0, 53));
+            player.setGameMode(GameMode.SPECTATOR);
+            player.setFlying(true);
 
             new BukkitRunnable() {
 
