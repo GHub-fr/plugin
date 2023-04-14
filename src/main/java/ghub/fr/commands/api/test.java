@@ -30,7 +30,10 @@ public class test implements CommandExecutor, TabCompleter {
         try {
             if (isAdmin.isAdmin(sender)) {
                 sender.sendMessage("run");
-                setStructure(sender, "spawn", "Spawn", 0, 0, 0, 10);
+                File file = getDataStorage.structureFile("spawn");
+                if (file.exists()) {
+                    setStructure(sender, "spawn", "Spawn", 0, 0, 0, 10, file);
+                }
                 sender.sendMessage("stop");
             }
             return true;
@@ -41,40 +44,38 @@ public class test implements CommandExecutor, TabCompleter {
 
     public static void setStructure(
             CommandSender sender, String structureName, String worldName, int x, int y, int z,
-            int waitTime) {
+            int waitTime, File file) {
         Plugin plugin = JavaPlugin.getPlugin(main.class);
 
         sender.sendMessage("run schedule");
+
         new BukkitRunnable() {
+
             int counter = 1;
-            File file = getDataStorage.structureFile(structureName);
             World world = worldManager.Generate(worldName, false, World.Environment.NORMAL, WorldType.NORMAL, true);
+            FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
+            int blockCount = fileConfiguration.getInt("blockCount");
 
             @Override
             public void run() {
                 try {
-                    if (file.exists()) {
-                        FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
-                        int blockCount = fileConfiguration.getInt("blockCount");
-                        World world = Bukkit.getWorld(worldName);
-                        Block block = world.getBlockAt(fileConfiguration.getInt(counter + ".location.x") + x,
-                                fileConfiguration.getInt(counter + ".location.y") + y,
-                                fileConfiguration.getInt(counter + ".location.z") + z);
-                        block.setType(Material.valueOf(fileConfiguration.getString(counter + ".type")));
-                        block.setBlockData(
-                                Bukkit.getServer().createBlockData(fileConfiguration.getString(counter + ".data")));
-                        System.out.println("paste block");
-                        if (counter >= blockCount) {
-                            cancel();
-                            System.out.println("cancel");
-                        }
-                        counter++;
+                    Block block = world.getBlockAt(fileConfiguration.getInt(counter + ".location.x") + x,
+                            fileConfiguration.getInt(counter + ".location.y") + y,
+                            fileConfiguration.getInt(counter + ".location.z") + z);
+                    block.setType(Material.valueOf(fileConfiguration.getString(counter + ".type")));
+                    block.setBlockData(
+                            Bukkit.getServer().createBlockData(fileConfiguration.getString(counter + ".data")));
+                    System.out.println("paste block");
+                    if (counter >= blockCount) {
+                        cancel();
+                        System.out.println("cancel");
                     }
+                    counter++;
+
                 } catch (Exception e) {
                 }
-
             }
-        }.runTaskTimerAsynchronously(plugin, 0, 20);
+        }.runTaskTimer(plugin, 0, 5);
 
         sender.sendMessage("end schedule");
     }
