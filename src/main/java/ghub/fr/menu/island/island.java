@@ -115,7 +115,7 @@ public class island {
                 Bukkit.getWorld("i." + islandNumber).setSpawnLocation(0, 64, 0);
                 structure.setStructure("Island", "i." + islandNumber);
 
-                TeleportToIsland(player);
+                // TeleportToIsland(player);
             }
         }
     }

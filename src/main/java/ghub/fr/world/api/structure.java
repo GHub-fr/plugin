@@ -9,6 +9,7 @@ import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -108,14 +109,23 @@ public class structure {
     }
 
     public static void setStructure(String structureName, String worldName) {
-        setStructure(structureName, worldName, 0, 0, 0, 0);
+        setStructure(structureName, worldName, 0, 0, 0, 0, null);
+    }
+
+    public static void setStructure(String structureName, String worldName, Player player) {
+        setStructure(structureName, worldName, 0, 0, 0, 0, player);
     }
 
     public static void setStructure(String structureName, String worldName, int waitTime) {
-        setStructure(structureName, worldName, 0, 0, 0, waitTime);
+        setStructure(structureName, worldName, 0, 0, 0, waitTime, null);
     }
 
     public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime) {
+        setStructure(structureName, worldName, x, y, z, waitTime, null);
+    }
+
+    public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime,
+            Player player) {
         Plugin plugin = JavaPlugin.getPlugin(main.class);
         File file = getDataStorage.structureFile(structureName);
         if (file.exists()) {
@@ -146,6 +156,12 @@ public class structure {
                                 Bukkit.getServer().createBlockData(fileConfiguration.getString(counter2 + ".data")));
 
                         if (counter > counter2) {
+                            if (player != null) {
+                                if (player.isOnline()) {
+                                    teleportation.Teleport(player, worldName, false);
+                                }
+                            }
+
                             cancel();
                         }
                         counter++;
