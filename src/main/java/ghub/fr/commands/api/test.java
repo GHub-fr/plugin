@@ -30,7 +30,6 @@ public class test implements CommandExecutor, TabCompleter {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         try {
             if (isAdmin.isAdmin(sender)) {
-                structure.setStructure("spawn", "Spawn");
             }
             return true;
         } catch (Exception e) {

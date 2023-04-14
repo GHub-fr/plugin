@@ -15,6 +15,7 @@ import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.Tab;
 import ghub.fr.system.dateAPI;
 import ghub.fr.system.getDataStorage;
+import ghub.fr.world.api.structure;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,7 +44,7 @@ public class scheduler {
                     File file = getDataStorage.serversStatsFile(server);
                     if (!file.exists()) {
                         file.createNewFile();
-                        //structure.setStructure("spawn", "Spawn");
+                        structure.setStructure("spawn", "Spawn", 2);
                     }
                     FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
                     fileConfiguration.set("onlinePlayers", Bukkit.getServer().getOnlinePlayers().size());

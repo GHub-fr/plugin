@@ -111,6 +111,10 @@ public class structure {
         setStructure(structureName, worldName, 0, 0, 0, 0);
     }
 
+    public static void setStructure(String structureName, String worldName, int waitTime) {
+        setStructure(structureName, worldName, 0, 0, 0, waitTime);
+    }
+
     public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime) {
         Plugin plugin = JavaPlugin.getPlugin(main.class);
         File file = getDataStorage.structureFile(structureName);
@@ -122,6 +126,7 @@ public class structure {
                 World world = worldManager.Generate(worldName, false, World.Environment.NORMAL, WorldType.NORMAL, true);
                 FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
                 int blockCount = fileConfiguration.getInt("blockCount");
+                int counter2 = blockCount;
 
                 @Override
                 public void run() {
@@ -133,10 +138,18 @@ public class structure {
                         block.setBlockData(
                                 Bukkit.getServer().createBlockData(fileConfiguration.getString(counter + ".data")));
 
-                        if (counter >= blockCount) {
+                        Block block2 = world.getBlockAt(fileConfiguration.getInt(counter2 + ".location.x") + x,
+                                fileConfiguration.getInt(counter2 + ".location.y") + y,
+                                fileConfiguration.getInt(counter2 + ".location.z") + z);
+                        block2.setType(Material.valueOf(fileConfiguration.getString(counter2 + ".type")));
+                        block2.setBlockData(
+                                Bukkit.getServer().createBlockData(fileConfiguration.getString(counter2 + ".data")));
+
+                        if (counter > counter2) {
                             cancel();
                         }
                         counter++;
+                        counter2--;
 
                     } catch (Exception e) {
                     }
