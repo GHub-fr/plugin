@@ -625,17 +625,18 @@ public class textTranslation {
                 return "";
         }
     }
-     public static String IslandCreated(lang.languages languages) {
+
+    public static String IslandCreated(lang.languages languages) {
         switch (languages) {
             case fr:
                 return System(languages) + "§2Île crée !\n§rDébut de la construction de l'île";
             case en:
-                return System(languages) + "§2Island created !\n§rBeginning of the construction of the island";
+                return System(languages) + "§2Island created !\n" + newLine()
+                        + "§rBeginning of the construction of the island";
             default:
                 return "";
         }
     }
-    
 
     public static String PlayerKickedBy(lang.languages languages, OfflinePlayer offlinePlayer) {
         switch (languages) {
