@@ -100,7 +100,7 @@ public class island {
                 SetPlayerToIsland(file, player);
                 SetIslandToPlayer(islandNumber, player);
                 SetOwner(player, false, true);
-                player.sendMessage(textTranslation.CreatingIsland(playerLang.getPlayerLang(player)));
+                
                 /*
                  * Bukkit.getScheduler().runTask(JavaPlugin.getPlugin(main.class), new
                  * Runnable()
@@ -111,8 +111,10 @@ public class island {
                  * {}
                  * });
                  */
+                player.sendMessage(textTranslation.CreatingIsland(playerLang.getPlayerLang(player)));
                 worldManager.Generate("i." + islandNumber, true, World.Environment.NORMAL, WorldType.NORMAL, true);
                 Bukkit.getWorld("i." + islandNumber).setSpawnLocation(0, 64, 0);
+                player.sendMessage(textTranslation.IslandCreated(playerLang.getPlayerLang(player)));
                 structure.setStructure("Island", "i." + islandNumber);
 
                 // TeleportToIsland(player);
