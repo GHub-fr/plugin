@@ -29,7 +29,9 @@ public class test implements CommandExecutor, TabCompleter {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         try {
             if (isAdmin.isAdmin(sender)) {
-                setStructure("spawn", "Spawn", 0, 0, 0, 10);
+                sender.sendMessage("run");
+                setStructure(sender, "spawn", "Spawn", 0, 0, 0, 10);
+                sender.sendMessage("stop");
             }
             return true;
         } catch (Exception e) {
@@ -37,9 +39,12 @@ public class test implements CommandExecutor, TabCompleter {
         }
     }
 
-    public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime) {
+    public static void setStructure(
+            CommandSender sender, String structureName, String worldName, int x, int y, int z,
+            int waitTime) {
         Plugin plugin = JavaPlugin.getPlugin(main.class);
 
+        sender.sendMessage("run schedule");
         new BukkitRunnable() {
             int counter = 1;
             File file = getDataStorage.structureFile(structureName);
@@ -58,8 +63,10 @@ public class test implements CommandExecutor, TabCompleter {
                         block.setType(Material.valueOf(fileConfiguration.getString(counter + ".type")));
                         block.setBlockData(
                                 Bukkit.getServer().createBlockData(fileConfiguration.getString(counter + ".data")));
+                        System.out.println("paste block");
                         if (counter >= blockCount) {
                             cancel();
+                            System.out.println("cancel");
                         }
                         counter++;
                     }
@@ -67,7 +74,9 @@ public class test implements CommandExecutor, TabCompleter {
                 }
 
             }
-        }.runTaskTimerAsynchronously(plugin, 0, 5);
+        }.runTaskTimerAsynchronously(plugin, 0, 20);
+
+        sender.sendMessage("end schedule");
     }
 
     @Override
