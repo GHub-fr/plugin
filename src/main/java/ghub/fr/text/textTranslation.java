@@ -629,7 +629,7 @@ public class textTranslation {
     public static String IslandCreated(lang.languages languages) {
         switch (languages) {
             case fr:
-                return System(languages) + "§2Île crée !\n§rDébut de la construction de l'île";
+                return System(languages) + "§2Île crée !\n" + newLine() + "§rDébut de la construction de l'île";
             case en:
                 return System(languages) + "§2Island created !\n" + newLine()
                         + "§rBeginning of the construction of the island";
