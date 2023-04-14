@@ -19,6 +19,7 @@ import ghub.fr.world.api.structure;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Locale;
 import java.util.Random;
 
@@ -75,7 +76,7 @@ public class scheduler {
         }.runTaskLater(plugin, 5);
     }
 
-    public static void BuildSpawn() {
+    public static void BuildSpawn() throws IOException, ParseException {
         structure.setStructure("spawn", "Spawn", 1);
     }
 
