@@ -12,6 +12,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 import ghub.fr.main.main;
@@ -107,26 +108,40 @@ public class structure {
     }
 
     public static void setStructure(String structureName, String worldName) {
-        setStructure(structureName, worldName, 0, 0, 0);
+        setStructure(structureName, worldName, 0, 0, 0, 0);
     }
 
-    public static void setStructure(String structureName, String worldName, int x, int y, int z) {
+    public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime) {
+        Plugin plugin = JavaPlugin.getPlugin(main.class);
         File file = getDataStorage.structureFile(structureName);
         if (file.exists()) {
-            worldManager.Generate(worldName, false, World.Environment.NORMAL, WorldType.NORMAL, true);
-            FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
-            int blockCount = fileConfiguration.getInt("blockCount");
-            int i = 1;
-            World world = Bukkit.getWorld(worldName);
-            while (i <= blockCount) {
-                Block block = world.getBlockAt(fileConfiguration.getInt(i + ".location.x") + x,
-                        fileConfiguration.getInt(i + ".location.y") + y,
-                        fileConfiguration.getInt(i + ".location.z") + z);
-                block.setType(Material.valueOf(fileConfiguration.getString(i + ".type")));
-                block.setBlockData(Bukkit.getServer().createBlockData(fileConfiguration.getString(i + ".data")));
-                i++;
-                setCustomBlock(block);
-            }
+
+            new BukkitRunnable() {
+
+                int counter = 1;
+                World world = worldManager.Generate(worldName, false, World.Environment.NORMAL, WorldType.NORMAL, true);
+                FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
+                int blockCount = fileConfiguration.getInt("blockCount");
+
+                @Override
+                public void run() {
+                    try {
+                        Block block = world.getBlockAt(fileConfiguration.getInt(counter + ".location.x") + x,
+                                fileConfiguration.getInt(counter + ".location.y") + y,
+                                fileConfiguration.getInt(counter + ".location.z") + z);
+                        block.setType(Material.valueOf(fileConfiguration.getString(counter + ".type")));
+                        block.setBlockData(
+                                Bukkit.getServer().createBlockData(fileConfiguration.getString(counter + ".data")));
+
+                        if (counter >= blockCount) {
+                            cancel();
+                        }
+                        counter++;
+
+                    } catch (Exception e) {
+                    }
+                }
+            }.runTaskTimer(plugin, 0, waitTime);
         }
     }
 

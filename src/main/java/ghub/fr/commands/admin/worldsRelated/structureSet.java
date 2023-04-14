@@ -25,7 +25,8 @@ public class structureSet implements CommandExecutor, TabCompleter {
                         return true;
                     } else if (args.length == 4) {
                         structure.setStructure(args[0], ((Player) sender).getWorld().getName(),
-                                Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
+                                Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]), 
+                                Integer.parseInt(args[4]));
                         return true;
                     }
                 }
@@ -56,6 +57,14 @@ public class structureSet implements CommandExecutor, TabCompleter {
             argsToReturn.add("-100");
             argsToReturn.add("-250");
             argsToReturn.add("-500");
+        }
+        if (args.length == 5) {
+            argsToReturn.add("0");
+            argsToReturn.add("1");
+            argsToReturn.add("2");
+            argsToReturn.add("5");
+            argsToReturn.add("10");
+            argsToReturn.add("20");
         }
         return argsToReturn;
     }

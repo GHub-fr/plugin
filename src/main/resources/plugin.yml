@@ -67,7 +67,7 @@ commands:
     permission: admin
   structureset:
     description: "§2Place une structure"
-    usage: "/<command> [NOM(String)] <x(Int)> <y(Int)> <z(Int)>\n/<command> [NOM(String)]"
+    usage: "/<command> [NOM(String)] <x(Int)> <y(Int)> <z(Int)> <waitTime(Int)>\n/<command> [NOM(String)]"
     aliases: [ setstructure ]
     permission: admin
   structuresave:

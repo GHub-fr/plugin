@@ -18,6 +18,7 @@ import org.bukkit.scheduler.BukkitTask;
 
 import ghub.fr.main.main;
 import ghub.fr.system.getDataStorage;
+import ghub.fr.world.api.structure;
 import ghub.fr.world.api.worldManager;
 
 import java.io.File;
@@ -29,55 +30,12 @@ public class test implements CommandExecutor, TabCompleter {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         try {
             if (isAdmin.isAdmin(sender)) {
-                sender.sendMessage("run");
-                File file = getDataStorage.structureFile("spawn");
-                if (file.exists()) {
-                    setStructure(sender, "spawn", "Spawn", 0, 0, 0, 10, file);
-                }
-                sender.sendMessage("stop");
+                structure.setStructure("spawn", "Spawn");
             }
             return true;
         } catch (Exception e) {
             return false;
         }
-    }
-
-    public static void setStructure(
-            CommandSender sender, String structureName, String worldName, int x, int y, int z,
-            int waitTime, File file) {
-        Plugin plugin = JavaPlugin.getPlugin(main.class);
-
-        sender.sendMessage("run schedule");
-
-        new BukkitRunnable() {
-
-            int counter = 1;
-            World world = worldManager.Generate(worldName, false, World.Environment.NORMAL, WorldType.NORMAL, true);
-            FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
-            int blockCount = fileConfiguration.getInt("blockCount");
-
-            @Override
-            public void run() {
-                try {
-                    Block block = world.getBlockAt(fileConfiguration.getInt(counter + ".location.x") + x,
-                            fileConfiguration.getInt(counter + ".location.y") + y,
-                            fileConfiguration.getInt(counter + ".location.z") + z);
-                    block.setType(Material.valueOf(fileConfiguration.getString(counter + ".type")));
-                    block.setBlockData(
-                            Bukkit.getServer().createBlockData(fileConfiguration.getString(counter + ".data")));
-                    System.out.println("paste block");
-                    if (counter >= blockCount) {
-                        cancel();
-                        System.out.println("cancel");
-                    }
-                    counter++;
-
-                } catch (Exception e) {
-                }
-            }
-        }.runTaskTimer(plugin, 0, 5);
-
-        sender.sendMessage("end schedule");
     }
 
     @Override
