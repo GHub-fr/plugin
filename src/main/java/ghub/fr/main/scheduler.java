@@ -44,7 +44,6 @@ public class scheduler {
                     File file = getDataStorage.serversStatsFile(server);
                     if (!file.exists()) {
                         file.createNewFile();
-                        structure.setStructure("spawn", "Spawn", 2);
                     }
                     FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
                     fileConfiguration.set("onlinePlayers", Bukkit.getServer().getOnlinePlayers().size());
@@ -68,11 +67,16 @@ public class scheduler {
                     spawnNPC.start();
                     Tab.scheduler();
                     ServersStats();
+                    BuildSpawn();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }.runTaskLater(plugin, 5);
+    }
+
+    public static void BuildSpawn() {
+        structure.setStructure("spawn", "Spawn", 1);
     }
 
     public static void restart() {
