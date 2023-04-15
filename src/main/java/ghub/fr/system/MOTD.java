@@ -8,7 +8,7 @@ import org.bukkit.event.server.ServerListPingEvent;
 public class MOTD implements Listener {
     @EventHandler
     public void onServerListPing(ServerListPingEvent e) {
-        int maxPlayer = 5;
+        int maxPlayer = Bukkit.getMaxPlayers();
         e.setMotd(MOTD());
         e.setMaxPlayers(maxPlayer);
         Bukkit.getServer().setMaxPlayers(maxPlayer);
