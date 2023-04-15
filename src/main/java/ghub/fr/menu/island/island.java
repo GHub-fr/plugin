@@ -112,7 +112,7 @@ public class island {
                  * });
                  */
                 player.sendMessage(textTranslation.CreatingIsland(playerLang.getPlayerLang(player)));
-                worldManager.GenerateRunnable("i." + islandNumber, true, World.Environment.NORMAL, WorldType.NORMAL, true);
+                worldManager.Generate("i." + islandNumber, true, World.Environment.NORMAL, WorldType.NORMAL, true);
                 Bukkit.getWorld("i." + islandNumber).setSpawnLocation(0, 64, 0);
                 player.sendMessage(textTranslation.IslandCreated(playerLang.getPlayerLang(player)));
                 structure.setStructure("Island", "i." + islandNumber, player);

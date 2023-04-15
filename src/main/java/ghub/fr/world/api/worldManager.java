@@ -6,11 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.world.WorldInitEvent;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 
-import ghub.fr.main.main;
 import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
 import ghub.fr.text.textTranslation;
@@ -31,17 +27,6 @@ public class worldManager implements Listener {
         GameRulesApply(world);
     }
 
-    public static void GenerateRunnable(String WorldName, Boolean structure, World.Environment environment,
-            WorldType worldType, Boolean SkyBlock) {
-        Plugin plugin = JavaPlugin.getPlugin(main.class);
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Generate(WorldName, structure, environment, worldType, SkyBlock);
-            }
-        }.runTask(plugin);
-    }
-
     public static World Generate(String WorldName, Boolean structure, World.Environment environment,
             WorldType worldType, Boolean SkyBlock) {
         WorldCreator worldCreator = new WorldCreator(WorldName);
@@ -52,7 +37,6 @@ public class worldManager implements Listener {
         worldCreator.environment(environment);
         worldCreator.type(worldType);
         World world = worldCreator.createWorld();
-
         setWorldRules(world);
         TimeSync(world);
         Bukkit.getServer().getWorlds().add(world);
