@@ -5,6 +5,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 
 import ghub.fr.menu.shop.specials.bonus.bonus;
+import ghub.fr.system.BungeePluginMessageListener;
 import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.getDataStorage;
 import ghub.fr.system.security;
@@ -23,6 +24,7 @@ public class playerPreJoin implements Listener {
             lang.languages lang = playerLang.getPlayerLang(e.getPlayer());
             if (security.isObsoletSecurity(e.getPlayer(), security.SecurityList.Ban)
                     && security.isObsoletSecurity(e.getPlayer(), security.SecurityList.Cheat)) {
+
                 if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Survie)
                         && !tags.hasTags(e.getPlayer(), tags.TagsList.Survie)) {
                     e.disallow(PlayerLoginEvent.Result.KICK_OTHER, textTranslation.Whitelist(lang));
@@ -51,13 +53,16 @@ public class playerPreJoin implements Listener {
                         e.disallow(PlayerLoginEvent.Result.KICK_FULL, textTranslation.serveurFull(lang));
                     }
                 }
+
             } else {
                 e.disallow(PlayerLoginEvent.Result.KICK_BANNED, textTranslation.banned(lang));
             }
+
         } else {
             if (!ServerBootFile.getServerType().equals(ServerBootFile.serverType.Hub)) {
-                lang.languages lang = ghub.fr.text.lang.languages.fr;
-                e.disallow(PlayerLoginEvent.Result.KICK_OTHER, textTranslation.hubfirstLogin(lang));
+                //lang.languages lang = ghub.fr.text.lang.languages.fr;
+                //e.disallow(PlayerLoginEvent.Result.KICK_OTHER, textTranslation.hubfirstLogin(lang));
+                BungeePluginMessageListener.teleportPlayer("hub", e.getPlayer());
             }
         }
     }
