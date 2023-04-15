@@ -54,46 +54,53 @@ public class spawnNPC {
         entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Mainmenu);
         villager.setGlowing(true);
 
-        villager = Summon(new Location(spawn, -2.5, 64, 12.5, -165, 0), "Guide", false, Villager.Profession.LIBRARIAN,
+        villager = Summon(new Location(spawn, -2.5, 64, 12.5, -165, 0), "Guide", false,
+                Villager.Profession.LIBRARIAN,
                 Villager.Type.SAVANNA);
         entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
         entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
         entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Guide);
         villager.setGlowing(true);
 
-        villager = Summon(new Location(spawn, -5.5, 64, 17.5, 0, 30), "Commerçant", false,
-                Villager.Profession.CARTOGRAPHER,
-                Villager.Type.TAIGA);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
-        villager.setGlowing(true);
-        //
-        villager = Summon(new Location(spawn, -15.5, 64, 8.5, 0, 0), "Commerçant", false,
-                Villager.Profession.CARTOGRAPHER,
-                Villager.Type.TAIGA);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
-        //
-        villager = Summon(new Location(spawn, -15.5, 64, 25.5, -180, 0), "Commerçant", false,
-                Villager.Profession.CARTOGRAPHER,
-                Villager.Type.TAIGA);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
-        //
-        villager = Summon(new Location(spawn, -24.5, 64, 14.5, 0, 35), "Commerçant", false, Villager.Profession.CLERIC,
-                Villager.Type.SAVANNA);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
-        //
-        villager = Summon(new Location(spawn, -4.5, 64, 22.5, 90, 20), "Commerçant", false, Villager.Profession.ARMORER,
-                Villager.Type.SNOW);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+        if (!ServerBootFile.getServerType().equals(ServerBootFile.serverType.Hub) && !ServerBootFile.getServerType()
+                .equals(ServerBootFile.serverType.Creatif)
+                && !ServerBootFile.getServerType().equals(ServerBootFile.serverType.RPG)) {
+            villager = Summon(new Location(spawn, -5.5, 64, 17.5, 0, 30), "Commerçant", false,
+                    Villager.Profession.CARTOGRAPHER,
+                    Villager.Type.TAIGA);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+            villager.setGlowing(true);
+            //
+            villager = Summon(new Location(spawn, -15.5, 64, 8.5, 0, 0), "Commerçant", false,
+                    Villager.Profession.CARTOGRAPHER,
+                    Villager.Type.TAIGA);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+            //
+            villager = Summon(new Location(spawn, -15.5, 64, 25.5, -180, 0), "Commerçant", false,
+                    Villager.Profession.CARTOGRAPHER,
+                    Villager.Type.TAIGA);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+            //
+            villager = Summon(new Location(spawn, -24.5, 64, 14.5, 0, 35), "Commerçant", false,
+                    Villager.Profession.CLERIC,
+                    Villager.Type.SAVANNA);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+            //
+            villager = Summon(new Location(spawn, -4.5, 64, 22.5, 90, 20), "Commerçant", false,
+                    Villager.Profession.ARMORER,
+                    Villager.Type.SNOW);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+        }
 
         if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.SkyBlock)) {
             villager = Summon(new Location(spawn, 9.5, 64, 9.5, 135, 0), "Îles", false, Villager.Profession.FARMER,
@@ -132,35 +139,38 @@ public class spawnNPC {
             villager.setGlowing(true);
         }
 
-        villager = Summon(new Location(spawn, 0, 64, 0, 0, 0), "Louis", true, Villager.Profession.NITWIT,
-                Villager.Type.PLAINS);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Villager);
-        //
-        villager = Summon(new Location(spawn, 0, 64, 0, 0, 0), "Nicolas", true, Villager.Profession.NITWIT,
-                Villager.Type.PLAINS);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Villager);
-        //
-        villager = Summon(new Location(spawn, 0, 64, 0, 0, 0), "Bertrand", true, Villager.Profession.NITWIT,
-                Villager.Type.PLAINS);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Villager);
-        //
-        villager = Summon(new Location(spawn, 0, 64, 0, 0, 0), "Romain", true, Villager.Profession.NITWIT,
-                Villager.Type.PLAINS);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Villager);
-        //
-        villager = Summon(new Location(spawn, 0, 64, 0, 0, 0), "Oliver", true, Villager.Profession.NITWIT,
-                Villager.Type.PLAINS);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Villager);
+        if (!ServerBootFile.getServerType()
+                .equals(ServerBootFile.serverType.Creatif)) {
+            villager = Summon(new Location(spawn, 0, 64, 0, 0, 0), "Louis", true, Villager.Profession.NITWIT,
+                    Villager.Type.PLAINS);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Villager);
+            //
+            villager = Summon(new Location(spawn, 0, 64, 0, 0, 0), "Nicolas", true, Villager.Profession.NITWIT,
+                    Villager.Type.PLAINS);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Villager);
+            //
+            villager = Summon(new Location(spawn, 0, 64, 0, 0, 0), "Bertrand", true, Villager.Profession.NITWIT,
+                    Villager.Type.PLAINS);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Villager);
+            //
+            villager = Summon(new Location(spawn, 0, 64, 0, 0, 0), "Romain", true, Villager.Profession.NITWIT,
+                    Villager.Type.PLAINS);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Villager);
+            //
+            villager = Summon(new Location(spawn, 0, 64, 0, 0, 0), "Oliver", true, Villager.Profession.NITWIT,
+                    Villager.Type.PLAINS);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Villager);
+        }
     }
 
     public static void start() {
