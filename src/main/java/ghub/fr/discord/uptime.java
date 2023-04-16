@@ -12,7 +12,6 @@ import com.sun.management.OperatingSystemMXBean;
 
 import ghub.fr.main.main;
 import ghub.fr.system.ServerBootFile;
-import ghub.fr.system.ServerBootFile.serverType;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -38,7 +37,7 @@ public class uptime {
         }.runTaskTimerAsynchronously(plugin, 50, 100 + random.nextInt(100));
     }
 
-    public static void sendUptime() throws UnknownHostException, IOException {
+    public static void sendUptime() throws UnknownHostException, IOException, InterruptedException, ExecutionException {
         Runtime runtime = Runtime.getRuntime();
         long maxMemory = runtime.maxMemory();
         long allocatedMemory = runtime.totalMemory();
@@ -56,14 +55,10 @@ public class uptime {
         currentTime = System.currentTimeMillis() - currentTime;
 
         String message = "";
-        message += "\n**__RAM__** : " + Math.round(usedMemory / 1024 / 1024) + "/"
-                + Math.round(maxMemory / 1024 / 1024)
-                + " Mo";
+        message += "\n**__RAM__** : " + Math.round(usedMemory / 1024 / 1024) + "/"+ Math.round(maxMemory / 1024 / 1024)+ " Mo";
         message += "\n**__CPU__** : " + Math.round(cpuusage) + "%";
         message += "\n**__TPS__** : " + Math.round(Bukkit.getTPS()[0]);
-        message += "\n**__HDD__** : " + Math.round(free / 1024 / 1024 / 1024) + "/"
-                + Math.round(total / 1024 / 1024 / 1024)
-                + " Go";
+        message += "\n**__HDD__** : " + Math.round(free / 1024 / 1024 / 1024) + "/"+ Math.round(total / 1024 / 1024 / 1024)+ " Go";
 
         if (isPinged) {
             System.out.println("pinged successfully in " + currentTime + "millisecond");
@@ -71,6 +66,8 @@ public class uptime {
         } else {
             message += "**__Ping__** : __Erreur__";
         }
+
+        sendDiscordUptime(message);
     }
 
     public static void sendDiscordUptime(String text) throws InterruptedException, ExecutionException {
