@@ -58,17 +58,22 @@ public class uptime {
         currentTime2 = System.currentTimeMillis() - currentTime2;
 
         String message = "";
-        message += "\n**__RAM__** : " + Math.round(usedMemory / 1024 / 1024) + "/"+ Math.round(maxMemory / 1024 / 1024)+ " Mo";
+
+        message += "**__Joueurs__** : " + Bukkit.getOnlinePlayers().size() + "/" + Bukkit.getMaxPlayers();
+
+        message += "\n\n**__RAM__** : " + Math.round(usedMemory / 1024 / 1024) + "/"
+                + Math.round(maxMemory / 1024 / 1024) + " Mo";
         message += "\n**__CPU__** : " + Math.round(cpuusage) + "%";
         message += "\n**__TPS__** : " + Math.round(Bukkit.getTPS()[0]);
-        message += "\n**__HDD__** : " + Math.round(free / 1024 / 1024 / 1024) + "/"+ Math.round(total / 1024 / 1024 / 1024)+ " Go";
+        message += "\n**__HDD__** : " + Math.round(free / 1024 / 1024 / 1024) + "/"
+                + Math.round(total / 1024 / 1024 / 1024) + " Go";
 
         if (isPinged) {
-            message += "\n**__Ping__** google.fr : " + currentTime + " Ms";
+            message += "\n\n**__Ping__** google.fr : " + currentTime + " Ms";
         } else {
-            message += "\n**__Ping__** : __Erreur__";
+            message += "\n\n**__Ping__** : __Erreur__";
         }
-        
+
         if (isPinged2) {
             message += "\n**__Ping__** discord.com : " + currentTime2 + " Ms";
         } else {
@@ -84,7 +89,8 @@ public class uptime {
         embedBuilder.setDescription(text);
 
         boolean found = false;
-        for (Message messages : discordMain.api.getServerTextChannelById(token.uptimeChannelID()).get().getMessages(20).get()) {
+        for (Message messages : discordMain.api.getServerTextChannelById(token.uptimeChannelID()).get().getMessages(20)
+                .get()) {
             if (messages.getUserAuthor().get().equals(discordMain.api.getYourself())) {
                 found = true;
                 messages.edit(embedBuilder);
