@@ -52,4 +52,8 @@ public class token {
     public static String rebootChannelID() {
         return "1081945572744892466";
     }
+
+    public static String uptimeChannelID() {
+        return "1093591413159112847";
+    }
 }

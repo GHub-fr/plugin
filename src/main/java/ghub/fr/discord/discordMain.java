@@ -20,5 +20,6 @@ public class discordMain {
     public static void registerEvents() {
         eventsDiscord.ChatLinker();
         eventsDiscord.reconnect();
+        uptime.StartUptime();
     }
 }

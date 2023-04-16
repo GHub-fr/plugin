@@ -47,9 +47,11 @@ public class scheduler {
                         file.createNewFile();
                     }
                     FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
+
                     fileConfiguration.set("onlinePlayers", Bukkit.getServer().getOnlinePlayers().size());
                     fileConfiguration.set("maxPlayers", Bukkit.getServer().getMaxPlayers());
                     fileConfiguration.set("lastTick", dateAPI.DateFormated(dateAPI.now()));
+
                     fileConfiguration.save(file);
                 } catch (Exception e) {
                     e.printStackTrace();
