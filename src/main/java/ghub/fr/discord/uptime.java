@@ -11,7 +11,6 @@ import java.util.concurrent.ExecutionException;
 import com.sun.management.OperatingSystemMXBean;
 
 import ghub.fr.main.main;
-import ghub.fr.system.ServerBootFile;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -34,7 +33,7 @@ public class uptime {
                     e.printStackTrace();
                 }
             }
-        }.runTaskTimerAsynchronously(plugin, 50, 100 + random.nextInt(100));
+        }.runTaskTimerAsynchronously(plugin, 0, 150 + random.nextInt(150));
     }
 
     public static void sendUptime() throws UnknownHostException, IOException, InterruptedException, ExecutionException {
@@ -51,8 +50,12 @@ public class uptime {
         long total = diskPartition.getTotalSpace();
 
         long currentTime = System.currentTimeMillis();
-        boolean isPinged = InetAddress.getByName("www.google.fr").isReachable(2000); // 2 seconds
+        boolean isPinged = InetAddress.getByName("www.google.fr").isReachable(2000);
         currentTime = System.currentTimeMillis() - currentTime;
+
+        long currentTime2 = System.currentTimeMillis();
+        boolean isPinged2 = InetAddress.getByName("www.discord.com").isReachable(2000);
+        currentTime2 = System.currentTimeMillis() - currentTime2;
 
         String message = "";
         message += "\n**__RAM__** : " + Math.round(usedMemory / 1024 / 1024) + "/"+ Math.round(maxMemory / 1024 / 1024)+ " Mo";
@@ -61,10 +64,15 @@ public class uptime {
         message += "\n**__HDD__** : " + Math.round(free / 1024 / 1024 / 1024) + "/"+ Math.round(total / 1024 / 1024 / 1024)+ " Go";
 
         if (isPinged) {
-            System.out.println("pinged successfully in " + currentTime + "millisecond");
-            message += "**__Ping__** : " + currentTime + " Ms";
+            message += "\n**__Ping__** google.fr : " + currentTime + " Ms";
         } else {
-            message += "**__Ping__** : __Erreur__";
+            message += "\n**__Ping__** : __Erreur__";
+        }
+        
+        if (isPinged2) {
+            message += "\n**__Ping__** discord.com : " + currentTime2 + " Ms";
+        } else {
+            message += "\n**__Ping__** : __Erreur__";
         }
 
         sendDiscordUptime(message);
@@ -72,7 +80,6 @@ public class uptime {
 
     public static void sendDiscordUptime(String text) throws InterruptedException, ExecutionException {
         EmbedBuilder embedBuilder = new EmbedBuilder();
-        embedBuilder.setTitle(ServerBootFile.getServerTypeFromYML().name().toUpperCase() + ".ghub.fr");
         embedBuilder.setThumbnail(discordMain.api.getYourself().getAvatar());
         embedBuilder.setDescription(text);
 
