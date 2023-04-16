@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.sql.Timestamp;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
 
@@ -59,7 +60,10 @@ public class uptime {
 
         String message = "";
 
-        message += "**__Joueurs__** : " + Bukkit.getOnlinePlayers().size() + "/" + Bukkit.getMaxPlayers();
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        message += "<t:" + timestamp + ":R>";
+
+        message += "\n\n**__Joueurs__** : " + Bukkit.getOnlinePlayers().size() + "/" + Bukkit.getMaxPlayers();
 
         message += "\n\n**__RAM__** : " + Math.round(usedMemory / 1024 / 1024) + "/"
                 + Math.round(maxMemory / 1024 / 1024) + " Mo";
