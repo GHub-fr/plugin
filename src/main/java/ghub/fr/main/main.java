@@ -94,10 +94,6 @@ public class main extends JavaPlugin implements PluginMessageListener {
         this.getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
         this.getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord",
                 new BungeePluginMessageListener());
-        /*
-        
-         */
-        // load spawn on server load
     }
 
     @Override
