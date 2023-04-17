@@ -18,6 +18,7 @@ import org.bukkit.scoreboard.*;
 import java.io.File;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
+import java.net.InetAddress;
 import java.text.NumberFormat;
 import java.text.ParseException;
 
@@ -31,7 +32,9 @@ public class Tab {
         new BukkitRunnable() {
             @Override
             public void run() {
+
                 Runtime runtime = Runtime.getRuntime();
+
                 long maxMemory = runtime.maxMemory();
                 long allocatedMemory = runtime.totalMemory();
                 long freeMemory = runtime.freeMemory();
@@ -42,18 +45,29 @@ public class Tab {
                 File diskPartition = new File("/");
                 long free = diskPartition.getFreeSpace();
                 long total = diskPartition.getTotalSpace();
-                String header = header();
-                String footer = footer(maxMemory, usedMemory, allocatedMemory, freeMemory, cpuusage, free, total);
+
+                long currentTime = System.currentTimeMillis();
+                boolean isPinged = false;
+                currentTime = System.currentTimeMillis() - currentTime;
+                try {
+                    isPinged = InetAddress.getByName("www.google.fr").isReachable(2000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                String footer = footer(maxMemory, usedMemory, allocatedMemory, freeMemory, cpuusage, free, total,
+                        isPinged, currentTime);
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     try {
                         Score score = objective.getScore(player);
                         score.setScore((int) player.getHealth());
 
-                        setTab(player, header, footer);
+                        setTab(player, header(player), footer);
 
                         setTabName(player);
                         player.setScoreboard(board);
                         setTeamTag(player, board);
+
                     } catch (Exception e) {
                     }
                 }
@@ -66,17 +80,17 @@ public class Tab {
         player.setPlayerListHeaderFooter(header, footer);
     }
 
-    public static String header() {
+    public static String header(Player player) {
         String header = "";
         header += "§6[ §4§l" + ServerBootFile.getServerType().toString() + ".§2ghub§6.fr ]\n";
         header += textTranslation.DiscordNoNewLine() + "\n\n";
         header += Bukkit.getServer().getOnlinePlayers().size() + " §6/§r " + Bukkit.getServer().getMaxPlayers();
+        header += "\n§6Ping §r: §6" + player.getPing() + " §rMs";
         return header;
     }
 
     public static String footer(long maxMemory, long usedMemory, long allocatedMemory, long freeMemory, double cpuusage,
-            long free, long total) {
-        NumberFormat format = NumberFormat.getInstance();
+            long free, long total, boolean isPinged, long currentTime) {
         String footer = "";
         footer += "\n§6RAM §r: " + Math.round(usedMemory / 1024 / 1024) + "/" + Math.round(maxMemory / 1024 / 1024)
                 + " Mo";
@@ -84,6 +98,13 @@ public class Tab {
         footer += "\n§6TPS §r: " + Math.round(Bukkit.getTPS()[0]);
         footer += "\n§6HDD §r: " + Math.round(free / 1024 / 1024 / 1024) + "/" + Math.round(total / 1024 / 1024 / 1024)
                 + " Go";
+
+        if (isPinged) {
+            footer += "\n§6Ping §r: google.fr : §6" + currentTime + " §rMs";
+        } else {
+            footer += "\n§6Ping §r: google.fr : §4§lErreur";
+        }
+
         return footer;
     }
 
