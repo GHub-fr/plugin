@@ -16,13 +16,13 @@ public class prefixTag {
         }
         if (tags.hasTags(offlinePlayer, tags.TagsList.Moderation) || tags.hasTags(offlinePlayer, tags.TagsList.Builder)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Build)) {
-            prefix += "§2🛡";
+            prefix += "§2⚒";
         }
         if (tags.hasTags(offlinePlayer, tags.TagsList.Beta)) {
-            prefix += "§6β";
+            prefix += "§6๑";
         }
         if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIP)) {
-            prefix += "§6⭐";
+            prefix += "§6✯";
         }
         prefix += " ";
         return prefix;
