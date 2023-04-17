@@ -12,9 +12,12 @@ public class prefixTag {
     public static String prefixTag(OfflinePlayer offlinePlayer) throws IOException, ParseException {
         String prefix = "";
         if (tags.hasTags(offlinePlayer, tags.TagsList.Admin)) {
-            prefix += "§4§kA";
+            prefix += "§4✯§kA";
         }
-        if (tags.hasTags(offlinePlayer, tags.TagsList.Moderation) || tags.hasTags(offlinePlayer, tags.TagsList.Builder)
+        if (tags.hasTags(offlinePlayer, tags.TagsList.Messages)
+                || tags.hasTags(offlinePlayer, tags.TagsList.Creatif)
+                || tags.hasTags(offlinePlayer, tags.TagsList.Moderation)
+                || tags.hasTags(offlinePlayer, tags.TagsList.Builder)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Build)) {
             prefix += "§2⚒";
         }
@@ -22,8 +25,15 @@ public class prefixTag {
             prefix += "§6๑";
         }
         if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIP)) {
-            prefix += "§6✯";
+            prefix += "§6⚖";
         }
+        if (tags.hasTags(offlinePlayer, tags.TagsList.RPG)) {
+            prefix += "§6➹";
+        }
+        if (tags.hasTags(offlinePlayer, tags.TagsList.Survie)) {
+            prefix += "§6⚚";
+        }
+
         prefix += " ";
         return prefix;
     }
