@@ -48,12 +48,12 @@ public class Tab {
 
                 long currentTime = System.currentTimeMillis();
                 boolean isPinged = false;
-                currentTime = System.currentTimeMillis() - currentTime;
                 try {
                     isPinged = InetAddress.getByName("www.google.fr").isReachable(2000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                currentTime = System.currentTimeMillis() - currentTime;
 
                 String footer = footer(maxMemory, usedMemory, allocatedMemory, freeMemory, cpuusage, free, total,
                         isPinged, currentTime);
