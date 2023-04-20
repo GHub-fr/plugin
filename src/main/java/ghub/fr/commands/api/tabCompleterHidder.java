@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandSendEvent;
 import org.bukkit.plugin.Plugin;
 
+import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.tags;
 
 import java.io.IOException;
@@ -19,20 +20,19 @@ public class tabCompleterHidder implements Listener {
     @EventHandler
     public void onTabComplete(PlayerCommandSendEvent e) throws IOException {
         if (!isAdmin.isAdmin((OfflinePlayer) e.getPlayer())) {
-            e.getCommands().clear();
-            for (String command : commands()) {
-                e.getCommands().add(command);
-            }
-
-            if (tags.hasTags(e.getPlayer(), tags.TagsList.Builder)) {
-                // get all world edit cmd & add to list e.getCommands()...
+            if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Creatif) && tags.hasTags(e.getPlayer(), tags.TagsList.Builder)) {
+            } else {
+                e.getCommands().clear();
+                for (String command : commands()) {
+                    e.getCommands().add(command);
+                }
             }
         }
     }
 
     public static ArrayList<String> commands() {
         ArrayList<String> cmdList = new ArrayList<>();
-        Plugin plugin = Bukkit.getPluginManager().getPlugin("Plugin");
+        Plugin plugin = Bukkit.getPluginManager().getPlugin("plugin");
         List<Command> cmds = PluginCommandYamlParser.parse(plugin);
         for (Command commands : cmds) {
             cmdList.add(commands.getName());
