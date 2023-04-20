@@ -33,12 +33,24 @@ public class BuildRules implements Listener {
     public static boolean GetCanBuild(Player player) throws IOException {
         if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.SkyBlock)) {
             return island.IsInHerIsland(player) || tags.hasTags(player, tags.TagsList.Build);
-        } else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Survie)
+        }
+
+        else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Survie)
                 || ServerBootFile.getServerType().equals(ServerBootFile.serverType.Anarchie)) {
             return !player.getWorld().getName().equalsIgnoreCase("Spawn") || tags.hasTags(player, tags.TagsList.Build);
-        } else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Creatif)) {
+        }
+        
+        else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Hub)
+                || ServerBootFile.getServerType().equals(ServerBootFile.serverType.RPG)) {
+            return tags.hasTags(player, tags.TagsList.Build);
+        }
+        
+
+        else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Creatif)) {
             return tags.hasTags(player, tags.TagsList.Builder) || tags.hasTags(player, tags.TagsList.Build);
-        } else {
+        }
+
+        else {
             return tags.hasTags(player, tags.TagsList.Admin);
         }
     }
