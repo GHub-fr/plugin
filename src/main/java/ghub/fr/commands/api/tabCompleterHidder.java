@@ -21,7 +21,8 @@ public class tabCompleterHidder implements Listener {
     public void onTabComplete(PlayerCommandSendEvent e) throws IOException {
         if (!isAdmin.isAdmin((OfflinePlayer) e.getPlayer())) {
             if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Creatif) && tags.hasTags(e.getPlayer(), tags.TagsList.Builder)) {
-            } else {
+            } 
+            else {
                 e.getCommands().clear();
                 for (String command : commands()) {
                     e.getCommands().add(command);
@@ -37,7 +38,7 @@ public class tabCompleterHidder implements Listener {
         for (Command commands : cmds) {
             cmdList.add(commands.getName());
             for (String aliases : commands.getAliases()) {
-                if (commands.getPermission() == null) {
+                if (commands.getPermission() == null)/* Marche pas */ {
                     cmdList.add(aliases);
                 }
             }

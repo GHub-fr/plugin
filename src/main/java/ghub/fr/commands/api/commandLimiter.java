@@ -53,7 +53,7 @@ public class commandLimiter implements Listener {
 
     public static ArrayList<String> commandList() {
         ArrayList<String> cmdList = new ArrayList<>();
-        Plugin plugin = Bukkit.getPluginManager().getPlugin("Plugin");
+        Plugin plugin = Bukkit.getPluginManager().getPlugin("plugin");
         List<Command> cmds = PluginCommandYamlParser.parse(plugin);
         for (Command commands : cmds) {
             cmdList.add("/" + commands.getName());
