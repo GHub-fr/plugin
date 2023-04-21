@@ -28,9 +28,9 @@ public class Tab {
         Scoreboard board = manager.getNewScoreboard();
         Objective objective = board.registerNewObjective("showhealth", "view", "§4⚡", RenderType.HEARTS);
         objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
-        Objective objective2 = board.registerNewObjective("showhealth", "view", "§4⚡", RenderType.HEARTS);
+        Objective objective2 = board.registerNewObjective("showhealth2", "view", "§4⚡", RenderType.HEARTS);
         objective.setDisplaySlot(DisplaySlot.PLAYER_LIST);
-        Objective objective3 = board.registerNewObjective("showhealth", "view", "§4⚡", RenderType.HEARTS);
+        Objective objective3 = board.registerNewObjective("showhealth3", "view", "§4⚡", RenderType.HEARTS);
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
         new BukkitRunnable() {
             @Override
