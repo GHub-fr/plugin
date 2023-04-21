@@ -954,7 +954,7 @@ public class itemsTranslation {
             case fr:
                 Lore.add("");
                 Lore.add("§4Serveur sous white liste");
-                Lore.add("§fPermet au staff de §6construire pour les autres serveurs");
+                Lore.add("§7Permet au §fstaff §7de §6construire §7pour les autres serveurs");
                 Lore.add("");
                 return Lore;
             case en:
@@ -988,8 +988,8 @@ public class itemsTranslation {
         switch (lang) {
             case fr:
                 Lore.add("");
-                Lore.add("§fCe serveur est une survie §4sans règle");
-                Lore.add("§4Mode HardCore §favec §4§lune vie par 24h §r§f!");
+                Lore.add("§7Ce serveur est une survie §4sans règle");
+                Lore.add("§4Mode HardCore §7avec §4§lune vie par 24h §r§7!");
                 Lore.add("");
                 return Lore;
             case en:
@@ -1024,7 +1024,7 @@ public class itemsTranslation {
             case fr:
                 Lore.add("");
                 Lore.add("§4Serveur sous white liste");
-                Lore.add("§fLe §2RPG §fest un serveur 100% custom");
+                Lore.add("§7Le §2RPG §7est un serveur §f100% custom");
                 Lore.add("§4En développement / §2§lbuild");
                 Lore.add("");
                 return Lore;
@@ -1076,8 +1076,8 @@ public class itemsTranslation {
         switch (lang) {
             case fr:
                 Lore.add("");
-                Lore.add("§fSkyBlock au style \"§2old school§f\" avec des ajouts fait maison");
-                Lore.add("§fFaites votre île, §2allez dans un village ou un stronghold §fet §2battez le jeu§f sur un SkyBlock");
+                Lore.add("§7SkyBlock au style §f\"§2old school§f\" §7avec des ajouts fait maison");
+                Lore.add("§7Faites votre île, §2allez dans un village ou un stronghold §7et §2battez le jeu§f sur un SkyBlock");
                 Lore.add("");
                 return Lore;
             case en:
@@ -1112,7 +1112,7 @@ public class itemsTranslation {
             case fr:
                 Lore.add("");
                 Lore.add("§4Serveur sous white liste");
-                Lore.add("§fSurvie §2privée style HolyCube");
+                Lore.add("§7Survie §2privée §fstyle HolyCube");
                 Lore.add("");
                 return Lore;
             case en:
