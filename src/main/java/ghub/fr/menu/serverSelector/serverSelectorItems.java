@@ -63,6 +63,7 @@ public class serverSelectorItems {
         } else {
             list.addAll(itemsTranslation.CreatifLoreWhiteList(lang));
         }
+        list.addAll(itemsTranslation.CreatifLoreInfo(lang));
         list.addAll(StringToAdd(player, lang, "creatif"));
         meta.setLore(list);
         is.setItemMeta(meta);
@@ -80,6 +81,7 @@ public class serverSelectorItems {
         meta.setDisplayName(itemsTranslation.AnarchieTitle(lang));
         List<String> list = new ArrayList<>();
         list.addAll(itemsTranslation.AnarchieLore(lang));
+        list.addAll(itemsTranslation.AnarchieLoreInfo(lang));
         list.addAll(StringToAdd(player, lang, "anarchie"));
         meta.setLore(list);
         is.setItemMeta(meta);
@@ -104,6 +106,7 @@ public class serverSelectorItems {
         } else {
             list.addAll(itemsTranslation.RPGLoreWhiteList(lang));
         }
+        list.addAll(itemsTranslation.RPGLoreInfo(lang));
         list.addAll(StringToAdd(player, lang, "rpg"));
         meta.setLore(list);
         is.setItemMeta(meta);
@@ -121,6 +124,7 @@ public class serverSelectorItems {
         meta.setDisplayName(itemsTranslation.SkyBlockTitle(lang));
         List<String> list = new ArrayList<>();
         list.addAll(itemsTranslation.SkyBlockLore(lang));
+        list.addAll(itemsTranslation.SkyBlockLoreInfo(lang));
         list.addAll(StringToAdd(player, lang, "skyblock"));
         meta.setLore(list);
         is.setItemMeta(meta);
@@ -160,6 +164,7 @@ public class serverSelectorItems {
         } else {
             list.addAll(itemsTranslation.SurvieLoreWhiteList(lang));
         }
+        list.addAll(itemsTranslation.SurvieLoreInfo(lang));
         list.addAll(StringToAdd(player, lang, "survie"));
         meta.setLore(list);
         is.setItemMeta(meta);

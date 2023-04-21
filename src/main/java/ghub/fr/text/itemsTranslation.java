@@ -936,8 +936,25 @@ public class itemsTranslation {
         switch (lang) {
             case fr:
                 Lore.add("");
-                Lore.add("§4Serveur sous white liste");
                 Lore.add("§fAccès réservé aux §6Builders");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static List<String> CreatifLoreInfo(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§4Serveur sous white liste");
+                Lore.add("§fPermet au staff de §6construire pour les autres serveurs");
                 Lore.add("");
                 return Lore;
             case en:
@@ -966,6 +983,24 @@ public class itemsTranslation {
         }
     }
 
+    public static List<String> AnarchieLoreInfo(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§fCe serveur est une survie §4sans règle");
+                Lore.add("§4Mode HardCore §favec §4§lune vie par 24h §r§f!");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
     public static List<String> RPGLore(lang.languages lang) {
         ArrayList<String> Lore = new ArrayList<String>();
         switch (lang) {
@@ -983,12 +1018,30 @@ public class itemsTranslation {
         }
     }
 
-    public static List<String> RPGLoreWhiteList(lang.languages lang) {
+    public static List<String> RPGLoreInfo(lang.languages lang) {
         ArrayList<String> Lore = new ArrayList<String>();
         switch (lang) {
             case fr:
                 Lore.add("");
                 Lore.add("§4Serveur sous white liste");
+                Lore.add("§fLe §2RPG §fest un serveur 100% custom");
+                Lore.add("§4En développement / §2§lbuild");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static List<String> RPGLoreWhiteList(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
                 Lore.add("§fAccès réservé aux §6testeurs RPG");
                 Lore.add("");
                 return Lore;
@@ -1018,6 +1071,24 @@ public class itemsTranslation {
         }
     }
 
+    public static List<String> SkyBlockLoreInfo(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§fSkyBlock au style \"§2old school§f\" avec des ajouts fait maison");
+                Lore.add("§fFaites votre île, §2allez dans un village ou un stronghold §fet §2battez le jeu§f sur un SkyBlock");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
     public static List<String> SurvieLore(lang.languages lang) {
         ArrayList<String> Lore = new ArrayList<String>();
         switch (lang) {
@@ -1035,12 +1106,29 @@ public class itemsTranslation {
         }
     }
 
-    public static List<String> SurvieLoreWhiteList(lang.languages lang) {
+    public static List<String> SurvieLoreInfo(lang.languages lang) {
         ArrayList<String> Lore = new ArrayList<String>();
         switch (lang) {
             case fr:
                 Lore.add("");
                 Lore.add("§4Serveur sous white liste");
+                Lore.add("§fSurvie §2privée style HolyCube");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static List<String> SurvieLoreWhiteList(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
                 Lore.add("§fAccès réservé aux §6membres de la survie");
                 Lore.add("");
                 return Lore;
