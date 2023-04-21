@@ -164,6 +164,7 @@ public class structure {
                         block.setType(Material.valueOf(fileConfiguration.getString(counter + ".type")));
                         block.setBlockData(
                                 Bukkit.getServer().createBlockData(fileConfiguration.getString(counter + ".data")));
+                        setCustomBlock(block);
 
                         Block block2 = world.getBlockAt(fileConfiguration.getInt(counter2 + ".location.x") + x,
                                 fileConfiguration.getInt(counter2 + ".location.y") + y,
@@ -171,7 +172,8 @@ public class structure {
                         block2.setType(Material.valueOf(fileConfiguration.getString(counter2 + ".type")));
                         block2.setBlockData(
                                 Bukkit.getServer().createBlockData(fileConfiguration.getString(counter2 + ".data")));
-
+                        setCustomBlock(block2);
+                        
                         if (counter > counter2) {
                             if (player != null) {
                                 if (player.isOnline()) {
