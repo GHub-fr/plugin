@@ -36,6 +36,7 @@ public class tags {
             FileConfiguration fileConfigurationPlayer = fileConfiguration(offlinePlayer);
             fileConfigurationPlayer.set("Tags", tagsList);
             fileConfigurationPlayer.save(file(offlinePlayer));
+
             if (offlinePlayer.isOnline()) {
                 lang.languages lang = playerLang.getPlayerLang(offlinePlayer);
                 offlinePlayer.getPlayer().sendMessage(textTranslation.addTags(lang, TagString.name()));
@@ -62,6 +63,7 @@ public class tags {
                 fileConfigurationPlayer.set("Tags", tagsList);
                 fileConfigurationPlayer.save(file(offlinePlayer));
             }
+
             if (offlinePlayer.isOnline()) {
                 lang.languages lang = playerLang.getPlayerLang(offlinePlayer);
                 offlinePlayer.getPlayer().sendMessage(textTranslation.removeTags(lang, TagString.name()));
