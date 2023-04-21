@@ -125,7 +125,7 @@ public class islandItems {
         return is;
     }
 
-    public static ItemStack ItemStackPlayerHeadIle(OfflinePlayer offlinePlayer, lang.languages languages)
+    public static ItemStack ItemStackPlayerHeadInfo(OfflinePlayer offlinePlayer, lang.languages languages)
             throws IOException {
         ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta itemMeta = (SkullMeta) itemStack.getItemMeta();
@@ -212,7 +212,7 @@ public class islandItems {
             throws IOException {
         ArrayList<ItemStack> PlayerHeads = new ArrayList<>();
         for (OfflinePlayer offlinePlayerIS : offlinePlayers) {
-            PlayerHeads.add(ItemStackPlayerHeadIle(offlinePlayerIS, languages));
+            PlayerHeads.add(ItemStackPlayerHeadInfo(offlinePlayerIS, languages));
         }
         return PlayerHeads;
     }
