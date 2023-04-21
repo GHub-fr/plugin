@@ -26,8 +26,12 @@ public class Tab {
         Plugin plugin = JavaPlugin.getPlugin(main.class);
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         Scoreboard board = manager.getNewScoreboard();
-        Objective objective = board.registerNewObjective("showhealth", "view", "§4❤", RenderType.HEARTS);
+        Objective objective = board.registerNewObjective("showhealth", "view", "§4⚡", RenderType.HEARTS);
         objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
+        Objective objective2 = board.registerNewObjective("showhealth", "view", "§4⚡", RenderType.HEARTS);
+        objective.setDisplaySlot(DisplaySlot.PLAYER_LIST);
+        Objective objective3 = board.registerNewObjective("showhealth", "view", "§4⚡", RenderType.HEARTS);
+        objective.setDisplaySlot(DisplaySlot.SIDEBAR);
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -60,6 +64,10 @@ public class Tab {
                     try {
                         Score score = objective.getScore(player);
                         score.setScore((int) player.getHealth());
+                        Score score2 = objective2.getScore(player);
+                        score2.setScore((int) player.getHealth());
+                        Score score3 = objective3.getScore(player);
+                        score3.setScore((int) player.getHealth());
 
                         setTab(player, header(player), footer);
 
