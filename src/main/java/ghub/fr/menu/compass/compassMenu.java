@@ -24,7 +24,7 @@ public class compassMenu {
                 || ServerBootFile.getServerType().equals(ServerBootFile.serverType.Anarchie)) {
             inventoryBuilder.getInventory().setItem(4, compassItems.ItemStackTeleporation(lang));
             inventoryBuilder.getInventory().setItem(8, compassItems.ItemStackShop(lang));
-        } else if (!ServerBootFile.getServerType().equals(ServerBootFile.serverType.Creatif)) {
+        } else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Creatif)) {
             inventoryBuilder.getInventory().setItem(4, compassItems.ItemStackTeleporation(lang));
         } else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Hub)) {
             inventoryBuilder.getInventory().setItem(19, serverSelectorItems.ItemStackSurvie(lang, player));
