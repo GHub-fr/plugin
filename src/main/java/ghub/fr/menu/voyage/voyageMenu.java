@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.text.ParseException;
 
 public class voyageMenu {
-    public static void menuCompass(Player player) throws IllegalArgumentException, IOException, ParseException {
+    public static void menuVoyage(Player player) throws IllegalArgumentException, IOException, ParseException {
         lang.languages lang = playerLang.getPlayerLang(player);
         customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.VOYAGE,
                 InventoryType.HOPPER, textTranslation.voyage(lang) + textTranslation.MenuGoldFormat(lang, player));

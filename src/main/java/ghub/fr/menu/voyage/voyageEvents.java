@@ -16,7 +16,7 @@ public class voyageEvents implements Listener {
     public void PlayerClickVoyage(InventoryClickEvent e) throws IllegalArgumentException, IOException, ParseException {
         if ((e.getCurrentItem() != null)) {
             if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.voyage)) {
-                voyageMenu.menuCompass((Player) e.getWhoClicked());
+                voyageMenu.menuVoyage((Player) e.getWhoClicked());
             }
         }
     }

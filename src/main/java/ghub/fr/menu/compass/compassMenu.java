@@ -17,7 +17,7 @@ import java.text.ParseException;
 public class compassMenu {
     public static void menuCompass(Player player) throws IllegalArgumentException, IOException, ParseException {
         lang.languages lang = playerLang.getPlayerLang(player);
-        customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU, 9,
+        customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU, 54,
                 textTranslation.Menu(lang) + textTranslation.MenuGoldFormat(lang, player));
 
         if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Survie)
@@ -27,8 +27,6 @@ public class compassMenu {
         } else if (!ServerBootFile.getServerType().equals(ServerBootFile.serverType.Creatif)) {
             inventoryBuilder.getInventory().setItem(4, compassItems.ItemStackTeleporation(lang));
         } else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Hub)) {
-            inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU, 54,
-                    textTranslation.Menu(lang) + textTranslation.MenuGoldFormat(lang, player));
             inventoryBuilder.getInventory().setItem(19, serverSelectorItems.ItemStackSurvie(lang, player));
             inventoryBuilder.getInventory().setItem(20, serverSelectorItems.ItemStackCreatif(lang, player));
             inventoryBuilder.getInventory().setItem(21, serverSelectorItems.ItemStackRPG(lang, player));
