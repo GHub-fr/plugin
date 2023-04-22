@@ -11,7 +11,7 @@ public class ServerBootFile {
     public static serverType serverTypeActual;
 
     public enum serverType {
-        Hub, SkyBlock, RPG, Survie, Anarchie, Creatif
+        Hub, SkyBlock, RPG, Survie, Anarchie, Creatif, OPPrison
     }
 
     public static serverType getServerType() {
