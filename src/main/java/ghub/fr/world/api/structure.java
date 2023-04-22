@@ -140,7 +140,7 @@ public class structure {
 
             if (player != null) {
                 if (player.isOnline()) {
-                    teleportation.Teleport(player, worldName, false,
+                    teleportation.Teleport(player, worldName, true,
                             new Location(Bukkit.getWorld(worldName), 0.5, 85, -15.5, 0, 53));
                     player.setGameMode(GameMode.SPECTATOR);
                     player.setFlying(true);
@@ -173,7 +173,7 @@ public class structure {
                         block2.setBlockData(
                                 Bukkit.getServer().createBlockData(fileConfiguration.getString(counter2 + ".data")));
                         setCustomBlock(block2);
-
+                        
                         if (counter > counter2) {
                             if (player != null) {
                                 if (player.isOnline()) {
