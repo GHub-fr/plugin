@@ -7,7 +7,9 @@ import org.bukkit.WorldType;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
+import ghub.fr.main.main;
 import ghub.fr.menu.api.persistentData;
 import ghub.fr.menu.island.bonus.bonusPlayerFile;
 import ghub.fr.system.dateAPI;
@@ -101,21 +103,22 @@ public class island {
                 SetIslandToPlayer(islandNumber, player);
                 SetOwner(player, false, true);
 
-                /*
-                 * Bukkit.getScheduler().runTask(JavaPlugin.getPlugin(main.class), new
-                 * Runnable()
-                 * {
-                 * 
-                 * @Override
-                 * public void run()
-                 * {}
-                 * });
-                 */
-                player.sendMessage(textTranslation.CreatingIsland(playerLang.getPlayerLang(player)));
-                worldManager.Generate("i." + islandNumber, true, World.Environment.NORMAL, WorldType.NORMAL, true);
-                Bukkit.getWorld("i." + islandNumber).setSpawnLocation(0, 64, 0);
-                player.sendMessage(textTranslation.IslandCreated(playerLang.getPlayerLang(player)));
-                structure.setStructure("Island", "i." + islandNumber, player);
+                Bukkit.getScheduler().runTask(JavaPlugin.getPlugin(main.class), new Runnable() {
+
+                    @Override
+                    public void run() {
+                        try {
+                            player.sendMessage(textTranslation.CreatingIsland(playerLang.getPlayerLang(player)));
+                            worldManager.Generate("i." + islandNumber, true, World.Environment.NORMAL, WorldType.NORMAL,
+                                    true);
+                            Bukkit.getWorld("i." + islandNumber).setSpawnLocation(0, 64, 0);
+                            player.sendMessage(textTranslation.IslandCreated(playerLang.getPlayerLang(player)));
+                            structure.setStructure("Island", "i." + islandNumber, player);
+                        } catch (Exception e) {
+
+                        }
+                    }
+                });
             }
         }
     }
