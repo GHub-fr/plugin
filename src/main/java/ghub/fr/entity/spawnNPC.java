@@ -64,7 +64,8 @@ public class spawnNPC {
 
         if (!ServerBootFile.getServerType().equals(ServerBootFile.serverType.Hub) && !ServerBootFile.getServerType()
                 .equals(ServerBootFile.serverType.Creatif)
-                && !ServerBootFile.getServerType().equals(ServerBootFile.serverType.RPG)) {
+                && !ServerBootFile.getServerType().equals(ServerBootFile.serverType.RPG)
+                && !ServerBootFile.getServerType().equals(ServerBootFile.serverType.OPPrison)) {
             villager = Summon(new Location(spawn, -5.5, 64, 17.5, 0, 30), "Commerçant", false,
                     Villager.Profession.CARTOGRAPHER,
                     Villager.Type.TAIGA);
