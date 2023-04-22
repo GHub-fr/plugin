@@ -23,7 +23,7 @@ public class worldManager implements Listener {
 
     public static void setWorldRules(World world) {
         world.setKeepSpawnInMemory(false);
-        // world.setAutoSave(false);
+        //world.setAutoSave(false);
         GameRulesApply(world);
     }
 
