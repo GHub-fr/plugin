@@ -17,7 +17,8 @@ public class joinAtSpawn implements Listener {
         if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.SkyBlock)
                 || ServerBootFile.getServerType().equals(ServerBootFile.serverType.Hub)
                 || ServerBootFile.getServerType().equals(ServerBootFile.serverType.Creatif)
-                || ServerBootFile.getServerType().equals(ServerBootFile.serverType.RPG)) {
+                || ServerBootFile.getServerType().equals(ServerBootFile.serverType.RPG)
+                || ServerBootFile.getServerType().equals(ServerBootFile.serverType.OPPrison)) {
             teleportation.Teleport(e.getPlayer(), "Spawn", false);
         }
     }
