@@ -38,16 +38,24 @@ public class playerPreJoin implements Listener {
                     e.disallow(PlayerLoginEvent.Result.KICK_OTHER, textTranslation.Whitelist(lang));
                     return;
                 }
+                
                 if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Creatif)
                         && !tags.hasTags(e.getPlayer(), tags.TagsList.Creatif)) {
                     e.disallow(PlayerLoginEvent.Result.KICK_OTHER, textTranslation.Whitelist(lang));
                     return;
                 }
+
                 if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.RPG)
-                        && !tags.hasTags(e.getPlayer(), tags.TagsList.RPG)) {
+                        && !tags.hasTags(e.getPlayer(), tags.TagsList.Test)) {
                     e.disallow(PlayerLoginEvent.Result.KICK_OTHER, textTranslation.Whitelist(lang));
                     return;
                 }
+                if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.OPPrison)
+                        && !tags.hasTags(e.getPlayer(), tags.TagsList.Test)) {
+                    e.disallow(PlayerLoginEvent.Result.KICK_OTHER, textTranslation.Whitelist(lang));
+                    return;
+                }
+
                 if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Anarchie)
                         && !security.isObsoletSecurity(e.getPlayer(), security.SecurityList.BanAnarchie)) {
                     e.disallow(PlayerLoginEvent.Result.KICK_BANNED, textTranslation.bannedAnarchie(lang));

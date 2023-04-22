@@ -27,7 +27,7 @@ public class prefixTag {
         if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIP)) {
             prefix += "§6⚖";
         }
-        if (tags.hasTags(offlinePlayer, tags.TagsList.RPG)) {
+        if (tags.hasTags(offlinePlayer, tags.TagsList.Test)) {
             prefix += "§6➹";
         }
         if (tags.hasTags(offlinePlayer, tags.TagsList.Survie)) {

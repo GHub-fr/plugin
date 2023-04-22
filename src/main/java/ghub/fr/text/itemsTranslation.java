@@ -914,6 +914,16 @@ public class itemsTranslation {
         }
     }
 
+    public static String OPPrisonTitle(lang.languages lang) {
+        switch (lang) {
+            case fr:
+            case en:
+                return "§6§lOPPrison";
+            default:
+                return "";
+        }
+    }
+
     public static List<String> CreatifLore(lang.languages lang) {
         ArrayList<String> Lore = new ArrayList<String>();
         switch (lang) {
@@ -1077,7 +1087,8 @@ public class itemsTranslation {
             case fr:
                 Lore.add("");
                 Lore.add("§7SkyBlock au style §f\"§2old school§f\" §7avec des ajouts fait maison");
-                Lore.add("§7Faites votre île, §2allez dans un village ou un stronghold §7et §2battez le jeu§f sur un SkyBlock");
+                Lore.add(
+                        "§7Faites votre île, §2allez dans un village ou un stronghold §7et §2battez le jeu§f sur un SkyBlock");
                 Lore.add("");
                 return Lore;
             case en:
@@ -1130,6 +1141,58 @@ public class itemsTranslation {
             case fr:
                 Lore.add("");
                 Lore.add("§fAccès réservé aux §6membres de la survie");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static List<String> OPPrisonLore(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§fTéléportez §7vous vers le serveur §2OPPrison");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static List<String> OPPrisonLoreInfo(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§4Serveur sous white liste");
+                Lore.add("§7OPPrison §2en développement");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static List<String> OPPrisonLoreWhiteList(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§fAccès réservé aux §6membres de l'OPPrison");
                 Lore.add("");
                 return Lore;
             case en:

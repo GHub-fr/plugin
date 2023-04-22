@@ -93,7 +93,7 @@ public class serverSelectorItems {
 
     public static ItemStack ItemStackRPG(lang.languages lang, Player player) throws IOException, ParseException {
         ItemStack is = null;
-        if (tags.hasTags(player, tags.TagsList.RPG)) {
+        if (tags.hasTags(player, tags.TagsList.Test)) {
             is = new ItemStack(Material.SHIELD);
         } else {
             is = new ItemStack(Material.BARRIER);
@@ -101,7 +101,7 @@ public class serverSelectorItems {
         ItemMeta meta = is.getItemMeta();
         meta.setDisplayName(itemsTranslation.RPGTitle(lang));
         List<String> list = new ArrayList<>();
-        if (tags.hasTags(player, tags.TagsList.RPG)) {
+        if (tags.hasTags(player, tags.TagsList.Test)) {
             list.addAll(itemsTranslation.RPGLore(lang));
         } else {
             list.addAll(itemsTranslation.RPGLoreWhiteList(lang));
@@ -111,7 +111,7 @@ public class serverSelectorItems {
         meta.setLore(list);
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
-        if (tags.hasTags(player, tags.TagsList.RPG)) {
+        if (tags.hasTags(player, tags.TagsList.Test)) {
             persistentData.setPersistentDataItemStack(is, persistentData.customKey.rpg);
         }
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.locked);
@@ -171,6 +171,33 @@ public class serverSelectorItems {
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
         if (tags.hasTags(player, tags.TagsList.Survie)) {
             persistentData.setPersistentDataItemStack(is, persistentData.customKey.survie);
+        }
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.locked);
+        return is;
+    }
+
+    public static ItemStack ItemStackOPPrison(lang.languages lang, Player player) throws IOException, ParseException {
+        ItemStack is = null;
+        if (tags.hasTags(player, tags.TagsList.Test)) {
+            is = new ItemStack(Material.STONE_PICKAXE);
+        } else {
+            is = new ItemStack(Material.BARRIER);
+        }
+        ItemMeta meta = is.getItemMeta();
+        meta.setDisplayName(itemsTranslation.OPPrisonTitle(lang));
+        List<String> list = new ArrayList<>();
+        if (tags.hasTags(player, tags.TagsList.Test)) {
+            list.addAll(itemsTranslation.OPPrisonLore(lang));
+        } else {
+            list.addAll(itemsTranslation.OPPrisonLoreWhiteList(lang));
+        }
+        list.addAll(itemsTranslation.OPPrisonLoreInfo(lang));
+        list.addAll(StringToAdd(player, lang, "opprison"));
+        meta.setLore(list);
+        is.setItemMeta(meta);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
+        if (tags.hasTags(player, tags.TagsList.Test)) {
+            persistentData.setPersistentDataItemStack(is, persistentData.customKey.opprison);
         }
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.locked);
         return is;

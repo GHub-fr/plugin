@@ -25,14 +25,19 @@ public class voyageMenu {
             inventoryBuilder.getInventory().setItem(0, serverSelectorItems.ItemStackHub(lang, player));
         }
 
-        if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Survie)
+        else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Survie)
                 || ServerBootFile.getServerType().equals(ServerBootFile.serverType.RPG)
                 || ServerBootFile.getServerType().equals(ServerBootFile.serverType.Anarchie)) {
             inventoryBuilder.getInventory().setItem(2, voyageItems.ItemStackSpawn(lang));
             inventoryBuilder.getInventory().setItem(4, voyageItems.ItemStackWorld(lang));
-        } else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Creatif)) {
+        }
+
+        else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Creatif)
+                || ServerBootFile.getServerType().equals(ServerBootFile.serverType.OPPrison)) {
             inventoryBuilder.getInventory().setItem(2, voyageItems.ItemStackSpawn(lang));
-        } else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.SkyBlock)) {
+        }
+
+        else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.SkyBlock)) {
             inventoryBuilder.getInventory().setItem(2, voyageItems.ItemStackSpawn(lang));
             if (island.GetHasIsland(player)) {
                 inventoryBuilder.getInventory().setItem(4, islandItems.ItemStackTPIle(lang));
