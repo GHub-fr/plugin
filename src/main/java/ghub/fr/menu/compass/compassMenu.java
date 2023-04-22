@@ -49,6 +49,7 @@ public class compassMenu {
             inventoryBuilder.getInventory().setItem(21, serverSelectorItems.ItemStackRPG(lang, player));
             inventoryBuilder.getInventory().setItem(28, serverSelectorItems.ItemStackSkyBlock(lang, player));
             inventoryBuilder.getInventory().setItem(29, serverSelectorItems.ItemStackAnarchie(lang, player));
+            inventoryBuilder.getInventory().setItem(30, serverSelectorItems.ItemStackOPPrison(lang, player));
             inventoryBuilder.getInventory().setItem(16, shopItems.Custom(lang));
             inventoryBuilder.getInventory().setItem(34, islandItems.ItemStackPlayerHeadInfo(player, lang));
             player.openInventory(inventoryBuilder.getInventory());
