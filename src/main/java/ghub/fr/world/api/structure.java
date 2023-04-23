@@ -20,6 +20,7 @@ import org.bukkit.util.Vector;
 
 import ghub.fr.main.main;
 import ghub.fr.system.getDataStorage;
+import ghub.fr.system.ServerBootFile.serverType;
 
 import java.io.File;
 import java.io.IOException;
@@ -129,6 +130,7 @@ public class structure {
             throws IOException, ParseException {
         setStructure(structureName, worldName, x, y, z, 0, null);
     }
+
     public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime)
             throws IOException, ParseException {
         setStructure(structureName, worldName, x, y, z, waitTime, null);
@@ -177,7 +179,7 @@ public class structure {
                         block2.setBlockData(
                                 Bukkit.getServer().createBlockData(fileConfiguration.getString(counter2 + ".data")));
                         setCustomBlock(block2);
-                        
+
                         if (counter > counter2) {
                             if (player != null) {
                                 if (player.isOnline()) {
@@ -204,5 +206,23 @@ public class structure {
             argsToReturn.add(files.getName().split(".yml")[0]);
         }
         return argsToReturn;
+    }
+
+    public static String SpawnName(serverType serverType) {
+        switch (serverType) {
+            case Hub:
+            case Creatif:
+            case RPG:
+                return "spawn";
+            case SkyBlock:
+                return "spawn_SB";
+            case Survie:
+            case Anarchie:
+                return "spawn_Survie";
+            case OPPrison:
+                return "spawn_OPPrison";
+            default:
+                return "spawn";
+        }
     }
 }

@@ -1,5 +1,6 @@
 package ghub.fr.main;
 
+import org.apache.maven.model.Build;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -79,7 +80,26 @@ public class scheduler {
     }
 
     public static void BuildSpawn() throws IOException, ParseException {
-        structure.setStructure("spawn", "Spawn", 1);
+        Boolean BuildSpawn = false;
+
+        String server = ServerBootFile.getServerTypeFromYML().toString().toLowerCase(Locale.ROOT);
+        File file = getDataStorage.serversStatsFile(server);
+
+        if (!file.exists()) {
+            file.createNewFile();
+            BuildSpawn = true;
+        }
+
+        FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
+        if (!fileConfiguration.getBoolean("spawnSet")) {
+            fileConfiguration.set("spawnSet", true);
+            fileConfiguration.save(file);
+            BuildSpawn = true;
+        }
+
+        if (BuildSpawn) {
+            structure.setStructure(structure.SpawnName(ServerBootFile.getServerTypeFromYML()), "Spawn", 1);
+        }
     }
 
     public static void restart() {
