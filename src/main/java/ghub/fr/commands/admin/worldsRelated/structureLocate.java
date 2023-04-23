@@ -39,6 +39,7 @@ public class structureLocate implements CommandExecutor, TabCompleter {
                         i++;
                     }
                     fileConfiguration.save(file);
+                    sender.sendMessage("located");
                     sender.sendMessage(file.getName());
                     return true;
                 }

@@ -22,12 +22,18 @@ public class structureSet implements CommandExecutor, TabCompleter {
                 if (sender instanceof Player) {
                     if (args.length == 1) {
                         structure.setStructure(args[0], ((Player) sender).getWorld().getName());
+                        sender.sendMessage("setted");
+                        return true;
+                    } else if (args.length == 4) {
+                        structure.setStructure(args[0], ((Player) sender).getWorld().getName(),
+                                Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
+                        sender.sendMessage("setted");
                         return true;
                     } else if (args.length == 5) {
                         structure.setStructure(args[0], ((Player) sender).getWorld().getName(),
-                                Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]), 
+                                Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]),
                                 Integer.parseInt(args[4]));
-                                sender.sendMessage("setted");
+                        sender.sendMessage("setted");
                         return true;
                     }
                 }

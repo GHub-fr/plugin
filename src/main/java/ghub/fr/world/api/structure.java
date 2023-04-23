@@ -125,6 +125,10 @@ public class structure {
         setStructure(structureName, worldName, 0, 0, 0, waitTime, null);
     }
 
+    public static void setStructure(String structureName, String worldName, int x, int y, int z)
+            throws IOException, ParseException {
+        setStructure(structureName, worldName, x, y, z, 0, null);
+    }
     public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime)
             throws IOException, ParseException {
         setStructure(structureName, worldName, x, y, z, waitTime, null);
