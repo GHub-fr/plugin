@@ -113,30 +113,36 @@ public class structure {
     }
 
     public static void setStructure(String structureName, String worldName) throws IOException, ParseException {
-        setStructure(structureName, worldName, 0, 0, 0, 0, null);
+        setStructure(structureName, worldName, 0, 0, 0, 0, 0, null);
     }
 
     public static void setStructure(String structureName, String worldName, Player player)
             throws IOException, ParseException {
-        setStructure(structureName, worldName, 0, 0, 0, 0, player);
+        setStructure(structureName, worldName, 0, 0, 0, 0, 0, player);
+    }
+
+    public static void setStructure(String structureName, String worldName, int waitTime, int delay)
+            throws IOException, ParseException {
+        setStructure(structureName, worldName, 0, 0, 0, waitTime, delay, null);
     }
 
     public static void setStructure(String structureName, String worldName, int waitTime)
             throws IOException, ParseException {
-        setStructure(structureName, worldName, 0, 0, 0, waitTime, null);
+        setStructure(structureName, worldName, 0, 0, 0, waitTime, 0, null);
     }
 
     public static void setStructure(String structureName, String worldName, int x, int y, int z)
             throws IOException, ParseException {
-        setStructure(structureName, worldName, x, y, z, 0, null);
+        setStructure(structureName, worldName, x, y, z, 0, 0, null);
     }
 
     public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime)
             throws IOException, ParseException {
-        setStructure(structureName, worldName, x, y, z, waitTime, null);
+        setStructure(structureName, worldName, x, y, z, waitTime, 0, null);
     }
 
     public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime,
+            int delay,
             Player player) throws IOException, ParseException {
 
         Plugin plugin = JavaPlugin.getPlugin(main.class);
@@ -195,7 +201,7 @@ public class structure {
                     } catch (Exception e) {
                     }
                 }
-            }.runTaskTimer(plugin, 0, waitTime);
+            }.runTaskTimer(plugin, delay, waitTime);
         }
     }
 

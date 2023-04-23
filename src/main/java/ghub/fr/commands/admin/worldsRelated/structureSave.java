@@ -22,7 +22,6 @@ public class structureSave implements CommandExecutor, TabCompleter {
                         structure.saveStructure(Integer.valueOf(args[0]), Integer.valueOf(args[3]),
                                 Integer.valueOf(args[1]), Integer.valueOf(args[4]), Integer.valueOf(args[2]),
                                 Integer.valueOf(args[5]), ((Player) sender).getWorld(), args[6]);
-                                sender.sendMessage("saved");
                         return true;
                     }
                 }

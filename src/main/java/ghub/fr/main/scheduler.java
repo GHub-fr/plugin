@@ -1,6 +1,5 @@
 package ghub.fr.main;
 
-import org.apache.maven.model.Build;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -98,7 +97,7 @@ public class scheduler {
         }
 
         if (BuildSpawn) {
-            structure.setStructure(structure.SpawnName(ServerBootFile.getServerTypeFromYML()), "Spawn", 1);
+            structure.setStructure(structure.SpawnName(ServerBootFile.getServerTypeFromYML()), "Spawn", 1, 20 * 5);
         }
     }
 
