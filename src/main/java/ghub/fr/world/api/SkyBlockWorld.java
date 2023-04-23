@@ -10,7 +10,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class voidWorld extends ChunkGenerator {
+public class SkyBlockWorld extends ChunkGenerator {
+
     @Override
     public ChunkData generateChunkData(World world, Random random, int x, int z, BiomeGrid biome) {
         SimplexOctaveGenerator generator = new SimplexOctaveGenerator(new Random(world.getSeed()), 8);
@@ -36,7 +37,7 @@ public class voidWorld extends ChunkGenerator {
 
     @Override
     public boolean shouldGenerateStructures() {
-        return false;
+        return true;
     }
 
     @Override
@@ -46,7 +47,7 @@ public class voidWorld extends ChunkGenerator {
 
     @Override
     public boolean shouldGenerateMobs() {
-        return false;
+        return true;
     }
 
     @Override

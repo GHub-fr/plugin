@@ -31,7 +31,7 @@ public class worldManager implements Listener {
             WorldType worldType, Boolean SkyBlock) {
         WorldCreator worldCreator = new WorldCreator(WorldName);
         if (SkyBlock) {
-            worldCreator.generator(new voidWorld());
+            worldCreator.generator(new SkyBlockWorld());
         }
         worldCreator.generateStructures(structure);
         worldCreator.environment(environment);
