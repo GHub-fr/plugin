@@ -43,94 +43,98 @@ public class spawnNPC {
         return null;
     }
 
-    public static void summonNPC() {
+    public static void summonNPCAll() {
+        summonNPCChild();
+        summonNPCCreatif();
+        summonNPCHub();
+        summonNPCOPPrison();
+        summonNPCRPG();
+        summonNPCSkyBlock();
+        summonNPCSurvieAnarchie();
+    }
+
+    public static void summonNPCHub() {
         World spawn = Bukkit.getWorld("Spawn");
         Villager villager = null;
-
-        villager = Summon(new Location(spawn, 0.5, 64, 5.5, -180, 0), "Menu", false, Villager.Profession.FLETCHER,
-                Villager.Type.DESERT);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Mainmenu);
-        villager.setGlowing(true);
-
-        villager = Summon(new Location(spawn, -2.5, 64, 12.5, -165, 0), "Guide", false,
-                Villager.Profession.LIBRARIAN,
-                Villager.Type.SAVANNA);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-        entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Guide);
-        villager.setGlowing(true);
-
-        if (!ServerBootFile.getServerType().equals(ServerBootFile.serverType.Hub) && !ServerBootFile.getServerType()
-                .equals(ServerBootFile.serverType.Creatif)
-                && !ServerBootFile.getServerType().equals(ServerBootFile.serverType.RPG)
-                && !ServerBootFile.getServerType().equals(ServerBootFile.serverType.OPPrison)) {
-            villager = Summon(new Location(spawn, -5.5, 64, 17.5, 0, 30), "Commerçant", false,
-                    Villager.Profession.CARTOGRAPHER,
-                    Villager.Type.TAIGA);
+        if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Hub)) {
+            villager = Summon(new Location(spawn, 0.5, 64, 5.5, -180, 0), "Menu", false, Villager.Profession.FLETCHER,
+                    Villager.Type.DESERT);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Mainmenu);
             villager.setGlowing(true);
-            //
-            villager = Summon(new Location(spawn, -15.5, 64, 8.5, 0, 0), "Commerçant", false,
-                    Villager.Profession.CARTOGRAPHER,
-                    Villager.Type.TAIGA);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
-            //
-            villager = Summon(new Location(spawn, -15.5, 64, 25.5, -180, 0), "Commerçant", false,
-                    Villager.Profession.CARTOGRAPHER,
-                    Villager.Type.TAIGA);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
-            //
-            villager = Summon(new Location(spawn, -24.5, 64, 14.5, 0, 35), "Commerçant", false,
-                    Villager.Profession.CLERIC,
+
+            villager = Summon(new Location(spawn, -2.5, 64, 12.5, -165, 0), "Guide", false,
+                    Villager.Profession.LIBRARIAN,
                     Villager.Type.SAVANNA);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
-            //
-            villager = Summon(new Location(spawn, -4.5, 64, 22.5, 90, 20), "Commerçant", false,
-                    Villager.Profession.ARMORER,
-                    Villager.Type.SNOW);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
-        }
-
-        if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.SkyBlock)) {
-            villager = Summon(new Location(spawn, 9.5, 64, 9.5, 135, 0), "Îles", false, Villager.Profession.FARMER,
-                    Villager.Type.JUNGLE);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Ile);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Guide);
             villager.setGlowing(true);
         }
+    }
 
-        if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Survie) || ServerBootFile.getServerType()
-                .equals(ServerBootFile.serverType.Anarchie)) {
-            villager = Summon(new Location(spawn, 9.5, 64, 9.5, 135, 0), "Téléportation ~ Monde", false,
-                    Villager.Profession.FARMER,
-                    Villager.Type.JUNGLE);
+    public static void summonNPCCreatif() {
+        World spawn = Bukkit.getWorld("Spawn");
+        Villager villager = null;
+        if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Creatif)) {
+            villager = Summon(new Location(spawn, 0.5, 64, 5.5, -180, 0), "Menu", false, Villager.Profession.FLETCHER,
+                    Villager.Type.DESERT);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.tpWorld);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Mainmenu);
             villager.setGlowing(true);
-            //
-            villager = Summon(new Location(spawn, 11.5, 64, 7.5, 120, 0), "Téléportation ~ lit", false,
-                    Villager.Profession.FARMER,
-                    Villager.Type.JUNGLE);
+        }
+    }
+
+    public static void summonNPCOPPrison() {
+        World spawn = Bukkit.getWorld("Spawn");
+        Villager villager = null;
+        if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.OPPrison)) {
+            villager = Summon(new Location(spawn, 0.5, 62, 13.5, -180, 0), "Menu", false, Villager.Profession.FLETCHER,
+                    Villager.Type.DESERT);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.tpBed);
-        }
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Mainmenu);
+            villager.setGlowing(true);
 
+            villager = Summon(new Location(spawn, -11.5, 63, 53.5, 0, 0), "Guide", false,
+                    Villager.Profession.LIBRARIAN,
+                    Villager.Type.SAVANNA);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Guide);
+            villager.setGlowing(true);
+
+            villager = Summon(new Location(spawn, 12.5, 63, 53.5, 0, 0), "Commerçant", false,
+                    Villager.Profession.CARTOGRAPHER,
+                    Villager.Type.TAIGA);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+            villager.setGlowing(true);
+        }
+    }
+
+    public static void summonNPCRPG() {
+        World spawn = Bukkit.getWorld("Spawn");
+        Villager villager = null;
         if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.RPG)) {
+            villager = Summon(new Location(spawn, 0.5, 64, 5.5, -180, 0), "Menu", false, Villager.Profession.FLETCHER,
+                    Villager.Type.DESERT);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Mainmenu);
+            villager.setGlowing(true);
+
+            villager = Summon(new Location(spawn, -2.5, 64, 12.5, -165, 0), "Guide", false,
+                    Villager.Profession.LIBRARIAN,
+                    Villager.Type.SAVANNA);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Guide);
+            villager.setGlowing(true);
+
             villager = Summon(new Location(spawn, 9.5, 64, 9.5, 135, 0), "Quêtes (Bientôt)", false,
                     Villager.Profession.LIBRARIAN,
                     Villager.Type.JUNGLE);
@@ -139,7 +143,92 @@ public class spawnNPC {
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Quetes);
             villager.setGlowing(true);
         }
+    }
 
+    public static void summonNPCSurvieAnarchie() {
+        World spawn = Bukkit.getWorld("Spawn");
+        Villager villager = null;
+        if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Survie)
+                || ServerBootFile.getServerType().equals(ServerBootFile.serverType.Anarchie)) {
+            villager = Summon(new Location(spawn, 0.5, 64, 5.5, -180, 0), "Menu", false, Villager.Profession.FLETCHER,
+                    Villager.Type.DESERT);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Mainmenu);
+            villager.setGlowing(true);
+            //
+            villager = Summon(new Location(spawn, -2.5, 64, 12.5, -165, 0), "Guide", false,
+                    Villager.Profession.LIBRARIAN,
+                    Villager.Type.SAVANNA);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Guide);
+            villager.setGlowing(true);
+            //
+            villager = Summon(new Location(spawn, 5.5, 64, 10.5, 144, 0), "Téléportation ~ Monde", false,
+                    Villager.Profession.FARMER,
+                    Villager.Type.JUNGLE);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.tpWorld);
+            villager.setGlowing(true);
+            //
+            villager = Summon(new Location(spawn, 2.5, 64, 11.5, 170, 0), "Téléportation ~ lit", false,
+                    Villager.Profession.FARMER,
+                    Villager.Type.JUNGLE);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.tpBed);
+
+            villager = Summon(new Location(spawn, 7.5, 64, -0.5, -90, 30), "Commerçant", false,
+                    Villager.Profession.CARTOGRAPHER,
+                    Villager.Type.TAIGA);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+            villager.setGlowing(true);
+        }
+    }
+
+    public static void summonNPCSkyBlock() {
+        World spawn = Bukkit.getWorld("Spawn");
+        Villager villager = null;
+        if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.SkyBlock)) {
+            villager = Summon(new Location(spawn, 0.5, 64, 5.5, -180, 0), "Menu", false, Villager.Profession.FLETCHER,
+                    Villager.Type.DESERT);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Mainmenu);
+            villager.setGlowing(true);
+
+            villager = Summon(new Location(spawn, 5.0, 64, 2.0, 110, 0), "Guide", false,
+                    Villager.Profession.LIBRARIAN,
+                    Villager.Type.SAVANNA);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Guide);
+            villager.setGlowing(true);
+
+            villager = Summon(new Location(spawn, -2.5, 64, 3.5, -148, 0), "Îles", false, Villager.Profession.FARMER,
+                    Villager.Type.JUNGLE);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Ile);
+            villager.setGlowing(true);
+
+            villager = Summon(new Location(spawn, 10.5, 64, 13.5, 135, 0), "Commerçant", false,
+                    Villager.Profession.CARTOGRAPHER,
+                    Villager.Type.TAIGA);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+            villager.setGlowing(true);
+        }
+    }
+
+    public static void summonNPCChild() {
+        World spawn = Bukkit.getWorld("Spawn");
+        Villager villager = null;
         if (!ServerBootFile.getServerType()
                 .equals(ServerBootFile.serverType.Creatif)) {
             villager = Summon(new Location(spawn, 0, 64, 0, 0, 0), "Louis", true, Villager.Profession.NITWIT,
@@ -180,7 +269,7 @@ public class spawnNPC {
             try {
                 keepSpawnInMemory();
                 DeleteNPCOnSpawn();
-                summonNPC();
+                summonNPCAll();
             } catch (Exception e) {
                 e.printStackTrace();
             }
