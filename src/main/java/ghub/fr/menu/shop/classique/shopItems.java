@@ -205,8 +205,9 @@ public class shopItems {
     }
 
     public static ItemStack Custom(lang.languages lang) {
-        ItemStack is = new ItemStack(Material.EXPERIENCE_BOTTLE, 1);
+        ItemStack is = new ItemStack(Material.DIAMOND, 1);
         ItemMeta meta = is.getItemMeta();
+        meta.setCustomModelData(4);
         meta.setDisplayName(shopTranslation.CustomTitle(lang));
         ArrayList<String> Lore = new ArrayList<String>();
         Lore.add(" ");
