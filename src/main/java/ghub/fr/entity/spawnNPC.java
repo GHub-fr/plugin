@@ -106,12 +106,28 @@ public class spawnNPC {
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Guide);
             villager.setGlowing(true);
 
-            villager = Summon(new Location(spawn, 12.5, 63, 53.5, 480, 0), "Commerçant", false,
+            villager = Summon(new Location(spawn, 12.5, 63, 53.5, 180, 0), "Pioche", false,
                     Villager.Profession.CARTOGRAPHER,
                     Villager.Type.TAIGA);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
-            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.pickaxe);
+            villager.setGlowing(true);
+
+            villager = Summon(new Location(spawn, 31.5, 63, 20.5,90, 0), "Mines", false,
+                    Villager.Profession.CARTOGRAPHER,
+                    Villager.Type.TAIGA);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.mines);
+            villager.setGlowing(true);
+
+            villager = Summon(new Location(spawn, -30.5, 63, 20.5, -90, 0), "Mines", false,
+                    Villager.Profession.CARTOGRAPHER,
+                    Villager.Type.TAIGA);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.mines);
             villager.setGlowing(true);
         }
     }
