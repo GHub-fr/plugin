@@ -20,6 +20,10 @@ public class joinAtSpawn implements Listener {
                 || ServerBootFile.getServerType().equals(ServerBootFile.serverType.RPG)
                 || ServerBootFile.getServerType().equals(ServerBootFile.serverType.OPPrison)) {
             teleportation.Teleport(e.getPlayer(), "Spawn", false);
+        } else {
+            if (e.getPlayer().getWorld().getName().equals("Spawn")) {
+                teleportation.Teleport(e.getPlayer(), "Spawn", false);
+            }
         }
     }
 }
