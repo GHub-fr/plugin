@@ -50,6 +50,7 @@ import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 
+import java.io.IOException;
 import java.util.logging.Logger;
 
 public class main extends JavaPlugin implements PluginMessageListener {
@@ -75,6 +76,7 @@ public class main extends JavaPlugin implements PluginMessageListener {
         logger.info("Plugin Enabled");
         try {
             discordMain.startBot();
+            generateResourcePack();
         } catch (Exception e) {
         }
         Bukkit.getPluginManager().registerEvents(new eventsMinecraft(), this);
@@ -94,6 +96,13 @@ public class main extends JavaPlugin implements PluginMessageListener {
         this.getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
         this.getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord",
                 new BungeePluginMessageListener());
+    }
+
+    public static String url = "https://ghub.fr/storage/zip/resourcePack.zip";
+    public static byte[] sha1;
+
+    private void generateResourcePack() throws IOException {
+        sha1 = ResourcePackHandler.getSHA1(url);
     }
 
     @Override
@@ -147,6 +156,7 @@ public class main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginManager().registerEvents(new BuildRules(), this);
         Bukkit.getPluginManager().registerEvents(new voyageEvents(), this);
         Bukkit.getPluginManager().registerEvents(new profileEvents(), this);
+        Bukkit.getPluginManager().registerEvents(new ResourcePackHandler(), this);
     }
 
     public void registerCommands() {
