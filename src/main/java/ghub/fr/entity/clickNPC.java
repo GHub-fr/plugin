@@ -8,6 +8,8 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 import ghub.fr.menu.compass.compassMenu;
 import ghub.fr.menu.island.islandMenu;
+import ghub.fr.menu.prison.minesMenu;
+import ghub.fr.menu.prison.pickaxeMenu;
 import ghub.fr.menu.shop.classique.shopMenu;
 import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
@@ -42,8 +44,20 @@ public class clickNPC implements Listener {
                 tpWorld(player);
             } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.tpBed)) {
                 tpBed(player);
+            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.mines)) {
+                mineMenu(player);
+            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.pickaxe)) {
+                pickaxeMenu(player);
             }
         }
+    }
+
+    public void mineMenu(Player player) throws IOException, ParseException {
+        minesMenu.minesMenu(player);
+    }
+
+    public void pickaxeMenu(Player player) throws IOException, ParseException {
+        pickaxeMenu.pickaxeMenu(player);
     }
 
     public void tpWorld(Player player) throws IOException, ParseException {

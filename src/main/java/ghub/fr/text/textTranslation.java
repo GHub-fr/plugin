@@ -475,6 +475,16 @@ public class textTranslation {
         }
     }
 
+    public static String Mines(lang.languages languages) {
+        switch (languages) {
+            case fr:
+            case en:
+                return "§6§lMines";
+            default:
+                return "";
+        }
+    }
+
     public static String voyage(lang.languages languages) {
         switch (languages) {
             case fr:

@@ -87,8 +87,12 @@ public class persistentData {
         specialsautosell, specialsfly, specialsaura, specialsjoinquit, specialsvip, specials, specialsmenu,
         specialsconfirm, /*
                          */
-        bonusores, bonusworldborder, bonustickspeed, bonusplayeramount, bonusmenu, spawn, world, info, tags, playerdata, bonusconfirm, /*
-                                                                                                                                       */
-        hub, serverselector, survie, skyblock, rpg, anarchie, creatif, opprison
+        bonusores, bonusworldborder, bonustickspeed, bonusplayeramount, bonusmenu, spawn, world, info, tags, playerdata,
+        bonusconfirm, /*
+                      */
+        hub, serverselector, survie, skyblock, rpg, anarchie, creatif,
+        opprison, /*
+                  */
+        mineStone, mineIron, mineGold,mineDiamond,mineNetherite, mineSelector, pickaxeSelector
     }
 }

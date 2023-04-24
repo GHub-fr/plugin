@@ -1231,4 +1231,195 @@ public class itemsTranslation {
                 return Lore;
         }
     }
+
+    public static String MineNetheriteTitle(lang.languages lang) {
+        switch (lang) {
+            case fr:
+            case en:
+                return "§6§lNetherite";
+            default:
+                return "";
+        }
+    }
+
+    public static String MineDiamondTitle(lang.languages lang) {
+        switch (lang) {
+            case fr:
+            case en:
+                return "§6§lDiamond";
+            default:
+                return "";
+        }
+    }
+
+    public static String MineGoldTitle(lang.languages lang) {
+        switch (lang) {
+            case fr:
+            case en:
+                return "§6§lGold";
+            default:
+                return "";
+        }
+    }
+
+    public static String MineIronTitle(lang.languages lang) {
+        switch (lang) {
+            case fr:
+            case en:
+                return "§6§lIron";
+            default:
+                return "";
+        }
+    }
+
+    public static String MineStoneTitle(lang.languages lang) {
+        switch (lang) {
+            case fr:
+            case en:
+                return "§6§lStone";
+            default:
+                return "";
+        }
+    }
+
+    public static List<String> MineStoneLore(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§fTéléportez vous vers la mine : " + MineStoneTitle(lang));
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static List<String> MineIronLore(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§fTéléportez vous vers la mine : " + MineIronTitle(lang));
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static List<String> MineGoldLore(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§fTéléportez vous vers la mine : " + MineGoldTitle(lang));
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static List<String> MineDiamondLore(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§fTéléportez vous vers la mine : " + MineDiamondTitle(lang));
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static List<String> MineNetheriteLore(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§fTéléportez vous vers la mine : " + MineNetheriteTitle(lang));
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static List<String> MineSelectorLore(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§fTéléportez vous vers une §6mine");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static String MineSelectorTitle(lang.languages lang) {
+        switch (lang) {
+            case fr:
+            case en:
+                return "§6§lMines";
+            default:
+                return "";
+        }
+    }
+
+    public static List<String> PickaxeSelectorLore(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§6Améliorez §fvotre pioche");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("§6Upgrade §fyour pickaxes");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static String PickaxeSelectorTitle(lang.languages lang) {
+        switch (lang) {
+            case fr:
+                return "§6§lPioches";
+            case en:
+                return "§6§lPickaxes";
+            default:
+                return "";
+        }
+    }
 }

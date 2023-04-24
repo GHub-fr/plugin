@@ -24,6 +24,8 @@ import ghub.fr.menu.compass.compassEvents;
 import ghub.fr.menu.island.islandEvents;
 import ghub.fr.menu.island.islandHeadsEvents;
 import ghub.fr.menu.island.bonus.bonusEvents;
+import ghub.fr.menu.prison.minesEvents;
+import ghub.fr.menu.prison.pickaxeEvents;
 import ghub.fr.menu.profile.profileEvents;
 import ghub.fr.menu.serverSelector.serverSelectorEvents;
 import ghub.fr.menu.shop.classique.shopEvents;
@@ -156,6 +158,8 @@ public class main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginManager().registerEvents(new BuildRules(), this);
         Bukkit.getPluginManager().registerEvents(new voyageEvents(), this);
         Bukkit.getPluginManager().registerEvents(new profileEvents(), this);
+        Bukkit.getPluginManager().registerEvents(new minesEvents(), this);
+        Bukkit.getPluginManager().registerEvents(new pickaxeEvents(), this);
         Bukkit.getPluginManager().registerEvents(new ResourcePackHandler(), this);
     }
 
