@@ -91,14 +91,14 @@ public class spawnNPC {
         World spawn = Bukkit.getWorld("Spawn");
         Villager villager = null;
         if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.OPPrison)) {
-            villager = Summon(new Location(spawn, 0.5, 62, 13.5, -180, 0), "Menu", false, Villager.Profession.FLETCHER,
+            villager = Summon(new Location(spawn, 0.5, 62, 13.5, 180, 0), "Menu", false, Villager.Profession.FLETCHER,
                     Villager.Type.DESERT);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Mainmenu);
             villager.setGlowing(true);
 
-            villager = Summon(new Location(spawn, -11.5, 63, 53.5, 0, 0), "Guide", false,
+            villager = Summon(new Location(spawn, -11.5, 63, 53.5, 180, 0), "Guide", false,
                     Villager.Profession.LIBRARIAN,
                     Villager.Type.SAVANNA);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
@@ -106,7 +106,7 @@ public class spawnNPC {
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.Guide);
             villager.setGlowing(true);
 
-            villager = Summon(new Location(spawn, 12.5, 63, 53.5, 0, 0), "Commerçant", false,
+            villager = Summon(new Location(spawn, 12.5, 63, 53.5, 480, 0), "Commerçant", false,
                     Villager.Profession.CARTOGRAPHER,
                     Villager.Type.TAIGA);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnVillager);
