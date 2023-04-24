@@ -103,6 +103,28 @@ public class main extends JavaPlugin implements PluginMessageListener {
 
     private void generateResourcePack() throws IOException {
         sha1 = ResourcePackHandler.getSHA1(url);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
+        System.out.println(sha1);
     }
 
     @Override
