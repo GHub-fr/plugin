@@ -23,33 +23,12 @@ public class ResourcePackHandler implements Listener {
         String text = "§4Utilisation du resource pack §f...";
         Boolean force = true;
 
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1.getBytes());
-        System.out.println(sha1.getBytes());
-        System.out.println(sha1.getBytes());
-        System.out.println(sha1.getBytes());
-        System.out.println(sha1.getBytes());
-        System.out.println(sha1.getBytes());
-        System.out.println(sha1.getBytes());
-        System.out.println(sha1.getBytes());
-        System.out.println(sha1.getBytes());
-        System.out.println(sha1.getBytes());
-        System.out.println(sha1.getBytes("UTF-8"));
-        System.out.println(sha1.getBytes("UTF-8"));
-        System.out.println(sha1.getBytes("UTF-8"));
-        System.out.println(sha1.getBytes("UTF-8"));
-        System.out.println(sha1.getBytes("UTF-8"));
-        System.out.println(sha1.getBytes("UTF-8"));
-        System.out.println(sha1.getBytes("UTF-8"));
-        System.out.println(sha1.getBytes("UTF-8"));
-        System.out.println(sha1.getBytes("UTF-8"));
+        System.out.println("default : "+sha1);
+        System.out.println("default : " +sha1);
+        System.out.println("bytes : " +sha1.getBytes());
+        System.out.println("bytes : " +sha1.getBytes());
+        System.out.println("UTF : " +sha1.getBytes("UTF-8"));
+        System.out.println("UTF : " +sha1.getBytes("UTF-8"));
 
         setResourcePack(e.getPlayer(), url, sha1, text, force);
     }
