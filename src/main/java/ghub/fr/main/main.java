@@ -99,32 +99,10 @@ public class main extends JavaPlugin implements PluginMessageListener {
     }
 
     public static String url = "https://ghub.fr/storage/zip/resourcePack.zip";
-    public static byte[] sha1;
+    public static String sha1;
 
     private void generateResourcePack() throws IOException {
         sha1 = ResourcePackHandler.getSHA1(url);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
-        System.out.println(sha1);
     }
 
     @Override
