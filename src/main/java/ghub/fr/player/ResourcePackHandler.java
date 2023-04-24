@@ -6,12 +6,12 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.HexFormat;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-
 import ghub.fr.main.main;
 
 public class ResourcePackHandler implements Listener {
@@ -28,13 +28,14 @@ public class ResourcePackHandler implements Listener {
         System.out.println("bytes : " +sha1.getBytes());
         System.out.println("bytes : " +sha1.getBytes());
         System.out.println("UTF : " +sha1.getBytes("UTF-8"));
-        System.out.println("UTF : " +sha1.getBytes("UTF-8"));
+        System.out.println("UTF : " + sha1.getBytes("UTF-8"));
 
         setResourcePack(e.getPlayer(), url, sha1, text, force);
     }
 
     public static void setResourcePack(Player player, String url, String hash, String text, boolean force) {
-        player.setResourcePack(url, hash.getBytes(), text, force);
+        byte[] hashed = HexFormat.of().parseHex(hash);
+        player.setResourcePack(url, hashed, text, force);
     }
 
     public static String getSHA1(String url) throws IOException {
