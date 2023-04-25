@@ -80,8 +80,9 @@ public class BossBarMessage implements Listener {
 
                         remainDuration--;
                     } else {
-                        bossBar.setProgress(remainDuration / duration);
-                        
+                        double progress = remainDuration / duration;
+                        bossBar.setProgress(progress);
+
                         if (remainDuration == 0) {
                             bossBar.removeAll();
                             Bukkit.removeBossBar(key);
