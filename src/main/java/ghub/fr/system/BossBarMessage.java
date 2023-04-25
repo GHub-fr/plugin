@@ -74,11 +74,14 @@ public class BossBarMessage implements Listener {
                                     BarStyle.SOLID);
                         }
 
+                        bossBar.setProgress(1);
                         bossBar.setVisible(true);
                         bossBar.addPlayer(player);
 
                         remainDuration--;
                     } else {
+                        bossBar.setProgress(remainDuration / duration);
+                        
                         if (remainDuration == 0) {
                             bossBar.removeAll();
                             Bukkit.removeBossBar(key);
@@ -90,7 +93,6 @@ public class BossBarMessage implements Listener {
                                 value = 0;
                             }
                         } else {
-                            bossBar.setProgress((double) (remainDuration / duration));
                             remainDuration--;
 
                             if (value == 0) {
