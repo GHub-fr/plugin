@@ -72,7 +72,6 @@ public class BossBarMessage implements Listener {
                                     "§4§l" + ServerBootFile.getServerType() + "§7.§fGHub§7.§ffr",
                                     BarColor.WHITE,
                                     BarStyle.SOLID);
-                            value = 0;
                         }
 
                         bossBar.setVisible(true);
@@ -85,10 +84,14 @@ public class BossBarMessage implements Listener {
                             Bukkit.removeBossBar(key);
 
                             remainDuration = duration + 1;
+
                             value++;
+                            if (value == 3) {
+                                value = 0;
+                            }
                         } else {
+                            bossBar.setProgress((double) (remainDuration / duration));
                             remainDuration--;
-                            bossBar.setProgress(remainDuration / duration);
 
                             if (value == 0) {
                                 bossBar.setTitle("§6Gold §f: §2§l" + gold.GetGold(player));
