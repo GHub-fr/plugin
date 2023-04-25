@@ -39,7 +39,7 @@ public class BossBarMessage implements Listener {
 
             int duration = 10;
             int value = 0;
-            int remainDuration = duration;
+            int remainDuration = duration + 1;
 
             BossBar bossBar;
             NamespacedKey key = getKeyAsNameSpaced(player);
