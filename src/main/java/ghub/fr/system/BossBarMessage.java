@@ -80,10 +80,12 @@ public class BossBarMessage implements Listener {
 
                         remainDuration--;
                     } else {
-                        
-                        double progress = remainDuration / duration;
+
+                        double progress = (double) remainDuration / duration;
                         bossBar.setProgress(progress);
-                        player.sendMessage("" + progress);
+                        player.sendMessage("progress : " + progress);
+                        player.sendMessage("duration : " + duration);
+                        player.sendMessage("remain : " + remainDuration);
 
                         if (remainDuration == 0) {
                             bossBar.removeAll();
