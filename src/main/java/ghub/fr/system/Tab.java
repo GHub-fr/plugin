@@ -26,7 +26,7 @@ public class Tab {
         Plugin plugin = JavaPlugin.getPlugin(main.class);
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         Scoreboard board = manager.getNewScoreboard();
-        Objective objective = board.registerNewObjective("showhealth", "view", "§4⚡", RenderType.HEARTS);
+        Objective objective = board.registerNewObjective("showhealth", "view", "", RenderType.HEARTS);
         objective.setDisplaySlot(DisplaySlot.BELOW_NAME);
 
         new BukkitRunnable() {
