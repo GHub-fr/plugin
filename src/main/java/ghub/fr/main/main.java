@@ -35,6 +35,7 @@ import ghub.fr.menu.shop.specials.bonus.joinQuitMessage;
 import ghub.fr.menu.shop.specials.bonus.teleportationAura;
 import ghub.fr.menu.voyage.voyageEvents;
 import ghub.fr.player.*;
+import ghub.fr.system.BossBarMessage;
 import ghub.fr.system.BungeePluginMessageListener;
 import ghub.fr.system.MOTD;
 import ghub.fr.system.ServerBootFile;
@@ -160,6 +161,7 @@ public class main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginManager().registerEvents(new profileEvents(), this);
         Bukkit.getPluginManager().registerEvents(new minesEvents(), this);
         Bukkit.getPluginManager().registerEvents(new pickaxeEvents(), this);
+        Bukkit.getPluginManager().registerEvents(new BossBarMessage(), this);
         Bukkit.getPluginManager().registerEvents(new ResourcePackHandler(), this);
     }
 
