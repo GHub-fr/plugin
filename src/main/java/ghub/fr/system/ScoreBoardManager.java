@@ -51,6 +51,6 @@ public class ScoreBoardManager implements Listener {
                 send(player);
 
             }
-        }.runTaskTimerAsynchronously(plugin, 0, 30);
+        }.runTaskTimer(plugin, 0, 30);
     }
 }
