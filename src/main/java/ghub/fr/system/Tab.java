@@ -110,7 +110,7 @@ public class Tab {
     }
 
     public static void setTabName(Player player) throws IOException, ParseException {
-        player.setPlayerListName(prefixTag.prefixTag(player) + "§r§f" + player.getDisplayName() + " " + player.getHealth() + "§4⚡");
+        player.setPlayerListName(prefixTag.prefixTag(player) + "§r§f" + player.getDisplayName() + " " + player.getHealth() + "");
     }
 
     public static String nameTeam(OfflinePlayer offlinePlayer) throws IOException, ParseException {
