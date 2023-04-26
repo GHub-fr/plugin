@@ -25,7 +25,7 @@ public class ScoreBoardManager implements Listener {
         Scoreboard board = manager.getNewScoreboard();
         Objective objective = board.registerNewObjective("sidebar", "view", "", RenderType.INTEGER);
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
-        e.getPlayer().setScoreboard(board);
+
         updatePlayer(e.getPlayer(), objective, board);
     }
 
@@ -42,6 +42,7 @@ public class ScoreBoardManager implements Listener {
 
         Score test = objective.getScore("§7» §6Gold : " + gold.GetGoldFormat(player));
         test.setScore(3);
+        player.setScoreboard(board);
     }
 
     public static void updatePlayer(Player player, Objective objective, Scoreboard board) {
