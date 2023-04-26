@@ -1,6 +1,5 @@
 package ghub.fr.system;
 
-
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.boss.BarColor;
@@ -36,7 +35,7 @@ public class BossBarMessage implements Listener {
         Plugin plugin = JavaPlugin.getPlugin(main.class);
         new BukkitRunnable() {
 
-            int duration = 10;
+            int duration = 20;
             int value = 0;
             int remainDuration = duration + 1;
 
@@ -61,6 +60,15 @@ public class BossBarMessage implements Listener {
                             bossBar = Bukkit.createBossBar(
                                     key,
                                     "",
+                                    BarColor.WHITE,
+                                    BarStyle.SOLID);
+                        }
+                        
+                        else if (value == 2) {
+                            bossBar = Bukkit.createBossBar(
+                                    key,
+                                    "§f§lJoueurs §2en ligne §r§f: §2" + Bukkit.getOnlinePlayers().size() + " §f/ §4"
+                                            + Bukkit.getMaxPlayers(),
                                     BarColor.WHITE,
                                     BarStyle.SOLID);
                         }
@@ -90,7 +98,7 @@ public class BossBarMessage implements Listener {
                             remainDuration = duration + 1;
 
                             value++;
-                            if (value == 3) {
+                            if (value == 4) {
                                 value = 0;
                             }
                         } else {
@@ -106,6 +114,6 @@ public class BossBarMessage implements Listener {
                     Bukkit.removeBossBar(key);
                 }
             }
-        }.runTaskTimerAsynchronously(plugin, 0, 20);
+        }.runTaskTimerAsynchronously(plugin, 0, 5);
     }
 }
