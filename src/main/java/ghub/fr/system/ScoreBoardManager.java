@@ -31,12 +31,18 @@ public class ScoreBoardManager implements Listener {
         Objective objective = board.registerNewObjective("sidebar", "view", "", RenderType.INTEGER);
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 
-        Score onlineName = objective.getScore("§7» §2en ligne");
-        onlineName.setScore(15);
+        Score space = objective.getScore(" ");
+        space.setScore(0);
 
-        Team onlineCounter = board.registerNewTeam("onlineCounter");
-        onlineCounter.addEntry(player.getUniqueId().toString());
-        onlineCounter.setPrefix("§2" + Bukkit.getOnlinePlayers().size() + "§f / §4" + Bukkit.getMaxPlayers());
+        Score onlineName = objective.getScore("§7» §2en ligne §f: §2" + Bukkit.getOnlinePlayers().size() + "§f / §4"
+                + Bukkit.getMaxPlayers());
+        onlineName.setScore(2);
+
+        Score space2 = objective.getScore(" ");
+        space2.setScore(0);
+
+        Score test = objective.getScore("§7» test");
+        test.setScore(1);
 
         player.setScoreboard(board);
     }
