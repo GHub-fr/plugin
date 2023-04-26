@@ -38,6 +38,7 @@ import ghub.fr.player.*;
 import ghub.fr.system.BossBarMessage;
 import ghub.fr.system.BungeePluginMessageListener;
 import ghub.fr.system.MOTD;
+import ghub.fr.system.ScoreBoardManager;
 import ghub.fr.system.ServerBootFile;
 import ghub.fr.world.api.BuildRules;
 import ghub.fr.world.api.entityGriefing;
@@ -163,6 +164,7 @@ public class main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginManager().registerEvents(new pickaxeEvents(), this);
         Bukkit.getPluginManager().registerEvents(new BossBarMessage(), this);
         Bukkit.getPluginManager().registerEvents(new ResourcePackHandler(), this);
+        Bukkit.getPluginManager().registerEvents(new ScoreBoardManager(), this);
     }
 
     public void registerCommands() {
