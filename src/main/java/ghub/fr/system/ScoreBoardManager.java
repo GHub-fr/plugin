@@ -38,7 +38,7 @@ public class ScoreBoardManager implements Listener {
         Score test = objective.getScore("§7» §6Gold : " + gold.GetGoldFormat(e.getPlayer()));
         test.setScore(4);
         e.getPlayer().setScoreboard(board);
-        updatePlayer(e.getPlayer(), objective, board);
+        //updatePlayer(e.getPlayer(), objective, board);
     }
 
     public static void send(Player player, Objective objective, Scoreboard board) {
