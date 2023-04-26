@@ -14,7 +14,6 @@ import org.bukkit.scoreboard.RenderType;
 import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
-import org.bukkit.scoreboard.Team;
 
 import ghub.fr.main.main;
 
@@ -22,39 +21,37 @@ public class ScoreBoardManager implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
-        updatePlayer(e.getPlayer());
-    }
-
-    public static void send(Player player) {
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         Scoreboard board = manager.getNewScoreboard();
         Objective objective = board.registerNewObjective("sidebar", "view", "", RenderType.INTEGER);
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+        e.getPlayer().setScoreboard(board);
+        updatePlayer(e.getPlayer(), objective, board);
+    }
 
+    public static void send(Player player, Objective objective, Scoreboard board) {
         Score space = objective.getScore(" ");
         space.setScore(0);
 
         Score onlineName = objective.getScore("§7» §2en ligne §f: §2" + Bukkit.getOnlinePlayers().size() + "§f / §4"
                 + Bukkit.getMaxPlayers());
-        onlineName.setScore(2);
+        onlineName.setScore(1);
 
         Score space2 = objective.getScore(" ");
-        space2.setScore(0);
+        space2.setScore(2);
 
-        Score test = objective.getScore("§7» test");
-        test.setScore(1);
-
-        player.setScoreboard(board);
+        Score test = objective.getScore("§7» §6Gold : " + gold.GetGoldFormat(player));
+        test.setScore(3);
     }
 
-    public static void updatePlayer(Player player) {
+    public static void updatePlayer(Player player, Objective objective, Scoreboard board) {
         Plugin plugin = JavaPlugin.getPlugin(main.class);
 
         new BukkitRunnable() {
             @Override
             public void run() {
 
-                send(player);
+                send(player, objective, board);
 
             }
         }.runTaskTimer(plugin, 0, 30);

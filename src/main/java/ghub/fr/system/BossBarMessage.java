@@ -1,6 +1,5 @@
 package ghub.fr.system;
 
-import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
@@ -53,7 +52,7 @@ public class BossBarMessage implements Listener {
                         if (value == 0) {
                             bossBar = Bukkit.createBossBar(
                                     key,
-                                    "§6Gold §f: §2§l" + gold.GetGold(player),
+                                    "§6Gold §f: §2§l" + gold.GetGoldFormat(player),
                                     BarColor.WHITE,
                                     BarStyle.SOLID);
                         }
@@ -98,7 +97,7 @@ public class BossBarMessage implements Listener {
                             remainDuration--;
 
                             if (value == 0) {
-                                bossBar.setTitle("§6Gold §f: §2§l" + gold.GetGold(player));
+                                bossBar.setTitle("§6Gold §f: §2§l" + gold.GetGoldFormat(player));
                             }
                         }
                     }
