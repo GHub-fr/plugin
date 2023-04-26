@@ -164,7 +164,6 @@ public class main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginManager().registerEvents(new pickaxeEvents(), this);
         Bukkit.getPluginManager().registerEvents(new BossBarMessage(), this);
         Bukkit.getPluginManager().registerEvents(new ResourcePackHandler(), this);
-        Bukkit.getPluginManager().registerEvents(new ScoreBoardManager(), this);
     }
 
     public void registerCommands() {
