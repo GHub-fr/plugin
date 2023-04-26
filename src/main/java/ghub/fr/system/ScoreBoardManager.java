@@ -25,24 +25,35 @@ public class ScoreBoardManager implements Listener {
         Scoreboard board = manager.getNewScoreboard();
         Objective objective = board.registerNewObjective("sidebar", "view", "", RenderType.INTEGER);
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+        Score space = objective.getScore("§f ");
+        space.setScore(1);
 
+        Score onlineName = objective.getScore("§7» §2en ligne §f: §2" + Bukkit.getOnlinePlayers().size() + "§f / §4"
+                + Bukkit.getMaxPlayers());
+        onlineName.setScore(2);
+
+        Score space2 = objective.getScore(" ");
+        space2.setScore(3);
+
+        Score test = objective.getScore("§7» §6Gold : " + gold.GetGoldFormat(e.getPlayer()));
+        test.setScore(4);
+        e.getPlayer().setScoreboard(board);
         updatePlayer(e.getPlayer(), objective, board);
     }
 
     public static void send(Player player, Objective objective, Scoreboard board) {
-        Score space = objective.getScore(" ");
-        space.setScore(0);
+        Score space = objective.getScore("§f ");
+        space.setScore(1);
 
         Score onlineName = objective.getScore("§7» §2en ligne §f: §2" + Bukkit.getOnlinePlayers().size() + "§f / §4"
                 + Bukkit.getMaxPlayers());
-        onlineName.setScore(1);
+        onlineName.setScore(2);
 
         Score space2 = objective.getScore(" ");
-        space2.setScore(2);
+        space2.setScore(3);
 
         Score test = objective.getScore("§7» §6Gold : " + gold.GetGoldFormat(player));
-        test.setScore(3);
-        player.setScoreboard(board);
+        test.setScore(4);
     }
 
     public static void updatePlayer(Player player, Objective objective, Scoreboard board) {

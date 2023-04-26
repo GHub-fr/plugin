@@ -35,7 +35,7 @@ public class BossBarMessage implements Listener {
         Plugin plugin = JavaPlugin.getPlugin(main.class);
         new BukkitRunnable() {
 
-            int duration = 20;
+            int duration = 5*20;
             int value = 0;
             int remainDuration = duration + 1;
 
@@ -67,7 +67,7 @@ public class BossBarMessage implements Listener {
                         else if (value == 2) {
                             bossBar = Bukkit.createBossBar(
                                     key,
-                                    "§f§lJoueurs §2en ligne §r§f: §2" + Bukkit.getOnlinePlayers().size() + " §f/ §4"
+                                    "§f§lJoueurs en ligne §r: §2" + Bukkit.getOnlinePlayers().size() + " §f/ §4"
                                             + Bukkit.getMaxPlayers(),
                                     BarColor.WHITE,
                                     BarStyle.SOLID);
@@ -114,6 +114,6 @@ public class BossBarMessage implements Listener {
                     Bukkit.removeBossBar(key);
                 }
             }
-        }.runTaskTimerAsynchronously(plugin, 0, 5);
+        }.runTaskTimerAsynchronously(plugin, 0, 1);
     }
 }
