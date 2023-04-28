@@ -11,7 +11,9 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import ghub.fr.menu.api.persistentData;
 import ghub.fr.menu.shop.classique.shopLogs;
+import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.gold;
+import ghub.fr.system.ServerBootFile.serverType;
 import ghub.fr.text.playerLang;
 import ghub.fr.text.shopTranslation;
 
@@ -29,7 +31,9 @@ public class pickaxeEvents implements Listener {
 
     @EventHandler
     public void updatePickaxe(PlayerJoinEvent e) throws IOException, ParseException {
-        pickaxe.UpdatePickaxe(e.getPlayer());
+        if (ServerBootFile.getServerType().equals(serverType.OPPrison)) {
+            pickaxe.UpdatePickaxe(e.getPlayer());
+        }
     }
 
     @EventHandler
