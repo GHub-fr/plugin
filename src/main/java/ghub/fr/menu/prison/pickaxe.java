@@ -58,6 +58,8 @@ public class pickaxe {
                 return 25_000;
             case DIAMOND_PICKAXE:
                 return 100_000;
+            case NETHERITE_PICKAXE:
+                return Integer.MAX_VALUE;
             default:
                 return Integer.MAX_VALUE;
         }
@@ -72,7 +74,7 @@ public class pickaxe {
         }
 
         player.getInventory().addItem(getPickaxe(player));
-        
+
         // Enchants storage
     }
 }
