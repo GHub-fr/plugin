@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 
 import ghub.fr.menu.api.persistentData;
 import ghub.fr.menu.shop.classique.shopLogs;
@@ -27,6 +28,11 @@ public class pickaxeEvents implements Listener {
     }
 
     @EventHandler
+    public void updatePickaxe(PlayerJoinEvent e) throws IOException, ParseException {
+        pickaxe.UpdatePickaxe(e.getPlayer());
+    }
+
+    @EventHandler
     public void PlayerClickUpgrade(InventoryClickEvent e)
             throws IllegalArgumentException, IOException, ParseException {
         if (e.getCurrentItem() != null) {
@@ -39,7 +45,8 @@ public class pickaxeEvents implements Listener {
                     prisonData.setPickaxe(player, pickaxe.Nextpickaxe(prisonData.getPickaxe(player)));
                     pickaxe.UpdatePickaxe(player);
                 } else {
-                    e.getWhoClicked().sendMessage(shopTranslation.PasAssezArgent(playerLang.getPlayerLang((Player) e.getWhoClicked())));
+                    e.getWhoClicked().sendMessage(
+                            shopTranslation.PasAssezArgent(playerLang.getPlayerLang((Player) e.getWhoClicked())));
                 }
             }
         }
