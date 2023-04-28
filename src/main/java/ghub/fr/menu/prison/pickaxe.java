@@ -24,7 +24,7 @@ public class pickaxe {
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.locked);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.mypickaxe);
-        return null;
+        return is;
     }
 
     public static Material Nextpickaxe(Material material) {

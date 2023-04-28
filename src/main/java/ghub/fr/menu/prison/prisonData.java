@@ -24,12 +24,12 @@ public class prisonData {
         if (fileConfiguration.get("material") == null) {
             return Material.WOODEN_PICKAXE;
         }
-        return (Material) fileConfiguration.get("material");
+        return Material.valueOf(fileConfiguration.getString("material"));
     }
 
     public static void setPickaxe(OfflinePlayer player, Material material) throws IOException {
         FileConfiguration fileConfiguration = fileConfiguration(player);
-        fileConfiguration.set("material", material);
+        fileConfiguration.set("material", material.toString());
         fileConfiguration.save(getDataStorage.playerOPPrisonData(player));
     }
 }
