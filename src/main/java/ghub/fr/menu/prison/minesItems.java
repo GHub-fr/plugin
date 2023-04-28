@@ -16,7 +16,7 @@ public class minesItems {
         meta.setLore(itemsTranslation.MineSelectorLore(lang));
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
-        persistentData.setPersistentDataItemStack(is, persistentData.customKey.mineSelector);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.mineselector);
         return is;
     }
 
@@ -27,7 +27,7 @@ public class minesItems {
         meta.setLore(itemsTranslation.MineStoneLore(lang));
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
-        persistentData.setPersistentDataItemStack(is, persistentData.customKey.mineStone);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.minestone);
         return is;
     }
 
@@ -38,7 +38,7 @@ public class minesItems {
         meta.setLore(itemsTranslation.MineIronLore(lang));
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
-        persistentData.setPersistentDataItemStack(is, persistentData.customKey.mineIron);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.mineiron);
         return is;
     }
 
@@ -49,7 +49,7 @@ public class minesItems {
         meta.setLore(itemsTranslation.MineGoldLore(lang));
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
-        persistentData.setPersistentDataItemStack(is, persistentData.customKey.mineGold);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.minegold);
         return is;
     }
 
@@ -60,7 +60,7 @@ public class minesItems {
         meta.setLore(itemsTranslation.MineDiamondLore(lang));
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
-        persistentData.setPersistentDataItemStack(is, persistentData.customKey.mineDiamond);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.minediamond);
         return is;
     }
 
@@ -71,7 +71,7 @@ public class minesItems {
         meta.setLore(itemsTranslation.MineNetheriteLore(lang));
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
-        persistentData.setPersistentDataItemStack(is, persistentData.customKey.mineNetherite);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.minenetherite);
         return is;
     }
 }

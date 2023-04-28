@@ -23,7 +23,7 @@ public class pickaxeEvents implements Listener {
             throws IllegalArgumentException, IOException, ParseException {
         if (e.getCurrentItem() != null) {
             if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(),
-                    persistentData.customKey.pickaxeSelector)) {
+                    persistentData.customKey.pickaxeselector)) {
                 pickaxeMenu.pickaxeMenu((Player) e.getWhoClicked());
             }
         }
@@ -41,7 +41,7 @@ public class pickaxeEvents implements Listener {
             throws IllegalArgumentException, IOException, ParseException {
         if (e.getCurrentItem() != null) {
             if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(),
-                    persistentData.customKey.pickaxeUpgrade)) {
+                    persistentData.customKey.pickaxeupgrade)) {
                 Player player = (Player) e.getWhoClicked();
                 if (gold.GetHasEnoughGold(player, pickaxe.NextpickaxePrice(prisonData.getPickaxe(player)))) {
                     gold.RemoveGold(player, pickaxe.NextpickaxePrice(prisonData.getPickaxe(player)));

@@ -14,7 +14,7 @@ public class minesEvents implements Listener {
     @EventHandler
     public void PlayerClickCompass(InventoryClickEvent e) throws IllegalArgumentException, IOException, ParseException {
         if (e.getCurrentItem() != null) {
-            if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.mineSelector)) {
+            if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.mineselector)) {
                 minesMenu.minesMenu((Player) e.getWhoClicked());
             }
         }

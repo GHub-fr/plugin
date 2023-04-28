@@ -23,7 +23,7 @@ public class pickaxe {
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.locked);
-        persistentData.setPersistentDataItemStack(is, persistentData.customKey.myPickaxe);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.mypickaxe);
         return null;
     }
 

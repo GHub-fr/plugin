@@ -19,7 +19,7 @@ public class pickaxeItems {
         meta.setLore(itemsTranslation.PickaxeSelectorLore(lang));
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
-        persistentData.setPersistentDataItemStack(is, persistentData.customKey.pickaxeSelector);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.pickaxeselector);
         return is;
     }
 
@@ -30,7 +30,7 @@ public class pickaxeItems {
         meta.setLore(itemsTranslation.PickaxeUpgradeLore(lang, player));
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
-        persistentData.setPersistentDataItemStack(is, persistentData.customKey.pickaxeUpgrade);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.pickaxeupgrade);
         return is;
     }
 }
