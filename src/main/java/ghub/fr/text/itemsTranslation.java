@@ -1404,7 +1404,7 @@ public class itemsTranslation {
                 Lore.add("");
                 Lore.add("§6Améliorez §fvotre pioche via le §2PNJ au spawn");
                 Lore.add("§fOu via [ §2/§6Pickaxe, §2/§6Pioche §f]");
-                Lore.add("Ou sinon en utilisant le §6clique droit dessus");
+                Lore.add("§fOu sinon en utilisant le §6clique droit dessus");
                 Lore.add("");
                 return Lore;
             case en:

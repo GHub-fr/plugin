@@ -20,6 +20,7 @@ public class pickaxe {
         ItemMeta meta = is.getItemMeta();
         meta.setDisplayName(itemsTranslation.PickaxeSelectorTitle(lang));
         meta.setLore(itemsTranslation.YourPickaxeLore(lang));
+        meta.setUnbreakable(true);
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.locked);
