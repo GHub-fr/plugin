@@ -21,11 +21,10 @@ public class prisonData {
 
     public static Material getPickaxe(OfflinePlayer player) throws IOException {
         FileConfiguration fileConfiguration = fileConfiguration(player);
-        Material material = (Material) fileConfiguration.get("material");
-        if (material == null) {
+        if (fileConfiguration.get("material") == null) {
             return Material.WOODEN_PICKAXE;
         }
-        return material;
+        return (Material) fileConfiguration.get("material");
     }
 
     public static void setPickaxe(OfflinePlayer player, Material material) throws IOException {
