@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 
 import ghub.fr.menu.api.customInventory;
+import ghub.fr.text.itemsTranslation;
 import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
 import ghub.fr.text.textTranslation;
@@ -16,7 +17,8 @@ public class pickaxeMenu {
         lang.languages lang = playerLang.getPlayerLang(player);
         customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU,
                 InventoryType.HOPPER,
-                textTranslation.Mines(lang) + textTranslation.MenuGoldFormat(lang, player));
+                itemsTranslation.PickaxeSelectorTitle(lang) + textTranslation.MenuGoldFormat(lang, player));
+        inventoryBuilder.getInventory().addItem(pickaxeItems.ItemStackPickaxeUpgrade(lang, player));
         player.openInventory(inventoryBuilder.getInventory());
     }
 }

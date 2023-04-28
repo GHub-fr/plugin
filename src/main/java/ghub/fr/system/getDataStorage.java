@@ -140,6 +140,10 @@ public class getDataStorage {
         return new File(playerFolder(offlinePlayer), "islandData.yml");
     }
 
+    public static File playerOPPrisonData(OfflinePlayer offlinePlayer) {
+        return new File(playerFolder(offlinePlayer), "OPPrison.yml");
+    }
+
     public static File islandDataFolder() {
         File dataFolder = new File(dataFolder(), "islands");
         if (!dataFolder.exists()) {

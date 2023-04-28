@@ -3,8 +3,11 @@ package ghub.fr.text;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Statistic;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 
 import ghub.fr.menu.island.island;
+import ghub.fr.menu.prison.pickaxe;
+import ghub.fr.menu.prison.prisonData;
 import ghub.fr.menu.shop.specials.bonus.bonus;
 import ghub.fr.system.dateAPI;
 import ghub.fr.system.getDataStorage;
@@ -1394,6 +1397,28 @@ public class itemsTranslation {
         }
     }
 
+    public static List<String> YourPickaxeLore(lang.languages lang) {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§6Améliorez §fvotre pioche via le §2PNJ au spawn");
+                Lore.add("§fOu via [ §2/§6Pickaxe, §2/§6Pioche §f]");
+                Lore.add("Ou sinon en utilisant le §6clique droit dessus");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("§6Upgrade §fyour pickaxes with the §2spawn NPC");
+                Lore.add("§fOr with [ §2/§6Pickaxe, §2/§6Pioche §f]");
+                Lore.add("§fOr else by §6right clicking it");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
     public static List<String> PickaxeSelectorLore(lang.languages lang) {
         ArrayList<String> Lore = new ArrayList<String>();
         switch (lang) {
@@ -1418,6 +1443,36 @@ public class itemsTranslation {
                 return "§6§lPioches";
             case en:
                 return "§6§lPickaxes";
+            default:
+                return "";
+        }
+    }
+
+    public static List<String> PickaxeUpgradeLore(lang.languages lang, Player player) throws IOException {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§6Améliorez §fvotre pioche");
+                Lore.add("§4Prix §f: " + pickaxe.NextpickaxePrice(prisonData.getPickaxe(player)));
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("§6Upgrade §fyour pickaxes");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static String PickaxeUpgradeTitle(lang.languages lang) {
+        switch (lang) {
+            case fr:
+                return "§6§lMatériaux de la pioche";
+            case en:
+                return "§6§lPickaxe's materials";
             default:
                 return "";
         }

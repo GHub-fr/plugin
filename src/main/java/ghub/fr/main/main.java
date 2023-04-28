@@ -38,7 +38,6 @@ import ghub.fr.player.*;
 import ghub.fr.system.BossBarMessage;
 import ghub.fr.system.BungeePluginMessageListener;
 import ghub.fr.system.MOTD;
-import ghub.fr.system.ScoreBoardManager;
 import ghub.fr.system.ServerBootFile;
 import ghub.fr.world.api.BuildRules;
 import ghub.fr.world.api.entityGriefing;

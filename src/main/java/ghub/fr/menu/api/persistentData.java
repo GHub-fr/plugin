@@ -93,6 +93,7 @@ public class persistentData {
         hub, serverselector, survie, skyblock, rpg, anarchie, creatif,
         opprison, /*
                   */
-        mineStone, mineIron, mineGold,mineDiamond,mineNetherite, mineSelector, pickaxeSelector
+        mineStone, mineIron, mineGold, mineDiamond, mineNetherite, mineSelector, pickaxeSelector, pickaxeUpgrade,
+        myPickaxe
     }
 }

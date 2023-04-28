@@ -1,6 +1,9 @@
 package ghub.fr.menu.prison;
 
+import java.io.IOException;
+
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -20,14 +23,14 @@ public class pickaxeItems {
         return is;
     }
 
-   /*  public static ItemStack ItemStackPickaxeABC(lang.languages lang) {
-        ItemStack is = new ItemStack(Material.STONE);
+    public static ItemStack ItemStackPickaxeUpgrade(lang.languages lang, Player player) throws IOException {
+        ItemStack is = new ItemStack(pickaxe.Nextpickaxe(prisonData.getPickaxe(player)));
         ItemMeta meta = is.getItemMeta();
-        meta.setDisplayName(itemsTranslation.PickaxeABCTitle(lang));
-        meta.setLore(itemsTranslation.PickaxeABCLore(lang));
+        meta.setDisplayName(itemsTranslation.PickaxeUpgradeTitle(lang));
+        meta.setLore(itemsTranslation.PickaxeUpgradeLore(lang, player));
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
-        persistentData.setPersistentDataItemStack(is, persistentData.customKey.ABC);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.pickaxeUpgrade);
         return is;
-    } */
+    }
 }
