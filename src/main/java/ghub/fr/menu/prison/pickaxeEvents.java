@@ -49,7 +49,6 @@ public class pickaxeEvents implements Listener {
                     prisonData.setPickaxe(player, pickaxe.Nextpickaxe(prisonData.getPickaxe(player)));
                     pickaxe.UpdatePickaxe(player);
                     pickaxeMenu.pickaxeMenu(player);
-
                 } else {
                     e.getWhoClicked().sendMessage(
                             shopTranslation.PasAssezArgent(playerLang.getPlayerLang((Player) e.getWhoClicked())));

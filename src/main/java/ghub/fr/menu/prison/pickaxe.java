@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import ghub.fr.entity.entityPersistentData.customKey;
 import ghub.fr.menu.api.persistentData;
 import ghub.fr.text.itemsTranslation;
 import ghub.fr.text.lang;
@@ -63,12 +64,15 @@ public class pickaxe {
     }
 
     public static void UpdatePickaxe(Player player) throws IllegalArgumentException, IOException {
+        for (ItemStack is : player.getInventory().getContents()) {
+            if (persistentData.hasPersistentDataItemStack(is, ghub.fr.menu.api.persistentData.customKey.mypickaxe)) {
+                player.getInventory().remove(is);
+                break;
+            }
+        }
+
         player.getInventory().addItem(getPickaxe(player));
-        // remove old one
-        // -> To remove loop all item for CustomItem tag, or get item 1 if air, else
-        // next item slot loop
-        // add new one
-        // do it on spawn
+        
         // Enchants storage
     }
 }
