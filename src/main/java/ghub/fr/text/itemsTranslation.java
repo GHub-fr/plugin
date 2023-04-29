@@ -1480,6 +1480,35 @@ public class itemsTranslation {
         }
     }
 
+    public static List<String> PickaxeCantUpgradeLore(lang.languages lang) throws IOException {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§4Vous ne pouvez plus améliorer §fvotre pioche");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("§4You can't anymore upgrade §fyour pickaxes");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static String PickaxeCantUpgradeTitle(lang.languages lang) {
+        switch (lang) {
+            case fr:
+                return "§6§lMatériaux de la pioche";
+            case en:
+                return "§6§lPickaxe's materials";
+            default:
+                return "";
+        }
+    }
+
     public static List<String> PickaxeEnchantLore(lang.languages lang, Player player, Enchantment enchantment)
             throws IOException {
         ArrayList<String> Lore = new ArrayList<String>();

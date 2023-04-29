@@ -23,6 +23,16 @@ public class pickaxeItems {
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.pickaxeselector);
         return is;
     }
+    
+    public static ItemStack ItemStackPickaxeCantUpgrade(lang.languages lang) throws IOException {
+        ItemStack is = new ItemStack(Material.BARRIER);
+        ItemMeta meta = is.getItemMeta();
+        meta.setDisplayName(itemsTranslation.PickaxeCantUpgradeTitle(lang));
+        meta.setLore(itemsTranslation.PickaxeCantUpgradeLore(lang));
+        is.setItemMeta(meta);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
+        return is;
+    }
 
     public static ItemStack ItemStackPickaxeUpgrade(lang.languages lang, Player player) throws IOException {
         ItemStack is = new ItemStack(pickaxe.Nextpickaxe(prisonData.getPickaxe(player)));
