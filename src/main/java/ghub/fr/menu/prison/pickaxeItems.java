@@ -36,7 +36,7 @@ public class pickaxeItems {
     }
 
     public static ItemStack ItemStackPickaxeEnchantLooting(lang.languages lang, Player player) throws IOException {
-        ItemStack is = new ItemStack(pickaxe.Nextpickaxe(prisonData.getPickaxe(player)));
+        ItemStack is = new ItemStack(Material.ENCHANTED_BOOK);
         ItemMeta meta = is.getItemMeta();
         Enchantment enchant = Enchantment.LOOT_BONUS_BLOCKS;
         meta.setDisplayName(itemsTranslation.PickaxeEnchantTitle(lang, enchant));
@@ -51,7 +51,7 @@ public class pickaxeItems {
     }
 
     public static ItemStack ItemStackPickaxeEnchantDigSpeed(lang.languages lang, Player player) throws IOException {
-        ItemStack is = new ItemStack(pickaxe.Nextpickaxe(prisonData.getPickaxe(player)));
+        ItemStack is = new ItemStack(Material.ENCHANTED_BOOK);
         ItemMeta meta = is.getItemMeta();
         Enchantment enchant = Enchantment.DIG_SPEED;
         meta.setDisplayName(itemsTranslation.PickaxeEnchantTitle(lang, enchant));

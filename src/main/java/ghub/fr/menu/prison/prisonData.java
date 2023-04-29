@@ -53,7 +53,8 @@ public class prisonData {
         keys.add(enchantment.getKey().toString());
         fileConfiguration.set("enchantements", keys);
 
-        fileConfiguration.set("enchantement." + enchantment.getKey().toString(), lvl);
+        int newLvl = getEnchantLvl(player, enchantment) + lvl;
+        fileConfiguration.set("enchantement." + enchantment.getKey().toString(), newLvl);
 
         fileConfiguration.save(getDataStorage.playerOPPrisonData(player));
     }
