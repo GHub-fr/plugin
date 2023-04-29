@@ -95,6 +95,7 @@ public class pickaxe {
         if (enchantment.equals(Enchantment.LOOT_BONUS_BLOCKS)) {
             return ghub.fr.menu.api.persistentData.customKey.pickaxeenchantlooting;
         }
+        
         if (enchantment.equals(Enchantment.DIG_SPEED)) {
             return ghub.fr.menu.api.persistentData.customKey.pickaxeenchantspeed;
         }

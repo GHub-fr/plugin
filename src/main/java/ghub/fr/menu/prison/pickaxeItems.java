@@ -3,16 +3,11 @@ package ghub.fr.menu.prison;
 import java.io.IOException;
 
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.java.JavaPlugin;
 
-import ghub.fr.enchantements.instantmine;
-import ghub.fr.main.main;
 import ghub.fr.menu.api.persistentData;
 import ghub.fr.text.itemsTranslation;
 import ghub.fr.text.lang;

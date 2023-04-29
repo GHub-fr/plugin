@@ -16,7 +16,9 @@ import ghub.fr.text.textTranslation;
 public class pickaxeMenu {
     public static void pickaxeMenu(Player player) throws IllegalArgumentException, IOException, ParseException {
         lang.languages lang = playerLang.getPlayerLang(player);
-        customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU, InventoryType.HOPPER, itemsTranslation.PickaxeSelectorTitle(lang) + textTranslation.MenuGoldFormat(lang, player));
+        customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU,
+                InventoryType.HOPPER,
+                itemsTranslation.PickaxeSelectorTitle(lang) + textTranslation.MenuGoldFormat(lang, player));
 
         if (!pickaxe.Nextpickaxe(prisonData.getPickaxe(player)).equals(Material.AIR)) {
             inventoryBuilder.getInventory().setItem(0, pickaxeItems.ItemStackPickaxeUpgrade(lang, player));

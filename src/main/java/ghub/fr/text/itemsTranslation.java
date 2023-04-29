@@ -12,6 +12,7 @@ import ghub.fr.menu.prison.prisonData;
 import ghub.fr.menu.shop.specials.bonus.bonus;
 import ghub.fr.system.dateAPI;
 import ghub.fr.system.getDataStorage;
+import ghub.fr.system.gold;
 import ghub.fr.system.security;
 import ghub.fr.system.tags;
 
@@ -1516,14 +1517,14 @@ public class itemsTranslation {
             case fr:
                 Lore.add("");
                 Lore.add("§6Enchantez §fvotre pioche");
-                Lore.add("§4Prix §f: " + pickaxe.enchantPrice(pickaxe.enchantKey(enchantment), prisonData.getEnchantLvl(player, enchantment)) + " §6gold");
+                Lore.add("§4Prix §f: " + gold.FormatInt(pickaxe.enchantPrice(pickaxe.enchantKey(enchantment), prisonData.getEnchantLvl(player, enchantment))) + " §6gold");
                 Lore.add("§6Niveau actuel §f: " + prisonData.getEnchantLvl(player, enchantment));
                 Lore.add("");
                 return Lore;
             case en:
                 Lore.add("");
                 Lore.add("§6Enchant §fyour pickaxes");
-                Lore.add("§4Price §f: " + pickaxe.enchantPrice(pickaxe.enchantKey(enchantment), prisonData.getEnchantLvl(player, enchantment)) + " §6gold");
+                Lore.add("§4Price §f: " + gold.FormatInt(pickaxe.enchantPrice(pickaxe.enchantKey(enchantment), prisonData.getEnchantLvl(player, enchantment))) + " §6gold");
                 Lore.add("§6Actual level §f: " + prisonData.getEnchantLvl(player, enchantment));
                 Lore.add("");
                 return Lore;
