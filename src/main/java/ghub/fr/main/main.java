@@ -17,6 +17,7 @@ import ghub.fr.commands.player.*;
 import ghub.fr.discord.discordMain;
 import ghub.fr.discord.eventsMinecraft;
 import ghub.fr.discord.messages;
+import ghub.fr.enchantements.instantmine;
 import ghub.fr.entity.clickNPC;
 import ghub.fr.menu.api.customInventoryClick;
 import ghub.fr.menu.api.persistentDataClick;
@@ -48,16 +49,22 @@ import ghub.fr.world.spawn.joinAtSpawn;
 import ghub.fr.world.spawn.limiter;
 
 import org.bukkit.Bukkit;
+import org.bukkit.NamespacedKey;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.logging.Logger;
 
 public class main extends JavaPlugin implements PluginMessageListener {
     private static final Logger logger = Bukkit.getLogger();
+
+    instantmine instantmine = new instantmine(new NamespacedKey(this, "instantmine"));
 
     @Override
     public ChunkGenerator getDefaultWorldGenerator(String worldName, String id) {
@@ -70,6 +77,7 @@ public class main extends JavaPlugin implements PluginMessageListener {
         try {
             ServerBootFile.loadServerTypeFile();
             logger.info(ServerBootFile.getServerType().toString());
+            generateResourcePack();
         } catch (Exception e) {
         }
     }
@@ -79,21 +87,24 @@ public class main extends JavaPlugin implements PluginMessageListener {
         logger.info("Plugin Enabled");
         try {
             discordMain.startBot();
-            generateResourcePack();
         } catch (Exception e) {
         }
         Bukkit.getPluginManager().registerEvents(new eventsMinecraft(), this);
         registerEvents();
+        registerEnchant();
         registerCommands();
         lib.hook();
         scheduler.start();
+        /*
+         * 
+         */
         if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.SkyBlock)) {
             SkyBlockEventsCommands();
         } else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.RPG)) {
             Bukkit.getPluginManager().registerEvents(new xpBonus(), this);
         }
         /*
-        
+         *
          */
         this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         this.getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
@@ -106,6 +117,26 @@ public class main extends JavaPlugin implements PluginMessageListener {
 
     private void generateResourcePack() throws IOException {
         sha1 = ResourcePackHandler.getSHA1(url);
+    }
+
+    private void loadEnchantments() {
+        try {
+            try {
+                Field f = Enchantment.class.getDeclaredField("acceptingNew");
+                f.setAccessible(true);
+                f.set(null, true);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                Enchantment.registerEnchantment(instantmine);
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -122,6 +153,30 @@ public class main extends JavaPlugin implements PluginMessageListener {
         this.getServer().getMessenger().unregisterIncomingPluginChannel(this);
         /*
          */
+    }
+
+    public void disableEnchant() {
+        try {
+            Field byKeyField = Enchantment.class.getDeclaredField("byKey");
+            Field byNameField = Enchantment.class.getDeclaredField("byName");
+
+            byKeyField.setAccessible(true);
+            byNameField.setAccessible(true);
+
+            HashMap<NamespacedKey, Enchantment> byKey = (HashMap<NamespacedKey, Enchantment>) byKeyField.get(null);
+            HashMap<NamespacedKey, Enchantment> byName = (HashMap<NamespacedKey, Enchantment>) byNameField.get(null);
+
+            if (byKey.containsKey(instantmine.getKey())) {
+                byKey.remove(instantmine.getKey());
+            }
+
+            if (byName.containsKey(instantmine.getName())) {
+                byName.remove(instantmine.getName());
+            }
+
+        } catch (Exception ignored) {
+
+        }
     }
 
     public void SkyBlockEventsCommands() {
@@ -163,6 +218,11 @@ public class main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginManager().registerEvents(new pickaxeEvents(), this);
         Bukkit.getPluginManager().registerEvents(new BossBarMessage(), this);
         Bukkit.getPluginManager().registerEvents(new ResourcePackHandler(), this);
+    }
+
+    public void registerEnchant() {
+        loadEnchantments();
+        Bukkit.getPluginManager().registerEvents(instantmine, this);
     }
 
     public void registerCommands() {
