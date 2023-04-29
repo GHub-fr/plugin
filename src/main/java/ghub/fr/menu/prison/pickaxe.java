@@ -8,10 +8,10 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import ghub.fr.entity.entityPersistentData.customKey;
 import ghub.fr.menu.api.persistentData;
 import ghub.fr.text.itemsTranslation;
 import ghub.fr.text.lang;
@@ -26,6 +26,8 @@ public class pickaxe {
         meta.setLore(itemsTranslation.YourPickaxeLore(lang));
 
         meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 
         is.setItemMeta(meta);
 

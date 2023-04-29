@@ -1488,12 +1488,14 @@ public class itemsTranslation {
                 Lore.add("");
                 Lore.add("§6Enchantez §fvotre pioche");
                 Lore.add("§4Prix §f: " + pickaxe.enchantPrice(pickaxe.enchantKey(enchantment), prisonData.getEnchantLvl(player, enchantment)) + " §6gold");
+                Lore.add("§6Niveau actuel §f: " + prisonData.getEnchantLvl(player, enchantment));
                 Lore.add("");
                 return Lore;
             case en:
                 Lore.add("");
                 Lore.add("§6Enchant §fyour pickaxes");
                 Lore.add("§4Price §f: " + pickaxe.enchantPrice(pickaxe.enchantKey(enchantment), prisonData.getEnchantLvl(player, enchantment)) + " §6gold");
+                Lore.add("§6Actual level §f: " + prisonData.getEnchantLvl(player, enchantment));
                 Lore.add("");
                 return Lore;
             default:
