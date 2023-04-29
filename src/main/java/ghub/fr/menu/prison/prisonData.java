@@ -2,11 +2,14 @@ package ghub.fr.menu.prison;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.enchantments.Enchantment;
 
 import ghub.fr.system.getDataStorage;
 
@@ -30,6 +33,28 @@ public class prisonData {
     public static void setPickaxe(OfflinePlayer player, Material material) throws IOException {
         FileConfiguration fileConfiguration = fileConfiguration(player);
         fileConfiguration.set("material", material.toString());
+        fileConfiguration.save(getDataStorage.playerOPPrisonData(player));
+    }
+
+    public static ArrayList<String> getEnchant(OfflinePlayer player) throws IOException {
+        FileConfiguration fileConfiguration = fileConfiguration(player);
+        return (ArrayList<String>) fileConfiguration.getStringList("enchantements");
+    }
+
+    public static int getEnchantLvl(OfflinePlayer player, Enchantment enchantment) throws IOException {
+        FileConfiguration fileConfiguration = fileConfiguration(player);
+        return fileConfiguration.getInt("enchantement." + enchantment.getKey().toString());
+    }
+
+    public static void setEnchant(OfflinePlayer player, Enchantment enchantment, int lvl) throws IOException {
+        FileConfiguration fileConfiguration = fileConfiguration(player);
+
+        ArrayList<String> keys = getEnchant(player);
+        keys.add(enchantment.getKey().toString());
+        fileConfiguration.set("enchantements", keys);
+
+        fileConfiguration.set("enchantement." + enchantment.getKey().toString(), lvl);
+
         fileConfiguration.save(getDataStorage.playerOPPrisonData(player));
     }
 }

@@ -1,9 +1,12 @@
 package ghub.fr.menu.prison;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -21,8 +24,18 @@ public class pickaxe {
         ItemMeta meta = is.getItemMeta();
         meta.setDisplayName(itemsTranslation.PickaxeSelectorTitle(lang));
         meta.setLore(itemsTranslation.YourPickaxeLore(lang));
+
         meta.setUnbreakable(true);
+
         is.setItemMeta(meta);
+
+        ArrayList<String> keysString = prisonData.getEnchant(offlinePlayer);
+        for (String key : keysString) {
+            Enchantment enchantment = Enchantment.getByKey(NamespacedKey.fromString(key));
+            int lvl = prisonData.getEnchantLvl(offlinePlayer, enchantment);
+            is.addUnsafeEnchantment(enchantment, lvl);
+        }
+
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.locked);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.mypickaxe);
@@ -74,7 +87,5 @@ public class pickaxe {
         }
 
         player.getInventory().addItem(getPickaxe(player));
-
-        // Enchants storage
     }
 }

@@ -2,7 +2,9 @@ package ghub.fr.menu.prison;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Map;
 
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -47,6 +49,31 @@ public class pickaxeEvents implements Listener {
                     gold.RemoveGold(player, pickaxe.NextpickaxePrice(prisonData.getPickaxe(player)));
                     shopLogs.LogData(player, false, e.getCurrentItem().getType(), 1);
                     prisonData.setPickaxe(player, pickaxe.Nextpickaxe(prisonData.getPickaxe(player)));
+                    pickaxe.UpdatePickaxe(player);
+                    pickaxeMenu.pickaxeMenu(player);
+                } else {
+                    e.getWhoClicked().sendMessage(
+                            shopTranslation.PasAssezArgent(playerLang.getPlayerLang((Player) e.getWhoClicked())));
+                }
+            }
+        }
+    }
+
+    @EventHandler
+    public void PlayerClickEnchant(InventoryClickEvent e) throws IllegalArgumentException, IOException, ParseException {
+        if (e.getCurrentItem() != null) {
+            if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(),
+                    persistentData.customKey.pickaxeenchant)) {
+                Player player = (Player) e.getWhoClicked();
+                if (gold.GetHasEnoughGold(player, 0)) {
+                    gold.RemoveGold(player, 0);
+
+                    Map<Enchantment, Integer> enchant = e.getCurrentItem().getEnchantments();
+                    for (Enchantment enchantment : enchant.keySet()) {
+                        int lvl = enchant.get(enchantment);
+                        prisonData.setEnchant(player, enchantment, lvl);
+                    }
+
                     pickaxe.UpdatePickaxe(player);
                     pickaxeMenu.pickaxeMenu(player);
                 } else {

@@ -3,6 +3,7 @@ package ghub.fr.text;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Statistic;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 
 import ghub.fr.menu.island.island;
@@ -1454,12 +1455,13 @@ public class itemsTranslation {
             case fr:
                 Lore.add("");
                 Lore.add("§6Améliorez §fvotre pioche");
-                Lore.add("§4Prix §f: " + pickaxe.NextpickaxePrice(prisonData.getPickaxe(player)));
+                Lore.add("§4Prix §f: " + pickaxe.NextpickaxePrice(prisonData.getPickaxe(player)) + " §6gold");
                 Lore.add("");
                 return Lore;
             case en:
                 Lore.add("");
                 Lore.add("§6Upgrade §fyour pickaxes");
+                Lore.add("§4Price §f: " + pickaxe.NextpickaxePrice(prisonData.getPickaxe(player)) + " §6gold");
                 Lore.add("");
                 return Lore;
             default:
@@ -1473,6 +1475,38 @@ public class itemsTranslation {
                 return "§6§lMatériaux de la pioche";
             case en:
                 return "§6§lPickaxe's materials";
+            default:
+                return "";
+        }
+    }
+
+    public static List<String> PickaxeEnchantLore(lang.languages lang, Player player, Enchantment enchantment)
+            throws IOException {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§6Enchantez §fvotre pioche avec §2" + enchantment.getName());
+                Lore.add("§4Prix §f: " + 0 + " §6gold");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("§6Enchant §fyour pickaxes with §2" + enchantment.getName());
+                Lore.add("§4Price §f: " + 0 + " §6gold");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static String PickaxeEnchantTitle(lang.languages lang, Enchantment enchantment) {
+        switch (lang) {
+            case fr:
+                return "§6§lEnchantement de la pioche : " + enchantment.getName();
+            case en:
+                return "§6§lPickaxe's enchantment : " + enchantment.getName();
             default:
                 return "";
         }

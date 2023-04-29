@@ -3,6 +3,7 @@ package ghub.fr.menu.prison;
 import java.io.IOException;
 
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -31,6 +32,36 @@ public class pickaxeItems {
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.pickaxeupgrade);
+        return is;
+    }
+
+    public static ItemStack ItemStackPickaxeEnchantLooting(lang.languages lang, Player player) throws IOException {
+        ItemStack is = new ItemStack(pickaxe.Nextpickaxe(prisonData.getPickaxe(player)));
+        ItemMeta meta = is.getItemMeta();
+        Enchantment enchant = Enchantment.LOOT_BONUS_BLOCKS;
+        meta.setDisplayName(itemsTranslation.PickaxeEnchantTitle(lang, enchant));
+        meta.setLore(itemsTranslation.PickaxeEnchantLore(lang, player, enchant));
+        is.setItemMeta(meta);
+
+        is.addUnsafeEnchantment(enchant, 1);
+
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.pickaxeenchant);
+        return is;
+    }
+
+    public static ItemStack ItemStackPickaxeEnchantDigSpeed(lang.languages lang, Player player) throws IOException {
+        ItemStack is = new ItemStack(pickaxe.Nextpickaxe(prisonData.getPickaxe(player)));
+        ItemMeta meta = is.getItemMeta();
+        Enchantment enchant = Enchantment.DIG_SPEED;
+        meta.setDisplayName(itemsTranslation.PickaxeEnchantTitle(lang, enchant));
+        meta.setLore(itemsTranslation.PickaxeEnchantLore(lang, player, enchant));
+        is.setItemMeta(meta);
+
+        is.addUnsafeEnchantment(enchant, 1);
+
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.pickaxeenchant);
         return is;
     }
 }
