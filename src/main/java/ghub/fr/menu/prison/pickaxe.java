@@ -81,12 +81,22 @@ public class pickaxe {
     public static int enchantPrice(ghub.fr.menu.api.persistentData.customKey key, int lvl) {
         switch (key) {
             case pickaxeenchantlooting:
-                return 1_000 * (lvl +1);
+                return 1_000 * (lvl + 1);
             case pickaxeenchantspeed:
                 return 1_000 * (lvl + 1);
             default:
                 return Integer.MAX_VALUE;
         }
+    }
+
+    public static ghub.fr.menu.api.persistentData.customKey enchantKey(Enchantment enchantment) {
+        if (enchantment.equals(Enchantment.LOOT_BONUS_BLOCKS)) {
+            return ghub.fr.menu.api.persistentData.customKey.pickaxeenchantlooting;
+        }
+        if (enchantment.equals(Enchantment.DIG_SPEED)) {
+            return ghub.fr.menu.api.persistentData.customKey.pickaxeenchantspeed;
+        }
+        return null;
     }
 
     public static void UpdatePickaxe(Player player) throws IllegalArgumentException, IOException {

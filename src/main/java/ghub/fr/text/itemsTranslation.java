@@ -1486,14 +1486,14 @@ public class itemsTranslation {
         switch (lang) {
             case fr:
                 Lore.add("");
-                Lore.add("§6Enchantez §fvotre pioche avec §2" + enchantment.getName());
-                Lore.add("§4Prix §f: " + 0 + " §6gold");
+                Lore.add("§6Enchantez §fvotre pioche");
+                Lore.add("§4Prix §f: " + pickaxe.enchantPrice(pickaxe.enchantKey(enchantment), prisonData.getEnchantLvl(player, enchantment)) + " §6gold");
                 Lore.add("");
                 return Lore;
             case en:
                 Lore.add("");
-                Lore.add("§6Enchant §fyour pickaxes with §2" + enchantment.getName());
-                Lore.add("§4Price §f: " + 0 + " §6gold");
+                Lore.add("§6Enchant §fyour pickaxes");
+                Lore.add("§4Price §f: " + pickaxe.enchantPrice(pickaxe.enchantKey(enchantment), prisonData.getEnchantLvl(player, enchantment)) + " §6gold");
                 Lore.add("");
                 return Lore;
             default:
@@ -1504,9 +1504,9 @@ public class itemsTranslation {
     public static String PickaxeEnchantTitle(lang.languages lang, Enchantment enchantment) {
         switch (lang) {
             case fr:
-                return "§6§lEnchantement de la pioche : " + enchantment.getName();
+                return "§6§lEnchantement de la pioche";
             case en:
-                return "§6§lPickaxe's enchantment : " + enchantment.getName();
+                return "§6§lPickaxe's enchantment";
             default:
                 return "";
         }
