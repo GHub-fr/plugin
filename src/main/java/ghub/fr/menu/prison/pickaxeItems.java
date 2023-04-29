@@ -47,6 +47,7 @@ public class pickaxeItems {
 
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.pickaxeenchant);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.pickaxeenchantlooting);
         return is;
     }
 
@@ -62,6 +63,7 @@ public class pickaxeItems {
 
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.pickaxeenchant);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.pickaxeenchantspeed);
         return is;
     }
 }
