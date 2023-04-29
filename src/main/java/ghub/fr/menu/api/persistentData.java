@@ -94,6 +94,6 @@ public class persistentData {
         opprison, /*
                   */
         minestone, mineiron, minegold, minediamond, minenetherite, mineselector, pickaxeselector, pickaxeupgrade,
-        pickaxeenchant, pickaxeenchantlooting, pickaxeenchantspeed, pickaxeenchantinstantmine, mypickaxe
+        pickaxeenchant, pickaxeenchantlooting, pickaxeenchantspeed, mypickaxe
     }
 }

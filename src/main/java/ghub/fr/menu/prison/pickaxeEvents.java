@@ -75,9 +75,6 @@ public class pickaxeEvents implements Listener {
                         customKey.pickaxeenchantlooting)) {
                     prix = pickaxe.enchantPrice(customKey.pickaxeenchantlooting,
                             prisonData.getEnchantLvl(player, Enchantment.LOOT_BONUS_BLOCKS));
-                } else if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(),
-                        customKey.pickaxeenchantinstantmine)) {
-                    prix = 0;
                 }
 
                 if (gold.GetHasEnoughGold(player, prix)) {

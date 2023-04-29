@@ -86,8 +86,6 @@ public class pickaxe {
                 return 1_000 * (lvl + 1);
             case pickaxeenchantspeed:
                 return 1_000 * (lvl + 1);
-            case pickaxeenchantinstantmine:
-                return 5000;
             default:
                 return Integer.MAX_VALUE;
         }

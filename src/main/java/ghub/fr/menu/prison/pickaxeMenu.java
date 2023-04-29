@@ -26,7 +26,6 @@ public class pickaxeMenu {
 
         inventoryBuilder.getInventory().setItem(2, pickaxeItems.ItemStackPickaxeEnchantDigSpeed(lang, player));
         inventoryBuilder.getInventory().setItem(3, pickaxeItems.ItemStackPickaxeEnchantLooting(lang, player));
-        inventoryBuilder.getInventory().setItem(3, pickaxeItems.ItemStackPickaxeEnchantCustom(lang, player));
         player.openInventory(inventoryBuilder.getInventory());
     }
 }
