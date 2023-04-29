@@ -19,7 +19,7 @@ public class pickaxeMenu {
         customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU,
                 InventoryType.HOPPER,
                 itemsTranslation.PickaxeSelectorTitle(lang) + textTranslation.MenuGoldFormat(lang, player));
-        if (pickaxe.Nextpickaxe(prisonData.getPickaxe(player)).equals(Material.AIR)) {
+        if (!pickaxe.Nextpickaxe(prisonData.getPickaxe(player)).equals(Material.AIR)) {
             inventoryBuilder.getInventory().setItem(0, pickaxeItems.ItemStackPickaxeUpgrade(lang, player));
         }
         inventoryBuilder.getInventory().setItem(2, pickaxeItems.ItemStackPickaxeEnchantDigSpeed(lang, player));
