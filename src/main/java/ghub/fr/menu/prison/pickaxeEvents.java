@@ -12,6 +12,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import ghub.fr.menu.api.persistentData;
+import ghub.fr.menu.api.persistentData.customKey;
 import ghub.fr.menu.shop.classique.shopLogs;
 import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.gold;
@@ -65,8 +66,19 @@ public class pickaxeEvents implements Listener {
             if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(),
                     persistentData.customKey.pickaxeenchant)) {
                 Player player = (Player) e.getWhoClicked();
-                if (gold.GetHasEnoughGold(player, 0)) {
-                    gold.RemoveGold(player, 0);
+
+                int prix = Integer.MAX_VALUE;
+                if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), customKey.pickaxeenchantspeed)) {
+                    prix = pickaxe.enchantPrice(customKey.pickaxeenchantspeed,
+                            prisonData.getEnchantLvl(player, Enchantment.DIG_SPEED));
+                } else if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(),
+                        customKey.pickaxeenchantlooting)) {
+                    prix = pickaxe.enchantPrice(customKey.pickaxeenchantlooting,
+                            prisonData.getEnchantLvl(player, Enchantment.LOOT_BONUS_BLOCKS));
+                }
+
+                if (gold.GetHasEnoughGold(player, prix)) {
+                    gold.RemoveGold(player, prix);
 
                     Map<Enchantment, Integer> enchant = e.getCurrentItem().getEnchantments();
                     for (Enchantment enchantment : enchant.keySet()) {

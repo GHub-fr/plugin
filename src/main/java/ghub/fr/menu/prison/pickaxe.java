@@ -78,6 +78,17 @@ public class pickaxe {
         }
     }
 
+    public static int enchantPrice(ghub.fr.menu.api.persistentData.customKey key, int lvl) {
+        switch (key) {
+            case pickaxeenchantlooting:
+                return 1_000 * (lvl +1);
+            case pickaxeenchantspeed:
+                return 1_000 * (lvl + 1);
+            default:
+                return Integer.MAX_VALUE;
+        }
+    }
+
     public static void UpdatePickaxe(Player player) throws IllegalArgumentException, IOException {
         for (ItemStack is : player.getInventory().getContents()) {
             if (persistentData.hasPersistentDataItemStack(is, ghub.fr.menu.api.persistentData.customKey.mypickaxe)) {

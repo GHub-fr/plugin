@@ -21,7 +21,7 @@ public class ResourcePackHandler implements Listener {
         String url = main.url;
         String sha1 = main.sha1;
         String text = "§4§lUtilisation du resource pack §r§f..." + "\n§f[ §6§lGHub.fr §r§f] Resource pack";
-        Boolean force = true;
+        Boolean force = false;
 
         setResourcePack(e.getPlayer(), url, sha1, text, force);
     }
