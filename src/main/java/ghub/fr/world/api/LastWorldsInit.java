@@ -36,6 +36,6 @@ public class LastWorldsInit {
                         return;
                 }
             }
-        }.runTaskLater(plugin, 20 * 60 * 3);
+        }.runTaskLater(plugin, 20 * 60 * 1);
     }
 }
