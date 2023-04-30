@@ -15,6 +15,7 @@ import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.Tab;
 import ghub.fr.system.dateAPI;
 import ghub.fr.system.getDataStorage;
+import ghub.fr.world.api.LastWorldsInit;
 import ghub.fr.world.api.structure;
 
 import java.io.File;
@@ -97,7 +98,8 @@ public class scheduler {
         }
 
         if (BuildSpawn) {
-            structure.setStructure(structure.SpawnName(ServerBootFile.getServerTypeFromYML()), "Spawn", 1, 20 * 5);
+            structure.setStructure(structure.SpawnName(ServerBootFile.getServerTypeFromYML()), "Spawn", 1, 5);
+            LastWorldsInit.LoadWorld();
         }
     }
 

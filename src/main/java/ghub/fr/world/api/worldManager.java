@@ -23,15 +23,17 @@ public class worldManager implements Listener {
 
     public static void setWorldRules(World world) {
         world.setKeepSpawnInMemory(false);
-        //world.setAutoSave(false);
+        // world.setAutoSave(false);
         GameRulesApply(world);
     }
 
     public static World Generate(String WorldName, Boolean structure, World.Environment environment,
             WorldType worldType, Boolean SkyBlock) {
         WorldCreator worldCreator = new WorldCreator(WorldName);
-        if (SkyBlock) {
+        if (SkyBlock && structure) {
             worldCreator.generator(new SkyBlockWorld());
+        } else if (SkyBlock && !structure) {
+            worldCreator.generator(new voidWorld());
         }
         worldCreator.generateStructures(structure);
         worldCreator.environment(environment);
