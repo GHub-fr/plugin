@@ -28,6 +28,10 @@ public class LastWorldsInit {
                         return;
                     case OPPrison:
                         worldManager.Generate("Mine.1", false, Environment.NORMAL, WorldType.NORMAL, true);
+                        worldManager.Generate("Mine.2", false, Environment.NORMAL, WorldType.NORMAL, true);
+                        worldManager.Generate("Mine.3", false, Environment.NORMAL, WorldType.NORMAL, true);
+                        worldManager.Generate("Mine.4", false, Environment.NORMAL, WorldType.NORMAL, true);
+                        worldManager.Generate("Mine.5", false, Environment.NORMAL, WorldType.NORMAL, true);
                         // set structure
                         return;
                     case Creatif:
