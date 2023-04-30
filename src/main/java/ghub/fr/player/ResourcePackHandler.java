@@ -30,6 +30,7 @@ public class ResourcePackHandler implements Listener {
         byte[] hashed = HexFormat.of().parseHex(hash);
         player.sendMessage("Resource pack SHA1 : " + hash);
         player.sendMessage("Resource pack SHA1 Hashed : " + hashed);
+        player.sendMessage("Resource pack SHA1 (You) : " + player.getResourcePackHash());
         player.setResourcePack(url, hashed, text, force);
     }
 
