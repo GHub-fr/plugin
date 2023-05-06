@@ -408,6 +408,16 @@ public class textTranslation {
         }
     }
 
+    public static String SayGold(lang.languages lang, OfflinePlayer offlinePlayer, String goldFormat) {
+        switch (lang) {
+            case fr:
+            case en:
+                return textTranslation.newLine() + "§2" + offlinePlayer.getName() + " §f: §6" + goldFormat + gold(lang);
+            default:
+                return "";
+        }
+    }
+
     public static String noInformationPage(lang.languages languages) {
         switch (languages) {
             case fr:

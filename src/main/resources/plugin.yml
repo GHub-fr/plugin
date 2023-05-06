@@ -102,10 +102,18 @@ commands:
     description: "§2Commande d'île"
     usage: "/<command> [Options(String)]\n/<command> [Options(String)] [NOM(String)]"
     aliases: [ ile, is, island ]
-  profile:
-    description: "§2Affiche le profile"
+  profil:
+    description: "§2Affiche le profil du joueur"
     usage: "/<command> [NOM(String)]"
     aliases: [ info, data, player ]
+  money:
+    description: "§2Affiche les golds du joueur"
+    usage: "/<command> [NOM(String)]"
+    aliases: [ argent, purse, bal, balance ]
+  pay:
+    description: "§2Envoie des golds au joueur"
+    usage: "/<command> [NOM(String)]"
+    aliases: [ paye, goldgive, givegold, don ]
   menu:
     description: "§2Menu"
     usage: "/<command>\n/<command> [Options(String)]"

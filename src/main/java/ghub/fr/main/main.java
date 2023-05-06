@@ -27,7 +27,7 @@ import ghub.fr.menu.island.islandHeadsEvents;
 import ghub.fr.menu.island.bonus.bonusEvents;
 import ghub.fr.menu.prison.minesEvents;
 import ghub.fr.menu.prison.pickaxeEvents;
-import ghub.fr.menu.profile.profileEvents;
+import ghub.fr.menu.profil.profilEvents;
 import ghub.fr.menu.serverSelector.serverSelectorEvents;
 import ghub.fr.menu.shop.classique.shopEvents;
 import ghub.fr.menu.shop.specials.specialsMenuEvents;
@@ -213,7 +213,7 @@ public class main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginManager().registerEvents(new specialsMenuEvents(), this);
         Bukkit.getPluginManager().registerEvents(new BuildRules(), this);
         Bukkit.getPluginManager().registerEvents(new voyageEvents(), this);
-        Bukkit.getPluginManager().registerEvents(new profileEvents(), this);
+        Bukkit.getPluginManager().registerEvents(new profilEvents(), this);
         Bukkit.getPluginManager().registerEvents(new minesEvents(), this);
         Bukkit.getPluginManager().registerEvents(new pickaxeEvents(), this);
         Bukkit.getPluginManager().registerEvents(new BossBarMessage(), this);
@@ -255,7 +255,9 @@ public class main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginCommand("help").setExecutor(new help());
         Bukkit.getPluginCommand("commandes").setExecutor(new commandes());
         Bukkit.getPluginCommand("menu").setExecutor(new menu());
-        Bukkit.getPluginCommand("profile").setExecutor(new profile());
+        Bukkit.getPluginCommand("profil").setExecutor(new profil());
+        Bukkit.getPluginCommand("pay").setExecutor(new pay());
+        Bukkit.getPluginCommand("money").setExecutor(new money());
     }
 
     @Override

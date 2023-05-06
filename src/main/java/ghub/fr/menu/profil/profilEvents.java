@@ -1,4 +1,4 @@
-package ghub.fr.menu.profile;
+package ghub.fr.menu.profil;
 
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -14,20 +14,21 @@ import ghub.fr.world.api.teleportation;
 import java.io.IOException;
 import java.text.ParseException;
 
-public class profileEvents implements Listener {
+public class profilEvents implements Listener {
     @EventHandler
     public void PlayerClickIle(InventoryClickEvent e) throws IllegalArgumentException, IOException {
         if ((e.getCurrentItem() != null)) {
             if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.ileplayerhead)) {
                 SkullMeta itemMeta = (SkullMeta) e.getCurrentItem().getItemMeta();
                 OfflinePlayer offlinePlayer = itemMeta.getOwningPlayer();
-                profileMenu.menuProfile((Player) e.getWhoClicked(), offlinePlayer);
+                profilMenu.menuProfil((Player) e.getWhoClicked(), offlinePlayer);
             }
         }
     }
 
     @EventHandler
-    public void PlayerClickIleVisite(InventoryClickEvent e) throws IllegalArgumentException, IOException, ParseException {
+    public void PlayerClickIleVisite(InventoryClickEvent e)
+            throws IllegalArgumentException, IOException, ParseException {
         if ((e.getCurrentItem() != null)) {
             if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(),
                     persistentData.customKey.ileprofilviste)) {

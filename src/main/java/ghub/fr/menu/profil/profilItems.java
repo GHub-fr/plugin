@@ -1,4 +1,4 @@
-package ghub.fr.menu.profile;
+package ghub.fr.menu.profil;
 
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
@@ -11,7 +11,7 @@ import ghub.fr.text.lang;
 
 import java.io.IOException;
 
-public class profileItems {
+public class profilItems {
     public static ItemStack ItemStackInfo(lang.languages lang, OfflinePlayer offlinePlayer) throws IOException {
         ItemStack is = new ItemStack(Material.BOOK);
         ItemMeta meta = is.getItemMeta();

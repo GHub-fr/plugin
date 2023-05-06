@@ -29,7 +29,7 @@ public class playerTextHover {
         ComponentBuilder hoverText = new ComponentBuilder(hover);
         PlayerComponent.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverText.create()));
         PlayerComponent
-                .setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/profile " + offlinePlayer.getName()));
+                .setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/profil " + offlinePlayer.getName()));
         return PlayerComponent;
     }
 }
