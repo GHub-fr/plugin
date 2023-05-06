@@ -625,6 +625,17 @@ public class itemsTranslation {
         }
     }
 
+    public static String IleHeadVisite(lang.languages languages, OfflinePlayer player) {
+        switch (languages) {
+            case fr:
+                return "§6Cliquez pour visiter l'île du joueur";
+            case en:
+                return "§6Click to view the player island";
+            default:
+                return "";
+        }
+    }
+
     public static String ExcludeHead(lang.languages languages, OfflinePlayer player) {
         switch (languages) {
             case fr:
@@ -1517,14 +1528,16 @@ public class itemsTranslation {
             case fr:
                 Lore.add("");
                 Lore.add("§6Enchantez §fvotre pioche");
-                Lore.add("§4Prix §f: " + gold.FormatInt(pickaxe.enchantPrice(pickaxe.enchantKey(enchantment), prisonData.getEnchantLvl(player, enchantment))) + " §6gold");
+                Lore.add("§4Prix §f: " + gold.FormatInt(pickaxe.enchantPrice(pickaxe.enchantKey(enchantment),
+                        prisonData.getEnchantLvl(player, enchantment))) + " §6gold");
                 Lore.add("§6Niveau actuel §f: " + prisonData.getEnchantLvl(player, enchantment));
                 Lore.add("");
                 return Lore;
             case en:
                 Lore.add("");
                 Lore.add("§6Enchant §fyour pickaxes");
-                Lore.add("§4Price §f: " + gold.FormatInt(pickaxe.enchantPrice(pickaxe.enchantKey(enchantment), prisonData.getEnchantLvl(player, enchantment))) + " §6gold");
+                Lore.add("§4Price §f: " + gold.FormatInt(pickaxe.enchantPrice(pickaxe.enchantKey(enchantment),
+                        prisonData.getEnchantLvl(player, enchantment))) + " §6gold");
                 Lore.add("§6Actual level §f: " + prisonData.getEnchantLvl(player, enchantment));
                 Lore.add("");
                 return Lore;

@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -56,6 +55,17 @@ public class prisonData {
         int newLvl = getEnchantLvl(player, enchantment) + lvl;
         fileConfiguration.set("enchantement." + enchantment.getKey().toString(), newLvl);
 
+        fileConfiguration.save(getDataStorage.playerOPPrisonData(player));
+    }
+
+    public static ArrayList<String> getMinesUnlocked(OfflinePlayer player) throws IOException {
+        FileConfiguration fileConfiguration = fileConfiguration(player);
+        return (ArrayList<String>) fileConfiguration.getStringList("mines");
+    }
+
+    public static void setMinesUnlocked(OfflinePlayer player, ArrayList<String> mines) throws IOException {
+        FileConfiguration fileConfiguration = fileConfiguration(player);
+        fileConfiguration.set("mines", mines);
         fileConfiguration.save(getDataStorage.playerOPPrisonData(player));
     }
 }

@@ -77,7 +77,7 @@ public class persistentData {
         custom, ile, ileboost, voyage, shop, enchant, quest, compass, locked, /*
                                                                               */
         ilecreate, iletp, ilekick, ileinvite, ilelocate, ileowner, ilepending, ileplayerhead, inviteplayerhead,
-        excludeplayerhead, ileleave, ileleaveconfirm, ownerplayerhead, pendingplayerhead, /*
+        excludeplayerhead, ileleave, ileleaveconfirm, ownerplayerhead, pendingplayerhead, ileprofilviste, /*
                                                                                           */
         shopblocks, shopgraines, shopminerais, shopmonstres, shopplantes, shopnourritures, shopspeciaux, shopoeufs,
         shopaquatiques, shopnether, shopcustom, shopteintures, /*

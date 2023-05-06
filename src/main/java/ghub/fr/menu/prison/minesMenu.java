@@ -17,6 +17,16 @@ public class minesMenu {
         customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU,
                 InventoryType.HOPPER,
                 textTranslation.Mines(lang) + textTranslation.MenuGoldFormat(lang, player));
+        // if has mine
+        // show it
+        // if iron, then gold...
+        // show new button to get new Mine
+        // on TP get the latest
+        // new button TP to last mine
+        //
+        // On mine event add tag MineBuy, et MineUseTP
+        // Move if condition YML here
+        // For lore + item
         inventoryBuilder.getInventory().addItem(minesItems.ItemStackMineStone(lang));
         inventoryBuilder.getInventory().addItem(minesItems.ItemStackMineIron(lang));
         inventoryBuilder.getInventory().addItem(minesItems.ItemStackMineGold(lang));

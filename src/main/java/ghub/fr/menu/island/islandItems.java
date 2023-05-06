@@ -147,6 +147,28 @@ public class islandItems {
         return itemStack;
     }
 
+    public static ItemStack ItemStackPlayerHeadInfoVisite(OfflinePlayer offlinePlayer, lang.languages languages)
+            throws IOException {
+        ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD);
+        SkullMeta itemMeta = (SkullMeta) itemStack.getItemMeta();
+        itemMeta.setOwningPlayer(offlinePlayer);
+        itemMeta.setDisplayName(offlinePlayer.getName());
+        ArrayList<String> lore = new ArrayList<>();
+        lore.add("");
+        lore.add(itemsTranslation.IleHeadVisite(languages, offlinePlayer));
+        if (offlinePlayer.isOnline()) {
+            lore.add(itemsTranslation.Online(languages));
+        } else {
+            lore.add(itemsTranslation.Offline(languages));
+        }
+        lore.add("");
+        itemMeta.setLore(lore);
+        itemStack.setItemMeta(itemMeta);
+        persistentData.setPersistentDataItemStack(itemStack, persistentData.customKey.custom);
+        persistentData.setPersistentDataItemStack(itemStack, persistentData.customKey.ileprofilviste);
+        return itemStack;
+    }
+
     public static ItemStack ItemStackPlayerHeadExclude(OfflinePlayer offlinePlayer, lang.languages languages)
             throws IOException {
         ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD);
