@@ -26,6 +26,8 @@ public class minesEvents implements Listener {
                 } else {
                     // check gold amount
                     // Penser à update le menu pour show avec la condition if un text buy
+                    // set flag unlock mine
+                    // sur le menu update utiliser ce flag pour afficher le prix + si fait
                 }
             } else if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(),
                     persistentData.customKey.mineiron)) {

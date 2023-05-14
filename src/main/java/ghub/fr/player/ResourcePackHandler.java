@@ -13,17 +13,22 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import ghub.fr.main.main;
+import ghub.fr.system.ServerBootFile;
+import ghub.fr.system.ServerBootFile.serverType;
 
 public class ResourcePackHandler implements Listener {
 
     @EventHandler
     public void PlayerJoinEvent(PlayerJoinEvent e) throws IOException {
-        String url = main.url;
-        String sha1 = main.sha1;
-        String text = "§4§lUtilisation du resource pack §r§f..." + "\n§f[ §6§lGHub.fr §r§f] Resource pack";
-        Boolean force = false;
+        serverType serverTypes = ServerBootFile.getServerTypeFromYML();
+        if (serverTypes.equals(serverType.Hub)) {
+            String url = main.url;
+            String sha1 = main.sha1;
+            String text = "§4§lUtilisation du resource pack §r§f..." + "\n§f[ §6§lGHub.fr §r§f] Resource pack";
+            Boolean force = false;
 
-        setResourcePack(e.getPlayer(), url, sha1, text, force);
+            setResourcePack(e.getPlayer(), url, sha1, text, force);
+        }
     }
 
     public static void setResourcePack(Player player, String url, String hash, String text, boolean force) {

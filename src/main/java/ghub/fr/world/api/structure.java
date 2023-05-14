@@ -141,6 +141,11 @@ public class structure {
         setStructure(structureName, worldName, x, y, z, waitTime, 0, null);
     }
 
+    public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime, int delay)
+            throws IOException, ParseException {
+        setStructure(structureName, worldName, x, y, z, waitTime, delay, null);
+    }
+
     public static void setStructure(String structureName, String worldName, int x, int y, int z, int waitTime,
             int delay,
             Player player) throws IOException, ParseException {
