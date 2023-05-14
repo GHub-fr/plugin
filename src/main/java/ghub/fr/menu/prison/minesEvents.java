@@ -28,6 +28,9 @@ public class minesEvents implements Listener {
                     // Penser à update le menu pour show avec la condition if un text buy
                     // set flag unlock mine
                     // sur le menu update utiliser ce flag pour afficher le prix + si fait
+
+                    //
+                    //Penser faire event block break + generate (44, -2 +64, 44 -> -44, -41 +64, -44)
                 }
             } else if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(),
                     persistentData.customKey.mineiron)) {
