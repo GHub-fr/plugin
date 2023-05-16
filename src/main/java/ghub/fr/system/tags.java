@@ -14,7 +14,7 @@ import java.util.List;
 
 public class tags {
     public enum TagsList {
-        Admin, Build, Builder, Messages, Moderation, Survie, Creatif, Test, Beta
+        Admin, Build, Builder, Messages, Moderation, Survie, Creatif, Test, Beta, Joueur, YouTube
     }
 
     public static File file(OfflinePlayer offlinePlayer) {

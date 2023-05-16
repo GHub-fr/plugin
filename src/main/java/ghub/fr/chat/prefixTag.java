@@ -9,29 +9,78 @@ import java.io.IOException;
 import java.text.ParseException;
 
 public class prefixTag {
+    /*
+     * public static String prefixTag(OfflinePlayer offlinePlayer) throws
+     * IOException, ParseException {
+     * String prefix = "";
+     * if (tags.hasTags(offlinePlayer, tags.TagsList.Admin)) {
+     * prefix += "§4§kA";
+     * }
+     * if (tags.hasTags(offlinePlayer, tags.TagsList.Messages)
+     * || tags.hasTags(offlinePlayer, tags.TagsList.Creatif)
+     * || tags.hasTags(offlinePlayer, tags.TagsList.Moderation)
+     * || tags.hasTags(offlinePlayer, tags.TagsList.Builder)
+     * || tags.hasTags(offlinePlayer, tags.TagsList.Build)) {
+     * prefix += "§2⚒";
+     * }
+     * if (tags.hasTags(offlinePlayer, tags.TagsList.Beta)) {
+     * prefix += "§6✯";
+     * }
+     * if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIP)) {
+     * prefix += "§6⚖";
+     * }
+     * if (tags.hasTags(offlinePlayer, tags.TagsList.Test)) {
+     * prefix += "§6➹";
+     * }
+     * if (tags.hasTags(offlinePlayer, tags.TagsList.Survie)) {
+     * prefix += "§6๑";
+     * }
+     * 
+     * prefix += " ";
+     * return prefix;
+     * }
+     */
+
     public static String prefixTag(OfflinePlayer offlinePlayer) throws IOException, ParseException {
         String prefix = "";
         if (tags.hasTags(offlinePlayer, tags.TagsList.Admin)) {
-            prefix += "§4§kA";
+            prefix += "";
         }
-        if (tags.hasTags(offlinePlayer, tags.TagsList.Messages)
-                || tags.hasTags(offlinePlayer, tags.TagsList.Creatif)
-                || tags.hasTags(offlinePlayer, tags.TagsList.Moderation)
+
+        if (tags.hasTags(offlinePlayer, tags.TagsList.Creatif)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Builder)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Build)) {
-            prefix += "§2⚒";
+            prefix += "";
         }
+        
+        if (tags.hasTags(offlinePlayer, tags.TagsList.Messages)
+                || tags.hasTags(offlinePlayer, tags.TagsList.Test)
+                || tags.hasTags(offlinePlayer, tags.TagsList.Moderation)) {
+            prefix += "";
+        }
+
         if (tags.hasTags(offlinePlayer, tags.TagsList.Beta)) {
-            prefix += "§6✯";
+            prefix += "";
         }
+
+        if (tags.hasTags(offlinePlayer, tags.TagsList.YouTube)) {
+            prefix += "";
+        }
+
+        if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIPPlus)) {
+            prefix += "";
+        }
+
         if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIP)) {
-            prefix += "§6⚖";
+            prefix += "";
         }
-        if (tags.hasTags(offlinePlayer, tags.TagsList.Test)) {
-            prefix += "§6➹";
-        }
+
         if (tags.hasTags(offlinePlayer, tags.TagsList.Survie)) {
-            prefix += "§6๑";
+            prefix += "";
+        }
+
+        if (tags.hasTags(offlinePlayer, tags.TagsList.Joueur)) {
+            prefix += "";
         }
 
         prefix += " ";
