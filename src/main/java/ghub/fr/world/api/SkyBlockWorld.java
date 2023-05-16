@@ -42,7 +42,7 @@ public class SkyBlockWorld extends ChunkGenerator {
 
     @Override
     public boolean shouldGenerateDecorations() {
-        return false;
+        return true;
     }
 
     @Override

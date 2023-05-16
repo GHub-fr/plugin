@@ -30,14 +30,14 @@ public class worldManager implements Listener {
     public static World Generate(String WorldName, Boolean structure, World.Environment environment,
             WorldType worldType, Boolean SkyBlock) {
         WorldCreator worldCreator = new WorldCreator(WorldName);
+        worldCreator.environment(environment);
+        worldCreator.type(worldType);
+        worldCreator.generateStructures(structure);
         if (SkyBlock && structure) {
             worldCreator.generator(new SkyBlockWorld());
         } else if (SkyBlock && !structure) {
             worldCreator.generator(new voidWorld());
         }
-        worldCreator.generateStructures(structure);
-        worldCreator.environment(environment);
-        worldCreator.type(worldType);
         World world = worldCreator.createWorld();
         setWorldRules(world);
         TimeSync(world);
