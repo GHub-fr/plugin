@@ -44,35 +44,35 @@ public class prefixTag {
     public static String prefixTag(OfflinePlayer offlinePlayer) throws IOException, ParseException {
         String prefix = "";
         if (tags.hasTags(offlinePlayer, tags.TagsList.Admin)) {
-            prefix += "";
+            prefix += "";
         }
 
         if (tags.hasTags(offlinePlayer, tags.TagsList.Creatif)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Builder)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Build)) {
-            prefix += "";
+            prefix += "";
         }
         
         if (tags.hasTags(offlinePlayer, tags.TagsList.Messages)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Test)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Moderation)) {
-            prefix += "";
+            prefix += "";
         }
 
         if (tags.hasTags(offlinePlayer, tags.TagsList.Beta)) {
-            prefix += "";
+            prefix += "";
         }
 
         if (tags.hasTags(offlinePlayer, tags.TagsList.YouTube)) {
-            prefix += "";
+            prefix += "";
         }
 
         if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIPPlus)) {
-            prefix += "";
+            prefix += "";
         }
 
         if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIP)) {
-            prefix += "";
+            prefix += "";
         }
 
         if (tags.hasTags(offlinePlayer, tags.TagsList.Survie)) {
@@ -80,7 +80,7 @@ public class prefixTag {
         }
 
         if (tags.hasTags(offlinePlayer, tags.TagsList.Joueur)) {
-            prefix += "";
+            prefix += "";
         }
 
         prefix += " ";
