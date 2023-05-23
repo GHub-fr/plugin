@@ -12,21 +12,22 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerResourcePackStatusEvent;
+
 import ghub.fr.main.main;
 import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.ServerBootFile.serverType;
 
 public class ResourcePackHandler implements Listener {
+    public static String url = main.url;
+    public static String sha1 = main.sha1;
+    public static String text = "§4§lUtilisation du resource pack §r§f..." + "\n§f[ §6§lGHub.fr §r§f] Resource pack";
+    public static Boolean force = false;
 
     @EventHandler
     public void PlayerJoinEvent(PlayerJoinEvent e) throws IOException {
         serverType serverTypes = ServerBootFile.getServerTypeFromYML();
         if (serverTypes.equals(serverType.Hub)) {
-            String url = main.url;
-            String sha1 = main.sha1;
-            String text = "§4§lUtilisation du resource pack §r§f..." + "\n§f[ §6§lGHub.fr §r§f] Resource pack";
-            Boolean force = false;
-
             setResourcePack(e.getPlayer(), url, sha1, text, force);
         }
     }
@@ -34,6 +35,24 @@ public class ResourcePackHandler implements Listener {
     public static void setResourcePack(Player player, String url, String hash, String text, boolean force) {
         byte[] hashed = HexFormat.of().parseHex(hash);
         player.setResourcePack(url, hashed, text, force);
+    }
+
+    @EventHandler
+    public void ResourcePackStatusEvent(PlayerResourcePackStatusEvent e) {
+        switch (e.getStatus()) {
+            case ACCEPTED:
+                setResourcePack(e.getPlayer(), url, sha1, text, false);
+                return;
+            case DECLINED:
+                e.getPlayer().kickPlayer("§4§lLe ressource pack doit être accepté §rpour jouer sur le serveur en raison de son utilisation");
+                return;
+            case FAILED_DOWNLOAD:
+                setResourcePack(e.getPlayer(), url, sha1, text, false);
+                return;
+            case SUCCESSFULLY_LOADED:
+                e.getPlayer().sendMessage("ResourcePack OK Debug MSG");
+                return;
+        }
     }
 
     public static String getSHA1(String url) throws IOException {

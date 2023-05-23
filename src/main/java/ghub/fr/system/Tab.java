@@ -4,11 +4,9 @@ import com.sun.management.OperatingSystemMXBean;
 
 import ghub.fr.chat.prefixTag;
 import ghub.fr.main.main;
-import ghub.fr.menu.shop.specials.bonus.bonus;
 import ghub.fr.text.textTranslation;
 
 import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,9 +17,12 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 
 public class Tab {
+    public static DecimalFormat df = new DecimalFormat("#.#");
+
     public static void scheduler() {
         Plugin plugin = JavaPlugin.getPlugin(main.class);
         ScoreboardManager manager = Bukkit.getScoreboardManager();
@@ -110,10 +111,10 @@ public class Tab {
     }
 
     public static void setTabName(Player player) throws IOException, ParseException {
-        player.setPlayerListName(prefixTag.prefixTag(player) + "§r§f" + player.getDisplayName() + " " + player.getHealth() + "");
+        player.setPlayerListName(prefixTag.prefixTag(player) + "  " + player.getDisplayName() + "  " + df.format(player.getHealth()) + "");
     }
 
-    public static String nameTeam(OfflinePlayer offlinePlayer) throws IOException, ParseException {
+    /* public static String nameTeam(OfflinePlayer offlinePlayer) throws IOException, ParseException {
         String prefix = "";
         if (tags.hasTags(offlinePlayer, tags.TagsList.Admin)) {
             prefix += "A";
@@ -129,15 +130,14 @@ public class Tab {
             prefix += "V";
         }
         return prefix;
-    }
+    } */
 
     @SuppressWarnings("deprecation")
     public static void setTeamTag(Player player, Scoreboard scoreboard) throws IOException, ParseException {
-        String nameTeam = nameTeam(player);
+        String nameTeam = prefixTag.prefixTag(player);
         if (scoreboard.getTeam(nameTeam) == null) {
             org.bukkit.scoreboard.Team newTeam = scoreboard.registerNewTeam(nameTeam);
-            String tag = prefixTag.prefixTag(player);
-            newTeam.setPrefix(tag);
+            newTeam.setPrefix(nameTeam);
             newTeam.addPlayer(player);
             player.setScoreboard(scoreboard);
         } else {
