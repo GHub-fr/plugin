@@ -11,6 +11,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 
 import ghub.fr.menu.api.persistentData;
+import ghub.fr.system.getDataStorage;
 import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
 
@@ -30,6 +31,20 @@ public class compassEvents implements Listener {
         return listPose;
     }
 
+    public static int getNextPose(int current) {
+        if (current >= listPose().size() - 1) {
+            return 0;
+        } else {
+            int i = current;
+            i++;
+            return i;
+        }
+    }
+
+    public static void setNextPose(OfflinePlayer offlinePlayer) throws IOException {
+        moveCompass(offlinePlayer, getNextPose(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose")));
+    }
+
     public static boolean playerHasCompass(Player p) throws IOException {
         for (int i : listPose()) {
             if (p.getInventory().getItem(i) != null) {
@@ -45,15 +60,34 @@ public class compassEvents implements Listener {
         return false;
     }
 
-    public static int getPlayerCompassSlot(Player p) {
-        // return this value by default while no config for this
-        return 9;
+    public static int getPlayerCompassSlot(OfflinePlayer offlinePlayer) throws IOException {
+        return listPose().get(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose"));
+    }
+
+    public static void setPlayerCompassSlot(OfflinePlayer offlinePlayer, int slot) throws IOException {
+        getDataStorage.playerFileConfiguration(offlinePlayer).set("compassPose", slot);
+        getDataStorage.playerFileConfiguration(offlinePlayer).save(getDataStorage.playerFile(offlinePlayer));
     }
 
     public static void setCompassInv(Player p) throws IOException {
         if (!playerHasCompass(p)) {
             lang.languages lang = playerLang.getPlayerLang(p);
             p.getInventory().setItem(getPlayerCompassSlot(p), compassItems.ItemStackCompass(lang));
+        }
+    }
+
+    public static void moveCompass(OfflinePlayer offlinePlayer, int pose) throws IOException {
+        if (offlinePlayer.isOnline()) {
+            Player p = offlinePlayer.getPlayer();
+            int oldSlot = getPlayerCompassSlot(p);
+            if (p.getInventory().getItem(pose).getType().equals(Material.AIR)) {
+                p.getInventory().setItem(oldSlot, new ItemStack(Material.AIR));
+            } else {
+                p.getInventory().setItem(oldSlot, p.getInventory().getItem(pose));
+                p.getInventory().setItem(pose, new ItemStack(Material.AIR));
+            }
+            setPlayerCompassSlot(offlinePlayer, pose);
+            setCompassInv(p);
         }
     }
 

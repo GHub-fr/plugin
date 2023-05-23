@@ -78,7 +78,7 @@ public class persistentData {
                                                                               */
         ilecreate, iletp, ilekick, ileinvite, ilelocate, ileowner, ilepending, ileplayerhead, inviteplayerhead,
         excludeplayerhead, ileleave, ileleaveconfirm, ownerplayerhead, pendingplayerhead, ileprofilviste, /*
-                                                                                          */
+                                                                                                          */
         shopblocks, shopgraines, shopminerais, shopmonstres, shopplantes, shopnourritures, shopspeciaux, shopoeufs,
         shopaquatiques, shopnether, shopcustom, shopteintures, /*
                                                                */
@@ -94,6 +94,8 @@ public class persistentData {
         opprison, /*
                   */
         minestone, mineiron, minegold, minediamond, minenetherite, mineselector, pickaxeselector, pickaxeupgrade,
-        pickaxeenchant, pickaxeenchantlooting, pickaxeenchantspeed, mypickaxe
+        pickaxeenchant, pickaxeenchantlooting, pickaxeenchantspeed, mypickaxe, /*
+                                                                               */
+        settings, resourcepack, langSwap, compassPose
     }
 }

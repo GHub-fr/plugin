@@ -27,6 +27,8 @@ public class minesMenu {
         // On mine event add tag MineBuy, et MineUseTP
         // Move if condition YML here
         // For lore + item
+        //
+        //Pass player as arg to itemStack
         inventoryBuilder.getInventory().addItem(minesItems.ItemStackMineStone(lang));
         inventoryBuilder.getInventory().addItem(minesItems.ItemStackMineIron(lang));
         inventoryBuilder.getInventory().addItem(minesItems.ItemStackMineGold(lang));

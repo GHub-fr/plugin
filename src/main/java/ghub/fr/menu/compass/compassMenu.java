@@ -24,6 +24,7 @@ public class compassMenu {
                 || ServerBootFile.getServerType().equals(ServerBootFile.serverType.Anarchie)) {
             customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU, 9,
                     textTranslation.Menu(lang) + textTranslation.MenuGoldFormat(lang, player));
+            inventoryBuilder.getInventory().setItem(0, compassItems.ItemStackSettings(lang));
             inventoryBuilder.getInventory().setItem(4, compassItems.ItemStackTeleporation(lang));
             inventoryBuilder.getInventory().setItem(8, compassItems.ItemStackShop(lang));
             player.openInventory(inventoryBuilder.getInventory());
@@ -32,6 +33,7 @@ public class compassMenu {
         else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Creatif)) {
             customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU, 9,
                     textTranslation.Menu(lang) + textTranslation.MenuGoldFormat(lang, player));
+            inventoryBuilder.getInventory().setItem(0, compassItems.ItemStackSettings(lang));
             inventoryBuilder.getInventory().setItem(4, compassItems.ItemStackTeleporation(lang));
             player.openInventory(inventoryBuilder.getInventory());
         }
@@ -39,6 +41,7 @@ public class compassMenu {
         else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.OPPrison)) {
             customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU, 9,
                     textTranslation.Menu(lang) + textTranslation.MenuGoldFormat(lang, player));
+            inventoryBuilder.getInventory().setItem(0, compassItems.ItemStackSettings(lang));
             inventoryBuilder.getInventory().setItem(4, compassItems.ItemStackTeleporation(lang));
             inventoryBuilder.getInventory().setItem(7, minesItems.ItemStackMineSelector(lang));
             inventoryBuilder.getInventory().setItem(8, pickaxeItems.ItemStackPickaxeSelector(lang));
@@ -48,6 +51,7 @@ public class compassMenu {
         else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Hub)) {
             customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU, 54,
                     textTranslation.Menu(lang) + textTranslation.MenuGoldFormat(lang, player));
+            inventoryBuilder.getInventory().setItem(0, compassItems.ItemStackSettings(lang));
             inventoryBuilder.getInventory().setItem(19, serverSelectorItems.ItemStackSurvie(lang, player));
             inventoryBuilder.getInventory().setItem(20, serverSelectorItems.ItemStackCreatif(lang, player));
             inventoryBuilder.getInventory().setItem(21, serverSelectorItems.ItemStackRPG(lang, player));
@@ -62,8 +66,9 @@ public class compassMenu {
         else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.RPG)) {
             customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU, 9,
                     textTranslation.Menu(lang) + textTranslation.MenuGoldFormat(lang, player));
-            inventoryBuilder.getInventory().setItem(0, compassItems.ItemStackQuest(lang));
+            inventoryBuilder.getInventory().setItem(0, compassItems.ItemStackSettings(lang));
             inventoryBuilder.getInventory().setItem(1, compassItems.ItemStackTeleporation(lang));
+            inventoryBuilder.getInventory().setItem(6, compassItems.ItemStackQuest(lang));
             inventoryBuilder.getInventory().setItem(7, compassItems.ItemStackShopEnchant(lang));
             inventoryBuilder.getInventory().setItem(8, compassItems.ItemStackShop(lang));
             player.openInventory(inventoryBuilder.getInventory());
@@ -72,7 +77,8 @@ public class compassMenu {
         else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.SkyBlock)) {
             customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU, 9,
                     textTranslation.Menu(lang) + textTranslation.MenuGoldFormat(lang, player));
-            inventoryBuilder.getInventory().setItem(0, compassItems.ItemStackIle(lang));
+            inventoryBuilder.getInventory().setItem(0, compassItems.ItemStackSettings(lang));
+            inventoryBuilder.getInventory().setItem(1, compassItems.ItemStackIle(lang));
             inventoryBuilder.getInventory().setItem(2, compassItems.ItemStackTeleporation(lang));
             inventoryBuilder.getInventory().setItem(8, compassItems.ItemStackShop(lang));
             inventoryBuilder.getInventory().setItem(7, compassItems.ItemStackShopEnchant(lang));

@@ -1,5 +1,7 @@
 package ghub.fr.menu.compass;
 
+import java.io.IOException;
+
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -73,6 +75,17 @@ public class compassItems {
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.voyage);
+        return is;
+    }
+
+    public static ItemStack ItemStackSettings(lang.languages lang) throws IOException {
+        ItemStack is = new ItemStack(Material.REDSTONE);
+        ItemMeta meta = is.getItemMeta();
+        meta.setDisplayName(itemsTranslation.SettingsTitle(lang));
+        meta.setLore(itemsTranslation.SettingsLore(lang));
+        is.setItemMeta(meta);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.settings);
         return is;
     }
 }

@@ -30,6 +30,6 @@ public class customInventory implements InventoryHolder {
     }
 
     public enum CustomInventoryType {
-        SKYBLOCK, MENU, VOYAGE, SHOP, PROFIL
+        SKYBLOCK, MENU, VOYAGE, SHOP, PROFIL, SETTINGS
     }
 }

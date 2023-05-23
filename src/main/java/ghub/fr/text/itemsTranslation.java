@@ -1556,4 +1556,121 @@ public class itemsTranslation {
                 return "";
         }
     }
+
+    public static List<String> SettingsLore(lang.languages lang)
+            throws IOException {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§6Modifiez vos paramètres");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("§6Change your settings");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static String SettingsTitle(lang.languages lang) {
+        switch (lang) {
+            case fr:
+                return "§6§lParamètres";
+            case en:
+                return "§6§lSettings";
+            default:
+                return "";
+        }
+    }
+
+    public static List<String> ResourcePackLore(lang.languages lang) throws IOException {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§fCliquez pour §6télécharger le ressource pack");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("§fClick to §6download the resource pack");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static String ResourcePackTitle(lang.languages lang) {
+        switch (lang) {
+            case fr:
+                return "§6§lRessource pack";
+            case en:
+                return "§6§lResource pack";
+            default:
+                return "";
+        }
+    }
+
+    public static List<String> LangLore(lang.languages lang) throws IOException {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§fChangez la langue vers l'§6Anglais");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("§fChange the language to §6French");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static String LangTitle(lang.languages lang) {
+        switch (lang) {
+            case fr:
+                return "§6§lLangue";
+            case en:
+                return "§6§lLanguage ";
+            default:
+                return "";
+        }
+    }
+
+    public static List<String> CompassPoseLore(lang.languages lang) throws IOException {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§fChangez la position du menu principal (§6boussole§f)");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("§fChange the position of the main menu (§6compass§f)");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static String CompassPoseTitle(lang.languages lang) {
+        switch (lang) {
+            case fr:
+                return "§6§lPosition du menu";
+            case en:
+                return "§6§lMenu position";
+            default:
+                return "";
+        }
+    }
 }

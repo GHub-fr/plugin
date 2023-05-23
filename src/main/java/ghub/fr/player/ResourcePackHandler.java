@@ -22,7 +22,7 @@ public class ResourcePackHandler implements Listener {
     public static String url = main.url;
     public static String sha1 = main.sha1;
     public static String text = "§4§lUtilisation du resource pack §r§f..." + "\n§f[ §6§lGHub.fr §r§f] Resource pack";
-    public static Boolean force = false;
+    public static Boolean force = true;
 
     @EventHandler
     public void PlayerJoinEvent(PlayerJoinEvent e) throws IOException {
@@ -44,7 +44,8 @@ public class ResourcePackHandler implements Listener {
                 setResourcePack(e.getPlayer(), url, sha1, text, false);
                 return;
             case DECLINED:
-                e.getPlayer().kickPlayer("§4§lLe ressource pack doit être accepté §rpour jouer sur le serveur en raison de son utilisation");
+                e.getPlayer().kickPlayer(
+                        "§4§lLe ressource pack doit être accepté §rpour jouer sur le serveur en raison de son utilisation");
                 return;
             case FAILED_DOWNLOAD:
                 setResourcePack(e.getPlayer(), url, sha1, text, false);

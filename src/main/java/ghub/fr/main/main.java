@@ -29,6 +29,7 @@ import ghub.fr.menu.prison.minesEvents;
 import ghub.fr.menu.prison.pickaxeEvents;
 import ghub.fr.menu.profil.profilEvents;
 import ghub.fr.menu.serverSelector.serverSelectorEvents;
+import ghub.fr.menu.settings.settingsEvents;
 import ghub.fr.menu.shop.classique.shopEvents;
 import ghub.fr.menu.shop.specials.specialsMenuEvents;
 import ghub.fr.menu.shop.specials.specialsUseEvents;
@@ -218,6 +219,7 @@ public class main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginManager().registerEvents(new pickaxeEvents(), this);
         Bukkit.getPluginManager().registerEvents(new BossBarMessage(), this);
         Bukkit.getPluginManager().registerEvents(new ResourcePackHandler(), this);
+        Bukkit.getPluginManager().registerEvents(new settingsEvents(), this);
     }
 
     public void registerEnchant() {

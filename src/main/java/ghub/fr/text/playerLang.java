@@ -5,6 +5,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import ghub.fr.system.getDataStorage;
+import ghub.fr.text.lang.languages;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,5 +24,13 @@ public class playerLang {
             fileConfiguration.set("lang", i);
         }
         fileConfiguration.save(file);
+    }
+
+    public static void SwapLang(OfflinePlayer offlinePlayer) throws IOException {
+        if (getPlayerLang(offlinePlayer).equals(languages.fr)) {
+            setPlayerLang(offlinePlayer, languages.en.ordinal());
+        } else if (getPlayerLang(offlinePlayer).equals(languages.en)) {
+            setPlayerLang(offlinePlayer, languages.fr.ordinal());
+        }
     }
 }
