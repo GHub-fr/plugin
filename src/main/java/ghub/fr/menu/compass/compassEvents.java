@@ -72,7 +72,7 @@ public class compassEvents implements Listener {
 
     public static void setCompassInv(Player p) throws IOException {
         lang.languages lang = playerLang.getPlayerLang(p);
-        p.getInventory().setItem(getPlayerCompassSlot(p), compassItems.ItemStackCompass(lang));
+        p.getInventory().setItem(listPose().get(getPlayerCompassSlot(p)), compassItems.ItemStackCompass(lang));
     }
 
     public static void moveCompass(OfflinePlayer offlinePlayer, int pose) throws IOException {
