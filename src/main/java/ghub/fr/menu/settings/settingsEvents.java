@@ -28,7 +28,7 @@ public class settingsEvents implements Listener {
     @EventHandler
     public void PlayerClickLang(InventoryClickEvent e) throws IllegalArgumentException, IOException, ParseException {
         if (e.getCurrentItem() != null) {
-            if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.langSwap)) {
+            if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.langswap)) {
                 playerLang.SwapLang((Player) e.getWhoClicked());
                 settingsMenu.SettingsMenu((Player) e.getWhoClicked());
             }
@@ -39,7 +39,7 @@ public class settingsEvents implements Listener {
     public void PlayerClickCompassPose(InventoryClickEvent e)
             throws IllegalArgumentException, IOException, ParseException {
         if (e.getCurrentItem() != null) {
-            if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.compassPose)) {
+            if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.compasspose)) {
                 compassEvents.setNextPose((Player) e.getWhoClicked());
             }
         }
@@ -61,10 +61,10 @@ public class settingsEvents implements Listener {
     public void PlayerClickChat(InventoryClickEvent e)
             throws IllegalArgumentException, IOException, ParseException {
         if (e.getCurrentItem() != null) {
-            if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.chatSetting)) {
+            if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.chatsetting)) {
                 e.getClickedInventory().close();
                 playerChat.toggleChatSetting((Player) e.getWhoClicked());
-                e.getWhoClicked().sendMessage("Langue changé !");//Do it with text translate + system logo
+                e.getWhoClicked().sendMessage("Chat changé (masqué/affiché) faire msg translate!");//Do it with text translate + system logo
             }
         }
     }

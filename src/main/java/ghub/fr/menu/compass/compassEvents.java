@@ -78,7 +78,7 @@ public class compassEvents implements Listener {
         if (offlinePlayer.isOnline()) {
             Player p = offlinePlayer.getPlayer();
             int oldSlot = getPlayerCompassSlot(p);
-            if (p.getInventory().getItem(pose).getType().equals(Material.AIR)) {
+            if (p.getInventory().getItem(pose).equals(null)) {
                 p.getInventory().setItem(oldSlot, new ItemStack(Material.AIR));
             } else {
                 p.getInventory().setItem(oldSlot, p.getInventory().getItem(pose));
