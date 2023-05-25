@@ -78,12 +78,13 @@ public class compassEvents implements Listener {
     public static void moveCompass(OfflinePlayer offlinePlayer, int pose) throws IOException {
         if (offlinePlayer.isOnline()) {
             Player p = offlinePlayer.getPlayer();
-            int oldSlot = getPlayerCompassSlot(p);
-            if (p.getInventory().getItem(pose) == null) {
+            int oldSlot = listPose().get(getPlayerCompassSlot(p));
+            int newSlot = listPose().get(pose);
+            if (p.getInventory().getItem(newSlot) == null) {
                 p.getInventory().setItem(oldSlot, new ItemStack(Material.AIR));
             } else {
                 p.getInventory().setItem(oldSlot, p.getInventory().getItem(pose));
-                p.getInventory().setItem(pose, new ItemStack(Material.AIR));
+                p.getInventory().setItem(newSlot, new ItemStack(Material.AIR));
             }
             setPlayerCompassSlot(offlinePlayer, pose);
             setCompassInv(p);
