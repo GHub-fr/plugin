@@ -42,7 +42,8 @@ public class compassEvents implements Listener {
     }
 
     public static void setNextPose(OfflinePlayer offlinePlayer) throws IOException {
-        moveCompass(offlinePlayer, getNextPose(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose")));
+        moveCompass(offlinePlayer,
+                getNextPose(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose")));
     }
 
     public static boolean playerHasCompass(Player p) throws IOException {
@@ -70,15 +71,15 @@ public class compassEvents implements Listener {
     }
 
     public static void setCompassInv(Player p) throws IOException {
-            lang.languages lang = playerLang.getPlayerLang(p);
-            p.getInventory().setItem(getPlayerCompassSlot(p), compassItems.ItemStackCompass(lang));
+        lang.languages lang = playerLang.getPlayerLang(p);
+        p.getInventory().setItem(getPlayerCompassSlot(p), compassItems.ItemStackCompass(lang));
     }
 
     public static void moveCompass(OfflinePlayer offlinePlayer, int pose) throws IOException {
         if (offlinePlayer.isOnline()) {
             Player p = offlinePlayer.getPlayer();
             int oldSlot = getPlayerCompassSlot(p);
-            if (p.getInventory().getItem(pose).equals(null)) {
+            if (p.getInventory().getItem(pose) == null) {
                 p.getInventory().setItem(oldSlot, new ItemStack(Material.AIR));
             } else {
                 p.getInventory().setItem(oldSlot, p.getInventory().getItem(pose));
