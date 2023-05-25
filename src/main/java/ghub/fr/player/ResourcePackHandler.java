@@ -45,7 +45,6 @@ public class ResourcePackHandler implements Listener {
     public void ResourcePackStatusEvent(PlayerResourcePackStatusEvent e) {
         switch (e.getStatus()) {
             case ACCEPTED:
-                //setResourcePack(e.getPlayer(), url, sha1, text, true);
                 return;
             case DECLINED:
                 e.getPlayer().kickPlayer(
@@ -55,7 +54,6 @@ public class ResourcePackHandler implements Listener {
                 setResourcePack(e.getPlayer(), url, sha1, text, true);
                 return;
             case SUCCESSFULLY_LOADED:
-                e.getPlayer().sendMessage("ResourcePack OK Debug MSG");
                 return;
         }
     }
