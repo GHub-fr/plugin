@@ -63,9 +63,11 @@ import java.util.HashMap;
 import java.util.logging.Logger;
 
 public class main extends JavaPlugin implements PluginMessageListener {
-    private static final Logger logger = Bukkit.getLogger();
 
+    private static final Logger logger = Bukkit.getLogger();
     instantmine instantmine = new instantmine(new NamespacedKey(this, "instantmine"));
+    public static String url = "https://ghub.fr/storage/zip/resourcePack.zip";
+    public static String sha1;
 
     @Override
     public ChunkGenerator getDefaultWorldGenerator(String worldName, String id) {
@@ -78,7 +80,6 @@ public class main extends JavaPlugin implements PluginMessageListener {
         try {
             ServerBootFile.loadServerTypeFile();
             logger.info(ServerBootFile.getServerType().toString());
-            generateResourcePack();
         } catch (Exception e) {
         }
     }
@@ -88,6 +89,7 @@ public class main extends JavaPlugin implements PluginMessageListener {
         logger.info("Plugin Enabled");
         try {
             discordMain.startBot();
+            generateResourcePack();
         } catch (Exception e) {
         }
         Bukkit.getPluginManager().registerEvents(new eventsMinecraft(), this);
@@ -112,9 +114,6 @@ public class main extends JavaPlugin implements PluginMessageListener {
         this.getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord",
                 new BungeePluginMessageListener());
     }
-
-    public static String url = "https://ghub.fr/storage/zip/resourcePack.zip";
-    public static String sha1;
 
     private void generateResourcePack() throws IOException {
         sha1 = ResourcePackHandler.getSHA1(url);

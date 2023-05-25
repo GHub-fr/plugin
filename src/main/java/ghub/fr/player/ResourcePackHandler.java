@@ -26,6 +26,10 @@ public class ResourcePackHandler implements Listener {
 
     @EventHandler
     public void PlayerJoinEvent(PlayerJoinEvent e) throws IOException {
+        if (sha1 == null || sha1 == "") {
+            sha1 = getSHA1(url);
+        }
+
         serverType serverTypes = ServerBootFile.getServerTypeFromYML();
         if (serverTypes.equals(serverType.Hub)) {
             setResourcePack(e.getPlayer(), url, sha1, text, force);
@@ -41,14 +45,14 @@ public class ResourcePackHandler implements Listener {
     public void ResourcePackStatusEvent(PlayerResourcePackStatusEvent e) {
         switch (e.getStatus()) {
             case ACCEPTED:
-                setResourcePack(e.getPlayer(), url, sha1, text, false);
+                setResourcePack(e.getPlayer(), url, sha1, text, true);
                 return;
             case DECLINED:
                 e.getPlayer().kickPlayer(
                         "§4§lLe ressource pack doit être accepté §rpour jouer sur le serveur en raison de son utilisation");
                 return;
             case FAILED_DOWNLOAD:
-                setResourcePack(e.getPlayer(), url, sha1, text, false);
+                setResourcePack(e.getPlayer(), url, sha1, text, true);
                 return;
             case SUCCESSFULLY_LOADED:
                 e.getPlayer().sendMessage("ResourcePack OK Debug MSG");
