@@ -50,6 +50,7 @@ public class settingsEvents implements Listener {
             throws IllegalArgumentException, IOException, ParseException {
         if (e.getCurrentItem() != null) {
             if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.resourcepack)) {
+                e.getClickedInventory().close();
                 ResourcePackHandler.setResourcePack((Player) e.getWhoClicked(), ResourcePackHandler.url,
                         ResourcePackHandler.sha1, ResourcePackHandler.text, ResourcePackHandler.force);
             }
@@ -61,7 +62,9 @@ public class settingsEvents implements Listener {
             throws IllegalArgumentException, IOException, ParseException {
         if (e.getCurrentItem() != null) {
             if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.chatSetting)) {
+                e.getClickedInventory().close();
                 playerChat.toggleChatSetting((Player) e.getWhoClicked());
+                e.getWhoClicked().sendMessage("Langue changé !");//Do it with text translate + system logo
             }
         }
     }
