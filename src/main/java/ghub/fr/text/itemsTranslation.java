@@ -1563,12 +1563,12 @@ public class itemsTranslation {
         switch (lang) {
             case fr:
                 Lore.add("");
-                Lore.add("§6Modifiez vos paramètres");
+                Lore.add("§fModifiez vos paramètres");
                 Lore.add("");
                 return Lore;
             case en:
                 Lore.add("");
-                Lore.add("§6Change your settings");
+                Lore.add("§fChange your settings");
                 Lore.add("");
                 return Lore;
             default:
