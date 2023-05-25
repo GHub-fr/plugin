@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
+import ghub.fr.chat.playerChat;
 import ghub.fr.menu.api.persistentData;
 import ghub.fr.menu.compass.compassEvents;
 import ghub.fr.player.ResourcePackHandler;
@@ -50,6 +51,16 @@ public class settingsEvents implements Listener {
             if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.resourcepack)) {
                 ResourcePackHandler.setResourcePack((Player) e.getWhoClicked(), ResourcePackHandler.url,
                         ResourcePackHandler.sha1, ResourcePackHandler.text, ResourcePackHandler.force);
+            }
+        }
+    }
+
+    @EventHandler
+    public void PlayerClickChat(InventoryClickEvent e)
+            throws IllegalArgumentException, IOException, ParseException {
+        if (e.getCurrentItem() != null) {
+            if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.chatSetting)) {
+                playerChat.toggleChatSetting((Player) e.getWhoClicked());
             }
         }
     }

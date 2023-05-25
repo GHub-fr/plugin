@@ -43,4 +43,15 @@ public class settingsItems {
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.compassPose);
         return is;
     }
+
+    public static ItemStack ItemStackChat(lang.languages lang) throws IOException {
+        ItemStack is = new ItemStack(Material.OAK_SIGN);
+        ItemMeta meta = is.getItemMeta();
+        meta.setDisplayName(itemsTranslation.ChatTitle(lang));
+        meta.setLore(itemsTranslation.ChatLore(lang));
+        is.setItemMeta(meta);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.chatSetting);
+        return is;
+    }
 }

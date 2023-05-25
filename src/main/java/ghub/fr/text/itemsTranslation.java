@@ -1673,4 +1673,33 @@ public class itemsTranslation {
                 return "";
         }
     }
+
+    public static List<String> ChatLore(lang.languages lang) throws IOException {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§fCachez les messages de joueur dans le chat");
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("§fHide players message in chat");
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static String ChatTitle(lang.languages lang) {
+        switch (lang) {
+            case fr:
+                return "§6§lMessage des joueurs";
+            case en:
+                return "§6§lPlayers message";
+            default:
+                return "";
+        }
+    }
 }
