@@ -12,7 +12,10 @@ import ghub.fr.chat.playerChat;
 import ghub.fr.menu.api.persistentData;
 import ghub.fr.menu.compass.compassEvents;
 import ghub.fr.player.ResourcePackHandler;
+import ghub.fr.system.getDataStorage;
+import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
+import ghub.fr.text.textTranslation;
 
 public class settingsEvents implements Listener {
     @EventHandler
@@ -64,7 +67,8 @@ public class settingsEvents implements Listener {
             if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.chatsetting)) {
                 e.getClickedInventory().close();
                 playerChat.toggleChatSetting((Player) e.getWhoClicked());
-                e.getWhoClicked().sendMessage("Chat changé (masqué/affiché) faire msg translate!");//Do it with text translate + system logo
+                lang.languages lang = playerLang.getPlayerLang((Player)e.getWhoClicked());
+                e.getWhoClicked().sendMessage(textTranslation.chatSetting(lang, getDataStorage.playerFileConfiguration((Player)e.getWhoClicked()).getBoolean("chatSetting")));
             }
         }
     }
