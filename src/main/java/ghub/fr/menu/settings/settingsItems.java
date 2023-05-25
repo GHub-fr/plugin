@@ -29,7 +29,7 @@ public class settingsItems {
         meta.setLore(itemsTranslation.LangLore(lang));
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
-        persistentData.setPersistentDataItemStack(is, persistentData.customKey.langSwap);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.langswap);
         return is;
     }
 
@@ -40,7 +40,7 @@ public class settingsItems {
         meta.setLore(itemsTranslation.CompassPoseLore(lang));
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
-        persistentData.setPersistentDataItemStack(is, persistentData.customKey.compassPose);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.compasspose);
         return is;
     }
 
@@ -51,7 +51,7 @@ public class settingsItems {
         meta.setLore(itemsTranslation.ChatLore(lang));
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
-        persistentData.setPersistentDataItemStack(is, persistentData.customKey.chatSetting);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.chatsetting);
         return is;
     }
 }
