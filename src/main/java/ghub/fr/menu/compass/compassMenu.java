@@ -51,7 +51,6 @@ public class compassMenu {
         else if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Hub)) {
             customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU, 54,
                     textTranslation.Menu(lang) + textTranslation.MenuGoldFormat(lang, player));
-            inventoryBuilder.getInventory().setItem(0, compassItems.ItemStackSettings(lang));
             inventoryBuilder.getInventory().setItem(19, serverSelectorItems.ItemStackSurvie(lang, player));
             inventoryBuilder.getInventory().setItem(20, serverSelectorItems.ItemStackCreatif(lang, player));
             inventoryBuilder.getInventory().setItem(21, serverSelectorItems.ItemStackRPG(lang, player));
@@ -59,6 +58,7 @@ public class compassMenu {
             inventoryBuilder.getInventory().setItem(29, serverSelectorItems.ItemStackAnarchie(lang, player));
             inventoryBuilder.getInventory().setItem(30, serverSelectorItems.ItemStackOPPrison(lang, player));
             inventoryBuilder.getInventory().setItem(16, shopItems.Custom(lang));
+            inventoryBuilder.getInventory().setItem(25, compassItems.ItemStackSettings(lang));
             inventoryBuilder.getInventory().setItem(34, islandItems.ItemStackPlayerHeadInfo(player, lang));
             player.openInventory(inventoryBuilder.getInventory());
         }

@@ -20,6 +20,7 @@ public class settingsMenu {
         inventoryBuilder.getInventory().addItem(settingsItems.ItemStackResourcePack(lang));
         inventoryBuilder.getInventory().addItem(settingsItems.ItemStackLang(lang));
         inventoryBuilder.getInventory().addItem(settingsItems.ItemStackCompassPose(lang));
+        inventoryBuilder.getInventory().addItem(settingsItems.ItemStackChat(lang));
 
         player.openInventory(inventoryBuilder.getInventory());
     }

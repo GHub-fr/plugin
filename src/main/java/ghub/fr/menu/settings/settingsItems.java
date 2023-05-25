@@ -23,7 +23,7 @@ public class settingsItems {
     }
 
     public static ItemStack ItemStackLang(lang.languages lang) throws IOException {
-        ItemStack is = new ItemStack(Material.ITEM_FRAME);
+        ItemStack is = new ItemStack(Material.BOOK);
         ItemMeta meta = is.getItemMeta();
         meta.setDisplayName(itemsTranslation.LangTitle(lang));
         meta.setLore(itemsTranslation.LangLore(lang));
@@ -34,7 +34,7 @@ public class settingsItems {
     }
 
     public static ItemStack ItemStackCompassPose(lang.languages lang) throws IOException {
-        ItemStack is = new ItemStack(Material.ITEM_FRAME);
+        ItemStack is = new ItemStack(Material.COMPASS);
         ItemMeta meta = is.getItemMeta();
         meta.setDisplayName(itemsTranslation.CompassPoseTitle(lang));
         meta.setLore(itemsTranslation.CompassPoseLore(lang));
