@@ -30,6 +30,7 @@ public class settingsEvents implements Listener {
         if (e.getCurrentItem() != null) {
             if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.langSwap)) {
                 playerLang.SwapLang((Player) e.getWhoClicked());
+                settingsMenu.SettingsMenu((Player) e.getWhoClicked());
             }
         }
     }
