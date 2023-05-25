@@ -44,6 +44,11 @@ public class compassEvents implements Listener {
     public static void setNextPose(OfflinePlayer offlinePlayer) throws IOException {
         moveCompass(offlinePlayer,
                 getNextPose(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose")));
+        offlinePlayer.getPlayer()
+                .sendMessage(
+                        getNextPose(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose")) + "");
+        offlinePlayer.getPlayer().sendMessage(
+                getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose") + "");
     }
 
     public static boolean playerHasCompass(Player p) throws IOException {
