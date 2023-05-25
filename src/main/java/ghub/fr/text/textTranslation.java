@@ -849,20 +849,20 @@ public class textTranslation {
     public static String chatSetting(lang.languages lang, boolean show) {
         String text = "";
         if (!show && lang.equals(lang.fr)) {
-            text += "affiché";
+            text += "§2affiché";
         } else if (show && lang.equals(lang.fr)) {
-            text += "caché";
+            text += "§4caché";
         } else if (!show && lang.equals(lang.en)) {
-            text += "show";
+            text += "§2show";
         } else if (show && lang.equals(lang.en)) {
-            text += "hide";
+            text += "§4hide";
         }
 
         switch (lang) {
             case fr:
-                return System(lang) + "§2Message des joueurs : " + text;
+                return System(lang) + "§fMessage des joueurs : " + text;
             case en:
-                return System(lang) + "§2Players message : " + text;
+                return System(lang) + "§fPlayers message : " + text;
             default:
                 return "";
         }
