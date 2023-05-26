@@ -60,6 +60,7 @@ import org.bukkit.plugin.messaging.PluginMessageListener;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.HashMap;
+import java.util.HexFormat;
 import java.util.logging.Logger;
 
 public class main extends JavaPlugin implements PluginMessageListener {
@@ -68,6 +69,7 @@ public class main extends JavaPlugin implements PluginMessageListener {
     instantmine instantmine = new instantmine(new NamespacedKey(this, "instantmine"));
     public static String url = "https://ghub.fr/storage/zip/resourcePack.zip";
     public static String sha1;
+    public static byte[] hashed;
 
     @Override
     public ChunkGenerator getDefaultWorldGenerator(String worldName, String id) {
@@ -117,6 +119,7 @@ public class main extends JavaPlugin implements PluginMessageListener {
 
     private void generateResourcePack() throws IOException {
         sha1 = ResourcePackHandler.getSHA1(url);
+        hashed = HexFormat.of().parseHex(sha1);
     }
 
     private void loadEnchantments() {

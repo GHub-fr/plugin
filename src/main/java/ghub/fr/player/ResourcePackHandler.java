@@ -21,6 +21,7 @@ import ghub.fr.system.ServerBootFile.serverType;
 public class ResourcePackHandler implements Listener {
     public static String url = main.url;
     public static String sha1 = main.sha1;
+    public static byte[] hashed = main.hashed;
     public static String text = "§4§lUtilisation du resource pack §r§f..." + "\n§f[ §6§lGHub.fr §r§f] Resource pack";
     public static Boolean force = true;
 
@@ -37,7 +38,9 @@ public class ResourcePackHandler implements Listener {
     }
 
     public static void setResourcePack(Player player, String url, String hash, String text, boolean force) {
-        byte[] hashed = HexFormat.of().parseHex(hash);
+        if (hashed != null && hashed.length != 0) {
+            hashed = HexFormat.of().parseHex(hash);
+        }
         player.setResourcePack(url, hashed, text, force);
     }
 
@@ -45,6 +48,11 @@ public class ResourcePackHandler implements Listener {
     public void ResourcePackStatusEvent(PlayerResourcePackStatusEvent e) {
         switch (e.getStatus()) {
             case ACCEPTED:
+                e.getPlayer().sendMessage("Votre Hash : " + e.getPlayer().getResourcePackHash() + "\nServer Hash.1 : "
+                        + sha1 + "\nServer Hash.hex : " + sha1 + "\nServer Hash.hash : " + hashed.toString());
+                // Vérifier si le joueur a accépté pour la première fois, si oui
+                // setResourcePack, si non rien faire car va charger tout seul
+                // //setResourcePack(e.getPlayer(), url, sha1, text, true);
                 return;
             case DECLINED:
                 e.getPlayer().kickPlayer(
