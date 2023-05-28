@@ -38,7 +38,7 @@ public class armorStand {
 
     public static ArmorStand summonTopGold(Location location, String text) {
         ArmorStand armorStand = Summon(location, text);
-        entityPersistentData.setPersistentDataEntity(armorStand, entityPersistentData.customKey.topGold);
+        entityPersistentData.setPersistentDataEntity(armorStand, entityPersistentData.customKey.topgold);
         entityPersistentData.setPersistentDataEntity(armorStand, entityPersistentData.customKey.custom);
         return armorStand;
     }
@@ -79,7 +79,7 @@ public class armorStand {
         for (Entity entity : list) {
             if (entity.getType().equals(EntityType.ARMOR_STAND)) {
                 if (entityPersistentData.isCustomEntity(entity)) {
-                    if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.topGold)) {
+                    if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.topgold)) {
                         ArmorStand armorStand = (ArmorStand) entity;
                         armorStand.remove();
                     }
