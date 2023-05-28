@@ -30,19 +30,19 @@ public class clickNPC implements Listener {
             Player player = e.getPlayer();
             if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.commercant)) {
                 Commerçant(player);
-            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.Guide)) {
+            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.guide)) {
                 Guide(player);
-            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.Ile)) {
+            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.ile)) {
                 Ile(player);
-            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.Quetes)) {
+            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.quetes)) {
                 QuestMenu(player);
-            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.Villager)) {
+            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.villager)) {
                 RandomMessage(player);
-            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.Mainmenu)) {
+            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.mainmenu)) {
                 compassMenu.menuCompass(player);
-            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.tpWorld)) {
+            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.tpworld)) {
                 tpWorld(player);
-            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.tpBed)) {
+            } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.tpbed)) {
                 tpBed(player);
             } else if (entityPersistentData.hasPersistentDataEntity(entity, entityPersistentData.customKey.mines)) {
                 mineMenu(player);

@@ -38,18 +38,20 @@ public class ResourcePackHandler implements Listener {
     }
 
     public static void setResourcePack(Player player, String url, String hash, String text, boolean force) {
-        if (hashed != null && hashed.length != 0) {
+        if (hashed == null || hashed.length == 0) {
             hashed = HexFormat.of().parseHex(hash);
         }
+
         player.setResourcePack(url, hashed, text, force);
+
+        player.sendMessage("Votre Hash : " + player.getResourcePackHash() + "\nServer Hash.1 : "
+                + sha1 + "\nServer Hash.hex : " + sha1 + "\nServer Hash.hash : " + hashed.toString());
     }
 
     @EventHandler
     public void ResourcePackStatusEvent(PlayerResourcePackStatusEvent e) {
         switch (e.getStatus()) {
             case ACCEPTED:
-                e.getPlayer().sendMessage("Votre Hash : " + e.getPlayer().getResourcePackHash() + "\nServer Hash.1 : "
-                        + sha1 + "\nServer Hash.hex : " + sha1 + "\nServer Hash.hash : " + hashed.toString());
                 // Vérifier si le joueur a accépté pour la première fois, si oui
                 // setResourcePack, si non rien faire car va charger tout seul
                 return;
