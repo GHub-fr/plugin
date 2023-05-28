@@ -57,7 +57,8 @@ public class spawnNPC {
         team.setColor(chatColor);
         team.addEntity(villager);
         villager.setGlowing(true);
-        return null;
+        
+        return villager;
     }
 
     public static void summonNPCAll() {
