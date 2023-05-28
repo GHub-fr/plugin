@@ -31,9 +31,15 @@ public class instantmine extends Enchantment implements Listener {
         }
     }
 
-    public instantmine(NamespacedKey key) {
-        super(key);
+    public instantmine(String namespace) {
+        super(NamespacedKey.minecraft(namespace));
     }
+
+    /*
+     * public instantmine(NamespacedKey key) {
+     * super(key);
+     * }
+     */
 
     @Override
     public NamespacedKey getKey() {
@@ -42,7 +48,7 @@ public class instantmine extends Enchantment implements Listener {
 
     @Override
     public String getName() {
-        return "InstantMine";
+        return "instantmine";
     }
 
     @Override

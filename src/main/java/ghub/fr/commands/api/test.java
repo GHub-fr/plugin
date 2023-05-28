@@ -35,7 +35,7 @@ public class test implements CommandExecutor, TabCompleter {
             if (isAdmin.isAdmin(sender)) {
                 Player player = (Player) sender;
                 Plugin plugin = JavaPlugin.getPlugin(main.class);
-                instantmine instantmine = new instantmine(new NamespacedKey(plugin, "instantmine"));
+                instantmine instantmine = new instantmine("instantmine");
                 player.getItemInHand().addUnsafeEnchantment(instantmine, 0);
             }
             return true;

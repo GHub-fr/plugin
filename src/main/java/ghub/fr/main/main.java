@@ -228,7 +228,7 @@ public class main extends JavaPlugin implements PluginMessageListener {
     // NamespacedKey(this, "instantmine"));
 
     public void registerEnchant() {
-        instantmine instantmine = new instantmine(new NamespacedKey(this, "instantmine"));
+        instantmine instantmine = new instantmine("instantmine");
         registerEnchantment(instantmine);
         Bukkit.getPluginManager().registerEvents(instantmine, this);
     }
