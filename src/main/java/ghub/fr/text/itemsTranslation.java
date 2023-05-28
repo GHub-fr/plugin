@@ -1298,12 +1298,18 @@ public class itemsTranslation {
         }
     }
 
-    public static List<String> MineStoneLore(lang.languages lang) {
+    public static int mineStone = 0;
+
+    public static List<String> MineStoneLore(lang.languages lang, Boolean unlocked) {
         ArrayList<String> Lore = new ArrayList<String>();
         switch (lang) {
             case fr:
                 Lore.add("");
-                Lore.add("§fTéléportez vous vers la mine : " + MineStoneTitle(lang));
+                if (unlocked) {
+                    Lore.add("§fTéléportez vous vers la mine : " + MineStoneTitle(lang));
+                } else {
+                    Lore.add("§6Prix §f: §2" + mineStone);
+                }
                 Lore.add("");
                 return Lore;
             case en:
@@ -1315,12 +1321,18 @@ public class itemsTranslation {
         }
     }
 
-    public static List<String> MineIronLore(lang.languages lang) {
+    public static int mineIron = 5_000;
+
+    public static List<String> MineIronLore(lang.languages lang, Boolean unlocked) {
         ArrayList<String> Lore = new ArrayList<String>();
         switch (lang) {
             case fr:
                 Lore.add("");
-                Lore.add("§fTéléportez vous vers la mine : " + MineIronTitle(lang));
+                if (unlocked) {
+                    Lore.add("§fTéléportez vous vers la mine : " + MineIronTitle(lang));
+                } else {
+                    Lore.add("§6Prix §f: §2" + mineIron);
+                }
                 Lore.add("");
                 return Lore;
             case en:
@@ -1332,12 +1344,18 @@ public class itemsTranslation {
         }
     }
 
-    public static List<String> MineGoldLore(lang.languages lang) {
+    public static int mineGold = 25_000;
+
+    public static List<String> MineGoldLore(lang.languages lang, Boolean unlocked) {
         ArrayList<String> Lore = new ArrayList<String>();
         switch (lang) {
             case fr:
                 Lore.add("");
-                Lore.add("§fTéléportez vous vers la mine : " + MineGoldTitle(lang));
+                if (unlocked) {
+                    Lore.add("§fTéléportez vous vers la mine : " + MineGoldTitle(lang));
+                } else {
+                    Lore.add("§6Prix §f: §2" + mineGold);
+                }
                 Lore.add("");
                 return Lore;
             case en:
@@ -1349,12 +1367,18 @@ public class itemsTranslation {
         }
     }
 
-    public static List<String> MineDiamondLore(lang.languages lang) {
+    public static int mineDiamond = 100_000;
+
+    public static List<String> MineDiamondLore(lang.languages lang, Boolean unlocked) {
         ArrayList<String> Lore = new ArrayList<String>();
         switch (lang) {
             case fr:
                 Lore.add("");
-                Lore.add("§fTéléportez vous vers la mine : " + MineDiamondTitle(lang));
+                if (unlocked) {
+                    Lore.add("§fTéléportez vous vers la mine : " + MineDiamondTitle(lang));
+                } else {
+                    Lore.add("§6Prix §f: §2" + mineDiamond);
+                }
                 Lore.add("");
                 return Lore;
             case en:
@@ -1366,12 +1390,18 @@ public class itemsTranslation {
         }
     }
 
-    public static List<String> MineNetheriteLore(lang.languages lang) {
+    public static int mineNetherite = 500_000;
+
+    public static List<String> MineNetheriteLore(lang.languages lang, Boolean unlocked) {
         ArrayList<String> Lore = new ArrayList<String>();
         switch (lang) {
             case fr:
                 Lore.add("");
-                Lore.add("§fTéléportez vous vers la mine : " + MineNetheriteTitle(lang));
+                if (unlocked) {
+                    Lore.add("§fTéléportez vous vers la mine : " + MineNetheriteTitle(lang));
+                } else {
+                    Lore.add("§6Prix §f: §2" + mineNetherite);
+                }
                 Lore.add("");
                 return Lore;
             case en:

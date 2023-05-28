@@ -2,6 +2,7 @@ package ghub.fr.commands.api;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.World;
 import org.bukkit.WorldType;
 import org.bukkit.block.Block;
@@ -11,11 +12,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
+import ghub.fr.enchantements.instantmine;
 import ghub.fr.main.main;
 import ghub.fr.system.getDataStorage;
 import ghub.fr.world.api.structure;
@@ -30,6 +33,10 @@ public class test implements CommandExecutor, TabCompleter {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         try {
             if (isAdmin.isAdmin(sender)) {
+                Player player = (Player) sender;
+                Plugin plugin = JavaPlugin.getPlugin(main.class);
+                instantmine instantmine = new instantmine(new NamespacedKey(plugin, "instantmine"));
+                player.getItemInHand().addUnsafeEnchantment(instantmine, 0);
             }
             return true;
         } catch (Exception e) {

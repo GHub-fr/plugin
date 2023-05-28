@@ -66,7 +66,7 @@ import java.util.logging.Logger;
 public class main extends JavaPlugin implements PluginMessageListener {
 
     private static final Logger logger = Bukkit.getLogger();
-    instantmine instantmine = new instantmine(new NamespacedKey(this, "instantmine"));
+
     public static String url = "https://ghub.fr/storage/zip/resourcePack.zip";
     public static String sha1;
     public static byte[] hashed;
@@ -122,23 +122,19 @@ public class main extends JavaPlugin implements PluginMessageListener {
         hashed = HexFormat.of().parseHex(sha1);
     }
 
-    private void loadEnchantments() {
+    public static void registerEnchantment(Enchantment enchantment) {
+        boolean registered = true;
         try {
-            try {
-                Field f = Enchantment.class.getDeclaredField("acceptingNew");
-                f.setAccessible(true);
-                f.set(null, true);
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                Enchantment.registerEnchantment(instantmine);
-            } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-            }
+            Field f = Enchantment.class.getDeclaredField("acceptingNew");
+            f.setAccessible(true);
+            f.set(null, true);
+            Enchantment.registerEnchantment(enchantment);
         } catch (Exception e) {
+            registered = false;
             e.printStackTrace();
+        }
+        if (registered) {
+            // It's been registered!
         }
     }
 
@@ -158,29 +154,33 @@ public class main extends JavaPlugin implements PluginMessageListener {
          */
     }
 
-    public void disableEnchant() {
-        try {
-            Field byKeyField = Enchantment.class.getDeclaredField("byKey");
-            Field byNameField = Enchantment.class.getDeclaredField("byName");
-
-            byKeyField.setAccessible(true);
-            byNameField.setAccessible(true);
-
-            HashMap<NamespacedKey, Enchantment> byKey = (HashMap<NamespacedKey, Enchantment>) byKeyField.get(null);
-            HashMap<NamespacedKey, Enchantment> byName = (HashMap<NamespacedKey, Enchantment>) byNameField.get(null);
-
-            if (byKey.containsKey(instantmine.getKey())) {
-                byKey.remove(instantmine.getKey());
-            }
-
-            if (byName.containsKey(instantmine.getName())) {
-                byName.remove(instantmine.getName());
-            }
-
-        } catch (Exception ignored) {
-
-        }
-    }
+    /*
+     * public void disableEnchant() {
+     * try {
+     * Field byKeyField = Enchantment.class.getDeclaredField("byKey");
+     * Field byNameField = Enchantment.class.getDeclaredField("byName");
+     * 
+     * byKeyField.setAccessible(true);
+     * byNameField.setAccessible(true);
+     * 
+     * HashMap<NamespacedKey, Enchantment> byKey = (HashMap<NamespacedKey,
+     * Enchantment>) byKeyField.get(null);
+     * HashMap<NamespacedKey, Enchantment> byName = (HashMap<NamespacedKey,
+     * Enchantment>) byNameField.get(null);
+     * 
+     * if (byKey.containsKey(instantmine.getKey())) {
+     * byKey.remove(instantmine.getKey());
+     * }
+     * 
+     * if (byName.containsKey(instantmine.getName())) {
+     * byName.remove(instantmine.getName());
+     * }
+     * 
+     * } catch (Exception ignored) {
+     * 
+     * }
+     * }
+     */
 
     public void SkyBlockEventsCommands() {
         Bukkit.getPluginCommand("island").setExecutor(new island());
@@ -224,8 +224,12 @@ public class main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginManager().registerEvents(new settingsEvents(), this);
     }
 
+    // public static final Enchantment INSTANTMINE = new instantmine(new
+    // NamespacedKey(this, "instantmine"));
+
     public void registerEnchant() {
-        loadEnchantments();
+        instantmine instantmine = new instantmine(new NamespacedKey(this, "instantmine"));
+        registerEnchantment(instantmine);
         Bukkit.getPluginManager().registerEvents(instantmine, this);
     }
 

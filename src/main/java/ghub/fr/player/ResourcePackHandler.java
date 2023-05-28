@@ -52,7 +52,6 @@ public class ResourcePackHandler implements Listener {
                         + sha1 + "\nServer Hash.hex : " + sha1 + "\nServer Hash.hash : " + hashed.toString());
                 // Vérifier si le joueur a accépté pour la première fois, si oui
                 // setResourcePack, si non rien faire car va charger tout seul
-                // //setResourcePack(e.getPlayer(), url, sha1, text, true);
                 return;
             case DECLINED:
                 e.getPlayer().kickPlayer(
