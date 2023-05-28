@@ -12,6 +12,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -37,6 +38,10 @@ public class test implements CommandExecutor, TabCompleter {
                 Plugin plugin = JavaPlugin.getPlugin(main.class);
                 instantmine instantmine = new instantmine("instantmine");
                 player.getItemInHand().addUnsafeEnchantment(instantmine, 0);
+                player.sendMessage("OK");
+                for (Enchantment enchant : player.getItemInHand().getEnchantments().keySet()) {
+                    player.sendMessage("enchant : " + enchant.getName());
+                }
             }
             return true;
         } catch (Exception e) {
