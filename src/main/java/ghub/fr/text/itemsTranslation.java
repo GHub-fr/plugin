@@ -1590,15 +1590,18 @@ public class itemsTranslation {
     public static List<String> SettingsLore(lang.languages lang)
             throws IOException {
         ArrayList<String> Lore = new ArrayList<String>();
+        String commande = "/§6menu §f[§2....§f, §2....§f]";
         switch (lang) {
             case fr:
                 Lore.add("");
-                Lore.add("§fModifiez vos paramètres");
+                Lore.add("§fOuvrez §7votre §fmenu des paramètres");
+                Lore.add("§fCommande§7 : " + commande);
                 Lore.add("");
                 return Lore;
             case en:
                 Lore.add("");
-                Lore.add("§fChange your settings");
+                Lore.add("§fOpen §7your §fsettings menu");
+                Lore.add("§fCommand§7 : " + commande);
                 Lore.add("");
                 return Lore;
             default:
