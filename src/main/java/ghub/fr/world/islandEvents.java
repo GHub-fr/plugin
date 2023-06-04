@@ -121,7 +121,12 @@ public class islandEvents implements Listener {
                     }
 
                     if (CoinFlip() && lvl >= 100) {
-                        e.getNewState().setType(Material.GOLD_ORE);
+
+                        if (CoinFlip()) {
+                            e.getNewState().setType(Material.GOLD_ORE);
+                        } else {
+                            e.getNewState().setType(Material.COPPER_ORE);
+                        }
 
                         if (CoinFlip() && lvl >= 250) {
                             e.getNewState().setType(Material.EMERALD_ORE);

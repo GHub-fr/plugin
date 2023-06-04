@@ -701,6 +701,7 @@ public class shopTranslation {
                 Lore.add(color(islandLvl, 0) + "§fLVL 0 : §6Cobble");
                 Lore.add(color(islandLvl, 20) + "§fLVL 20 : §6Fer §f& §6charbon");
                 Lore.add(color(islandLvl, 50) + "§fLVL 50 : §6Redstone §f& §6Lapis");
+                Lore.add(color(islandLvl, 100) + "§fLVL 100 : §6Cuivre");
                 Lore.add(color(islandLvl, 100) + "§fLVL 100 : §6Or");
                 Lore.add(color(islandLvl, 250) + "§fLVL 250 : §6Émeraude");
                 Lore.add(color(islandLvl, 500) + "§fLVL 500 : §6Pierres des abîmes");
@@ -711,6 +712,7 @@ public class shopTranslation {
                 Lore.add(color(islandLvl, 0) + "§fLVL 0 : §6Cobble");
                 Lore.add(color(islandLvl, 20) + "§fLVL 20 : §6Iron §f& §6coal");
                 Lore.add(color(islandLvl, 50) + "§fLVL 50 : §6Redstone §f& §6Lapis");
+                Lore.add(color(islandLvl, 100) + "§fLVL 100 : §6Copper");
                 Lore.add(color(islandLvl, 100) + "§fLVL 100 : §6Gold");
                 Lore.add(color(islandLvl, 250) + "§fLVL 250 : §6Emerald");
                 Lore.add(color(islandLvl, 500) + "§fLVL 500 : §6Cobbled Deepslate");
