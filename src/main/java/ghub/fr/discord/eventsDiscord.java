@@ -18,7 +18,7 @@ public class eventsDiscord {
                     for (Player p : Bukkit.getOnlinePlayers()) {
                         try {
                             TextComponent message = new TextComponent();
-                            message.setText("§r §7>>§r " + event.getMessage().getReadableContent());
+                            message.setText("§r §7§l>>§r " + event.getMessage().getReadableContent());
                             p.getPlayer().spigot().sendMessage(TextPlayerHover(event.getMessageAuthor()), message);
                         } catch (IOException | ParseException e) {
                         }
