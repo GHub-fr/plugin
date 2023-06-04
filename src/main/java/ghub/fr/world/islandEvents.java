@@ -94,49 +94,55 @@ public class islandEvents implements Listener {
             String worldName = e.getBlock().getWorld().getName().split("\\.")[1];
             int WorldNameCast = Integer.valueOf(worldName);
             int lvl = bonusPlayerFile.getLvlIsland(WorldNameCast, persistentData.customKey.bonusores);
+
             if (CoinFlip()) {
                 e.getNewState().setType(Material.MOSSY_COBBLESTONE);
+            } else {
+                if (lvl >= 500) {
+                    e.getNewState().setType(Material.COBBLED_DEEPSLATE);
+                }
+            }
 
-                if (CoinFlip() && lvl >= 20) {
+            if (CoinFlip() && lvl >= 20) {
+                if (CoinFlip()) {
+                    e.getNewState().setType(Material.IRON_ORE);
+                } else {
                     e.getNewState().setType(Material.COAL_ORE);
+                }
+
+                if (CoinFlip() && lvl >= 50) {
+                    e.getBlock().getWorld().spawnParticle(Particle.CRIT_MAGIC, e.getBlock().getLocation(), 200);
+                    e.getBlock().getWorld().playSound(e.getBlock().getLocation(), Sound.BLOCK_ANVIL_PLACE, 0.5F, 5);
 
                     if (CoinFlip()) {
-                        e.getNewState().setType(Material.IRON_ORE);
+                        e.getNewState().setType(Material.LAPIS_ORE);
+                    } else {
+                        e.getNewState().setType(Material.REDSTONE_ORE);
+                    }
 
-                        if (CoinFlip() && lvl >= 50) {
-                            e.getBlock().getWorld().spawnParticle(Particle.CRIT_MAGIC, e.getBlock().getLocation(), 200);
-                            e.getBlock().getWorld().playSound(e.getBlock().getLocation(), Sound.BLOCK_ANVIL_PLACE, 0.5F, 5);
-                            e.getNewState().setType(Material.REDSTONE_ORE);
+                    if (CoinFlip() && lvl >= 100) {
+                        e.getNewState().setType(Material.GOLD_ORE);
 
-                            if (CoinFlip()) {
-                                e.getNewState().setType(Material.LAPIS_ORE);
+                        if (CoinFlip() && lvl >= 250) {
+                            e.getNewState().setType(Material.EMERALD_ORE);
+                            e.getBlock().getWorld().spawnParticle(Particle.CRIT_MAGIC,
+                                    e.getBlock().getLocation(), 200);
+                            e.getBlock().getWorld().playSound(e.getBlock().getLocation(),
+                                    Sound.ITEM_TOTEM_USE, 1F, 0);
 
-                                if (CoinFlip() && lvl >= 100) {
-                                    e.getNewState().setType(Material.GOLD_ORE);
+                            if (CoinFlip() && lvl >= 500) {
+                                e.getNewState().setType(Material.DIAMOND_ORE);
+                                e.getBlock().getWorld().spawnParticle(Particle.CRIT_MAGIC,
+                                        e.getBlock().getLocation(), 200);
+                                e.getBlock().getWorld().playSound(e.getBlock().getLocation(),
+                                        Sound.ENTITY_PLAYER_LEVELUP, 1.5F, 0);
 
-                                    if (CoinFlip() && lvl >= 250) {
-                                        e.getNewState().setType(Material.EMERALD_ORE);
-                                        e.getBlock().getWorld().spawnParticle(Particle.CRIT_MAGIC,
-                                                e.getBlock().getLocation(), 200);
-                                        e.getBlock().getWorld().playSound(e.getBlock().getLocation(),
-                                                Sound.ITEM_TOTEM_USE, 1F, 0);
-
-                                        if (CoinFlip() && lvl >= 500) {
-                                            e.getNewState().setType(Material.DIAMOND_ORE);
-                                            e.getBlock().getWorld().spawnParticle(Particle.CRIT_MAGIC,
-                                                    e.getBlock().getLocation(), 200);
-                                            e.getBlock().getWorld().playSound(e.getBlock().getLocation(),
-                                                    Sound.ENTITY_PLAYER_LEVELUP, 1.5F, 0);
-
-                                            if (CoinFlip() && lvl >= 1000) {
-                                                e.getNewState().setType(Material.ANCIENT_DEBRIS);
-                                                e.getBlock().getWorld().spawnParticle(Particle.FLAME,
-                                                        e.getBlock().getLocation(), 200);
-                                                e.getBlock().getWorld().playSound(e.getBlock().getLocation(),
-                                                        Sound.BLOCK_RESPAWN_ANCHOR_AMBIENT, 1.5F, 0);
-                                            }
-                                        }
-                                    }
+                                if (CoinFlip() && lvl >= 1000) {
+                                    e.getNewState().setType(Material.ANCIENT_DEBRIS);
+                                    e.getBlock().getWorld().spawnParticle(Particle.FLAME,
+                                            e.getBlock().getLocation(), 200);
+                                    e.getBlock().getWorld().playSound(e.getBlock().getLocation(),
+                                            Sound.BLOCK_RESPAWN_ANCHOR_AMBIENT, 1.5F, 0);
                                 }
                             }
                         }
