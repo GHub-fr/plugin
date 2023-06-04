@@ -130,7 +130,7 @@ public class islandItems {
         ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta itemMeta = (SkullMeta) itemStack.getItemMeta();
         itemMeta.setOwningPlayer(offlinePlayer);
-        itemMeta.setDisplayName(offlinePlayer.getName());
+        itemMeta.setDisplayName("§r§6§l" + offlinePlayer.getName());
         ArrayList<String> lore = new ArrayList<>();
         lore.add("");
         lore.add(itemsTranslation.IleHead(languages, offlinePlayer));
@@ -152,7 +152,7 @@ public class islandItems {
         ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta itemMeta = (SkullMeta) itemStack.getItemMeta();
         itemMeta.setOwningPlayer(offlinePlayer);
-        itemMeta.setDisplayName(offlinePlayer.getName());
+        itemMeta.setDisplayName("§r§6§l"+offlinePlayer.getName());
         ArrayList<String> lore = new ArrayList<>();
         lore.add("");
         lore.add(itemsTranslation.IleHeadVisite(languages, offlinePlayer));
