@@ -107,7 +107,7 @@ public class shopPrice {
             case DIAMOND:
                 return 5000;
             case EMERALD:
-                return 1000;
+                return 2500;
             case NETHERITE_SCRAP:
                 return 25000;
             // Monstres
