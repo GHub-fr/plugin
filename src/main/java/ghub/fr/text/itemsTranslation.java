@@ -757,15 +757,16 @@ public class itemsTranslation {
         switch (languages) {
             case fr:
                 Lore.add("");
-                Lore.add("§6§lUUID §f:");
-                Lore.add(offlinePlayer.getUniqueId().toString());
+                Lore.add("§6§lUUID §f: " + offlinePlayer.getUniqueId().toString());
+                Lore.add("");
                 if (offlinePlayer.isOnline()) {
                     Lore.add(itemsTranslation.Online(languages));
                 } else {
                     Lore.add(itemsTranslation.Offline(languages));
                 }
+                Lore.add("");
                 Lore.add(textTranslation.MenuGoldFormat(languages, offlinePlayer));
-
+                Lore.add("");
                 if (island.GetHasIsland(offlinePlayer)) {
                     if (island.GetIsIslandOwner(offlinePlayer)) {
                         Lore.add("§6Île §fN°§6" + island.GetIslandNumber(offlinePlayer) + " §2Chef d'île\n");
@@ -778,14 +779,16 @@ public class itemsTranslation {
                 return Lore;
             case en:
                 Lore.add("");
-                Lore.add("§6§lUUID §f:");
-                Lore.add(offlinePlayer.getUniqueId().toString());
+                Lore.add("§6§lUUID §f: "+ offlinePlayer.getUniqueId().toString());
+                Lore.add("");
                 if (offlinePlayer.isOnline()) {
                     Lore.add(itemsTranslation.Online(languages));
                 } else {
                     Lore.add(itemsTranslation.Offline(languages));
                 }
+                Lore.add("");
                 Lore.add(textTranslation.MenuGoldFormat(languages, offlinePlayer));
+                Lore.add("");
                 if (island.GetHasIsland(offlinePlayer)) {
                     if (island.GetIsIslandOwner(offlinePlayer)) {
                         Lore.add("§6Island §fN°§6" + island.GetIslandNumber(offlinePlayer) + " §2Island leader\n");
