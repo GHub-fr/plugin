@@ -43,9 +43,6 @@ public class ResourcePackHandler implements Listener {
         }
 
         player.setResourcePack(url, hashed, text, force);
-
-        player.sendMessage("Votre Hash : " + player.getResourcePackHash() + "\nServer Hash.1 : "
-                + sha1 + "\nServer Hash.hex : " + sha1 + "\nServer Hash.hash : " + hashed.toString());
     }
 
     @EventHandler
@@ -56,8 +53,7 @@ public class ResourcePackHandler implements Listener {
                 // setResourcePack, si non rien faire car va charger tout seul
                 return;
             case DECLINED:
-                e.getPlayer().kickPlayer(
-                        "§4§lLe ressource pack doit être accepté §rpour jouer sur le serveur en raison de son utilisation");
+                e.getPlayer().kickPlayer("§4§lLe ressource pack doit être accepté §rpour jouer sur le serveur en raison de son utilisation");
                 return;
             case FAILED_DOWNLOAD:
                 setResourcePack(e.getPlayer(), url, sha1, text, true);
