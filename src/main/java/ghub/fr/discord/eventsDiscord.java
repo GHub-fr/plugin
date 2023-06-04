@@ -18,7 +18,7 @@ public class eventsDiscord {
                     for (Player p : Bukkit.getOnlinePlayers()) {
                         try {
                             TextComponent message = new TextComponent();
-                            message.setText("§r §7§l>>§r " + event.getMessage().getReadableContent());
+                            message.setText("§r §7§l>>§r " + event.getMessage().getReadableContent());
                             p.getPlayer().spigot().sendMessage(TextPlayerHover(event.getMessageAuthor()), message);
                         } catch (IOException | ParseException e) {
                         }
@@ -34,7 +34,7 @@ public class eventsDiscord {
 
     public static TextComponent TextPlayerHover(MessageAuthor messageAuthor) throws IOException, ParseException {
         TextComponent PlayerComponent = new TextComponent();
-        PlayerComponent.setText("[ §6" + messageAuthor.getDiscriminatedName() + " §r]");
+        PlayerComponent.setText("[ §r §6" + messageAuthor.getDiscriminatedName() + " §r]");
         String hover = "";
         hover = hover.concat(" \n ");
         hover = hover.concat("§6§lUUID§r: " + messageAuthor.getIdAsString());
