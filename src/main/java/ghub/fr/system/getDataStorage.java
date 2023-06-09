@@ -163,4 +163,8 @@ public class getDataStorage {
     public static File islandFile(int island) {
         return new File(islandFolder(island), "islandFile.yml");
     }
+
+    public static File islandAutoSell(int island) {
+        return new File(islandFolder(island), "islandAutoSell.yml");
+    }
 }

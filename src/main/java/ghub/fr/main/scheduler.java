@@ -11,6 +11,7 @@ import ghub.fr.discord.messages;
 import ghub.fr.entity.armorStand;
 import ghub.fr.entity.spawnNPC;
 import ghub.fr.menu.island.islandUnloader;
+import ghub.fr.menu.shop.specials.bonus.autoSell;
 import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.Tab;
 import ghub.fr.system.dateAPI;
@@ -72,6 +73,7 @@ public class scheduler {
                     Tab.scheduler();
                     ServersStats();
                     BuildSpawn();
+                    autoSell.autoSellStarter();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

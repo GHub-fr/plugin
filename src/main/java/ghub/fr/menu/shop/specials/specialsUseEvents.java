@@ -8,7 +8,11 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 import ghub.fr.menu.api.persistentData;
+import ghub.fr.menu.island.island;
+import ghub.fr.menu.shop.specials.bonus.autoSell;
 import ghub.fr.menu.shop.specials.bonus.bonus;
+import ghub.fr.system.ServerBootFile;
+import ghub.fr.system.ServerBootFile.serverType;
 
 import java.io.IOException;
 
@@ -18,22 +22,40 @@ public class specialsUseEvents implements Listener {
         if (e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
             if (e.getItem() != null) {
                 if (persistentData.hasPersistentDataItemStack(e.getItem(), persistentData.customKey.specials)) {
+
                     e.setCancelled(true);
+
                     if (persistentData.hasPersistentDataItemStack(e.getItem(), persistentData.customKey.specialsvip)) {
                         removeOneBonus(e.getItem(), e.getPlayer());
                         bonus.addBonus(e.getPlayer(), bonus.BonusList.VIP, 3);
-                    } else if (persistentData.hasPersistentDataItemStack(e.getItem(),
+                    }
+
+                    else if (persistentData.hasPersistentDataItemStack(e.getItem(),
                             persistentData.customKey.specialsjoinquit)) {
                         removeOneBonus(e.getItem(), e.getPlayer());
                         bonus.addBonus(e.getPlayer(), bonus.BonusList.JoinQuitMessage, 3);
-                    } else if (persistentData.hasPersistentDataItemStack(e.getItem(),
+                    }
+
+                    else if (persistentData.hasPersistentDataItemStack(e.getItem(),
                             persistentData.customKey.specialsaura)) {
                         removeOneBonus(e.getItem(), e.getPlayer());
                         bonus.addBonus(e.getPlayer(), bonus.BonusList.AuraTP, 3);
-                    } else if (persistentData.hasPersistentDataItemStack(e.getItem(),
+                    }
+
+                    else if (persistentData.hasPersistentDataItemStack(e.getItem(),
                             persistentData.customKey.specialsfly)) {
                         removeOneBonus(e.getItem(), e.getPlayer());
                         bonus.addBonus(e.getPlayer(), bonus.BonusList.Fly, 3);
+                    }
+
+                    else if (persistentData.hasPersistentDataItemStack(e.getItem(),
+                            persistentData.customKey.specialsautosell)
+                            && e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+                        if (ServerBootFile.getServerType().equals(serverType.SkyBlock)
+                                && island.IsInHerIsland(e.getPlayer())) {
+                            removeOneBonus(e.getItem(), e.getPlayer());
+                            autoSell.addChest(e.getClickedBlock(), island.GetIslandNumber(e.getPlayer()));
+                        }
                     }
                 }
             }
