@@ -82,8 +82,8 @@ public class persistentData {
         shopblocks, shopgraines, shopminerais, shopmonstres, shopplantes, shopnourritures, shopspeciaux, shopoeufs,
         shopaquatiques, shopnether, shopcustom, shopteintures, /*
                                                                */
-        shopitemtosell, shopsplitter, shopitemtoselllist, /*
-                                                          */
+        shopitemtosell, shopsplitter, shopitemtoselllist, shopsellall, /*
+                                                                       */
         specialsautosell, specialsfly, specialsaura, specialsjoinquit, specialsvip, specials, specialsmenu,
         specialsconfirm, /*
                          */

@@ -23,7 +23,8 @@ public class shopMenu {
         inventoryBuilder.getInventory().setItem(0, shopItems.Graine(lang));
         inventoryBuilder.getInventory().setItem(3, shopItems.Monstres(lang));
         inventoryBuilder.getInventory().setItem(5, shopItems.Dye(lang));
-        inventoryBuilder.getInventory().setItem(8, shopItems.Nourriture(lang));
+        inventoryBuilder.getInventory().setItem(8, shopItems.sellAll(lang));
+        inventoryBuilder.getInventory().setItem(9, shopItems.Nourriture(lang));
         inventoryBuilder.getInventory().setItem(11, shopItems.Plantes(lang));
         inventoryBuilder.getInventory().setItem(15, shopItems.Minerais(lang));
         inventoryBuilder.getInventory().setItem(13, shopItems.Blocks(lang));

@@ -77,6 +77,9 @@ public class shopEvents implements Listener {
             } else if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(),
                     persistentData.customKey.shopcustom)) {
                 specialsMenu.OpenShop((Player) e.getWhoClicked());
+            } else if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(),
+                    persistentData.customKey.shopsellall)) {
+                shopSellAll.sellAll((Player) e.getWhoClicked());
             }
         }
     }

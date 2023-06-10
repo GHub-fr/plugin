@@ -92,6 +92,22 @@ public class shopItems {
         return is;
     }
 
+    public static ItemStack sellAll(lang.languages lang) {
+        ItemStack is = new ItemStack(Material.CHEST, 1);
+        ItemMeta meta = is.getItemMeta();
+        meta.setDisplayName(shopTranslation.sellAllTitle(lang));
+        ArrayList<String> Lore = new ArrayList<String>();
+        Lore.add(" ");
+        Lore.add(shopTranslation.sellAllLore(lang));
+        Lore.add(shopTranslation.Escape(lang));
+        Lore.add(" ");
+        meta.setLore(Lore);
+        is.setItemMeta(meta);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.shopsellall);
+        return is;
+    }
+
     public static ItemStack Graine(lang.languages lang) {
         ItemStack is = new ItemStack(Material.WHEAT_SEEDS, 1);
         ItemMeta meta = is.getItemMeta();

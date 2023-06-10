@@ -35,8 +35,10 @@ public class autoSell {
                     try {
                         for (World world : Bukkit.getWorlds()) {
                             String worldName = world.getName();
+                            System.out.println("world" + worldName);
                             if (worldName.startsWith("i.")) {
                                 String worldNameSplitDot = worldName.split(".")[1];
+                                System.out.println("split" + worldNameSplitDot);
                                 String worldNameSplitUnderScore = worldNameSplitDot.split("_")[0];
                                 int i = Integer.valueOf(worldNameSplitUnderScore);
 

@@ -166,6 +166,28 @@ public class shopTranslation {
         }
     }
 
+    public static String sellAllTitle(lang.languages languages) {
+        switch (languages) {
+            case fr:
+                return "§6Tout vendre";
+            case en:
+                return "§6Sell all";
+            default:
+                return "";
+        }
+    }
+
+    public static String sellAllLore(lang.languages languages) {
+        switch (languages) {
+            case fr:
+                return "§6Vendez votre inventaire §fau complet";
+            case en:
+                return "§6Sell your inventory §fcompletely";
+            default:
+                return "";
+        }
+    }
+
     public static String Graines(lang.languages languages) {
         switch (languages) {
             case fr:
