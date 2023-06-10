@@ -66,7 +66,7 @@ public class autoSell {
                                         System.out.println(loc.getWorld().getName());
 
                                         Block block = world.getBlockAt(loc);
-                                        if (block instanceof InventoryHolder) {
+                                        if (block.getState() instanceof InventoryHolder) {
                                             InventoryHolder ih = (InventoryHolder) block.getState();
                                             Inventory inventory = ih.getInventory();
 
