@@ -14,15 +14,11 @@ public class shopSellAll {
         Inventory inventory = player.getInventory();
 
         int total = 0;
-        System.out.println("SellAllRun");
         for (ItemStack item : inventory.getContents()) {
             if (item != null && !item.getType().equals(Material.AIR)) {
-                System.out.println("item" + item.getType());
                 if (shopPrice.getPrix(item.getType()) != Integer.MAX_VALUE) {
                     total += (shopPrice.getPrix(item.getType()) * item.getAmount());
                     inventory.remove(item);
-
-                    System.out.println("total" + total);
                 }
             }
         }

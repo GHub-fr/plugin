@@ -36,14 +36,11 @@ public class autoSell {
                     try {
                         for (World world : Bukkit.getWorlds()) {
                             String worldName = world.getName();
-                            System.out.println("world" + worldName);
+
                             if (worldName.startsWith("i.")) {
                                 String worldNameSplitDot = worldName.split("\\.")[1];
-                                System.out.println("split" + worldNameSplitDot);
                                 String worldNameSplitUnderScore = worldNameSplitDot.split("_")[0];
                                 int i = Integer.valueOf(worldNameSplitUnderScore);
-
-                                System.out.println("ile" + i);
 
                                 if (getDataStorage.islandAutoSell(i).exists()) {
                                     FileConfiguration fileConfiguration = YamlConfiguration
@@ -54,8 +51,6 @@ public class autoSell {
                                     int players = island.GetPlayerList(i).size();
                                     List<String> playerList = island.GetPlayerList(i);
 
-                                    System.out.println("total" + totalChest);
-
                                     while (actual < totalChest) {
                                         Location loc = new Location(
                                                 Bukkit.getWorld(fileConfiguration.getString(actual + "." + "world")),
@@ -63,24 +58,17 @@ public class autoSell {
                                                 fileConfiguration.getInt(actual + "." + "y"),
                                                 fileConfiguration.getInt(actual + "." + "z"));
 
-                                        System.out.println(loc.getWorld().getName());
-
                                         Block block = world.getBlockAt(loc);
                                         if (block.getState() instanceof InventoryHolder) {
                                             InventoryHolder ih = (InventoryHolder) block.getState();
                                             Inventory inventory = ih.getInventory();
 
-                                            System.out.println("holder" + block.getType());
-
                                             if (inventory.getContents().length >= 1) {
-                                                System.out.println("content" + inventory.getContents().length);
                                                 for (ItemStack item : inventory.getContents()) {
                                                     if (item != null && !item.getType().equals(Material.AIR)) {
-                                                        System.out.println("type" + item.getType());
                                                         if (shopPrice.getPrix(item.getType()) != Integer.MAX_VALUE) {
                                                             total += (shopPrice.getPrix(item.getType())
                                                                     * item.getAmount());
-                                                            System.out.println("totaux" + total);
                                                             inventory.remove(item);
                                                         }
                                                     }
@@ -90,8 +78,12 @@ public class autoSell {
                                         }
                                         actual++;
                                     }
+
                                     if (total > 0) {
                                         for (String uuid : playerList) {
+                                            System.out.println(uuid);
+                                            System.out.println((total / players / 10));
+
                                             gold.AddGold(Bukkit.getOfflinePlayer(uuid), (total / players / 10));
                                         }
                                     }
@@ -102,7 +94,7 @@ public class autoSell {
                         e.printStackTrace();
                     }
                 }
-            }.runTaskTimer(plugin, (20 * 60 * 2), (20 * 60 * 30));
+            }.runTaskTimer(plugin, (20 * 60 * 3), (20 * 60 * 30));
         }
 
     }
