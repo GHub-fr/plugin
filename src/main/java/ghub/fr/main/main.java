@@ -266,7 +266,7 @@ public class main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginCommand("profil").setExecutor(new profil());
         Bukkit.getPluginCommand("pay").setExecutor(new pay());
         Bukkit.getPluginCommand("money").setExecutor(new money());
-        Bukkit.getPluginCommand("sellall").setExecutor(new sellAll());
+        Bukkit.getPluginCommand("shopsell").setExecutor(new shopSell());
     }
 
     @Override

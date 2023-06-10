@@ -114,10 +114,10 @@ commands:
     description: "§2Envoie des golds au joueur"
     usage: "/<command> [NOM(String)] [ARGENT(Int)]"
     aliases: [ paye, goldgive, givegold, don ]
-  sellall:
+  shopsell:
     description: "§2Vend l'inventaire du joueur"
     usage: "/<command>"
-    aliases: [ toutvendre, vendretout, allsell ]
+    aliases: [ toutvendre, vendretout, allsell, sellall ]
   menu:
     description: "§2Menu"
     usage: "/<command>\n/<command> [Options(String)]"

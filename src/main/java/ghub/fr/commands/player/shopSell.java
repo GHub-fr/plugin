@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 
 import ghub.fr.menu.shop.classique.shopSellAll;
 
-public class sellAll implements CommandExecutor {
+public class shopSell implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
