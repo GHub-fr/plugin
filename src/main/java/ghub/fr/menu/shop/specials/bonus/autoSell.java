@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -74,11 +75,14 @@ public class autoSell {
                                             if (inventory.getContents().length >= 1) {
                                                 System.out.println("content" + inventory.getContents().length);
                                                 for (ItemStack item : inventory.getContents()) {
-                                                    System.out.println("type" + item.getType());
-                                                    if (shopPrice.getPrix(item.getType()) != Integer.MAX_VALUE) {
-                                                        total += (shopPrice.getPrix(item.getType()) * item.getAmount());
-                                                        System.out.println("totaux" + total);
-                                                        inventory.remove(item);
+                                                    if (item != null && !item.getType().equals(Material.AIR)) {
+                                                        System.out.println("type" + item.getType());
+                                                        if (shopPrice.getPrix(item.getType()) != Integer.MAX_VALUE) {
+                                                            total += (shopPrice.getPrix(item.getType())
+                                                                    * item.getAmount());
+                                                            System.out.println("totaux" + total);
+                                                            inventory.remove(item);
+                                                        }
                                                     }
                                                 }
                                             }
