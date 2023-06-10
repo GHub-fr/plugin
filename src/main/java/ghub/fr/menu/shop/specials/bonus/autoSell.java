@@ -102,7 +102,7 @@ public class autoSell {
                         e.printStackTrace();
                     }
                 }
-            }.runTaskTimerAsynchronously(plugin, (20 * 60 * 2), (20 * 60 * 30));
+            }.runTaskTimer(plugin, (20 * 60 * 2), (20 * 60 * 30));
         }
 
     }
