@@ -102,6 +102,8 @@ public class shopPrice {
                 return 500;
             case IRON_INGOT:
                 return 500;
+            case COPPER_INGOT:
+                return 500;
             case GOLD_INGOT:
                 return 1000;
             case DIAMOND:
