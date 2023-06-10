@@ -1,5 +1,6 @@
 package ghub.fr.menu.shop.specials.bonus;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -42,9 +43,15 @@ public class autoSell {
                                 if (getDataStorage.islandAutoSell(i).exists()) {
                                     FileConfiguration fileConfiguration = YamlConfiguration
                                             .loadConfiguration(getDataStorage.islandAutoSell(i));
-                                    List<Location> locationList = (List<Location>) fileConfiguration.get("autoSell");
+                                    int totalChest = fileConfiguration.getInt("totalChest");
+                                    int actual = 0;
 
-                                    for (Location loc : locationList) {
+                                    while (actual < totalChest) {
+                                        Location loc = new Location(
+                                                Bukkit.getWorld(fileConfiguration.getString(actual + "." + "world")),
+                                                fileConfiguration.getInt(actual + "." + "x"),
+                                                fileConfiguration.getInt(actual + "." + "y"),
+                                                fileConfiguration.getInt(actual + "." + "z"));
                                         Block block = world.getBlockAt(loc);
                                         if (block instanceof InventoryHolder) {
                                             InventoryHolder ih = (InventoryHolder) block.getState();
@@ -79,18 +86,27 @@ public class autoSell {
                 }
             }.runTaskTimerAsynchronously(plugin, (20 * 60 * 10), (20 * 60 * 30));
         }
+
     }
 
     public static void addChest(Block block, int island) throws IOException {
-        if (!getDataStorage.islandAutoSell(island).exists()) {
-            getDataStorage.islandAutoSell(island).createNewFile();
+        File file = getDataStorage.islandAutoSell(island);
+        if (!file.exists()) {
+            file.createNewFile();
         }
 
-        FileConfiguration fileConfiguration = YamlConfiguration
-                .loadConfiguration(getDataStorage.islandAutoSell(island));
-        List<Location> locationList = (List<Location>) fileConfiguration.get("autoSell");
-        locationList.add(block.getLocation());
-        fileConfiguration.set("autoSell", locationList);
-        fileConfiguration.save(getDataStorage.islandAutoSell(island));
+        FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
+
+        int totalChest = fileConfiguration.getInt("totalChest");
+
+        fileConfiguration.set(totalChest + "." + "x", block.getX());
+        fileConfiguration.set(totalChest + "." + "y", block.getY());
+        fileConfiguration.set(totalChest + "." + "z", block.getZ());
+        fileConfiguration.set(totalChest + "." + "world", block.getWorld().getName());
+
+        totalChest++;
+        fileConfiguration.set("totalChest", totalChest);
+
+        fileConfiguration.save(file);
     }
 }
