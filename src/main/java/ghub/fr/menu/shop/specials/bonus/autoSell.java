@@ -42,8 +42,7 @@ public class autoSell {
                                 if (getDataStorage.islandAutoSell(i).exists()) {
                                     FileConfiguration fileConfiguration = YamlConfiguration
                                             .loadConfiguration(getDataStorage.islandAutoSell(i));
-                                    List<Location> locationList = (List<Location>) fileConfiguration
-                                            .getList("autoSell");
+                                    List<Location> locationList = (List<Location>) fileConfiguration.get("autoSell");
 
                                     for (Location loc : locationList) {
                                         Block block = world.getBlockAt(loc);
@@ -89,7 +88,7 @@ public class autoSell {
 
         FileConfiguration fileConfiguration = YamlConfiguration
                 .loadConfiguration(getDataStorage.islandAutoSell(island));
-        List<Location> locationList = (List<Location>) fileConfiguration.getList("autoSell");
+        List<Location> locationList = (List<Location>) fileConfiguration.get("autoSell");
         locationList.add(block.getLocation());
         fileConfiguration.set("autoSell", locationList);
         fileConfiguration.save(getDataStorage.islandAutoSell(island));
