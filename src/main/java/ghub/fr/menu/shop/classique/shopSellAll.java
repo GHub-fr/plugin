@@ -28,7 +28,7 @@ public class shopSellAll {
         }
 
         if (total > 0) {
-            gold.AddGold(player, total);
+            gold.AddGold(player, total / 10);
         }
     }
 }

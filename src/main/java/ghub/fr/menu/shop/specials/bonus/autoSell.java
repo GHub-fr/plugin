@@ -89,7 +89,7 @@ public class autoSell {
 
                                             if (total > 0) {
                                                 for (String uuid : playerList) {
-                                                    gold.AddGold(Bukkit.getOfflinePlayer(uuid), total / players);
+                                                    gold.AddGold(Bukkit.getOfflinePlayer(uuid), (total / players / 10));
                                                 }
                                             }
                                         }
