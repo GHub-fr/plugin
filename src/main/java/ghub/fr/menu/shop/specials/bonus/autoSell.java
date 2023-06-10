@@ -5,10 +5,8 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.block.DoubleChest;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.Inventory;
@@ -42,9 +40,11 @@ public class autoSell {
                                 int i = Integer.valueOf(worldNameSplitUnderScore);
 
                                 if (getDataStorage.islandAutoSell(i).exists()) {
-                                    FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(getDataStorage.islandAutoSell(i));
-                                    List<Location> locationList = (List<Location>) fileConfiguration.getList("autoSell");
-                                    
+                                    FileConfiguration fileConfiguration = YamlConfiguration
+                                            .loadConfiguration(getDataStorage.islandAutoSell(i));
+                                    List<Location> locationList = (List<Location>) fileConfiguration
+                                            .getList("autoSell");
+
                                     for (Location loc : locationList) {
                                         Block block = world.getBlockAt(loc);
                                         if (block instanceof InventoryHolder) {
@@ -57,8 +57,10 @@ public class autoSell {
 
                                             if (inventory.getContents().length >= 1) {
                                                 for (ItemStack item : inventory.getContents()) {
-                                                    total += (shopPrice.getPrix(item.getType()) * item.getAmount());
-                                                    inventory.remove(item);
+                                                    if (shopPrice.getPrix(item.getType()) != Integer.MAX_VALUE) {
+                                                        total += (shopPrice.getPrix(item.getType()) * item.getAmount());
+                                                        inventory.remove(item);
+                                                    }
                                                 }
                                             }
 
@@ -85,7 +87,8 @@ public class autoSell {
             getDataStorage.islandAutoSell(island).createNewFile();
         }
 
-        FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(getDataStorage.islandAutoSell(island));
+        FileConfiguration fileConfiguration = YamlConfiguration
+                .loadConfiguration(getDataStorage.islandAutoSell(island));
         List<Location> locationList = (List<Location>) fileConfiguration.getList("autoSell");
         locationList.add(block.getLocation());
         fileConfiguration.set("autoSell", locationList);

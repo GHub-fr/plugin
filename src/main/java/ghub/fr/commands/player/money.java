@@ -24,7 +24,7 @@ public class money implements TabCompleter, CommandExecutor {
             try {
                 lang.languages lang = playerLang.getPlayerLang((Player) sender);
                 if (args.length == 0) {
-                    sender.sendMessage(textTranslation.remainingGold(lang, gold.GetGoldFormat(Bukkit.getOfflinePlayer(args[0]))));
+                    sender.sendMessage(textTranslation.remainingGold(lang, gold.GetGoldFormat((Player) sender)));
                     return true;
                 } else if (args.length == 1) {
                     if (getDataStorage.playerExistForBonus(sender, Bukkit.getOfflinePlayer(args[0]))) {

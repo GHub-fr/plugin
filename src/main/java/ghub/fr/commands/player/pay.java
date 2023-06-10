@@ -16,7 +16,6 @@ import ghub.fr.system.gold;
 import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
 import ghub.fr.text.shopTranslation;
-import ghub.fr.text.textTranslation;
 
 public class pay implements TabCompleter, CommandExecutor {
     @Override
@@ -26,9 +25,10 @@ public class pay implements TabCompleter, CommandExecutor {
                 lang.languages lang = playerLang.getPlayerLang((Player) sender);
                 if (args.length == 2) {
                     if (getDataStorage.playerExistForBonus(sender, Bukkit.getOfflinePlayer(args[0]))) {
-                        if (gold.GetHasEnoughGold((Player) sender, Integer.valueOf(args[2]))) {
-                            gold.RemoveGold((Player) sender, Integer.valueOf(args[2]));
-                            gold.AddGold(Bukkit.getOfflinePlayer(args[0]), Integer.valueOf(args[2]));
+                        if (gold.GetHasEnoughGold((Player) sender, Integer.valueOf(args[1]))
+                                && Integer.valueOf(args[1]) >= 1) {
+                            gold.RemoveGold((Player) sender, Integer.valueOf(args[1]));
+                            gold.AddGold(Bukkit.getOfflinePlayer(args[0]), Integer.valueOf(args[1]));
                             return true;
                         } else {
                             sender.sendMessage(shopTranslation.PasAssezArgent(lang));
