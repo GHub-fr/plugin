@@ -3,6 +3,7 @@ package ghub.fr.menu.shop.specials.bonus;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -81,10 +82,7 @@ public class autoSell {
 
                                     if (total > 0) {
                                         for (String uuid : playerList) {
-                                            System.out.println(uuid);
-                                            System.out.println((total / players / 10));
-
-                                            gold.AddGold(Bukkit.getOfflinePlayer(uuid), (total / players / 10));
+                                            gold.AddGold(Bukkit.getOfflinePlayer(UUID.fromString(uuid)), (total / players / 10));
                                         }
                                     }
                                 }
@@ -94,7 +92,7 @@ public class autoSell {
                         e.printStackTrace();
                     }
                 }
-            }.runTaskTimer(plugin, (20 * 60 * 3), (20 * 60 * 30));
+            }.runTaskTimer(plugin, (20 * 60 * 10), (20 * 60 * 30));
         }
 
     }

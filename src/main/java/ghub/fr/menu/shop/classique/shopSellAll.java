@@ -11,6 +11,8 @@ import ghub.fr.system.gold;
 
 public class shopSellAll {
     public static void sellAll(Player player) throws IOException {
+        // check server type != creatif
+        
         Inventory inventory = player.getInventory();
 
         int total = 0;
