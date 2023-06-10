@@ -8,6 +8,7 @@ import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.block.DoubleChest;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.Inventory;
@@ -41,25 +42,27 @@ public class autoSell {
                                 int i = Integer.valueOf(worldNameSplitUnderScore);
 
                                 if (getDataStorage.islandAutoSell(i).exists()) {
-                                    FileConfiguration fileConfiguration = YamlConfiguration
-                                            .loadConfiguration(getDataStorage.islandAutoSell(i));
-
-                                    List<Location> locationList = (List<Location>) fileConfiguration.get("autoSell");
+                                    FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(getDataStorage.islandAutoSell(i));
+                                    List<Location> locationList = (List<Location>) fileConfiguration.getList("autoSell");
+                                    
                                     for (Location loc : locationList) {
                                         Block block = world.getBlockAt(loc);
                                         if (block instanceof InventoryHolder) {
                                             InventoryHolder ih = (InventoryHolder) block.getState();
                                             Inventory inventory = ih.getInventory();
-                                            if (inventory.getContents().length >= 1) {
-                                                int players = island.GetPlayerList(i).size();
-                                                List<String> playerList = island.GetPlayerList(i);
-                                                int total = 0;
 
+                                            int total = 0;
+                                            int players = island.GetPlayerList(i).size();
+                                            List<String> playerList = island.GetPlayerList(i);
+
+                                            if (inventory.getContents().length >= 1) {
                                                 for (ItemStack item : inventory.getContents()) {
-                                                    total += shopPrice.getPrix(item.getType()) * item.getAmount();
+                                                    total += (shopPrice.getPrix(item.getType()) * item.getAmount());
                                                     inventory.remove(item);
                                                 }
+                                            }
 
+                                            if (total > 0) {
                                                 for (String uuid : playerList) {
                                                     gold.AddGold(Bukkit.getOfflinePlayer(uuid), total / players);
                                                 }
@@ -83,7 +86,7 @@ public class autoSell {
         }
 
         FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(getDataStorage.islandAutoSell(island));
-        List<Location> locationList = (List<Location>) fileConfiguration.get("autoSell");
+        List<Location> locationList = (List<Location>) fileConfiguration.getList("autoSell");
         locationList.add(block.getLocation());
         fileConfiguration.set("autoSell", locationList);
         fileConfiguration.save(getDataStorage.islandAutoSell(island));
