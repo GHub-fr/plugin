@@ -40,11 +40,18 @@ public class autoSell {
                                 String worldNameSplitUnderScore = worldNameSplitDot.split("_")[0];
                                 int i = Integer.valueOf(worldNameSplitUnderScore);
 
+                                System.out.println("ile" + i);
+
                                 if (getDataStorage.islandAutoSell(i).exists()) {
                                     FileConfiguration fileConfiguration = YamlConfiguration
                                             .loadConfiguration(getDataStorage.islandAutoSell(i));
                                     int totalChest = fileConfiguration.getInt("totalChest");
                                     int actual = 0;
+                                    int total = 0;
+                                    int players = island.GetPlayerList(i).size();
+                                    List<String> playerList = island.GetPlayerList(i);
+
+                                    System.out.println("total" + totalChest);
 
                                     while (actual < totalChest) {
                                         Location loc = new Location(
@@ -52,19 +59,23 @@ public class autoSell {
                                                 fileConfiguration.getInt(actual + "." + "x"),
                                                 fileConfiguration.getInt(actual + "." + "y"),
                                                 fileConfiguration.getInt(actual + "." + "z"));
+
+                                        System.out.println(loc.getWorld().getName());
+
                                         Block block = world.getBlockAt(loc);
                                         if (block instanceof InventoryHolder) {
                                             InventoryHolder ih = (InventoryHolder) block.getState();
                                             Inventory inventory = ih.getInventory();
 
-                                            int total = 0;
-                                            int players = island.GetPlayerList(i).size();
-                                            List<String> playerList = island.GetPlayerList(i);
+                                            System.out.println("holder" + block.getType());
 
                                             if (inventory.getContents().length >= 1) {
+                                                System.out.println("content" + inventory.getContents().length);
                                                 for (ItemStack item : inventory.getContents()) {
+                                                    System.out.println("type" + item.getType());
                                                     if (shopPrice.getPrix(item.getType()) != Integer.MAX_VALUE) {
                                                         total += (shopPrice.getPrix(item.getType()) * item.getAmount());
+                                                        System.out.println("totaux" + total);
                                                         inventory.remove(item);
                                                     }
                                                 }
@@ -84,7 +95,7 @@ public class autoSell {
                         e.printStackTrace();
                     }
                 }
-            }.runTaskTimerAsynchronously(plugin, (20 * 60 * 10), (20 * 60 * 30));
+            }.runTaskTimerAsynchronously(plugin, (20 * 60 * 2), (20 * 60 * 30));
         }
 
     }
@@ -98,6 +109,10 @@ public class autoSell {
         FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
 
         int totalChest = fileConfiguration.getInt("totalChest");
+
+        // Check for all value possible if world != null
+        // if yes it mean there is a chest registered
+        // cancel it and dont remove item on hand
 
         fileConfiguration.set(totalChest + "." + "x", block.getX());
         fileConfiguration.set(totalChest + "." + "y", block.getY());
