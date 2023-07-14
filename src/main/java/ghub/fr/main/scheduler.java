@@ -103,6 +103,8 @@ public class scheduler {
             structure.setStructure(structure.SpawnName(ServerBootFile.getServerTypeFromYML()), "Spawn", 1, 5);
             LastWorldsInit.LoadWorld();
         }
+
+        LastWorldsInit.StartOther();
     }
 
     public static void restart() {

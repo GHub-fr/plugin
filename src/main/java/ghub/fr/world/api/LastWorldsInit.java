@@ -7,6 +7,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.World.Environment;
 
 import ghub.fr.main.main;
+import ghub.fr.menu.prison.mineOresGeneration;
 import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.ServerBootFile.serverType;
 
@@ -30,19 +31,47 @@ public class LastWorldsInit {
                         case OPPrison:
                             worldManager.Generate("Mine.1", false, Environment.NORMAL, WorldType.FLAT, true);
                             structure.setStructure("mine", "Mine.1", 0, 64, 0, 1, 20 * 10);
+
                             worldManager.Generate("Mine.2", false, Environment.NORMAL, WorldType.FLAT, true);
                             structure.setStructure("mine", "Mine.2", 0, 64, 0, 1, 20 * 10 * 2);
+
                             worldManager.Generate("Mine.3", false, Environment.NORMAL, WorldType.FLAT, true);
                             structure.setStructure("mine", "Mine.3", 0, 64, 0, 1, 20 * 10 * 3);
+
                             worldManager.Generate("Mine.4", false, Environment.NORMAL, WorldType.FLAT, true);
                             structure.setStructure("mine", "Mine.4", 0, 64, 0, 1, 20 * 10 * 4);
+
                             worldManager.Generate("Mine.5", false, Environment.NORMAL, WorldType.FLAT, true);
                             structure.setStructure("mine", "Mine.5", 0, 64, 0, 1, 20 * 10 * 5);
+                            /*
+                             * Review if this work or crash
+                             */
                             return;
                         case Creatif:
                             return;
                         case Hub:
                             return;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.runTaskLater(plugin, 20 * 60 * 1);
+    }
+
+    public static void StartOther() {
+        Plugin plugin = JavaPlugin.getPlugin(main.class);
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                try {
+                    serverType serverType = ServerBootFile.getServerTypeFromYML();
+                    if (serverType.equals(ghub.fr.system.ServerBootFile.serverType.OPPrison)) {
+                        mineOresGeneration.startGeneration("Mine.1");
+                        mineOresGeneration.startGeneration("Mine.2");
+                        mineOresGeneration.startGeneration("Mine.3");
+                        mineOresGeneration.startGeneration("Mine.4");
+                        mineOresGeneration.startGeneration("Mine.5");
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
