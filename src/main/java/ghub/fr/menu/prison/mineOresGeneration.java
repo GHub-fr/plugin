@@ -5,6 +5,7 @@ import java.util.Random;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -84,7 +85,7 @@ public class mineOresGeneration {
             } else if (value >= 91 && value <= 95) {
                 return Material.IRON_ORE;
             } else if (value >= 96 && value <= 100) {
-                return Material.REDSTONE;
+                return Material.REDSTONE_ORE;
             }
         }
 
