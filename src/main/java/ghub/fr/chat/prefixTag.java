@@ -15,39 +15,39 @@ public class prefixTag {
             prefix += "";
         }
 
-        if (tags.hasTags(offlinePlayer, tags.TagsList.Creatif)
+        else if (tags.hasTags(offlinePlayer, tags.TagsList.Creatif)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Builder)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Build)) {
             prefix += "";
         }
 
-        if (tags.hasTags(offlinePlayer, tags.TagsList.Messages)
+        else if (tags.hasTags(offlinePlayer, tags.TagsList.Messages)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Moderation)) {
             prefix += "";
         }
 
-        if (tags.hasTags(offlinePlayer, tags.TagsList.Beta)
+        else if (tags.hasTags(offlinePlayer, tags.TagsList.Beta)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Test)) {
             prefix += "";
         }
 
-        if (tags.hasTags(offlinePlayer, tags.TagsList.YouTube)) {
+        else if (tags.hasTags(offlinePlayer, tags.TagsList.YouTube)) {
             prefix += "";
         }
 
-        if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIPPlus)) {
+        else if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIPPlus)) {
             prefix += "";
         }
 
-        if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIP)) {
+        else if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIP)) {
             prefix += "";
         }
 
-        if (tags.hasTags(offlinePlayer, tags.TagsList.Survie)) {
+        else if (tags.hasTags(offlinePlayer, tags.TagsList.Survie)) {
             prefix += "";
         }
 
-        if (tags.hasTags(offlinePlayer, tags.TagsList.Joueur)) {
+        else if (tags.hasTags(offlinePlayer, tags.TagsList.Joueur)) {
             prefix += "";
         }
         return prefix;
