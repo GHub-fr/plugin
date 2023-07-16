@@ -62,7 +62,7 @@ public class mineOresGeneration {
                     e.printStackTrace();
                 }
             }
-        }.runTaskTimer(plugin, 0, 30);
+        }.runTaskTimer(plugin, 100, 20*60*30);
     }
 
     public static Material getRandomBlock(String worldName) {
