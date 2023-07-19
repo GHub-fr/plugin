@@ -42,6 +42,7 @@ public class compassMenu {
             customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU, 9,
                     textTranslation.Menu(lang) + textTranslation.MenuGoldFormat(lang, player));
             inventoryBuilder.getInventory().setItem(0, compassItems.ItemStackTeleporation(lang));
+            inventoryBuilder.getInventory().setItem(4, compassItems.ItemStackShop(lang));
             inventoryBuilder.getInventory().setItem(5, minesItems.ItemStackMineSelector(lang));
             inventoryBuilder.getInventory().setItem(6, pickaxeItems.ItemStackPickaxeSelector(lang));
             inventoryBuilder.getInventory().setItem(8, compassItems.ItemStackSettings(lang));
