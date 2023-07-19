@@ -26,7 +26,9 @@ public class pickaxeEvents implements Listener {
             throws IllegalArgumentException, IOException, ParseException {
         if (e.getCurrentItem() != null) {
             if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(),
-                    persistentData.customKey.pickaxeselector)) {
+                    persistentData.customKey.pickaxeselector)
+                    || persistentData.hasPersistentDataItemStack(e.getCurrentItem(),
+                            persistentData.customKey.mypickaxe)) {
                 pickaxeMenu.pickaxeMenu((Player) e.getWhoClicked());
             }
         }
