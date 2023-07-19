@@ -25,6 +25,7 @@ import ghub.fr.menu.compass.compassEvents;
 import ghub.fr.menu.island.islandEvents;
 import ghub.fr.menu.island.islandHeadsEvents;
 import ghub.fr.menu.island.bonus.bonusEvents;
+import ghub.fr.menu.prison.EventLimiter;
 import ghub.fr.menu.prison.minesEvents;
 import ghub.fr.menu.prison.pickaxeEvents;
 import ghub.fr.menu.profil.profilEvents;
@@ -50,7 +51,6 @@ import ghub.fr.world.spawn.joinAtSpawn;
 import ghub.fr.world.spawn.limiter;
 
 import org.bukkit.Bukkit;
-import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.generator.ChunkGenerator;
@@ -59,7 +59,6 @@ import org.bukkit.plugin.messaging.PluginMessageListener;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.HashMap;
 import java.util.HexFormat;
 import java.util.logging.Logger;
 
@@ -222,6 +221,7 @@ public class main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginManager().registerEvents(new BossBarMessage(), this);
         Bukkit.getPluginManager().registerEvents(new ResourcePackHandler(), this);
         Bukkit.getPluginManager().registerEvents(new settingsEvents(), this);
+        Bukkit.getPluginManager().registerEvents(new EventLimiter(), this);
     }
 
     // public static final Enchantment INSTANTMINE = new instantmine(new
