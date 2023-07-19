@@ -57,7 +57,7 @@ public class spawnNPC {
         team.setColor(chatColor);
         team.addEntity(villager);
         villager.setGlowing(true);
-        
+
         return villager;
     }
 
@@ -141,6 +141,41 @@ public class spawnNPC {
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.mines);
+
+            villager = Summon(new Location(spawn, -1.5, 0, 4.5, -150, 0), "Mine.1", false,
+                    Villager.Profession.CARTOGRAPHER,
+                    Villager.Type.TAIGA, ChatColor.GOLD);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+
+            villager = Summon(new Location(spawn, -1.5, 0, 4.5, -150, 0), "Mine.2", false,
+                    Villager.Profession.CARTOGRAPHER,
+                    Villager.Type.TAIGA, ChatColor.GOLD);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+
+            villager = Summon(new Location(spawn, -1.5, 0, 4.5, -150, 0), "Mine.3", false,
+                    Villager.Profession.CARTOGRAPHER,
+                    Villager.Type.TAIGA, ChatColor.GOLD);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+
+            villager = Summon(new Location(spawn, -1.5, 0, 4.5, -150, 0), "Mine.4", false,
+                    Villager.Profession.CARTOGRAPHER,
+                    Villager.Type.TAIGA, ChatColor.GOLD);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+
+            villager = Summon(new Location(spawn, -1.5, 0, 4.5, -150, 0), "Mine.5", false,
+                    Villager.Profession.CARTOGRAPHER,
+                    Villager.Type.TAIGA, ChatColor.GOLD);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
         }
     }
 
