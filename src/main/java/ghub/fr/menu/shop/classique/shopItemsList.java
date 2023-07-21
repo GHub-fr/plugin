@@ -14,6 +14,7 @@ public class shopItemsList {
         materials.add(Material.MOSSY_COBBLESTONE);
         materials.add(Material.MOSSY_STONE_BRICKS);
         materials.add(Material.COBBLED_DEEPSLATE);
+        materials.add(Material.DEEPSLATE_BRICKS);
         materials.add(Material.GRAVEL);
         materials.add(Material.SAND);
         materials.add(Material.RED_SAND);

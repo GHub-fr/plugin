@@ -16,6 +16,8 @@ public class shopPrice {
                 return 10;
             case COBBLED_DEEPSLATE:
                 return 20;
+            case DEEPSLATE_BRICKS:
+                return 20;
             case GRASS_BLOCK:
                 return 500;
             case DIRT:
