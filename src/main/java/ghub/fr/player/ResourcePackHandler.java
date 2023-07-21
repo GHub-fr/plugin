@@ -6,6 +6,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.HexFormat;
 
 import org.bukkit.entity.Player;
@@ -13,6 +14,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerResourcePackStatusEvent;
+import org.bukkit.event.player.PlayerResourcePackStatusEvent.Status;
 
 import ghub.fr.main.main;
 import ghub.fr.system.ServerBootFile;
@@ -22,8 +24,9 @@ public class ResourcePackHandler implements Listener {
     public static String url = main.url;
     public static String sha1 = main.sha1;
     public static byte[] hashed = main.hashed;
-    public static String text = "§4§lUtilisation du resource pack §r§f..." + "\n§f[ §6§lGHub.fr §r§f] Resource pack";
-    public static Boolean force = true;
+    public static String text = "§4§lUtilisation du resource pack custom §r§f..."
+            + "\n§fRôles, monstres, tags, armes & fusils...";
+    public static Boolean force = false;
 
     @EventHandler
     public void PlayerJoinEvent(PlayerJoinEvent e) throws IOException {
@@ -45,21 +48,33 @@ public class ResourcePackHandler implements Listener {
         player.setResourcePack(url, hashed, text, force);
     }
 
+    ArrayList<String> queu = new ArrayList<>();
+    ArrayList<String> downloaded = new ArrayList<>();
+
     @EventHandler
     public void ResourcePackStatusEvent(PlayerResourcePackStatusEvent e) {
-        switch (e.getStatus()) {
-            case ACCEPTED:
-                // Vérifier si le joueur a accépté pour la première fois, si oui
-                // setResourcePack, si non rien faire car va charger tout seul
-                return;
-            case DECLINED:
-                e.getPlayer().kickPlayer("§4§lLe ressource pack doit être accepté §rpour jouer sur le serveur en raison de son utilisation");
-                return;
-            case FAILED_DOWNLOAD:
+        e.getStatus();
+        if (e.getStatus().equals(Status.ACCEPTED)) {
+            if (!queu.contains(e.getPlayer().getUniqueId().toString())
+                    && !downloaded.contains(e.getPlayer().getUniqueId().toString())) {
+                queu.add(e.getPlayer().getUniqueId().toString());
                 setResourcePack(e.getPlayer(), url, sha1, text, true);
-                return;
-            case SUCCESSFULLY_LOADED:
-                return;
+            }
+        }
+
+        else if (e.getStatus().equals(Status.DECLINED)) {
+            if (force) {
+                e.getPlayer().kick();
+            }
+        }
+
+        else if (e.getStatus().equals(Status.FAILED_DOWNLOAD)) {
+            setResourcePack(e.getPlayer(), url, sha1, text, true);
+        }
+
+        else if (e.getStatus().equals(Status.SUCCESSFULLY_LOADED)) {
+            queu.remove(e.getPlayer().getUniqueId().toString());
+            downloaded.add(e.getPlayer().getUniqueId().toString());
         }
     }
 
