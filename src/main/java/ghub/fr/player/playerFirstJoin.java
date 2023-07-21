@@ -47,6 +47,8 @@ public class playerFirstJoin implements Listener {
             setPlayerUpdate(e.getPlayer());
             welcomeMessageEverybody(e.getPlayer());
         }
+
+        tags.addTags(e.getPlayer(), tags.TagsList.Joueur);
     }
 
     public void welcomeMessageEverybody(Player player) throws IOException {

@@ -114,24 +114,6 @@ public class Tab {
         player.setPlayerListName(prefixTag.prefixTag(player) + "  " + player.getDisplayName() + "  " + df.format(player.getHealth()) + "");
     }
 
-    /* public static String nameTeam(OfflinePlayer offlinePlayer) throws IOException, ParseException {
-        String prefix = "";
-        if (tags.hasTags(offlinePlayer, tags.TagsList.Admin)) {
-            prefix += "A";
-        }
-        if (tags.hasTags(offlinePlayer, tags.TagsList.Moderation) || tags.hasTags(offlinePlayer, tags.TagsList.Builder)
-                || tags.hasTags(offlinePlayer, tags.TagsList.Build)) {
-            prefix += "S";
-        }
-        if (tags.hasTags(offlinePlayer, tags.TagsList.Beta)) {
-            prefix += "B";
-        }
-        if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIP)) {
-            prefix += "V";
-        }
-        return prefix;
-    } */
-
     @SuppressWarnings("deprecation")
     public static void setTeamTag(Player player, Scoreboard scoreboard) throws IOException, ParseException {
         String nameTeam = prefixTag.prefixTag(player);

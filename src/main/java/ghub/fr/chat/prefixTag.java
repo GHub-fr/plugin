@@ -11,45 +11,37 @@ import java.text.ParseException;
 public class prefixTag {
     public static String prefixTag(OfflinePlayer offlinePlayer) throws IOException, ParseException {
         String prefix = "";
+
         if (tags.hasTags(offlinePlayer, tags.TagsList.Admin)) {
             prefix += "";
-        }
-
-        else if (tags.hasTags(offlinePlayer, tags.TagsList.Creatif)
+        } else if (tags.hasTags(offlinePlayer, tags.TagsList.Creatif)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Builder)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Build)) {
             prefix += "";
-        }
-
-        else if (tags.hasTags(offlinePlayer, tags.TagsList.Messages)
+        } else if (tags.hasTags(offlinePlayer, tags.TagsList.Messages)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Moderation)) {
             prefix += "";
-        }
-
-        else if (tags.hasTags(offlinePlayer, tags.TagsList.Beta)
+        } else if (tags.hasTags(offlinePlayer, tags.TagsList.Beta)
                 || tags.hasTags(offlinePlayer, tags.TagsList.Test)) {
             prefix += "";
+        } else if (tags.hasTags(offlinePlayer, tags.TagsList.Joueur)) {
+            prefix += "";
         }
 
-        else if (tags.hasTags(offlinePlayer, tags.TagsList.YouTube)) {
+        if (tags.hasTags(offlinePlayer, tags.TagsList.YouTube)) {
             prefix += "";
         }
 
-        else if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIPPlus)) {
+        if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIPPlus)) {
             prefix += "";
-        }
-
-        else if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIP)) {
+        } else if (!bonus.isObsoletBonus(offlinePlayer, bonus.BonusList.VIP)) {
             prefix += "";
         }
 
-        else if (tags.hasTags(offlinePlayer, tags.TagsList.Survie)) {
+        if (tags.hasTags(offlinePlayer, tags.TagsList.Survie)) {
             prefix += "";
         }
 
-        else if (tags.hasTags(offlinePlayer, tags.TagsList.Joueur)) {
-            prefix += "";
-        }
         return prefix;
     }
 
