@@ -142,35 +142,35 @@ public class spawnNPC {
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.mines);
 
-            villager = Summon(new Location(spawn, -1.5, 0, 4.5, -150, 0), "Mine.1", false,
+            villager = Summon(new Location(Bukkit.getWorld("Mine.1"), -1.5, 0, 4.5, -150, 0), "Commerçant", false,
                     Villager.Profession.CARTOGRAPHER,
                     Villager.Type.TAIGA, ChatColor.GOLD);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
 
-            villager = Summon(new Location(spawn, -1.5, 0, 4.5, -150, 0), "Mine.2", false,
+            villager = Summon(new Location(Bukkit.getWorld("Mine.2"), -1.5, 0, 4.5, -150, 0), "Commerçant", false,
                     Villager.Profession.CARTOGRAPHER,
                     Villager.Type.TAIGA, ChatColor.GOLD);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
 
-            villager = Summon(new Location(spawn, -1.5, 0, 4.5, -150, 0), "Mine.3", false,
+            villager = Summon(new Location(Bukkit.getWorld("Mine.3"), -1.5, 0, 4.5, -150, 0), "Commerçant", false,
                     Villager.Profession.CARTOGRAPHER,
                     Villager.Type.TAIGA, ChatColor.GOLD);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
 
-            villager = Summon(new Location(spawn, -1.5, 0, 4.5, -150, 0), "Mine.4", false,
+            villager = Summon(new Location(Bukkit.getWorld("Mine.4"), -1.5, 0, 4.5, -150, 0), "Commerçant", false,
                     Villager.Profession.CARTOGRAPHER,
                     Villager.Type.TAIGA, ChatColor.GOLD);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
 
-            villager = Summon(new Location(spawn, -1.5, 0, 4.5, -150, 0), "Mine.5", false,
+            villager = Summon(new Location(Bukkit.getWorld("Mine.5"), -1.5, 0, 4.5, -150, 0), "Commerçant", false,
                     Villager.Profession.CARTOGRAPHER,
                     Villager.Type.TAIGA, ChatColor.GOLD);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
