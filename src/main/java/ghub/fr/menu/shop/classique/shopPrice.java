@@ -102,10 +102,16 @@ public class shopPrice {
                 return 250;
             case QUARTZ:
                 return 500;
+            case RAW_IRON:
+                return 400;
             case IRON_INGOT:
                 return 500;
+            case RAW_COPPER:
+                return 400;
             case COPPER_INGOT:
                 return 500;
+            case RAW_GOLD:
+                return 900;
             case GOLD_INGOT:
                 return 1000;
             case DIAMOND:

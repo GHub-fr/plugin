@@ -93,8 +93,11 @@ public class shopItemsList {
         materials.add(Material.LAPIS_LAZULI);
         materials.add(Material.GLOWSTONE);
         materials.add(Material.QUARTZ);
+        materials.add(Material.RAW_COPPER);
         materials.add(Material.COPPER_INGOT);
+        materials.add(Material.RAW_IRON);
         materials.add(Material.IRON_INGOT);
+        materials.add(Material.RAW_GOLD);
         materials.add(Material.GOLD_INGOT);
         materials.add(Material.DIAMOND);
         materials.add(Material.EMERALD);
