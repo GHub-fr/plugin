@@ -58,7 +58,7 @@ public class ResourcePackHandler implements Listener {
             if (!queu.contains(e.getPlayer().getUniqueId().toString())
                     && !downloaded.contains(e.getPlayer().getUniqueId().toString())) {
                 queu.add(e.getPlayer().getUniqueId().toString());
-                setResourcePack(e.getPlayer(), url, sha1, text, true);
+                //setResourcePack(e.getPlayer(), url, sha1, text, true);
             }
         }
 
