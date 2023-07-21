@@ -16,6 +16,8 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import ghub.fr.menu.api.persistentData;
 import ghub.fr.system.gold;
 import ghub.fr.text.itemsTranslation;
+import ghub.fr.text.playerLang;
+import ghub.fr.text.shopTranslation;
 import ghub.fr.world.api.teleportation;
 
 public class minesEvents implements Listener {
@@ -93,12 +95,8 @@ public class minesEvents implements Listener {
             minesMenu.minesMenu(offlinePlayer.getPlayer());
             // send message buy mine
         } else {
-            // send message pas assez gold
+            offlinePlayer.getPlayer().sendMessage(
+                    shopTranslation.PasAssezArgent(playerLang.getPlayerLang((Player) offlinePlayer)));
         }
     }
 }
-
-//
-// Penser faire event block break + generate (44, -2 +64, 44 -> -44, -41 +64,
-// -44)
-//
