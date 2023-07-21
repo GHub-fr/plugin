@@ -10,9 +10,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 
 import ghub.fr.menu.api.persistentData;
-import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.gold;
-import ghub.fr.system.security;
 import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
 import ghub.fr.text.textTranslation;
@@ -28,15 +26,6 @@ public class death implements Listener {
         e.setDeathMessage(null);
         lang.languages lang = playerLang.getPlayerLang(e.getEntity());
         e.getEntity().sendMessage(textTranslation.death(lang));
-    }
-
-    @EventHandler
-    public void DeathBan(PlayerDeathEvent e) throws IOException {
-        e.setDeathMessage(null);
-        lang.languages lang = playerLang.getPlayerLang(e.getEntity());
-        if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Anarchie)) {
-            security.addSecurity(e.getPlayer(), security.SecurityList.BanAnarchie, 1);
-        }
     }
 
     @EventHandler
