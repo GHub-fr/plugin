@@ -1023,8 +1023,8 @@ public class itemsTranslation {
         switch (lang) {
             case fr:
                 Lore.add("");
-                Lore.add("§7Ce serveur est une survie §4sans règle");
-                Lore.add("§4Mode HardCore §7avec §4§lune vie par 24h §r§7!");
+                Lore.add("§7Ce serveur est une survie §4sans règles");
+                Lore.add("§4Mode HardCore, PvP actif !");
                 Lore.add("");
                 return Lore;
             case en:
@@ -1059,7 +1059,7 @@ public class itemsTranslation {
             case fr:
                 Lore.add("");
                 Lore.add("§4Serveur sous white liste");
-                Lore.add("§7Le §2RPG §7est un serveur §f100% custom");
+                Lore.add("§7Le §2RPG §7est un serveur §fcustom");
                 Lore.add("§4En développement / §2§lbuild");
                 Lore.add("");
                 return Lore;
@@ -1111,9 +1111,9 @@ public class itemsTranslation {
         switch (lang) {
             case fr:
                 Lore.add("");
-                Lore.add("§7SkyBlock au style §f\"§2old school§f\" §7avec des ajouts fait maison");
+                Lore.add("§7SkyBlock au style §f\"§2old school§f\"");
                 Lore.add(
-                        "§7Faites votre île, §2allez dans un village ou un stronghold §7et §2battez le jeu§f sur un SkyBlock");
+                        "§7Faites votre île, §2allez dans un village, le nether, l'end...");
                 Lore.add("");
                 return Lore;
             case en:
@@ -1148,7 +1148,8 @@ public class itemsTranslation {
             case fr:
                 Lore.add("");
                 Lore.add("§4Serveur sous white liste");
-                Lore.add("§7Survie §2privée §fstyle HolyCube");
+                Lore.add("§7Survie §2semi privée §fstyle HolyCube");
+                Lore.add("§2Recrutement sur Discord via ticket");
                 Lore.add("");
                 return Lore;
             case en:
@@ -1200,7 +1201,7 @@ public class itemsTranslation {
             case fr:
                 Lore.add("");
                 Lore.add("§4Serveur sous white liste");
-                Lore.add("§7OPPrison §2en développement");
+                Lore.add("§7OPPrison §2ouverture bientôt");
                 Lore.add("");
                 return Lore;
             case en:
