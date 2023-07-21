@@ -8,7 +8,11 @@ public class shopPrice {
             // Blocks
             case COBBLESTONE:
                 return 10;
+            case STONE_BRICKS:
+                return 10;
             case MOSSY_COBBLESTONE:
+                return 10;
+            case MOSSY_STONE_BRICKS:
                 return 10;
             case COBBLED_DEEPSLATE:
                 return 20;

@@ -10,7 +10,9 @@ public class shopItemsList {
         materials.add(Material.GRASS_BLOCK);
         materials.add(Material.DIRT);
         materials.add(Material.COBBLESTONE);
+        materials.add(Material.STONE_BRICKS);
         materials.add(Material.MOSSY_COBBLESTONE);
+        materials.add(Material.MOSSY_STONE_BRICKS);
         materials.add(Material.COBBLED_DEEPSLATE);
         materials.add(Material.GRAVEL);
         materials.add(Material.SAND);
