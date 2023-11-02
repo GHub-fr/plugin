@@ -8,8 +8,10 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import ghub.fr.main.main;
+import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.getDataStorage;
 import ghub.fr.system.gold;
+import ghub.fr.system.ServerBootFile.serverType;
 import ghub.fr.world.api.worldManager;
 
 import java.io.IOException;
@@ -108,7 +110,7 @@ public class armorStand {
     public static void PlayerCount() throws IOException {
         if (!listTopGold.isEmpty()) {
             DeleteArmorStandOnSpawn();
-            Location location = new Location(Bukkit.getWorld("Spawn"), 0.5, 66.0, 19.5);
+            Location location = getTopGoldLocation();
 
             summonTopGold(location, "§6Joueurs inscrits §r: §2" + Bukkit.getOfflinePlayers().length);
             location.setY(location.getY() - 0.5);
@@ -138,5 +140,24 @@ public class armorStand {
                 summonTopGold(location, "§6" + gold.GetGoldFormat(player3) + " §fgold");
             }
         }
+    }
+
+    public static Location getTopGoldLocation() {
+
+        double x = 0.0;
+        double y = 0.0;
+        double z = 0.0;
+
+        if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.SkyBlock)) {
+            x = 28.0;
+            y = 65;
+            z = -75.5;
+        } else {
+            x = 0.5;
+            y = 66;
+            z = 19.5;
+        }
+
+        return new Location(Bukkit.getWorld("Spawn"), x, y, z);
     }
 }
