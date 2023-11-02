@@ -150,7 +150,7 @@ public class armorStand {
 
         if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.SkyBlock)) {
             x = 28.0;
-            y = 65;
+            y = 67;
             z = -75.5;
         } else {
             x = 0.5;
