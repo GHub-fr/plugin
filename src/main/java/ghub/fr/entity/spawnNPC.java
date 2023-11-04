@@ -266,18 +266,44 @@ public class spawnNPC {
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.guide);
             villager.setGlowing(true);
 
-            villager = Summon(new Location(spawn, -2.5, 64, 3.5, -148, 0), "Îles", false, Villager.Profession.FARMER,
+            villager = Summon(new Location(spawn, -9.5, 64, 13.5, 145, 0), "Îles", false, Villager.Profession.FARMER,
                     Villager.Type.JUNGLE, ChatColor.GREEN);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.ile);
 
-            villager = Summon(new Location(spawn, 10.5, 64, 13.5, 135, 0), "Commerçant", false,
+            villager = Summon(new Location(spawn, -19.5, 63, 5.0, 0, 0), "Commerçant", false,
                     Villager.Profession.CARTOGRAPHER,
                     Villager.Type.TAIGA, ChatColor.GOLD);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
             entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+
+            villager = Summon(new Location(spawn, -7.5, 70, -22.5, 0, 0), "Commerçant", false,
+                    Villager.Profession.CARTOGRAPHER,
+                    Villager.Type.TAIGA, ChatColor.GOLD);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+
+            villager = Summon(new Location(spawn, -64.5, 64, 11.5, 90, 0), "Commerçant", false,
+                    Villager.Profession.CARTOGRAPHER,
+                    Villager.Type.TAIGA, ChatColor.GOLD);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.commercant);
+
+            villager = Summon(new Location(spawn, -63.5, 69, 12.5, 108, 5), "Cardinal Adelardus", false,
+                    Villager.Profession.FISHERMAN,
+                    Villager.Type.DESERT, ChatColor.GOLD);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
+
+            villager = Summon(new Location(spawn, -63.5, 63, -44.5, 0, 0), "Forge mythique (Bientôt)", false,
+                    Villager.Profession.FISHERMAN,
+                    Villager.Type.DESERT, ChatColor.GOLD);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.spawnvillager);
+            entityPersistentData.setPersistentDataEntity(villager, entityPersistentData.customKey.custom);
         }
     }
 
