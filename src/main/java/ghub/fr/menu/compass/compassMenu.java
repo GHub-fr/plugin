@@ -81,8 +81,9 @@ public class compassMenu {
                     textTranslation.Menu(lang) + textTranslation.MenuGoldFormat(lang, player));
             inventoryBuilder.getInventory().setItem(0, compassItems.ItemStackTeleporation(lang));
             inventoryBuilder.getInventory().setItem(1, compassItems.ItemStackIle(lang));
+            inventoryBuilder.getInventory().setItem(3, compassItems.ItemStackShop(lang));
+            inventoryBuilder.getInventory().setItem(4, shopItems.Custom(lang));
             inventoryBuilder.getInventory().setItem(5, compassItems.ItemStackShopEnchant(lang));
-            inventoryBuilder.getInventory().setItem(6, compassItems.ItemStackShop(lang));
             inventoryBuilder.getInventory().setItem(8, compassItems.ItemStackSettings(lang));
             player.openInventory(inventoryBuilder.getInventory());
         }
