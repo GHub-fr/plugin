@@ -53,10 +53,10 @@ public class spawnNPC {
 
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         Scoreboard board = manager.getNewScoreboard();
-        Team team = board.registerNewTeam("NPCTeam" + chatColor.name());
-        team.setColor(chatColor);
+        Team team = board.registerNewTeam("NPCTeam"/* + chatColor.name() */);
+        // team.setColor(chatColor);
         team.addEntity(villager);
-        villager.setGlowing(true);
+        // villager.setGlowing(true);
 
         return villager;
     }
