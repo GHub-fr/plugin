@@ -21,7 +21,7 @@ public class spawnNPC {
                         Villager.Type type) {
                 if (location != null) {
                         if (location.getWorld() != null) {
-                                if (location.getChunk().isLoaded()) {
+                                if (location.getChunk().isEntitiesLoaded() && location.getChunk().isLoaded()) {
                                         Villager npc = (Villager) location.getWorld().spawnEntity(location,
                                                         EntityType.VILLAGER);
                                         if (!IA) {
