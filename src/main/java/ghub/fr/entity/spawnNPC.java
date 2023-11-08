@@ -46,23 +46,6 @@ public class spawnNPC {
                 return null;
         }
 
-        /*
-         * public static Villager Summon(Location location, String nom, boolean IA,
-         * Villager.Profession profession,
-         * Villager.Type type) {
-         * Villager villager = Summon(location, nom, IA, profession, type);
-         * 
-         * ScoreboardManager manager = Bukkit.getScoreboardManager();
-         * Scoreboard board = manager.getNewScoreboard();
-         * Team team = board.registerNewTeam("NPCTeam" + chatColor.name() );
-         * // team.setColor(chatColor);
-         * team.addEntity(villager);
-         * // villager.setGlowing(true);
-         * 
-         * return villager;
-         * }
-         */
-
         public static void summonNPCAll() {
                 summonNPCChild();
                 summonNPCCreatif();
