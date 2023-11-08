@@ -23,7 +23,7 @@ public class armorStand {
     public static ArmorStand Summon(Location location, String text) {
         if (location != null) {
             if (location.getWorld() != null) {
-                if (Bukkit.getServer().getWorld(location.getWorld().getName()).isChunkLoaded(location.getChunk())) {
+                if (location.getChunk().isLoaded()) {
                     ArmorStand armorStand = (ArmorStand) location.getWorld().spawnEntity(location,
                             EntityType.ARMOR_STAND);
                     armorStand.setVisible(false);

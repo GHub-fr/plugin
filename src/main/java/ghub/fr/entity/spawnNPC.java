@@ -21,8 +21,7 @@ public class spawnNPC {
                         Villager.Type type) {
                 if (location != null) {
                         if (location.getWorld() != null) {
-                                if (Bukkit.getServer().getWorld(location.getWorld().getName())
-                                                .isChunkLoaded(location.getChunk())) {
+                                if (location.getChunk().isLoaded()) {
                                         Villager npc = (Villager) location.getWorld().spawnEntity(location,
                                                         EntityType.VILLAGER);
                                         if (!IA) {
