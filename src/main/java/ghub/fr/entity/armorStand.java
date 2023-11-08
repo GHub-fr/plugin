@@ -55,6 +55,7 @@ public class armorStand {
                 keepSpawnInMemory();
                 listTopGold.clear();
                 getTopGold();
+                DeleteArmorStandOnSpawn();
                 PlayerCount();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -111,7 +112,6 @@ public class armorStand {
 
     public static void PlayerCount() throws IOException {
         if (!listTopGold.isEmpty()) {
-            DeleteArmorStandOnSpawn();
             Location location = getTopGoldLocation();
 
             summonTopGold(location, "§6Joueurs inscrits §r: §2" + Bukkit.getOfflinePlayers().length);
