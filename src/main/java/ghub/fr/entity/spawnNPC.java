@@ -3,7 +3,6 @@ package ghub.fr.entity;
 import java.util.List;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.WorldType;
@@ -12,9 +11,6 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Villager;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scoreboard.Scoreboard;
-import org.bukkit.scoreboard.ScoreboardManager;
-import org.bukkit.scoreboard.Team;
 
 import ghub.fr.main.main;
 import ghub.fr.system.ServerBootFile;
@@ -25,24 +21,27 @@ public class spawnNPC {
                         Villager.Type type) {
                 if (location != null) {
                         if (location.getWorld() != null) {
-                                Villager npc = (Villager) location.getWorld().spawnEntity(location,
-                                                EntityType.VILLAGER);
-                                if (!IA) {
-                                        npc.setAI(false);
-                                        npc.setSilent(true);
-                                } else {
-                                        npc.setAgeLock(true);
-                                        npc.setBaby();
-                                        npc.setCollidable(false);
+                                if (Bukkit.getServer().getWorld(location.getWorld().getName())
+                                                .isChunkLoaded(location.getChunk())) {
+                                        Villager npc = (Villager) location.getWorld().spawnEntity(location,
+                                                        EntityType.VILLAGER);
+                                        if (!IA) {
+                                                npc.setAI(false);
+                                                npc.setSilent(true);
+                                        } else {
+                                                npc.setAgeLock(true);
+                                                npc.setBaby();
+                                                npc.setCollidable(false);
+                                        }
+                                        npc.setVillagerType(type);
+                                        npc.setProfession(profession);
+                                        npc.setCanPickupItems(false);
+                                        npc.setCustomNameVisible(true);
+                                        npc.setInvulnerable(true);
+                                        String nomFinal = "§6{§fNPC§6} §6" + nom;
+                                        npc.setCustomName(nomFinal);
+                                        return npc;
                                 }
-                                npc.setVillagerType(type);
-                                npc.setProfession(profession);
-                                npc.setCanPickupItems(false);
-                                npc.setCustomNameVisible(true);
-                                npc.setInvulnerable(true);
-                                String nomFinal = "§6{§fNPC§6} §6" + nom;
-                                npc.setCustomName(nomFinal);
-                                return npc;
                         }
                 }
                 return null;

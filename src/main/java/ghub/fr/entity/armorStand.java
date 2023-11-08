@@ -23,15 +23,18 @@ public class armorStand {
     public static ArmorStand Summon(Location location, String text) {
         if (location != null) {
             if (location.getWorld() != null) {
-                ArmorStand armorStand = (ArmorStand) location.getWorld().spawnEntity(location, EntityType.ARMOR_STAND);
-                armorStand.setVisible(false);
-                armorStand.setGravity(false);
-                armorStand.setCanPickupItems(false);
-                armorStand.setCollidable(false);
-                armorStand.setInvulnerable(true);
-                armorStand.setCustomName(text);
-                armorStand.setCustomNameVisible(true);
-                return armorStand;
+                if (Bukkit.getServer().getWorld(location.getWorld().getName()).isChunkLoaded(location.getChunk())) {
+                    ArmorStand armorStand = (ArmorStand) location.getWorld().spawnEntity(location,
+                            EntityType.ARMOR_STAND);
+                    armorStand.setVisible(false);
+                    armorStand.setGravity(false);
+                    armorStand.setCanPickupItems(false);
+                    armorStand.setCollidable(false);
+                    armorStand.setInvulnerable(true);
+                    armorStand.setCustomName(text);
+                    armorStand.setCustomNameVisible(true);
+                    return armorStand;
+                }
             }
         }
         return null;
