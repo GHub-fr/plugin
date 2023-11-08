@@ -11,7 +11,6 @@ import ghub.fr.main.main;
 import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.getDataStorage;
 import ghub.fr.system.gold;
-import ghub.fr.system.ServerBootFile.serverType;
 import ghub.fr.world.api.worldManager;
 
 import java.io.IOException;
