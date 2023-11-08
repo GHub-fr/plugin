@@ -126,6 +126,8 @@ public class shopPrice {
                 return 2500;
             case NETHERITE_SCRAP:
                 return 25000;
+            case ANCIENT_DEBRIS:
+                return 24900;
             // Monstres
             case HONEY_BOTTLE:
                 return 200;
