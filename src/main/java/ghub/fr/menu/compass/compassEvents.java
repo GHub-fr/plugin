@@ -72,7 +72,7 @@ public class compassEvents implements Listener {
         FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
         fileConfiguration.set("CompassPose", slot);
         fileConfiguration.save(file);
-        p.sendMessage("Save on data pose index : " + slot);
+        offlinePlayer.getPlayer().sendMessage("Save on data pose index : " + slot);
     }
 
     public static void setCompassInv(Player p) throws IOException {
