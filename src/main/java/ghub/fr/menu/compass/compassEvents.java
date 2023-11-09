@@ -47,8 +47,7 @@ public class compassEvents implements Listener {
     public static int getActualPose(OfflinePlayer offlinePlayer) {
         File file = getDataStorage.playerFile(offlinePlayer);
         FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
-        int value = fileConfiguration.getInt("compassPose");
-        return value;
+        return fileConfiguration.getInt("CompassPose");
     }
 
     public static void setNextPose(OfflinePlayer offlinePlayer) throws IOException {
