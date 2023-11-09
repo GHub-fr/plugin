@@ -44,10 +44,14 @@ public class compassEvents implements Listener {
         }
     }
 
+    public static int getActualPose(OfflinePlayer offlinePlayer) {
+        return YamlConfiguration.loadConfiguration(getDataStorage.playerFile(offlinePlayer)).getInt("compassPose");
+    }
+
     public static void setNextPose(OfflinePlayer offlinePlayer) throws IOException {
-        moveCompass(offlinePlayer, getNextPose(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose")));
-        offlinePlayer.getPlayer().sendMessage("Pose : " + getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose"));
-        offlinePlayer.getPlayer().sendMessage("Next : " + getNextPose(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose")));
+        moveCompass(offlinePlayer, getNextPose(getActualPose(offlinePlayer)));
+        offlinePlayer.getPlayer().sendMessage("Pose : " + getActualPose(offlinePlayer));
+        offlinePlayer.getPlayer().sendMessage("Next : " + getNextPose(getActualPose(offlinePlayer)));
     }
 
     public static boolean playerHasCompass(Player p) throws IOException {
@@ -66,7 +70,7 @@ public class compassEvents implements Listener {
     }
 
     public static int getPlayerCompassSlot(OfflinePlayer offlinePlayer) throws IOException {
-        return listPose().get(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose"));
+        return listPose().get(getActualPose(offlinePlayer));
     }
 
     public static void setPlayerCompassSlot(OfflinePlayer offlinePlayer, int slot) throws IOException {
@@ -89,7 +93,8 @@ public class compassEvents implements Listener {
             int oldSlot = getPlayerCompassSlot(p);
             int newSlot = listPose().get(pose);
             p.sendMessage("newSlot : " + newSlot + "     oldSlot : " + oldSlot);
-            if (p.getInventory().getItem(newSlot) == null || p.getInventory().getItem(newSlot).getType().equals(Material.AIR)) {
+            if (p.getInventory().getItem(newSlot) == null
+                    || p.getInventory().getItem(newSlot).getType().equals(Material.AIR)) {
                 p.getInventory().setItem(oldSlot, new ItemStack(Material.AIR));
                 p.sendMessage("set to air");
             } else {
