@@ -2,6 +2,8 @@ package ghub.fr.menu.compass;
 
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,6 +17,7 @@ import ghub.fr.system.getDataStorage;
 import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -44,11 +47,10 @@ public class compassEvents implements Listener {
     public static void setNextPose(OfflinePlayer offlinePlayer) throws IOException {
         moveCompass(offlinePlayer,
                 getNextPose(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose")));
-        offlinePlayer.getPlayer()
-                .sendMessage(
-                        getNextPose(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose")) + "");
         offlinePlayer.getPlayer().sendMessage(
-                getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose") + "");
+                getNextPose(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose")) + "");
+        offlinePlayer.getPlayer()
+                .sendMessage(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose") + "");
     }
 
     public static boolean playerHasCompass(Player p) throws IOException {
@@ -71,8 +73,10 @@ public class compassEvents implements Listener {
     }
 
     public static void setPlayerCompassSlot(OfflinePlayer offlinePlayer, int slot) throws IOException {
-        getDataStorage.playerFileConfiguration(offlinePlayer).set("compassPose", slot);
-        getDataStorage.playerFileConfiguration(offlinePlayer).save(getDataStorage.playerFile(offlinePlayer));
+        File file = getDataStorage.playerFile(offlinePlayer);
+        FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
+        fileConfiguration.set("CompassPose", slot);
+        fileConfiguration.save(file);
     }
 
     public static void setCompassInv(Player p) throws IOException {
@@ -86,11 +90,10 @@ public class compassEvents implements Listener {
             int oldSlot = getPlayerCompassSlot(p);
             int newSlot = listPose().get(pose);
             p.sendMessage("newSlot : " + newSlot + "     oldSlot : " + oldSlot);
-            if (p.getInventory().getItem(newSlot) == null) {
+            if (p.getInventory().getItem(newSlot) == null || p.getInventory().getItem(newSlot).getType().equals(Material.AIR)) {
                 p.getInventory().setItem(oldSlot, new ItemStack(Material.AIR));
             } else {
-                p.getInventory().setItem(oldSlot, p.getInventory().getItem(pose));
-                p.getInventory().setItem(newSlot, new ItemStack(Material.AIR));
+                p.getInventory().setItem(oldSlot, p.getInventory().getItem(newSlot));
             }
             setPlayerCompassSlot(offlinePlayer, pose);
             setCompassInv(p);
