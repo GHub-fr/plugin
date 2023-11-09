@@ -25,12 +25,13 @@ import java.util.ArrayList;
 public class compassEvents implements Listener {
     public static ArrayList<Integer> listPose() {
         ArrayList<Integer> listPose = new ArrayList<>();
+        listPose.add(0);
+        listPose.add(4);
+        listPose.add(8);
         listPose.add(9);
         listPose.add(17);
         listPose.add(27);
         listPose.add(35);
-        listPose.add(36);
-        listPose.add(44);
         return listPose;
     }
 
