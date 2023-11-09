@@ -129,6 +129,9 @@ public class compassEvents implements Listener {
                 if (!e.getCurrentItem().equals(compassItems.ItemStackCompass(lang))) {
                     player.getInventory().setItem(e.getSlot(), compassItems.ItemStackCompass(lang));
                 }
+                if (e.getSlot() != getPlayerCompassSlot((OfflinePlayer) e.getWhoClicked())) {
+                    e.getInventory().setItem(e.getSlot(), new ItemStack(Material.AIR));
+                }
 
                 if (!listPose().contains(e.getSlot())) {
                     player.getInventory().setItem(e.getSlot(), new ItemStack(Material.AIR));
