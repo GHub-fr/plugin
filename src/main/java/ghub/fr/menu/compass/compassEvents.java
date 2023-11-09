@@ -38,7 +38,9 @@ public class compassEvents implements Listener {
         if (current >= listPose().size() - 1) {
             return 0;
         } else {
-            return current++;
+            int i = current;
+            i++;
+            return i;
         }
     }
 
