@@ -11,7 +11,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
-import org.yaml.snakeyaml.error.YAMLException;
 
 import ghub.fr.menu.api.persistentData;
 import ghub.fr.system.getDataStorage;
@@ -48,13 +47,14 @@ public class compassEvents implements Listener {
     public static int getActualPose(OfflinePlayer offlinePlayer) {
         File file = getDataStorage.playerFile(offlinePlayer);
         FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
-        return fileConfiguration.getInt("compassPose");
+        int value = fileConfiguration.getInt("compassPose");
+        return value;
     }
 
     public static void setNextPose(OfflinePlayer offlinePlayer) throws IOException {
-        moveCompass(offlinePlayer, getNextPose(getActualPose(offlinePlayer)));
         offlinePlayer.getPlayer().sendMessage("Pose : " + getActualPose(offlinePlayer));
         offlinePlayer.getPlayer().sendMessage("Next : " + getNextPose(getActualPose(offlinePlayer)));
+        moveCompass(offlinePlayer, getNextPose(getActualPose(offlinePlayer)));
     }
 
     public static boolean playerHasCompass(Player p) throws IOException {
