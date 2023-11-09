@@ -38,19 +38,14 @@ public class compassEvents implements Listener {
         if (current >= listPose().size() - 1) {
             return 0;
         } else {
-            int i = current;
-            i++;
-            return i;
+            return current++;
         }
     }
 
     public static void setNextPose(OfflinePlayer offlinePlayer) throws IOException {
-        moveCompass(offlinePlayer,
-                getNextPose(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose")));
-        offlinePlayer.getPlayer().sendMessage(
-                getNextPose(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose")) + "");
-        offlinePlayer.getPlayer()
-                .sendMessage(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose") + "");
+        moveCompass(offlinePlayer, getNextPose(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose")));
+        offlinePlayer.getPlayer().sendMessage("Pose : " + getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose"));
+        offlinePlayer.getPlayer().sendMessage("Next : " + getNextPose(getDataStorage.playerFileConfiguration(offlinePlayer).getInt("compassPose")));
     }
 
     public static boolean playerHasCompass(Player p) throws IOException {
@@ -77,11 +72,13 @@ public class compassEvents implements Listener {
         FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
         fileConfiguration.set("CompassPose", slot);
         fileConfiguration.save(file);
+        p.sendMessage("Save on data pose index : " + slot);
     }
 
     public static void setCompassInv(Player p) throws IOException {
         lang.languages lang = playerLang.getPlayerLang(p);
         p.getInventory().setItem(getPlayerCompassSlot(p), compassItems.ItemStackCompass(lang));
+        p.sendMessage("set compass on pose : " + getPlayerCompassSlot(p));
     }
 
     public static void moveCompass(OfflinePlayer offlinePlayer, int pose) throws IOException {
@@ -92,8 +89,10 @@ public class compassEvents implements Listener {
             p.sendMessage("newSlot : " + newSlot + "     oldSlot : " + oldSlot);
             if (p.getInventory().getItem(newSlot) == null || p.getInventory().getItem(newSlot).getType().equals(Material.AIR)) {
                 p.getInventory().setItem(oldSlot, new ItemStack(Material.AIR));
+                p.sendMessage("set to air");
             } else {
                 p.getInventory().setItem(oldSlot, p.getInventory().getItem(newSlot));
+                p.sendMessage("swap");
             }
             setPlayerCompassSlot(offlinePlayer, pose);
             setCompassInv(p);
