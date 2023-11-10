@@ -7,10 +7,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 import ghub.fr.menu.compass.compassMenu;
+import ghub.fr.menu.island.island;
 import ghub.fr.menu.island.islandMenu;
 import ghub.fr.menu.prison.minesMenu;
 import ghub.fr.menu.prison.pickaxeMenu;
 import ghub.fr.menu.shop.classique.shopMenu;
+import ghub.fr.system.ServerBootFile;
+import ghub.fr.system.ServerBootFile.serverType;
 import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
 import ghub.fr.text.textTranslation;
@@ -102,6 +105,19 @@ public class clickNPC implements Listener {
     public void Guide(Player player) throws IOException {
         lang.languages languages = playerLang.getPlayerLang(player);
         player.sendMessage(textTranslation.helpMSG(languages));
+
+
+        if (ServerBootFile.getServerType().equals(serverType.Hub)) {
+            player.sendMessage(textTranslation.joinServer(languages));
+        }
+
+        else if (ServerBootFile.getServerType().equals(serverType.SkyBlock)) {
+            if (island.GetHasIsland(player)) {
+                player.sendMessage(textTranslation.UpgradeIsland(languages));
+            } else {
+                player.sendMessage(textTranslation.CreateOrJoinIslandToStart(languages));
+            }
+        }
     }
 
     public void RandomMessage(Player player) throws IOException {

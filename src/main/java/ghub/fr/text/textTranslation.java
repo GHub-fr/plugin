@@ -454,9 +454,9 @@ public class textTranslation {
     public static String useHelp(lang.languages languages) {
         switch (languages) {
             case fr:
-                return newLine() + "/§2aide §rou /§2commandes";
+                return newLine() + "/§2aide §rou /§2commandes §rou /§2menu";
             case en:
-                return newLine() + "/§2help §ror /§2commands";
+                return newLine() + "/§2help §ror /§2commands §ror /§2menu";
             default:
                 return "";
         }
@@ -470,6 +470,39 @@ public class textTranslation {
             case en:
                 return System(languages) + "Use the §6compass in your inventory !" + "\n" + useHelp(languages) + "\n"
                         + Discord();
+            default:
+                return "";
+        }
+    }
+
+    public static String joinServer(lang.languages languages) {
+        switch (languages) {
+            case fr:
+                return System(languages) + "§6Rejoint un serveur §rdans le menu principal !";
+            case en:
+                return System(languages) + "§6Join a server §rin the main menu !";
+            default:
+                return "";
+        }
+    }
+
+    public static String UpgradeIsland(lang.languages languages) {
+        switch (languages) {
+            case fr:
+                return System(languages) + "§6Ajoute des amis à ton île et améliore la §rdans le menu lié\n§2§lCommence par améliorer ton générateur de minerais";
+            case en:
+                return System(languages) + "§6Add friends to your island and improve it §rin the linked menu\n§2§lStart by improving your ore generator";
+            default:
+                return "";
+        }
+    }
+
+    public static String CreateOrJoinIslandToStart(lang.languages languages) {
+        switch (languages) {
+            case fr:
+                return System(languages) + "Pour commencer ton aventure, rejoins ou crée une île";
+            case en:
+                return System(languages) + "To start your adventure, join or create an island";
             default:
                 return "";
         }
