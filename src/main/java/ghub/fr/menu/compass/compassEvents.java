@@ -53,9 +53,7 @@ public class compassEvents implements Listener {
         return fileConfiguration.getInt("CompassPose");
     }
 
-    public static void setNextPose(OfflinePlayer offlinePlayer) throws IOException {
-        offlinePlayer.getPlayer().sendMessage("Pose : " + getActualPose(offlinePlayer));
-        offlinePlayer.getPlayer().sendMessage("Next : " + getNextPose(getActualPose(offlinePlayer)));
+    public static void setNextPose(OfflinePlayer offlinePlayer) throws IOException { 
         moveCompass(offlinePlayer, getNextPose(getActualPose(offlinePlayer)));
     }
 
@@ -82,14 +80,12 @@ public class compassEvents implements Listener {
         File file = getDataStorage.playerFile(offlinePlayer);
         FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
         fileConfiguration.set("CompassPose", slot);
-        fileConfiguration.save(file);
-        offlinePlayer.getPlayer().sendMessage("Save on data pose index : " + slot);
+        fileConfiguration.save(file); 
     }
 
     public static void setCompassInv(Player p) throws IOException {
         lang.languages lang = playerLang.getPlayerLang(p);
-        p.getInventory().setItem(getPlayerCompassSlot(p), compassItems.ItemStackCompass(lang));
-        p.sendMessage("set compass on pose : " + getPlayerCompassSlot(p));
+        p.getInventory().setItem(getPlayerCompassSlot(p), compassItems.ItemStackCompass(lang)); 
     }
 
     public static void moveCompass(OfflinePlayer offlinePlayer, int pose) throws IOException {
@@ -97,14 +93,10 @@ public class compassEvents implements Listener {
             Player p = offlinePlayer.getPlayer();
             int oldSlot = getPlayerCompassSlot(p);
             int newSlot = listPose().get(pose);
-            p.sendMessage("newSlot : " + newSlot + "     oldSlot : " + oldSlot);
-            if (p.getInventory().getItem(newSlot) == null
-                    || p.getInventory().getItem(newSlot).getType().equals(Material.AIR)) {
+            if (p.getInventory().getItem(newSlot) == null || p.getInventory().getItem(newSlot).getType().equals(Material.AIR)) {
                 p.getInventory().setItem(oldSlot, new ItemStack(Material.AIR));
-                p.sendMessage("set to air");
             } else {
                 p.getInventory().setItem(oldSlot, p.getInventory().getItem(newSlot));
-                p.sendMessage("swap");
             }
             setPlayerCompassSlot(offlinePlayer, pose);
             setCompassInv(p);
@@ -125,14 +117,15 @@ public class compassEvents implements Listener {
     public void PlayerClickCompass(InventoryClickEvent e) throws IllegalArgumentException, IOException, ParseException {
         if (e.getCurrentItem() != null) {
             if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.compass)) {
+                if (e.getSlot() != getPlayerCompassSlot((OfflinePlayer) e.getWhoClicked())) {
+                    e.getInventory().setItem(e.getSlot(), new ItemStack(Material.AIR));
+                }
+
                 compassMenu.menuCompass((Player) e.getWhoClicked());
                 lang.languages lang = playerLang.getPlayerLang((OfflinePlayer) e.getWhoClicked());
                 Player player = (Player) e.getWhoClicked();
                 if (!e.getCurrentItem().equals(compassItems.ItemStackCompass(lang))) {
                     player.getInventory().setItem(e.getSlot(), compassItems.ItemStackCompass(lang));
-                }
-                if (e.getSlot() != getPlayerCompassSlot((OfflinePlayer) e.getWhoClicked())) {
-                    e.getInventory().setItem(e.getSlot(), new ItemStack(Material.AIR));
                 }
 
                 if (!listPose().contains(e.getSlot())) {
@@ -144,11 +137,12 @@ public class compassEvents implements Listener {
     }
 
     @EventHandler
-    public void PlayerInteractCompass(PlayerInteractEvent e) throws IllegalArgumentException, IOException, ParseException {
+    public void PlayerInteractCompass(PlayerInteractEvent e)
+            throws IllegalArgumentException, IOException, ParseException {
         if (e.getItem() != null) {
             if (persistentData.hasPersistentDataItemStack(e.getItem(), persistentData.customKey.compass)) {
                 compassMenu.menuCompass((Player) e.getPlayer());
-            } 
+            }
         }
     }
 }
