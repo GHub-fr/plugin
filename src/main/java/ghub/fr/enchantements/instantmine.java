@@ -125,4 +125,9 @@ public class instantmine extends Enchantment implements Listener {
     public int getMaxModifiedCost(int i) {
         return 0;
     }
+
+    @Override
+    public int getMinModifiedCost(int i) {
+        return 0;
+    }
 }
