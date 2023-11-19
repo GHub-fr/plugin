@@ -113,33 +113,38 @@ public class armorStand {
     public static void PlayerCount() throws IOException {
         if (!listTopGold.isEmpty()) {
             Location location = getTopGoldLocation();
+            if (location != null) {
+                if (location.getWorld() != null) {
+                    if (location.getChunk().isEntitiesLoaded() && location.getChunk().isLoaded()) {
+                        summonTopGold(location, "§6Joueurs inscrits §r: §2" + Bukkit.getOfflinePlayers().length);
+                        location.setY(location.getY() - 0.5);
 
-            summonTopGold(location, "§6Joueurs inscrits §r: §2" + Bukkit.getOfflinePlayers().length);
-            location.setY(location.getY() - 0.5);
+                        summonTopGold(location, "§f< §6Top Gold§f >");
+                        location.setY(location.getY() - 0.25);
 
-            summonTopGold(location, "§f< §6Top Gold§f >");
-            location.setY(location.getY() - 0.25);
+                        OfflinePlayer player1 = listTopGold.get(0);
+                        OfflinePlayer player2 = listTopGold.get(1);
+                        OfflinePlayer player3 = listTopGold.get(2);
 
-            OfflinePlayer player1 = listTopGold.get(0);
-            OfflinePlayer player2 = listTopGold.get(1);
-            OfflinePlayer player3 = listTopGold.get(2);
-
-            if (player1 != null) {
-                summonTopGold(location, "§4N°1 §f: §2" + player1.getName());
-                location.setY(location.getY() - 0.25);
-                summonTopGold(location, "§6" + gold.GetGoldFormat(player1) + " §fgold");
-                location.setY(location.getY() - 0.4);
-            }
-            if (player2 != null) {
-                summonTopGold(location, "§6N°2 §f: §2" + player2.getName());
-                location.setY(location.getY() - 0.25);
-                summonTopGold(location, "§6" + gold.GetGoldFormat(player2) + " §fgold");
-                location.setY(location.getY() - 0.4);
-            }
-            if (player3 != null) {
-                summonTopGold(location, "§eN°3 §f: §2" + player3.getName());
-                location.setY(location.getY() - 0.25);
-                summonTopGold(location, "§6" + gold.GetGoldFormat(player3) + " §fgold");
+                        if (player1 != null) {
+                            summonTopGold(location, "§4N°1 §f: §2" + player1.getName());
+                            location.setY(location.getY() - 0.25);
+                            summonTopGold(location, "§6" + gold.GetGoldFormat(player1) + " §fgold");
+                            location.setY(location.getY() - 0.4);
+                        }
+                        if (player2 != null) {
+                            summonTopGold(location, "§6N°2 §f: §2" + player2.getName());
+                            location.setY(location.getY() - 0.25);
+                            summonTopGold(location, "§6" + gold.GetGoldFormat(player2) + " §fgold");
+                            location.setY(location.getY() - 0.4);
+                        }
+                        if (player3 != null) {
+                            summonTopGold(location, "§eN°3 §f: §2" + player3.getName());
+                            location.setY(location.getY() - 0.25);
+                            summonTopGold(location, "§6" + gold.GetGoldFormat(player3) + " §fgold");
+                        }
+                    }
+                }
             }
         }
     }
