@@ -15,7 +15,7 @@ import org.bukkit.NamespacedKey;
 import io.papermc.paper.enchantments.EnchantmentRarity;
 import net.kyori.adventure.text.Component;
 
-public abstract class instantmine extends Enchantment implements Listener {
+public class instantmine extends Enchantment implements Listener {
 
     @EventHandler
     public void onEnchantUse(BlockBreakEvent e) {
@@ -119,5 +119,10 @@ public abstract class instantmine extends Enchantment implements Listener {
     @Override
     public boolean isTradeable() {
         return true;
+    }
+
+    @Override
+    public int getMaxModifiedCost(int i) {
+        return 0;
     }
 }
