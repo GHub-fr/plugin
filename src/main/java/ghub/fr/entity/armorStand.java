@@ -68,8 +68,8 @@ public class armorStand {
             worldManager.Generate("Spawn", false, World.Environment.NORMAL, WorldType.FLAT, true);
         }
         World world = Bukkit.getWorld("Spawn");
-        for (int x = 0; x < 5; x++) {
-            for (int z = 0; z < 5; z++) {
+        for (int x = -5; x < 10; x++) {
+            for (int z = -5; z < 10; z++) {
                 if (!world.isChunkForceLoaded(x, z)) {
                     world.setChunkForceLoaded(x, z, true);
                 }
