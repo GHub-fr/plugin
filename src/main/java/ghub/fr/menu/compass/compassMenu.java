@@ -8,6 +8,7 @@ import ghub.fr.menu.prison.minesItems;
 import ghub.fr.menu.prison.pickaxeItems;
 import ghub.fr.menu.serverSelector.serverSelectorItems;
 import ghub.fr.menu.shop.classique.shopItems;
+import ghub.fr.menu.shop.grades.gradesItems;
 import ghub.fr.system.ServerBootFile;
 import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
@@ -83,7 +84,8 @@ public class compassMenu {
             inventoryBuilder.getInventory().setItem(1, compassItems.ItemStackIle(lang));
             inventoryBuilder.getInventory().setItem(3, compassItems.ItemStackShop(lang));
             inventoryBuilder.getInventory().setItem(4, shopItems.Custom(lang));
-            inventoryBuilder.getInventory().setItem(5, compassItems.ItemStackShopEnchant(lang));
+            inventoryBuilder.getInventory().setItem(5, gradesItems.grade(lang));
+            inventoryBuilder.getInventory().setItem(6, compassItems.ItemStackShopEnchant(lang));
             inventoryBuilder.getInventory().setItem(8, compassItems.ItemStackSettings(lang));
             player.openInventory(inventoryBuilder.getInventory());
         }

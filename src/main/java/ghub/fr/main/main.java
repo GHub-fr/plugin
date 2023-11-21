@@ -32,6 +32,7 @@ import ghub.fr.menu.profil.profilEvents;
 import ghub.fr.menu.serverSelector.serverSelectorEvents;
 import ghub.fr.menu.settings.settingsEvents;
 import ghub.fr.menu.shop.classique.shopEvents;
+import ghub.fr.menu.shop.grades.gradesMenuEvent;
 import ghub.fr.menu.shop.specials.specialsMenuEvents;
 import ghub.fr.menu.shop.specials.specialsUseEvents;
 import ghub.fr.menu.shop.specials.bonus.joinQuitMessage;
@@ -222,6 +223,7 @@ public class main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginManager().registerEvents(new ResourcePackHandler(), this);
         Bukkit.getPluginManager().registerEvents(new settingsEvents(), this);
         Bukkit.getPluginManager().registerEvents(new EventLimiter(), this);
+        Bukkit.getPluginManager().registerEvents(new gradesMenuEvent(), this);
     }
 
     // public static final Enchantment INSTANTMINE = new instantmine(new

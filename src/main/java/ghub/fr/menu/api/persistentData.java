@@ -96,6 +96,8 @@ public class persistentData {
         minestone, mineiron, minegold, minediamond, minenetherite, mineselector, pickaxeselector, pickaxeupgrade,
         pickaxeenchant, pickaxeenchantlooting, pickaxeenchantspeed, mypickaxe, /*
                                                                                */
-        settings, resourcepack, langswap, compasspose, chatsetting
+        settings, resourcepack, langswap, compasspose, chatsetting,
+
+        grade, aventurier
     }
 }

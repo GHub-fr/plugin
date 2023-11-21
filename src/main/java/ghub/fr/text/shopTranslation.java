@@ -2,6 +2,8 @@ package ghub.fr.text;
 
 import java.util.ArrayList;
 
+import ghub.fr.menu.api.persistentData.customKey;
+import ghub.fr.menu.shop.grades.gradesPrices;
 import ghub.fr.system.gold;
 
 public class shopTranslation {
@@ -841,6 +843,59 @@ public class shopTranslation {
             case en:
                 Lore.add("§2LVL / 10 + 3 §f(Base speed)");
                 Lore.add("§2" + (islandLvl / 10 + 3) + " §frandom tick speed");
+                return Lore;
+            default:
+                Lore.add("");
+        }
+        return Lore;
+    }
+
+    public static String aventurierTitle(lang.languages languages) {
+        switch (languages) {
+            case fr:
+                return "§6Aventurier";
+            case en:
+                return "§6Adventurer";
+            default:
+                return "";
+        }
+    }
+
+    public static ArrayList<String> aventurierLore(lang.languages languages) {
+        ArrayList<String> Lore = new ArrayList<>();
+        switch (languages) {
+            case fr:
+                Lore.add("§fDébloquez le grade : §6Aventurier");
+                Lore.add("Prix : " + gradesPrices.prices(customKey.aventurier));
+                return Lore;
+            case en:
+                Lore.add("§fUnlock rank: §6Adventurer");
+                Lore.add("Price : " + gradesPrices.prices(customKey.aventurier));
+                return Lore;
+            default:
+                Lore.add("");
+        }
+        return Lore;
+    }
+
+    public static String gradeTitle(lang.languages languages) {
+        switch (languages) {
+            case fr:
+            case en:
+                return "§6Grades";
+            default:
+                return "";
+        }
+    }
+
+    public static ArrayList<String> gradeLore(lang.languages languages) {
+        ArrayList<String> Lore = new ArrayList<>();
+        switch (languages) {
+            case fr:
+                Lore.add("§6Débloquez de nouveaux grades §fet bonus");
+                return Lore;
+            case en:
+                Lore.add("§6Unlock new ranks §fand bonuses");
                 return Lore;
             default:
                 Lore.add("");
