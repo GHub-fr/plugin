@@ -49,41 +49,44 @@ public class islandEvents implements Listener {
     }
 
     @EventHandler
-    public void onPlayer(PlayerPortalEvent e) {
+    public void onPlayerTeleport(PlayerPortalEvent e) {
         Player player = e.getPlayer();
+        player.sendMessage("Starting event trigger");
         if (player.getWorld().getName().startsWith("i.")) {
+            player.sendMessage("World match i.[x]");
             Location to = e.getTo();
             Location from = e.getFrom();
 
             if (player.getWorld().getEnvironment().equals(World.Environment.NORMAL)) {
                 if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.NETHER_PORTAL)) {
+                    player.sendMessage("Over world to nether");
                     worldManager.Generate(from.getWorld().getName() + "_nether", true, World.Environment.NETHER,
                             WorldType.NORMAL, true);
                     to.setWorld(Bukkit.getWorld(from.getWorld().getName() + "_nether"));
                 } else if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.END_PORTAL)) {
+                    player.sendMessage("Overworld to end");
                     worldManager.Generate(from.getWorld().getName() + "_the_end", true, World.Environment.THE_END,
                             WorldType.NORMAL, false);
                     to.setWorld(Bukkit.getWorld(from.getWorld().getName() + "_the_end"));
                 }
             } else if (player.getWorld().getEnvironment().equals(World.Environment.NETHER)) {
                 if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.NETHER_PORTAL)) {
+                    player.sendMessage("Nether to overworld");
                     worldManager.Generate(from.getWorld().getName().replace("_nether", ""), true,
                             World.Environment.NORMAL, WorldType.NORMAL, true);
                     to.setWorld(Bukkit.getWorld(from.getWorld().getName().replace("_nether", "")));
-                } else if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.END_PORTAL)) {
-                    worldManager.Generate(from.getWorld().getName().replace("_nether", "") + "_the_end", true,
-                            World.Environment.THE_END, WorldType.NORMAL, false);
-                    to.setWorld(Bukkit.getWorld(from.getWorld().getName().replace("_nether", "") + "_the_end"));
                 }
             } else if (player.getWorld().getEnvironment().equals(World.Environment.THE_END)) {
                 if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.END_PORTAL)) {
-                    // e.setCancelled(true);//a testé
+                    player.sendMessage("End to overworld");
                     worldManager.Generate(from.getWorld().getName().replace("_the_end", ""), true,
                             World.Environment.NORMAL, WorldType.NORMAL, true);
                     to.setWorld(Bukkit.getWorld(from.getWorld().getName().replace("_the_end", "")));
                 }
             }
             e.setTo(to);
+            player.sendMessage("dest = " + to);
+            player.sendMessage(to.getWorld().getName());
         }
     }
 
