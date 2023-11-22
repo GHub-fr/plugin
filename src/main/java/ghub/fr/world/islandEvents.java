@@ -14,6 +14,10 @@ import org.bukkit.inventory.ItemStack;
 import ghub.fr.menu.api.persistentData;
 import ghub.fr.menu.island.island;
 import ghub.fr.menu.island.bonus.bonusPlayerFile;
+import ghub.fr.text.lang;
+import ghub.fr.text.playerLang;
+import ghub.fr.text.textTranslation;
+import ghub.fr.text.lang.languages;
 import ghub.fr.world.api.worldManager;
 
 import java.io.IOException;
@@ -49,44 +53,40 @@ public class islandEvents implements Listener {
     }
 
     @EventHandler
-    public void onPlayerTeleport(PlayerPortalEvent e) {
+    public void onPlayerTeleport(PlayerPortalEvent e) throws IOException {
         Player player = e.getPlayer();
-        player.sendMessage("Starting event trigger");
         if (player.getWorld().getName().startsWith("i.")) {
-            player.sendMessage("World match i.[x]");
             Location to = e.getTo();
             Location from = e.getFrom();
 
             if (player.getWorld().getEnvironment().equals(World.Environment.NORMAL)) {
                 if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.NETHER_PORTAL)) {
-                    player.sendMessage("Over world to nether");
                     worldManager.Generate(from.getWorld().getName() + "_nether", true, World.Environment.NETHER,
                             WorldType.NORMAL, true);
                     to.setWorld(Bukkit.getWorld(from.getWorld().getName() + "_nether"));
                 } else if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.END_PORTAL)) {
-                    player.sendMessage("Overworld to end");
                     worldManager.Generate(from.getWorld().getName() + "_the_end", true, World.Environment.THE_END,
                             WorldType.NORMAL, false);
                     to.setWorld(Bukkit.getWorld(from.getWorld().getName() + "_the_end"));
                 }
             } else if (player.getWorld().getEnvironment().equals(World.Environment.NETHER)) {
                 if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.NETHER_PORTAL)) {
-                    player.sendMessage("Nether to overworld");
                     worldManager.Generate(from.getWorld().getName().replace("_nether", ""), true,
                             World.Environment.NORMAL, WorldType.NORMAL, true);
                     to.setWorld(Bukkit.getWorld(from.getWorld().getName().replace("_nether", "")));
                 }
             } else if (player.getWorld().getEnvironment().equals(World.Environment.THE_END)) {
                 if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.END_PORTAL)) {
-                    player.sendMessage("End to overworld");
                     worldManager.Generate(from.getWorld().getName().replace("_the_end", ""), true,
                             World.Environment.NORMAL, WorldType.NORMAL, true);
                     to.setWorld(Bukkit.getWorld(from.getWorld().getName().replace("_the_end", "")));
                 }
             }
+
             e.setTo(to);
-            player.sendMessage("dest = " + to);
-            player.sendMessage(to.getWorld().getName());
+
+            lang.languages lang = playerLang.getPlayerLang(e.getPlayer());
+            player.sendMessage(textTranslation.Teleportation(lang, e.getTo().getWorld().getName()));
         }
     }
 
