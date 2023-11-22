@@ -37,7 +37,9 @@ public class ResourcePackHandler implements Listener {
         serverType serverTypes = ServerBootFile.getServerTypeFromYML();
         if (serverTypes.equals(serverType.Hub)) {
             setResourcePack(e.getPlayer(), url, sha1, text, force);
-        }
+        }//Fix if player join directly on other server
+          //Add on a list when player is resourcePacked
+        //Check if on list before re run resource pack apply
     }
 
     public static void setResourcePack(Player player, String url, String hash, String text, boolean force) {
