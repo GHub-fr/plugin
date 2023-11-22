@@ -12,7 +12,7 @@ import ghub.fr.text.shopTranslation;
 
 public class gradesItems {
     public static ItemStack grade(lang.languages lang) {
-        ItemStack is = new ItemStack(Material.GOAT_HORN, 1);
+        ItemStack is = new ItemStack(Material.CHAINMAIL_HELMET, 1);
         ItemMeta meta = is.getItemMeta();
         meta.setDisplayName(shopTranslation.gradeTitle(lang));
         ArrayList<String> Lore = new ArrayList<String>();

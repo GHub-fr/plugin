@@ -866,11 +866,11 @@ public class shopTranslation {
         switch (languages) {
             case fr:
                 Lore.add("§fDébloquez le grade : §6Aventurier");
-                Lore.add("Prix : " + gradesPrices.prices(customKey.aventurier));
+                Lore.add("§4§lPrix §f: §4§l" + gradesPrices.prices(customKey.aventurier));
                 return Lore;
             case en:
                 Lore.add("§fUnlock rank: §6Adventurer");
-                Lore.add("Price : " + gradesPrices.prices(customKey.aventurier));
+                Lore.add("§4§lPrice §f: §4§l" + gradesPrices.prices(customKey.aventurier));
                 return Lore;
             default:
                 Lore.add("");
