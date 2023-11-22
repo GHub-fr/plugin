@@ -5,7 +5,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import ghub.fr.menu.api.customInventory;
+import ghub.fr.menu.shop.grades.gradesItems;
+import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.gold;
+import ghub.fr.system.ServerBootFile.serverType;
 import ghub.fr.text.itemsTranslation;
 import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
@@ -28,6 +31,9 @@ public class shopMenu {
         inventoryBuilder.getInventory().setItem(11, shopItems.Plantes(lang));
         inventoryBuilder.getInventory().setItem(15, shopItems.Minerais(lang));
         inventoryBuilder.getInventory().setItem(13, shopItems.Blocks(lang));
+        if (ServerBootFile.serverTypeActual.equals(serverType.SkyBlock)) {
+            inventoryBuilder.getInventory().setItem(17, gradesItems.grade(lang));
+        }
         inventoryBuilder.getInventory().setItem(18, shopItems.Speciaux(lang));
         inventoryBuilder.getInventory().setItem(21, shopItems.Oeufs(lang));
         inventoryBuilder.getInventory().setItem(22, shopItems.Nether(lang));
