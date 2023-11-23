@@ -3,19 +3,28 @@ package ghub.fr.player;
 import org.bukkit.GameMode;
 import org.bukkit.GameRule;
 import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 
+import ghub.fr.commands.admin.playersStorage.security;
 import ghub.fr.menu.api.persistentData;
+import ghub.fr.system.ServerBootFile;
+import ghub.fr.system.getDataStorage;
 import ghub.fr.system.gold;
+import ghub.fr.system.ServerBootFile.serverType;
+import ghub.fr.system.security.SecurityList;
 import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
 import ghub.fr.text.textTranslation;
+import ghub.fr.text.lang.languages;
 import ghub.fr.world.api.teleportation;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -63,6 +72,26 @@ public class death implements Listener {
             }
             for (int i : remove) {
                 e.getEntity().getInventory().setItem(i, new ItemStack(Material.AIR));
+            }
+        }
+    }
+
+    @EventHandler
+    public void playerDeathAnarchie(PlayerDeathEvent e) throws IOException {
+        if (ServerBootFile.getServerType().equals(serverType.Anarchie)) {
+            File file = getDataStorage.playerFile(e.getPlayer());
+            FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
+            int death = fileConfiguration.getInt("deathAnarchie");
+            death++;
+            fileConfiguration.set("deathAnarchie", death);
+            fileConfiguration.save(file);
+
+            int counter = 3 - death;
+            languages lang = playerLang.getPlayerLang(e.getPlayer());
+            e.getPlayer().sendMessage(textTranslation.deathAnarchie(lang, counter));
+
+            if (death >= 3) {
+                ghub.fr.system.security.addSecurity(e.getPlayer(), SecurityList.BanAnarchie, 1);
             }
         }
     }

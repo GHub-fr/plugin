@@ -366,6 +366,17 @@ public class textTranslation {
         }
     }
 
+    public static String deathAnarchie(lang.languages languages, int count) {
+        switch (languages) {
+            case fr:
+                return textTranslation.System(languages) + "§4§lIl vous reste " + count + " vies §r!";
+            case en:
+                return textTranslation.System(languages) + "§4§lYou have " + count + " lives left §r!";
+            default:
+                return "";
+        }
+    }
+
     public static String gold(lang.languages languages) {
         switch (languages) {
             case fr:
@@ -489,9 +500,11 @@ public class textTranslation {
     public static String UpgradeIsland(lang.languages languages) {
         switch (languages) {
             case fr:
-                return System(languages) + "§6Ajoute des amis à ton île et améliore la §rdans le menu lié\n§2§lCommence par améliorer ton générateur de minerais";
+                return System(languages)
+                        + "§6Ajoute des amis à ton île et améliore la §rdans le menu lié\n§2§lCommence par améliorer ton générateur de minerais";
             case en:
-                return System(languages) + "§6Add friends to your island and improve it §rin the linked menu\n§2§lStart by improving your ore generator";
+                return System(languages)
+                        + "§6Add friends to your island and improve it §rin the linked menu\n§2§lStart by improving your ore generator";
             default:
                 return "";
         }
