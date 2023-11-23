@@ -23,7 +23,8 @@ import ghub.fr.text.itemsTranslation;
 import ghub.fr.text.lang;
 
 public class anarchieLife implements Listener {
-    public static ItemStack GetlifeItemStack(lang.languages lang, OfflinePlayer offlinePlayer) throws ParseException, IOException {
+    public static ItemStack GetlifeItemStack(lang.languages lang, OfflinePlayer offlinePlayer)
+            throws ParseException, IOException {
         ItemStack is = new ItemStack(Material.DIRT);
         if (canGetLife(offlinePlayer)) {
             is.setType(Material.POTION);
@@ -73,6 +74,7 @@ public class anarchieLife implements Listener {
         death--;
         fileConfiguration.set("deathAnarchie", death);
         fileConfiguration.save(file);
+        setDateLifeDate(offlinePlayer);
     }
 
     public static int getRemainingLifes(OfflinePlayer offlinePlayer) {
