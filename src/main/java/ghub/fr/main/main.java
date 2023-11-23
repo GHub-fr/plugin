@@ -224,6 +224,7 @@ public class main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginManager().registerEvents(new settingsEvents(), this);
         Bukkit.getPluginManager().registerEvents(new EventLimiter(), this);
         Bukkit.getPluginManager().registerEvents(new gradesMenuEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new anarchieLife(), this);
     }
 
     // public static final Enchantment INSTANTMINE = new instantmine(new

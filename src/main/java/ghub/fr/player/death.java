@@ -11,7 +11,6 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 
-import ghub.fr.commands.admin.playersStorage.security;
 import ghub.fr.menu.api.persistentData;
 import ghub.fr.system.ServerBootFile;
 import ghub.fr.system.getDataStorage;
@@ -79,18 +78,13 @@ public class death implements Listener {
     @EventHandler
     public void playerDeathAnarchie(PlayerDeathEvent e) throws IOException {
         if (ServerBootFile.getServerType().equals(serverType.Anarchie)) {
-            File file = getDataStorage.playerFile(e.getPlayer());
-            FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
-            int death = fileConfiguration.getInt("deathAnarchie");
-            death++;
-            fileConfiguration.set("deathAnarchie", death);
-            fileConfiguration.save(file);
+            anarchieLife.addDeath(e.getPlayer());
+            int counter = anarchieLife.getRemainingLifes(e.getPlayer());
 
-            int counter = 3 - death;
             languages lang = playerLang.getPlayerLang(e.getPlayer());
             e.getPlayer().sendMessage(textTranslation.deathAnarchie(lang, counter));
 
-            if (death >= 3) {
+            if (counter <= 0) {
                 ghub.fr.system.security.addSecurity(e.getPlayer(), SecurityList.BanAnarchie, 1);
             }
         }

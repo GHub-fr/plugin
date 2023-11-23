@@ -779,7 +779,7 @@ public class itemsTranslation {
                 return Lore;
             case en:
                 Lore.add("");
-                Lore.add("§6§lUUID §f: "+ offlinePlayer.getUniqueId().toString());
+                Lore.add("§6§lUUID §f: " + offlinePlayer.getUniqueId().toString());
                 Lore.add("");
                 if (offlinePlayer.isOnline()) {
                     Lore.add(itemsTranslation.Online(languages));
@@ -1741,6 +1741,43 @@ public class itemsTranslation {
                 return "§6§lMessage des joueurs";
             case en:
                 return "§6§lPlayers message";
+            default:
+                return "";
+        }
+    }
+
+    public static List<String> anarchieLifeLore(lang.languages lang, Date date) throws IOException {
+        ArrayList<String> Lore = new ArrayList<String>();
+        switch (lang) {
+            case fr:
+                Lore.add("");
+                Lore.add("§fVotre prochaine vie sera disponible le : §2§l" + date);
+                Lore.add("");
+                return Lore;
+            case en:
+                Lore.add("");
+                Lore.add("§fYour next life will be available on : §2§l" + date);
+                Lore.add("");
+                return Lore;
+            default:
+                return Lore;
+        }
+    }
+
+    public static String anarchieLifeTitle(lang.languages lang, boolean available) {
+        switch (lang) {
+            case fr:
+                if (available) {
+                    return "§6§lObtenez une nouvelle vie";
+                } else {
+                    return "§4§lProchaine vie dans 24h";
+                }
+            case en:
+                if (available) {
+                    return "§6§lGet a new life";
+                } else {
+                    return "§4§lNext life in 24 hours";
+                }
             default:
                 return "";
         }

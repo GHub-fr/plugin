@@ -9,6 +9,7 @@ import ghub.fr.menu.prison.pickaxeItems;
 import ghub.fr.menu.serverSelector.serverSelectorItems;
 import ghub.fr.menu.shop.classique.shopItems;
 import ghub.fr.menu.shop.grades.gradesItems;
+import ghub.fr.player.anarchieLife;
 import ghub.fr.system.ServerBootFile;
 import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
@@ -26,7 +27,11 @@ public class compassMenu {
             customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.MENU, 9,
                     textTranslation.Menu(lang) + textTranslation.MenuGoldFormat(lang, player));
             inventoryBuilder.getInventory().setItem(0, compassItems.ItemStackTeleporation(lang));
+            if (ServerBootFile.getServerType().equals(ServerBootFile.serverType.Anarchie)) {
+                inventoryBuilder.getInventory().setItem(4, anarchieLife.GetlifeItemStack(lang, player));
+            }
             inventoryBuilder.getInventory().setItem(6, compassItems.ItemStackShop(lang));
+            inventoryBuilder.getInventory().setItem(7, shopItems.Custom(lang));
             inventoryBuilder.getInventory().setItem(8, compassItems.ItemStackSettings(lang));
             player.openInventory(inventoryBuilder.getInventory());
         }
