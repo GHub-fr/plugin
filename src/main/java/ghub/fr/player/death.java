@@ -74,19 +74,4 @@ public class death implements Listener {
             }
         }
     }
-
-    @EventHandler
-    public void playerDeathAnarchie(PlayerDeathEvent e) throws IOException {
-        if (ServerBootFile.getServerType().equals(serverType.Anarchie)) {
-            anarchieLife.addDeath(e.getPlayer());
-            int counter = anarchieLife.getRemainingLifes(e.getPlayer());
-
-            languages lang = playerLang.getPlayerLang(e.getPlayer());
-            e.getPlayer().sendMessage(textTranslation.deathAnarchie(lang, counter));
-
-            if (counter <= 0) {
-                ghub.fr.system.security.addSecurity(e.getPlayer(), SecurityList.BanAnarchie, 1);
-            }
-        }
-    }
 }

@@ -913,4 +913,26 @@ public class textTranslation {
                 return "";
         }
     }
+
+    public static String RemoveDeathAnarchie(lang.languages lang, int count) {
+        switch (lang) {
+            case fr:
+                return System(lang) + "§2Vous avez récupéré une vie, vous avez §6§l" + count + " vies";
+            case en:
+                return System(lang) + "§2You have regained a life, you have §6§l" + count + " lives";
+            default:
+                return "";
+        }
+    }
+
+    public static String AddDeathAnarchie(lang.languages lang, int count) {
+        switch (lang) {
+            case fr:
+                return System(lang) + "§4Vous êtes mort, vous avez §6§l" + count + " vies";
+            case en:
+                return System(lang) + "§4You are dead, you have §6§l" + count + " lives";
+            default:
+                return "";
+        }
+    }
 }
