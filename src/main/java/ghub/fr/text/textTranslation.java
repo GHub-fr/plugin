@@ -369,9 +369,9 @@ public class textTranslation {
     public static String deathAnarchie(lang.languages languages, int count) {
         switch (languages) {
             case fr:
-                return textTranslation.System(languages) + "§4§lIl vous reste " + count + " vies §r!";
+                return textTranslation.System(languages) + "§4§lIl vous reste §6§l" + count + " vies §r!";
             case en:
-                return textTranslation.System(languages) + "§4§lYou have " + count + " lives left §r!";
+                return textTranslation.System(languages) + "§4§lYou have §6§l" + count + " lives left §r!";
             default:
                 return "";
         }
@@ -920,17 +920,6 @@ public class textTranslation {
                 return System(lang) + "§2Vous avez récupéré une vie, vous avez §6§l" + count + " vies";
             case en:
                 return System(lang) + "§2You have regained a life, you have §6§l" + count + " lives";
-            default:
-                return "";
-        }
-    }
-
-    public static String AddDeathAnarchie(lang.languages lang, int count) {
-        switch (lang) {
-            case fr:
-                return System(lang) + "§4Vous êtes mort, vous avez §6§l" + count + " vies";
-            case en:
-                return System(lang) + "§4You are dead, you have §6§l" + count + " lives";
             default:
                 return "";
         }

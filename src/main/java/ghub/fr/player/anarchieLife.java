@@ -41,7 +41,7 @@ public class anarchieLife implements Listener {
         }
         ItemMeta meta = is.getItemMeta();
         meta.setDisplayName(itemsTranslation.anarchieLifeTitle(lang, canGetLife(offlinePlayer)));
-       
+
         Date date = getLastLifeDate(offlinePlayer);
         if (date != null) {
             meta.setLore(itemsTranslation.anarchieLifeLore(lang, getLastLifeDate(offlinePlayer)));
@@ -78,12 +78,6 @@ public class anarchieLife implements Listener {
             death++;
             fileConfiguration.set("deathAnarchie", death);
             fileConfiguration.save(file);
-
-            if (offlinePlayer.isOnline()) {
-                lang.languages lang = playerLang.getPlayerLang(offlinePlayer);
-                int count = getRemainingLifes(offlinePlayer);
-                offlinePlayer.getPlayer().sendMessage(textTranslation.AddDeathAnarchie(lang, count));
-            }
         }
     }
 
@@ -116,10 +110,11 @@ public class anarchieLife implements Listener {
         return dateAPI.ReturnDate(file, "lifeAnarchie");
     }
 
-    public static void setDateLifeDate(OfflinePlayer offlinePlayer) {
+    public static void setDateLifeDate(OfflinePlayer offlinePlayer) throws IOException {
         File file = getDataStorage.playerFile(offlinePlayer);
         FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
         fileConfiguration.set("lifeAnarchie", dateAPI.DateFormated(dateAPI.now()));
+        fileConfiguration.save(file);
     }
 
     public static boolean canGetLife(OfflinePlayer offlinePlayer) throws ParseException {
