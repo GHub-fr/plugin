@@ -70,14 +70,16 @@ public class anarchieLife implements Listener {
         File file = getDataStorage.playerFile(offlinePlayer);
         FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
         int death = fileConfiguration.getInt("deathAnarchie");
-        death++;
-        fileConfiguration.set("deathAnarchie", death);
-        fileConfiguration.save(file);
+        if (death <= 2) {
+            death++;
+            fileConfiguration.set("deathAnarchie", death);
+            fileConfiguration.save(file);
 
-        if (offlinePlayer.isOnline()) {
-            lang.languages lang = playerLang.getPlayerLang(offlinePlayer);
-            int count = getRemainingLifes(offlinePlayer);
-            offlinePlayer.getPlayer().sendMessage(textTranslation.AddDeathAnarchie(lang, count));
+            if (offlinePlayer.isOnline()) {
+                lang.languages lang = playerLang.getPlayerLang(offlinePlayer);
+                int count = getRemainingLifes(offlinePlayer);
+                offlinePlayer.getPlayer().sendMessage(textTranslation.AddDeathAnarchie(lang, count));
+            }
         }
     }
 
@@ -85,15 +87,19 @@ public class anarchieLife implements Listener {
         File file = getDataStorage.playerFile(offlinePlayer);
         FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
         int death = fileConfiguration.getInt("deathAnarchie");
-        death--;
-        fileConfiguration.set("deathAnarchie", death);
-        fileConfiguration.save(file);
-        setDateLifeDate(offlinePlayer);
+        if (death >= -1) {
+            death--;
+            fileConfiguration.set("deathAnarchie", death);
+            fileConfiguration.save(file);
+            setDateLifeDate(offlinePlayer);
 
-        if (offlinePlayer.isOnline()) {
-            lang.languages lang = playerLang.getPlayerLang(offlinePlayer);
-            int count = getRemainingLifes(offlinePlayer);
-            offlinePlayer.getPlayer().sendMessage(textTranslation.RemoveDeathAnarchie(lang, count));
+            if (offlinePlayer.isOnline()) {
+                lang.languages lang = playerLang.getPlayerLang(offlinePlayer);
+                int count = getRemainingLifes(offlinePlayer);
+                offlinePlayer.getPlayer().sendMessage(textTranslation.RemoveDeathAnarchie(lang, count));
+            }
+        } else {
+            // send message max life possible
         }
     }
 
@@ -117,7 +123,10 @@ public class anarchieLife implements Listener {
         Date now = new Date();
         date.setHours(date.getHours() + 24);
         if (now.after(date)) {
-            return true;
+            int death = getDeathCount(offlinePlayer);
+            if (death >= -1) {
+                return true;
+            }
         }
         return false;
     }
