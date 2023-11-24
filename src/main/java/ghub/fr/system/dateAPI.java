@@ -26,7 +26,9 @@ public class dateAPI {
     public static Date ReturnDate(File file, String path) throws ParseException {
         if (file.exists()) {
             FileConfiguration fileConfiguration = YamlConfiguration.loadConfiguration(file);
-            return dateFormat().parse((fileConfiguration.getString(path)));
+            if (fileConfiguration.getString(path) != null) {
+                return dateFormat().parse((fileConfiguration.getString(path)));
+            }
         }
         return null;
     }
