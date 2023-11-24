@@ -41,7 +41,11 @@ public class anarchieLife implements Listener {
         }
         ItemMeta meta = is.getItemMeta();
         meta.setDisplayName(itemsTranslation.anarchieLifeTitle(lang, canGetLife(offlinePlayer)));
-        meta.setLore(itemsTranslation.anarchieLifeLore(lang, getLastLifeDate(offlinePlayer)));
+       
+        Date date = getLastLifeDate(offlinePlayer);
+        if (date != null) {
+            meta.setLore(itemsTranslation.anarchieLifeLore(lang, getLastLifeDate(offlinePlayer)));
+        }
         is.setItemMeta(meta);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.anarchielife);
@@ -120,10 +124,15 @@ public class anarchieLife implements Listener {
 
     public static boolean canGetLife(OfflinePlayer offlinePlayer) throws ParseException {
         Date date = getLastLifeDate(offlinePlayer);
+        if (date == null) {
+            return true;
+        }
+
         Date now = new Date();
         date.setHours(date.getHours() + 24);
         if (now.after(date)) {
             int death = getDeathCount(offlinePlayer);
+
             if (death >= -1) {
                 return true;
             }
