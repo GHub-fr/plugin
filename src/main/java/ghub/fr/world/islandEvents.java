@@ -14,6 +14,9 @@ import org.bukkit.inventory.ItemStack;
 import ghub.fr.menu.api.persistentData;
 import ghub.fr.menu.island.island;
 import ghub.fr.menu.island.bonus.bonusPlayerFile;
+import ghub.fr.menu.shop.grades.gradesMenu;
+import ghub.fr.system.tags;
+import ghub.fr.system.tags.TagsList;
 import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
 import ghub.fr.text.textTranslation;
@@ -56,29 +59,40 @@ public class islandEvents implements Listener {
     public void onPlayerTeleport(PlayerPortalEvent e) throws IOException {
         Player player = e.getPlayer();
         if (player.getWorld().getName().startsWith("i.")) {
+
             Location to = e.getTo();
             Location from = e.getFrom();
 
             if (player.getWorld().getEnvironment().equals(World.Environment.NORMAL)) {
                 if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.NETHER_PORTAL)) {
-                    worldManager.Generate(from.getWorld().getName() + "_nether", true, World.Environment.NETHER,
-                            WorldType.NORMAL, true);
-                    to.setWorld(Bukkit.getWorld(from.getWorld().getName() + "_nether"));
+                    if (tags.hasTags(player, TagsList.Aventurier)) {
+                        worldManager.Generate(from.getWorld().getName() + "_nether", true, World.Environment.NETHER, WorldType.NORMAL, true);
+                        to.setWorld(Bukkit.getWorld(from.getWorld().getName() + "_nether"));
+                    } 
+                    else {
+                        e.setCancelled(true);
+                        gradesMenu.openGradeShop(player);
+                    }
                 } else if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.END_PORTAL)) {
-                    worldManager.Generate(from.getWorld().getName() + "_the_end", true, World.Environment.THE_END,
-                            WorldType.NORMAL, false);
-                    to.setWorld(Bukkit.getWorld(from.getWorld().getName() + "_the_end"));
+                    if (tags.hasTags(player, TagsList.Soldat)) {
+                        worldManager.Generate(from.getWorld().getName() + "_the_end", true, World.Environment.THE_END, WorldType.NORMAL, false);
+                        to.setWorld(Bukkit.getWorld(from.getWorld().getName() + "_the_end"));
+                    } 
+                    else {
+                        e.setCancelled(true);
+                        gradesMenu.openGradeShop(player);
+                    }
                 }
-            } else if (player.getWorld().getEnvironment().equals(World.Environment.NETHER)) {
+            } 
+            
+            else if (player.getWorld().getEnvironment().equals(World.Environment.NETHER)) {
                 if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.NETHER_PORTAL)) {
-                    worldManager.Generate(from.getWorld().getName().replace("_nether", ""), true,
-                            World.Environment.NORMAL, WorldType.NORMAL, true);
+                    worldManager.Generate(from.getWorld().getName().replace("_nether", ""), true, World.Environment.NORMAL, WorldType.NORMAL, true);
                     to.setWorld(Bukkit.getWorld(from.getWorld().getName().replace("_nether", "")));
                 }
             } else if (player.getWorld().getEnvironment().equals(World.Environment.THE_END)) {
                 if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.END_PORTAL)) {
-                    worldManager.Generate(from.getWorld().getName().replace("_the_end", ""), true,
-                            World.Environment.NORMAL, WorldType.NORMAL, true);
+                    worldManager.Generate(from.getWorld().getName().replace("_the_end", ""), true, World.Environment.NORMAL, WorldType.NORMAL, true);
                     to.setWorld(Bukkit.getWorld(from.getWorld().getName().replace("_the_end", "")));
                 }
             }
