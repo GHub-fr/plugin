@@ -98,7 +98,7 @@ public class persistentData {
                                                                                */
         settings, resourcepack, langswap, compasspose, chatsetting,
 
-        grade, aventurier,
+        grade, aventurier, soldat,
 
         anarchielife
     }

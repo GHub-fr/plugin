@@ -867,10 +867,42 @@ public class shopTranslation {
             case fr:
                 Lore.add("§fDébloquez le grade : §6Aventurier");
                 Lore.add("§4§lPrix §f: §4§l" + gradesPrices.prices(customKey.aventurier));
+                Lore.add("§f- Accéder au §4nether");
                 return Lore;
             case en:
                 Lore.add("§fUnlock rank: §6Adventurer");
                 Lore.add("§4§lPrice §f: §4§l" + gradesPrices.prices(customKey.aventurier));
+                Lore.add("§f- Access the §4nether");
+                return Lore;
+            default:
+                Lore.add("");
+        }
+        return Lore;
+    }
+
+    public static String soldatTitle(lang.languages languages) {
+        switch (languages) {
+            case fr:
+                return "§6Soldat";
+            case en:
+                return "§6Soldier";
+            default:
+                return "";
+        }
+    }
+
+    public static ArrayList<String> soldatLore(lang.languages languages) {
+        ArrayList<String> Lore = new ArrayList<>();
+        switch (languages) {
+            case fr:
+                Lore.add("§fDébloquez le grade : §6Soldat");
+                Lore.add("§4§lPrix §f: §4§l" + gradesPrices.prices(customKey.soldat));
+                Lore.add("§f- Accéder à l'§5end");
+                return Lore;
+            case en:
+                Lore.add("§fUnlock rank: §6Soldier");
+                Lore.add("§4§lPrice §f: §4§l" + gradesPrices.prices(customKey.soldat));
+                Lore.add("§f- Access the §5end");
                 return Lore;
             default:
                 Lore.add("");

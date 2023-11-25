@@ -17,7 +17,8 @@ public class gradesMenu {
         customInventory inventoryBuilder = new customInventory(customInventory.CustomInventoryType.SHOP, 9, itemsTranslation.shopTitle(lang) + textTranslation.MenuGoldFormat(lang, player));
 
         inventoryBuilder.getInventory().setItem(1, gradesItems.Aventurier(lang));
-
+        inventoryBuilder.getInventory().setItem(2, gradesItems.Soldat(lang));
+  
         player.openInventory(inventoryBuilder.getInventory());
     }
 }

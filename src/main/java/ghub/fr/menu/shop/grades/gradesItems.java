@@ -41,4 +41,20 @@ public class gradesItems {
         persistentData.setPersistentDataItemStack(is, persistentData.customKey.aventurier);
         return is;
     }
+
+    public static ItemStack Soldat(lang.languages lang) {
+        ItemStack is = new ItemStack(Material.CHAINMAIL_HELMET, 1);
+        ItemMeta meta = is.getItemMeta();
+        meta.setDisplayName(shopTranslation.soldatTitle(lang));
+        ArrayList<String> Lore = new ArrayList<String>();
+        Lore.add(" ");
+        Lore.addAll(shopTranslation.soldatLore(lang));
+        Lore.add(shopTranslation.Escape(lang));
+        Lore.add(" ");
+        meta.setLore(Lore);
+        is.setItemMeta(meta);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.custom);
+        persistentData.setPersistentDataItemStack(is, persistentData.customKey.soldat);
+        return is;
+    }
 }

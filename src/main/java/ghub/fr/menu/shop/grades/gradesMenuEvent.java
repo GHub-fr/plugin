@@ -9,9 +9,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 import ghub.fr.menu.api.persistentData;
-import ghub.fr.menu.api.persistentData.customKey; 
+import ghub.fr.menu.api.persistentData.customKey;
 import ghub.fr.system.gold;
-import ghub.fr.system.tags; 
+import ghub.fr.system.tags;
 import ghub.fr.system.tags.TagsList;
 
 public class gradesMenuEvent implements Listener {
@@ -32,6 +32,15 @@ public class gradesMenuEvent implements Listener {
                     if (gold.GetHasEnoughGold((Player) e.getWhoClicked(), gradesPrices.prices(customKey.aventurier))) {
                         gold.RemoveGold((Player) e.getWhoClicked(), gradesPrices.prices(customKey.aventurier));
                         tags.addTags((Player) e.getWhoClicked(), TagsList.Aventurier);
+                    }
+                }
+            }
+
+            else if (persistentData.hasPersistentDataItemStack(e.getCurrentItem(), persistentData.customKey.soldat)) {
+                if (!tags.hasTags((Player) e.getWhoClicked(), TagsList.Soldat)) {
+                    if (gold.GetHasEnoughGold((Player) e.getWhoClicked(), gradesPrices.prices(customKey.soldat))) {
+                        gold.RemoveGold((Player) e.getWhoClicked(), gradesPrices.prices(customKey.soldat));
+                        tags.addTags((Player) e.getWhoClicked(), TagsList.Soldat);
                     }
                 }
             }

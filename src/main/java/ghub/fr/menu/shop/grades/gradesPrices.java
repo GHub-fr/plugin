@@ -7,6 +7,8 @@ public class gradesPrices {
         switch (customKey) {
             case aventurier:
                 return 25_000;
+            case soldat:
+                return 100_000;
             default:
                 return Integer.MAX_VALUE;
         }
