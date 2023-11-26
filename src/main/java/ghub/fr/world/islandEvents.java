@@ -21,9 +21,11 @@ import ghub.fr.text.lang;
 import ghub.fr.text.playerLang;
 import ghub.fr.text.textTranslation;
 import ghub.fr.text.lang.languages;
+import ghub.fr.world.api.teleportation;
 import ghub.fr.world.api.worldManager;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 public class islandEvents implements Listener {
     public boolean CoinFlip() {
@@ -56,7 +58,7 @@ public class islandEvents implements Listener {
     }
 
     @EventHandler
-    public void onPlayerTeleport(PlayerPortalEvent e) throws IOException {
+    public void onPlayerTeleport(PlayerPortalEvent e) throws IOException, ParseException {
         Player player = e.getPlayer();
         if (player.getWorld().getName().startsWith("i.")) {
 
@@ -71,6 +73,7 @@ public class islandEvents implements Listener {
                     } 
                     else {
                         e.setCancelled(true);
+                        teleportation.Teleport(e.getPlayer(), "Spawn", false);
                         gradesMenu.openGradeShop(player);
                     }
                 } else if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.END_PORTAL)) {
@@ -80,6 +83,7 @@ public class islandEvents implements Listener {
                     } 
                     else {
                         e.setCancelled(true);
+                        teleportation.Teleport(e.getPlayer(), "Spawn", false);
                         gradesMenu.openGradeShop(player);
                     }
                 }
