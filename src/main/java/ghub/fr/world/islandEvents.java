@@ -73,7 +73,7 @@ public class islandEvents implements Listener {
                     } 
                     else {
                         e.setCancelled(true);
-                        teleportation.Teleport(e.getPlayer(), "Spawn", false);
+                        island.TeleportToIsland(e.getPlayer());
                         gradesMenu.openGradeShop(player);
                     }
                 } else if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.END_PORTAL)) {
@@ -83,7 +83,7 @@ public class islandEvents implements Listener {
                     } 
                     else {
                         e.setCancelled(true);
-                        teleportation.Teleport(e.getPlayer(), "Spawn", false);
+                        island.TeleportToIsland(e.getPlayer());
                         gradesMenu.openGradeShop(player);
                     }
                 }
