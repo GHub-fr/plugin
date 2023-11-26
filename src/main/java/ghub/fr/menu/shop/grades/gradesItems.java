@@ -26,8 +26,11 @@ public class gradesItems {
         return is;
     }
 
-    public static ItemStack Aventurier(lang.languages lang) {
+    public static ItemStack Aventurier(lang.languages lang, boolean hasGrade) {
         ItemStack is = new ItemStack(Material.LEATHER_HELMET, 1);
+        if (hasGrade) {
+            is.setType(Material.BARRIER);
+        }
         ItemMeta meta = is.getItemMeta();
         meta.setDisplayName(shopTranslation.aventurierTitle(lang));
         ArrayList<String> Lore = new ArrayList<String>();
@@ -42,8 +45,11 @@ public class gradesItems {
         return is;
     }
 
-    public static ItemStack Soldat(lang.languages lang) {
+    public static ItemStack Soldat(lang.languages lang, boolean hasGrade) {
         ItemStack is = new ItemStack(Material.CHAINMAIL_HELMET, 1);
+        if (hasGrade) {
+            is.setType(Material.BARRIER);
+        }
         ItemMeta meta = is.getItemMeta();
         meta.setDisplayName(shopTranslation.soldatTitle(lang));
         ArrayList<String> Lore = new ArrayList<String>();
