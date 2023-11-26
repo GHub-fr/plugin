@@ -924,4 +924,15 @@ public class textTranslation {
                 return "";
         }
     }
+
+    public static String roleRequiered(lang.languages lang, String grade) {
+        switch (lang) {
+            case fr:
+                return System(lang) + "§4Vous n'avez pas le grade requis§f : §6§l" + grade;
+            case en:
+                return System(lang) + "§4You do not have the grade required§f : §6§l" + grade;
+            default:
+                return "";
+        }
+    }
 }

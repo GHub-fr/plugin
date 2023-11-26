@@ -68,35 +68,41 @@ public class islandEvents implements Listener {
             if (player.getWorld().getEnvironment().equals(World.Environment.NORMAL)) {
                 if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.NETHER_PORTAL)) {
                     if (tags.hasTags(player, TagsList.Aventurier)) {
-                        worldManager.Generate(from.getWorld().getName() + "_nether", true, World.Environment.NETHER, WorldType.NORMAL, true);
+                        worldManager.Generate(from.getWorld().getName() + "_nether", true, World.Environment.NETHER,
+                                WorldType.NORMAL, true);
                         to.setWorld(Bukkit.getWorld(from.getWorld().getName() + "_nether"));
-                    } 
-                    else {
+                    } else {
                         e.setCancelled(true);
-                        island.TeleportToIsland(e.getPlayer());
+                        languages lang = playerLang.getPlayerLang(player);
+                        player.sendMessage(textTranslation.roleRequiered(lang, "Aventurier"));
+                        island.TeleportToIsland(player);
                         gradesMenu.openGradeShop(player);
                     }
                 } else if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.END_PORTAL)) {
                     if (tags.hasTags(player, TagsList.Soldat)) {
-                        worldManager.Generate(from.getWorld().getName() + "_the_end", true, World.Environment.THE_END, WorldType.NORMAL, false);
+                        worldManager.Generate(from.getWorld().getName() + "_the_end", true, World.Environment.THE_END,
+                                WorldType.NORMAL, false);
                         to.setWorld(Bukkit.getWorld(from.getWorld().getName() + "_the_end"));
-                    } 
-                    else {
+                    } else {
                         e.setCancelled(true);
-                        island.TeleportToIsland(e.getPlayer());
+                        languages lang = playerLang.getPlayerLang(player);
+                        player.sendMessage(textTranslation.roleRequiered(lang, "Soldat"));
+                        island.TeleportToIsland(player);
                         gradesMenu.openGradeShop(player);
                     }
                 }
-            } 
-            
+            }
+
             else if (player.getWorld().getEnvironment().equals(World.Environment.NETHER)) {
                 if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.NETHER_PORTAL)) {
-                    worldManager.Generate(from.getWorld().getName().replace("_nether", ""), true, World.Environment.NORMAL, WorldType.NORMAL, true);
+                    worldManager.Generate(from.getWorld().getName().replace("_nether", ""), true,
+                            World.Environment.NORMAL, WorldType.NORMAL, true);
                     to.setWorld(Bukkit.getWorld(from.getWorld().getName().replace("_nether", "")));
                 }
             } else if (player.getWorld().getEnvironment().equals(World.Environment.THE_END)) {
                 if (e.getCause().equals(PlayerTeleportEvent.TeleportCause.END_PORTAL)) {
-                    worldManager.Generate(from.getWorld().getName().replace("_the_end", ""), true, World.Environment.NORMAL, WorldType.NORMAL, true);
+                    worldManager.Generate(from.getWorld().getName().replace("_the_end", ""), true,
+                            World.Environment.NORMAL, WorldType.NORMAL, true);
                     to.setWorld(Bukkit.getWorld(from.getWorld().getName().replace("_the_end", "")));
                 }
             }
