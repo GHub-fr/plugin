@@ -6,9 +6,9 @@ public class gradesPrices {
     public static int prices(persistentData.customKey customKey) {
         switch (customKey) {
             case aventurier:
-                return 25_000;
+                return 15_000;
             case soldat:
-                return 100_000;
+                return 50_000;
             default:
                 return Integer.MAX_VALUE;
         }
