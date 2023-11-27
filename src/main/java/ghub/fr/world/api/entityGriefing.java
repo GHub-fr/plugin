@@ -3,6 +3,7 @@ package ghub.fr.world.api;
 import org.bukkit.World;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.FallingBlock;
+import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,7 +24,7 @@ public class entityGriefing implements Listener {
 
     @EventHandler
     public void onEntityChangeBlock(EntityChangeBlockEvent e) {
-        if (!(e.getEntity() instanceof FallingBlock) && !(e.getEntity() instanceof Villager)) {
+        if (!(e.getEntity() instanceof FallingBlock) && !(e.getEntity() instanceof Villager) && !(e.getEntity() instanceof Player)) {
             e.setCancelled(true);
         }
     }
