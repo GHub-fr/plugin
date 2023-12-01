@@ -29,6 +29,7 @@ public class pay implements TabCompleter, CommandExecutor {
                                 && Integer.valueOf(args[1]) >= 1) {
                             gold.RemoveGold((Player) sender, Integer.valueOf(args[1]));
                             gold.AddGold(Bukkit.getOfflinePlayer(args[0]), Integer.valueOf(args[1]));
+/* message pour chaque player avec pseudo et stockage yml */
                             return true;
                         } else {
                             sender.sendMessage(shopTranslation.PasAssezArgent(lang));
