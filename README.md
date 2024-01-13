@@ -9,3 +9,9 @@ Server side plugin with Spigot / PaperMC & Javacord
 <br>
 <a href=""><img src="https://img.shields.io/github/languages/code-size/GHub-fr/plugin?color=red"></a>
 <a href=""><img src="https://img.shields.io/github/repo-size/GHub-fr/plugin?color=red"></a>
+
+- [Tableau](https://github.com/orgs/GHub-fr/projects/3/)
+- [Issues](https://github.com/GHub-fr/plugin/issues)
+- [Commits](https://github.com/GHub-fr/plugin/commits/main)
+- [Latest release](https://github.com/GHub-fr/plugin/releases/latest)
+- [Releases](https://github.com/GHub-fr/plugin/releases)
