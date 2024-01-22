@@ -16,7 +16,7 @@
 - [Releases](https://github.com/GHub-fr/plugin/releases)
 
 # Index / Main
-[pom.xml](https://github.com/GHub-fr/plugin/blob/main/pom.xml)
-[plugin.yml](https://github.com/GHub-fr/plugin/blob/main/src/main/resources/plugin.yml)
-[main.java](https://github.com/GHub-fr/plugin/blob/main/src/main/java/ghub/fr/main/main.java)
-[token.java (discord)](https://github.com/GHub-fr/plugin/blob/main/src/main/java/ghub/fr/discord/token.java)
+- [pom.xml](https://github.com/GHub-fr/plugin/blob/main/pom.xml)
+- [plugin.yml](https://github.com/GHub-fr/plugin/blob/main/src/main/resources/plugin.yml)
+- [main.java](https://github.com/GHub-fr/plugin/blob/main/src/main/java/ghub/fr/main/main.java)
+- [token.java (discord)](https://github.com/GHub-fr/plugin/blob/main/src/main/java/ghub/fr/discord/token.java)
