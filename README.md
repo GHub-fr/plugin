@@ -8,6 +8,9 @@
 <a href=""><img src="https://img.shields.io/github/languages/code-size/GHub-fr/plugin?color=red"></a>
 <a href=""><img src="https://img.shields.io/github/repo-size/GHub-fr/plugin?color=red"></a>
 
+# Usage
+Plugin for GHub.fr MC [server](https://doc.ghub.fr/github/server)
+
 # Github
 - [Tableau](https://github.com/orgs/GHub-fr/projects/3/)
 - [Issues](https://github.com/GHub-fr/plugin/issues)
