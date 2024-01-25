@@ -23,3 +23,7 @@ Plugin for GHub.fr MC [server](https://doc.ghub.fr/github/server)
 - [plugin.yml](https://github.com/GHub-fr/plugin/blob/main/src/main/resources/plugin.yml)
 - [main.java](https://github.com/GHub-fr/plugin/blob/main/src/main/java/ghub/fr/main/main.java)
 - [token.java (discord)](https://github.com/GHub-fr/plugin/blob/main/src/main/java/ghub/fr/discord/token.java)
+
+# Setup
+- [Discord channels ID](https://github.com/GHub-fr/plugin/blob/main/src/main/java/ghub/fr/discord/token.java)
+- [Configuration server](https://doc.ghub.fr/github/server)
