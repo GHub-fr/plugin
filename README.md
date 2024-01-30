@@ -29,3 +29,4 @@
 # Setup
 - [Discord channels ID](https://github.com/GHub-fr/plugin/blob/main/src/main/java/ghub/fr/discord/token.java)
 - [Configuration server](https://doc.ghub.fr/github/server)
+- [ServerType list](https://github.com/GHub-fr/server/blob/main/Serveurs/DataFolder/serverTypeFile.yml)
