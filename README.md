@@ -9,7 +9,9 @@
 <a href=""><img src="https://img.shields.io/github/repo-size/GHub-fr/plugin?color=red"></a>
 
 # Usage
-Plugin for GHub.fr MC [server](https://doc.ghub.fr/github/server)
+- Plugin for GHub.fr MC [server](https://doc.ghub.fr/github/server)
+- N'est pas fait pour un serveur seul (Sans configuration supplémentaire)
+- Le type de serveur lancé est déterminé par le port sur le quel il est
 
 # Github
 - [Tableau](https://github.com/orgs/GHub-fr/projects/3/)
