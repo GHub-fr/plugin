@@ -33,7 +33,7 @@
 
 ## Server
 - [Configuration server](https://doc.ghub.fr/github/server)
-- [Structure des dossiers](https://github.com/GHub-fr/server/tree/main/Serveurs)
+- [Structure des dossiers server](https://github.com/GHub-fr/server/tree/main/Serveurs)
 
 ## Plugin
 - [ServerType list](https://github.com/GHub-fr/server/blob/main/Serveurs/DataFolder/serverTypeFile.yml)
