@@ -26,10 +26,15 @@
 - [main.java](https://github.com/GHub-fr/plugin/blob/main/src/main/java/ghub/fr/main/main.java)
 - [token.java (discord)](https://github.com/GHub-fr/plugin/blob/main/src/main/java/ghub/fr/discord/token.java)
 
-# Setup
+# Configuration
+## Discord Bot
 - [Discord channels ID](https://github.com/GHub-fr/plugin/blob/main/src/main/java/ghub/fr/discord/token.java)
 - [MC Discord token](https://github.com/GHub-fr/server/blob/main/Serveurs/DataFolder/tokens.yml)
+
+## Server
 - [Configuration server](https://doc.ghub.fr/github/server)
 - [Structure des dossiers](https://github.com/GHub-fr/server/tree/main/Serveurs)
+
+## Plugin
 - [ServerType list](https://github.com/GHub-fr/server/blob/main/Serveurs/DataFolder/serverTypeFile.yml)
 - [MC RCON Password & YML & Server properties](https://github.com/GHub-fr/server/blob/main/Serveurs/Waterfall/config.yml) : ([exemple hub](https://github.com/GHub-fr/server/blob/main/Serveurs/Hub/server.properties))
